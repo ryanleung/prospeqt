@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		47BBD7B217D40E630050814D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B117D40E630050814D /* UIKit.framework */; };
+		47BBD7B417D40E630050814D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B317D40E630050814D /* Foundation.framework */; };
+		47BBD7B617D40E630050814D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B517D40E630050814D /* CoreGraphics.framework */; };
+		47BBD7B817D40E630050814D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B717D40E630050814D /* CoreData.framework */; };
+		47BBD7BE17D40E630050814D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47BBD7BC17D40E630050814D /* InfoPlist.strings */; };
+		47BBD7C017D40E630050814D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7BF17D40E630050814D /* main.m */; };
+		47BBD7C417D40E630050814D /* PMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7C317D40E630050814D /* PMAppDelegate.m */; };
+		47BBD7CD17D40E630050814D /* Prospeqt_mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7CB17D40E630050814D /* Prospeqt_mobile.xcdatamodeld */; };
+		47BBD7D517D40E630050814D /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7D417D40E630050814D /* SenTestingKit.framework */; };
+		47BBD7D617D40E630050814D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B117D40E630050814D /* UIKit.framework */; };
+		47BBD7D717D40E630050814D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B317D40E630050814D /* Foundation.framework */; };
+		47BBD7D817D40E630050814D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B717D40E630050814D /* CoreData.framework */; };
+		47BBD7E017D40E630050814D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47BBD7DE17D40E630050814D /* InfoPlist.strings */; };
+		47BBD7E317D40E630050814D /* Prospeqt_mobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7E217D40E630050814D /* Prospeqt_mobileTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		47BBD7D917D40E630050814D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 47BBD7A617D40E630050814D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 47BBD7AD17D40E630050814D;
+			remoteInfo = Prospeqt_mobile;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		47BBD7AE17D40E630050814D /* Prospeqt_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prospeqt_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47BBD7B117D40E630050814D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		47BBD7B317D40E630050814D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		47BBD7B517D40E630050814D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		47BBD7B717D40E630050814D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		47BBD7BB17D40E630050814D /* Prospeqt_mobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Prospeqt_mobile-Info.plist"; sourceTree = "<group>"; };
+		47BBD7BD17D40E630050814D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		47BBD7BF17D40E630050814D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		47BBD7C117D40E630050814D /* Prospeqt_mobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Prospeqt_mobile-Prefix.pch"; sourceTree = "<group>"; };
+		47BBD7C217D40E630050814D /* PMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMAppDelegate.h; sourceTree = "<group>"; };
+		47BBD7C317D40E630050814D /* PMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PMAppDelegate.m; sourceTree = "<group>"; };
+		47BBD7CC17D40E630050814D /* Prospeqt_mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prospeqt_mobile.xcdatamodel; sourceTree = "<group>"; };
+		47BBD7D317D40E630050814D /* Prospeqt_mobileTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Prospeqt_mobileTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		47BBD7D417D40E630050814D /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		47BBD7DD17D40E630050814D /* Prospeqt_mobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Prospeqt_mobileTests-Info.plist"; sourceTree = "<group>"; };
+		47BBD7DF17D40E630050814D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		47BBD7E117D40E630050814D /* Prospeqt_mobileTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prospeqt_mobileTests.h; sourceTree = "<group>"; };
+		47BBD7E217D40E630050814D /* Prospeqt_mobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Prospeqt_mobileTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47BBD7AB17D40E630050814D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47BBD7B217D40E630050814D /* UIKit.framework in Frameworks */,
+				47BBD7B417D40E630050814D /* Foundation.framework in Frameworks */,
+				47BBD7B617D40E630050814D /* CoreGraphics.framework in Frameworks */,
+				47BBD7B817D40E630050814D /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47BBD7CF17D40E630050814D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47BBD7D517D40E630050814D /* SenTestingKit.framework in Frameworks */,
+				47BBD7D617D40E630050814D /* UIKit.framework in Frameworks */,
+				47BBD7D717D40E630050814D /* Foundation.framework in Frameworks */,
+				47BBD7D817D40E630050814D /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		47BBD7A517D40E630050814D = {
+			isa = PBXGroup;
+			children = (
+				47BBD7B917D40E630050814D /* Prospeqt_mobile */,
+				47BBD7DB17D40E630050814D /* Prospeqt_mobileTests */,
+				47BBD7B017D40E630050814D /* Frameworks */,
+				47BBD7AF17D40E630050814D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47BBD7AF17D40E630050814D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47BBD7AE17D40E630050814D /* Prospeqt_mobile.app */,
+				47BBD7D317D40E630050814D /* Prospeqt_mobileTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47BBD7B017D40E630050814D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47BBD7B117D40E630050814D /* UIKit.framework */,
+				47BBD7B317D40E630050814D /* Foundation.framework */,
+				47BBD7B517D40E630050814D /* CoreGraphics.framework */,
+				47BBD7B717D40E630050814D /* CoreData.framework */,
+				47BBD7D417D40E630050814D /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47BBD7B917D40E630050814D /* Prospeqt_mobile */ = {
+			isa = PBXGroup;
+			children = (
+				47BBD7C217D40E630050814D /* PMAppDelegate.h */,
+				47BBD7C317D40E630050814D /* PMAppDelegate.m */,
+				47BBD7CB17D40E630050814D /* Prospeqt_mobile.xcdatamodeld */,
+				47BBD7BA17D40E630050814D /* Supporting Files */,
+			);
+			path = Prospeqt_mobile;
+			sourceTree = "<group>";
+		};
+		47BBD7BA17D40E630050814D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				47BBD7BB17D40E630050814D /* Prospeqt_mobile-Info.plist */,
+				47BBD7BC17D40E630050814D /* InfoPlist.strings */,
+				47BBD7BF17D40E630050814D /* main.m */,
+				47BBD7C117D40E630050814D /* Prospeqt_mobile-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		47BBD7DB17D40E630050814D /* Prospeqt_mobileTests */ = {
+			isa = PBXGroup;
+			children = (
+				47BBD7E117D40E630050814D /* Prospeqt_mobileTests.h */,
+				47BBD7E217D40E630050814D /* Prospeqt_mobileTests.m */,
+				47BBD7DC17D40E630050814D /* Supporting Files */,
+			);
+			path = Prospeqt_mobileTests;
+			sourceTree = "<group>";
+		};
+		47BBD7DC17D40E630050814D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				47BBD7DD17D40E630050814D /* Prospeqt_mobileTests-Info.plist */,
+				47BBD7DE17D40E630050814D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47BBD7AD17D40E630050814D /* Prospeqt_mobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47BBD7E617D40E630050814D /* Build configuration list for PBXNativeTarget "Prospeqt_mobile" */;
+			buildPhases = (
+				47BBD7AA17D40E630050814D /* Sources */,
+				47BBD7AB17D40E630050814D /* Frameworks */,
+				47BBD7AC17D40E630050814D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Prospeqt_mobile;
+			productName = Prospeqt_mobile;
+			productReference = 47BBD7AE17D40E630050814D /* Prospeqt_mobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		47BBD7D217D40E630050814D /* Prospeqt_mobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47BBD7E917D40E630050814D /* Build configuration list for PBXNativeTarget "Prospeqt_mobileTests" */;
+			buildPhases = (
+				47BBD7CE17D40E630050814D /* Sources */,
+				47BBD7CF17D40E630050814D /* Frameworks */,
+				47BBD7D017D40E630050814D /* Resources */,
+				47BBD7D117D40E630050814D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				47BBD7DA17D40E630050814D /* PBXTargetDependency */,
+			);
+			name = Prospeqt_mobileTests;
+			productName = Prospeqt_mobileTests;
+			productReference = 47BBD7D317D40E630050814D /* Prospeqt_mobileTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47BBD7A617D40E630050814D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PM;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Prospeqt;
+			};
+			buildConfigurationList = 47BBD7A917D40E630050814D /* Build configuration list for PBXProject "Prospeqt_mobile" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 47BBD7A517D40E630050814D;
+			productRefGroup = 47BBD7AF17D40E630050814D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47BBD7AD17D40E630050814D /* Prospeqt_mobile */,
+				47BBD7D217D40E630050814D /* Prospeqt_mobileTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		47BBD7AC17D40E630050814D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47BBD7BE17D40E630050814D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47BBD7D017D40E630050814D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47BBD7E017D40E630050814D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47BBD7D117D40E630050814D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47BBD7AA17D40E630050814D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47BBD7C017D40E630050814D /* main.m in Sources */,
+				47BBD7C417D40E630050814D /* PMAppDelegate.m in Sources */,
+				47BBD7CD17D40E630050814D /* Prospeqt_mobile.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47BBD7CE17D40E630050814D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47BBD7E317D40E630050814D /* Prospeqt_mobileTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		47BBD7DA17D40E630050814D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 47BBD7AD17D40E630050814D /* Prospeqt_mobile */;
+			targetProxy = 47BBD7D917D40E630050814D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		47BBD7BC17D40E630050814D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47BBD7BD17D40E630050814D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		47BBD7DE17D40E630050814D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47BBD7DF17D40E630050814D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		47BBD7E417D40E630050814D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		47BBD7E517D40E630050814D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		47BBD7E717D40E630050814D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Prospeqt_mobile/Prospeqt_mobile-Prefix.pch";
+				INFOPLIST_FILE = "Prospeqt_mobile/Prospeqt_mobile-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		47BBD7E817D40E630050814D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Prospeqt_mobile/Prospeqt_mobile-Prefix.pch";
+				INFOPLIST_FILE = "Prospeqt_mobile/Prospeqt_mobile-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		47BBD7EA17D40E630050814D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Prospeqt_mobile.app/Prospeqt_mobile";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Prospeqt_mobile/Prospeqt_mobile-Prefix.pch";
+				INFOPLIST_FILE = "Prospeqt_mobileTests/Prospeqt_mobileTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		47BBD7EB17D40E630050814D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Prospeqt_mobile.app/Prospeqt_mobile";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Prospeqt_mobile/Prospeqt_mobile-Prefix.pch";
+				INFOPLIST_FILE = "Prospeqt_mobileTests/Prospeqt_mobileTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47BBD7A917D40E630050814D /* Build configuration list for PBXProject "Prospeqt_mobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47BBD7E417D40E630050814D /* Debug */,
+				47BBD7E517D40E630050814D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47BBD7E617D40E630050814D /* Build configuration list for PBXNativeTarget "Prospeqt_mobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47BBD7E717D40E630050814D /* Debug */,
+				47BBD7E817D40E630050814D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		47BBD7E917D40E630050814D /* Build configuration list for PBXNativeTarget "Prospeqt_mobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47BBD7EA17D40E630050814D /* Debug */,
+				47BBD7EB17D40E630050814D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		47BBD7CB17D40E630050814D /* Prospeqt_mobile.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				47BBD7CC17D40E630050814D /* Prospeqt_mobile.xcdatamodel */,
+			);
+			currentVersion = 47BBD7CC17D40E630050814D /* Prospeqt_mobile.xcdatamodel */;
+			path = Prospeqt_mobile.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 47BBD7A617D40E630050814D /* Project object */;
+}
