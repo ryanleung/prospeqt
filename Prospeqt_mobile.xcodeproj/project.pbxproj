@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		474C9A6617E574F60072012C /* PMProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A6517E574F60072012C /* PMProfileViewController.m */; };
+		474C9A6917E575070072012C /* PMMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A6817E575070072012C /* PMMessagesViewController.m */; };
+		474C9A6C17E5751A0072012C /* PMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A6B17E5751A0072012C /* PMSettingsViewController.m */; };
+		474C9A6F17E575220072012C /* PMHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A6E17E575220072012C /* PMHomeViewController.m */; };
+		474C9A7217E5762A0072012C /* PMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A7117E5762A0072012C /* PMBaseViewController.m */; };
+		474C9A7817E576DA0072012C /* PMEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A7717E576DA0072012C /* PMEnvironment.m */; };
+		474C9A7B17E5773B0072012C /* PMAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A7A17E5773B0072012C /* PMAppearance.m */; };
+		478786C617E6A35B004CCE04 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 478786C517E6A35B004CCE04 /* Localizable.strings */; };
 		47BBD7B217D40E630050814D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B117D40E630050814D /* UIKit.framework */; };
 		47BBD7B417D40E630050814D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B317D40E630050814D /* Foundation.framework */; };
 		47BBD7B617D40E630050814D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B517D40E630050814D /* CoreGraphics.framework */; };
@@ -23,6 +31,7 @@
 		47BBD7E317D40E630050814D /* Prospeqt_mobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7E217D40E630050814D /* Prospeqt_mobileTests.m */; };
 		47BBD7F117D423440050814D /* PMNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7F017D423440050814D /* PMNetworkController.m */; };
 		47BBD7F717D424940050814D /* PMAPIEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7F617D424940050814D /* PMAPIEnvironment.m */; };
+		47BBD80017E191AE0050814D /* PMWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7FF17E191AE0050814D /* PMWindowController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +45,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		474C9A6417E574F60072012C /* PMProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMProfileViewController.h; sourceTree = "<group>"; };
+		474C9A6517E574F60072012C /* PMProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMProfileViewController.m; sourceTree = "<group>"; };
+		474C9A6717E575070072012C /* PMMessagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMessagesViewController.h; sourceTree = "<group>"; };
+		474C9A6817E575070072012C /* PMMessagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMessagesViewController.m; sourceTree = "<group>"; };
+		474C9A6A17E5751A0072012C /* PMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSettingsViewController.h; sourceTree = "<group>"; };
+		474C9A6B17E5751A0072012C /* PMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSettingsViewController.m; sourceTree = "<group>"; };
+		474C9A6D17E575220072012C /* PMHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMHomeViewController.h; sourceTree = "<group>"; };
+		474C9A6E17E575220072012C /* PMHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMHomeViewController.m; sourceTree = "<group>"; };
+		474C9A7017E5762A0072012C /* PMBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMBaseViewController.h; sourceTree = "<group>"; };
+		474C9A7117E5762A0072012C /* PMBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMBaseViewController.m; sourceTree = "<group>"; };
+		474C9A7617E576DA0072012C /* PMEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMEnvironment.h; sourceTree = "<group>"; };
+		474C9A7717E576DA0072012C /* PMEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMEnvironment.m; sourceTree = "<group>"; };
+		474C9A7917E5773B0072012C /* PMAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAppearance.h; sourceTree = "<group>"; };
+		474C9A7A17E5773B0072012C /* PMAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAppearance.m; sourceTree = "<group>"; };
+		478786C517E6A35B004CCE04 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		47BBD7AE17D40E630050814D /* Prospeqt_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prospeqt_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47BBD7B117D40E630050814D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		47BBD7B317D40E630050814D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,6 +83,8 @@
 		47BBD7F417D424170050814D /* PMDataLoadProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMDataLoadProtocol.h; sourceTree = "<group>"; };
 		47BBD7F517D424940050814D /* PMAPIEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAPIEnvironment.h; sourceTree = "<group>"; };
 		47BBD7F617D424940050814D /* PMAPIEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAPIEnvironment.m; sourceTree = "<group>"; };
+		47BBD7FE17E191AE0050814D /* PMWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMWindowController.h; sourceTree = "<group>"; };
+		47BBD7FF17E191AE0050814D /* PMWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +113,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		474C9A6017E573B20072012C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				474C9A6D17E575220072012C /* PMHomeViewController.h */,
+				474C9A6E17E575220072012C /* PMHomeViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		474C9A6117E573BD0072012C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				474C9A6A17E5751A0072012C /* PMSettingsViewController.h */,
+				474C9A6B17E5751A0072012C /* PMSettingsViewController.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		474C9A6217E573CB0072012C /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				474C9A6717E575070072012C /* PMMessagesViewController.h */,
+				474C9A6817E575070072012C /* PMMessagesViewController.m */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		474C9A6317E573E40072012C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				474C9A6417E574F60072012C /* PMProfileViewController.h */,
+				474C9A6517E574F60072012C /* PMProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		47BBD7A517D40E630050814D = {
 			isa = PBXGroup;
 			children = (
-				47BBD7B917D40E630050814D /* Prospeqt_mobile */,
+				47BBD7B917D40E630050814D /* Application */,
+				47BBD7FA17E191400050814D /* Models */,
+				47BBD7FB17E1914A0050814D /* View */,
+				47BBD7FC17E1914E0050814D /* Controllers */,
 				47BBD7DB17D40E630050814D /* Prospeqt_mobileTests */,
 				47BBD7B017D40E630050814D /* Frameworks */,
 				47BBD7AF17D40E630050814D /* Products */,
@@ -118,16 +183,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		47BBD7B917D40E630050814D /* Prospeqt_mobile */ = {
+		47BBD7B917D40E630050814D /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				47BBD7C217D40E630050814D /* PMAppDelegate.h */,
 				47BBD7C317D40E630050814D /* PMAppDelegate.m */,
-				47BBD7CB17D40E630050814D /* Prospeqt_mobile.xcdatamodeld */,
+				474C9A7917E5773B0072012C /* PMAppearance.h */,
+				474C9A7A17E5773B0072012C /* PMAppearance.m */,
+				474C9A7617E576DA0072012C /* PMEnvironment.h */,
+				474C9A7717E576DA0072012C /* PMEnvironment.m */,
 				47BBD7EE17D41E930050814D /* API */,
 				47BBD7F317D423E20050814D /* Protocols */,
 				47BBD7BA17D40E630050814D /* Supporting Files */,
 			);
+			name = Application;
 			path = Prospeqt_mobile;
 			sourceTree = "<group>";
 		};
@@ -136,6 +205,7 @@
 			children = (
 				47BBD7BB17D40E630050814D /* Prospeqt_mobile-Info.plist */,
 				47BBD7BC17D40E630050814D /* InfoPlist.strings */,
+				478786C517E6A35B004CCE04 /* Localizable.strings */,
 				47BBD7BF17D40E630050814D /* main.m */,
 				47BBD7C117D40E630050814D /* Prospeqt_mobile-Prefix.pch */,
 			);
@@ -178,6 +248,47 @@
 				47BBD7F417D424170050814D /* PMDataLoadProtocol.h */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		47BBD7FA17E191400050814D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				47BBD7CB17D40E630050814D /* Prospeqt_mobile.xcdatamodeld */,
+			);
+			name = Models;
+			path = Prospeqt_mobile;
+			sourceTree = "<group>";
+		};
+		47BBD7FB17E1914A0050814D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = Prospeqt_mobile;
+			sourceTree = "<group>";
+		};
+		47BBD7FC17E1914E0050814D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				47BBD7FD17E1919B0050814D /* General */,
+				474C9A6317E573E40072012C /* Profile */,
+				474C9A6217E573CB0072012C /* Messages */,
+				474C9A6117E573BD0072012C /* Settings */,
+				474C9A6017E573B20072012C /* Home */,
+			);
+			name = Controllers;
+			path = Prospeqt_mobile;
+			sourceTree = "<group>";
+		};
+		47BBD7FD17E1919B0050814D /* General */ = {
+			isa = PBXGroup;
+			children = (
+				474C9A7017E5762A0072012C /* PMBaseViewController.h */,
+				474C9A7117E5762A0072012C /* PMBaseViewController.m */,
+				47BBD7FE17E191AE0050814D /* PMWindowController.h */,
+				47BBD7FF17E191AE0050814D /* PMWindowController.m */,
+			);
+			name = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47BBD7BE17D40E630050814D /* InfoPlist.strings in Resources */,
+				478786C617E6A35B004CCE04 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,11 +399,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				474C9A6F17E575220072012C /* PMHomeViewController.m in Sources */,
 				47BBD7C017D40E630050814D /* main.m in Sources */,
+				474C9A6917E575070072012C /* PMMessagesViewController.m in Sources */,
 				47BBD7C417D40E630050814D /* PMAppDelegate.m in Sources */,
 				47BBD7CD17D40E630050814D /* Prospeqt_mobile.xcdatamodeld in Sources */,
+				474C9A6C17E5751A0072012C /* PMSettingsViewController.m in Sources */,
+				474C9A7217E5762A0072012C /* PMBaseViewController.m in Sources */,
 				47BBD7F117D423440050814D /* PMNetworkController.m in Sources */,
+				474C9A7817E576DA0072012C /* PMEnvironment.m in Sources */,
 				47BBD7F717D424940050814D /* PMAPIEnvironment.m in Sources */,
+				47BBD80017E191AE0050814D /* PMWindowController.m in Sources */,
+				474C9A6617E574F60072012C /* PMProfileViewController.m in Sources */,
+				474C9A7B17E5773B0072012C /* PMAppearance.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

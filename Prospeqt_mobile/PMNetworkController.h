@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PMAPIEnvironment.h"
+#import "PMDataLoadProtocol.h"
 
 @interface PMNetworkController : NSObject
 

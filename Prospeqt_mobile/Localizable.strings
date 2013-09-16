@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Prospeqt_mobile
+
+  Created by Ryan Leung on 9/15/13.
+  Copyright (c) 2013 Prospeqt. All rights reserved.
+*/
+
+"tabbar.profile.title" = "Profile";
+"tabbar.messages.title" = "Messages";
+"tabbar.settings.title" = "Settings";
+"tabbar.home.title" = "Home";
