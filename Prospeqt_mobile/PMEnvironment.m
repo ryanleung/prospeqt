@@ -8,6 +8,7 @@
 
 #import "PMEnvironment.h"
 
-@implementation PMEnvironment
+// Notification String Constants //
 
-@end
+NSString * const kPMNotificationUserNeedsAuthenticated = @"com.prospeqt.notification.needsAuthentication";
+NSString * const kPMNotificationUserDidSignOut = @"com.prospeqt.notification.signedOut";

@@ -12,8 +12,12 @@
 #import "PMMessagesViewController.h"
 #import "PMSettingsViewController.h"
 #import "PMHomeViewController.h"
+#import "PMAuthViewController.h"
+#import "PMAuthenticationDelegate.h"
+#import "PMDataLoadProtocol.h"
+#import "PMAuthNavigationController.h"
 
-@interface PMWindowController()
+@interface PMWindowController() <PMAuthenticationDelegate, PMDataLoadProtocol>
 
 @property (nonatomic, strong) UITabBarController *rootViewController;
 @property (nonatomic, strong) PMProfileViewController *profileViewController;
@@ -39,8 +43,113 @@
         
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window.rootViewController = self.rootViewController;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userNeedsAuthentication:) name:kPMNotificationUserNeedsAuthenticated object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidSignOut:) name:kPMNotificationUserDidSignOut object:nil];
     }
     return self;
+}
+
+#pragma mark - Notification
+
+- (void)userNeedsAuthentication:(NSNotification *)notification
+{
+    if ([self.presentationViewController isKindOfClass:[PMAuthNavigationController class]]) {
+        return;
+    }
+    
+    [self addLoadDataOperationForObject:notification.object];
+    
+    SEL presentAuthSelector = @selector(presentAuthControllerIfNeeded);
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:presentAuthSelector object:nil];
+    [self performSelector:presentAuthSelector withObject:nil afterDelay:0.0];
+}
+
+//- (void)userDidSignOut:(NSNotification *)notification
+//{
+//    // with authentication being handled on demand, simply route the user to the default view
+//    [self openLink:[LUVLink linkToTrendingFeed] animated:NO];
+//    
+//    //Clear username alias from UA
+//    [UAPush shared].alias = nil;
+//    [[UAPush shared] updateRegistration];
+//    
+//    //Sign out of FB
+//    if (FBSession.activeSession.isOpen) {
+//        // In order to fix, see discussion here: http://stackoverflow.com/questions/9110740/login-logout-issue-with-facebook-ios-sdk
+//        // This way, we would need to access facebook sdk.
+//        // if you want to completely logout of fb and, when signing on again, have to type in pass, then this is the way.
+//        // otherwise, if you want to stay logged into FB through safari, the way above works. Which is the correct behavior?
+//        // Will delete these comments once a conclusion hags been made :).
+//        [FBSession.activeSession closeAndClearTokenInformation];
+//    }
+//}
+
+#pragma mark - Authentication
+
+- (void)presentAuthControllerIfNeeded
+{
+    UIViewController *presentationViewController = [self presentationViewController];
+    
+    PMAuthViewController *controller = [[PMAuthViewController alloc] initWithNibName:nil bundle:nil];
+    PMAuthNavigationController *navController = [[PMAuthNavigationController alloc] initWithRootViewController:controller];
+    navController.authenticationDelegate = self;
+    
+    [presentationViewController presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma mark - PMAuthenticationDelegate
+
+- (void)authenticationViewControllerDidAuthenticate:(PMBaseViewController *)viewController
+{
+    [self.rootViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.loadDataQueue addOperations:self.loadDataOperations waitUntilFinished:NO];
+    [self.loadDataOperations removeAllObjects];
+    
+    // Update UA with new username;
+//    [UAPush shared].alias = self.networkController.currentUsername;
+//    [[UAPush shared] updateRegistration];
+}
+
+- (void)authenticationViewControllerDidFailToAuthenticate:(PMBaseViewController *)viewController
+{
+    // TODO(JNJ): Implement for signing out when we have views that need logout
+}
+
+#pragma mark - PMDataLoadProtocol
+
+- (void)setNeedsData
+{
+    [self.networkController authenticateIfNeededAndLoadData:self];
+}
+
+- (BOOL)needsUserAuthentication
+{
+    return YES;
+}
+
+- (void)loadData
+{
+//    NSDate *lastCategoryUpdate = [[NSUserDefaults standardUserDefaults] objectForKey:@"lastCategoryUpdate"];
+//    if (!lastCategoryUpdate || [[NSDate date] timeIntervalSinceDate:lastCategoryUpdate] > kLUVSecondsToRefresh) {
+//        [self.networkController synchronizeCategories];
+//        [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"lastCategoryUpdate"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    }
+//    [self.networkController synchronizeCategories];
+//    [self.networkController synchronizeUserTrusts];
+}
+
+#pragma mark - LUVLoadDataProtocol Helpers
+
+- (void)addLoadDataOperationForObject:(NSObject *)object
+{
+    if ([object respondsToSelector:@selector(loadData)]) {
+        __weak NSObject *weak_object = object;
+        [self.loadDataOperations addObject:[NSBlockOperation blockOperationWithBlock:^{
+            [weak_object performSelectorOnMainThread:@selector(loadData) withObject:nil waitUntilDone:NO];
+        }]];
+    }
 }
 
 #pragma mark - View controller helpers

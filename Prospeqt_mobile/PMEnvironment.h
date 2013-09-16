@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 Prospeqt. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+// Notification String Constants //
 
-@interface PMEnvironment : NSObject
-
-@end
+extern NSString * const kPMNotificationUserNeedsAuthenticated;
+extern NSString * const kPMNotificationUserDidSignOut;

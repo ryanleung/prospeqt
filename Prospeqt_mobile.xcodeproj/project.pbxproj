@@ -15,6 +15,12 @@
 		474C9A7817E576DA0072012C /* PMEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A7717E576DA0072012C /* PMEnvironment.m */; };
 		474C9A7B17E5773B0072012C /* PMAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A7A17E5773B0072012C /* PMAppearance.m */; };
 		478786C617E6A35B004CCE04 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 478786C517E6A35B004CCE04 /* Localizable.strings */; };
+		478786CA17E6AFBB004CCE04 /* PMAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786C917E6AFBB004CCE04 /* PMAuthViewController.m */; };
+		478786CD17E6AFF7004CCE04 /* PMSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786CC17E6AFF7004CCE04 /* PMSignInViewController.m */; };
+		478786D017E6B000004CCE04 /* PMSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786CF17E6B000004CCE04 /* PMSignUpViewController.m */; };
+		478786D317E6B02C004CCE04 /* PMForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786D217E6B02C004CCE04 /* PMForgotPasswordViewController.m */; };
+		478786D617E6B034004CCE04 /* PMTermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786D517E6B034004CCE04 /* PMTermsOfServiceViewController.m */; };
+		478786D917E6BD30004CCE04 /* PMAuthNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786D817E6BD30004CCE04 /* PMAuthNavigationController.m */; };
 		47BBD7B217D40E630050814D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B117D40E630050814D /* UIKit.framework */; };
 		47BBD7B417D40E630050814D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B317D40E630050814D /* Foundation.framework */; };
 		47BBD7B617D40E630050814D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B517D40E630050814D /* CoreGraphics.framework */; };
@@ -60,6 +66,19 @@
 		474C9A7917E5773B0072012C /* PMAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAppearance.h; sourceTree = "<group>"; };
 		474C9A7A17E5773B0072012C /* PMAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAppearance.m; sourceTree = "<group>"; };
 		478786C517E6A35B004CCE04 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		478786C817E6AFBB004CCE04 /* PMAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAuthViewController.h; sourceTree = "<group>"; };
+		478786C917E6AFBB004CCE04 /* PMAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAuthViewController.m; sourceTree = "<group>"; };
+		478786CB17E6AFF7004CCE04 /* PMSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSignInViewController.h; sourceTree = "<group>"; };
+		478786CC17E6AFF7004CCE04 /* PMSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSignInViewController.m; sourceTree = "<group>"; };
+		478786CE17E6B000004CCE04 /* PMSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSignUpViewController.h; sourceTree = "<group>"; };
+		478786CF17E6B000004CCE04 /* PMSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSignUpViewController.m; sourceTree = "<group>"; };
+		478786D117E6B02C004CCE04 /* PMForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMForgotPasswordViewController.h; sourceTree = "<group>"; };
+		478786D217E6B02C004CCE04 /* PMForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMForgotPasswordViewController.m; sourceTree = "<group>"; };
+		478786D417E6B034004CCE04 /* PMTermsOfServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTermsOfServiceViewController.h; sourceTree = "<group>"; };
+		478786D517E6B034004CCE04 /* PMTermsOfServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMTermsOfServiceViewController.m; sourceTree = "<group>"; };
+		478786D717E6BD30004CCE04 /* PMAuthNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAuthNavigationController.h; sourceTree = "<group>"; };
+		478786D817E6BD30004CCE04 /* PMAuthNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAuthNavigationController.m; sourceTree = "<group>"; };
+		478786DA17E6BD7C004CCE04 /* PMAuthenticationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMAuthenticationDelegate.h; sourceTree = "<group>"; };
 		47BBD7AE17D40E630050814D /* Prospeqt_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prospeqt_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47BBD7B117D40E630050814D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		47BBD7B317D40E630050814D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -147,6 +166,25 @@
 				474C9A6517E574F60072012C /* PMProfileViewController.m */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		478786C717E6AFA1004CCE04 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				478786C817E6AFBB004CCE04 /* PMAuthViewController.h */,
+				478786C917E6AFBB004CCE04 /* PMAuthViewController.m */,
+				478786D717E6BD30004CCE04 /* PMAuthNavigationController.h */,
+				478786D817E6BD30004CCE04 /* PMAuthNavigationController.m */,
+				478786CB17E6AFF7004CCE04 /* PMSignInViewController.h */,
+				478786CC17E6AFF7004CCE04 /* PMSignInViewController.m */,
+				478786CE17E6B000004CCE04 /* PMSignUpViewController.h */,
+				478786CF17E6B000004CCE04 /* PMSignUpViewController.m */,
+				478786D117E6B02C004CCE04 /* PMForgotPasswordViewController.h */,
+				478786D217E6B02C004CCE04 /* PMForgotPasswordViewController.m */,
+				478786D417E6B034004CCE04 /* PMTermsOfServiceViewController.h */,
+				478786D517E6B034004CCE04 /* PMTermsOfServiceViewController.m */,
+			);
+			name = Authentication;
 			sourceTree = "<group>";
 		};
 		47BBD7A517D40E630050814D = {
@@ -246,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				47BBD7F417D424170050814D /* PMDataLoadProtocol.h */,
+				478786DA17E6BD7C004CCE04 /* PMAuthenticationDelegate.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -270,6 +309,7 @@
 		47BBD7FC17E1914E0050814D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				478786C717E6AFA1004CCE04 /* Authentication */,
 				47BBD7FD17E1919B0050814D /* General */,
 				474C9A6317E573E40072012C /* Profile */,
 				474C9A6217E573CB0072012C /* Messages */,
@@ -401,9 +441,15 @@
 			files = (
 				474C9A6F17E575220072012C /* PMHomeViewController.m in Sources */,
 				47BBD7C017D40E630050814D /* main.m in Sources */,
+				478786D617E6B034004CCE04 /* PMTermsOfServiceViewController.m in Sources */,
 				474C9A6917E575070072012C /* PMMessagesViewController.m in Sources */,
+				478786D917E6BD30004CCE04 /* PMAuthNavigationController.m in Sources */,
+				478786CD17E6AFF7004CCE04 /* PMSignInViewController.m in Sources */,
+				478786CA17E6AFBB004CCE04 /* PMAuthViewController.m in Sources */,
+				478786D017E6B000004CCE04 /* PMSignUpViewController.m in Sources */,
 				47BBD7C417D40E630050814D /* PMAppDelegate.m in Sources */,
 				47BBD7CD17D40E630050814D /* Prospeqt_mobile.xcdatamodeld in Sources */,
+				478786D317E6B02C004CCE04 /* PMForgotPasswordViewController.m in Sources */,
 				474C9A6C17E5751A0072012C /* PMSettingsViewController.m in Sources */,
 				474C9A7217E5762A0072012C /* PMBaseViewController.m in Sources */,
 				47BBD7F117D423440050814D /* PMNetworkController.m in Sources */,
