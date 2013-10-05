@@ -11,11 +11,13 @@
 #import "PMProfileViewController.h"
 #import "PMMessagesViewController.h"
 #import "PMSettingsViewController.h"
-#import "PMHomeViewController.h"
+#import "PMListingsViewController.h"
+#import "PMPostListingViewController.h"
 #import "PMAuthViewController.h"
 #import "PMAuthenticationDelegate.h"
 #import "PMDataLoadProtocol.h"
 #import "PMAuthNavigationController.h"
+#import "PMAppearance.h"
 
 @interface PMWindowController() <PMAuthenticationDelegate, PMDataLoadProtocol>
 
@@ -23,7 +25,8 @@
 @property (nonatomic, strong) PMProfileViewController *profileViewController;
 @property (nonatomic, strong) PMMessagesViewController *messagesViewController;
 @property (nonatomic, strong) PMSettingsViewController *settingsViewController;
-@property (nonatomic, strong) PMHomeViewController *homeViewController;
+@property (nonatomic, strong) PMListingsViewController *listingsViewController;
+@property (nonatomic, strong) PMPostListingViewController *postListingViewController;
 
 @property (nonatomic, strong) NSMutableArray *loadDataOperations;
 @property (nonatomic, strong) NSOperationQueue *loadDataQueue;
@@ -41,6 +44,8 @@
         _loadDataOperations = [NSMutableArray array];
         _loadDataQueue = [NSOperationQueue new];
         
+        [PMAppearance applyAppearance];
+        
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         self.window.rootViewController = self.rootViewController;
         
@@ -50,6 +55,10 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 #pragma mark - Notification
 
 - (void)userNeedsAuthentication:(NSNotification *)notification
@@ -158,11 +167,17 @@
 {
     if (!_rootViewController) {
         _rootViewController = [[UITabBarController alloc] init];
-        _rootViewController.viewControllers = @[self.homeViewController, self.profileViewController, self.messagesViewController, self.settingsViewController];
+        
+        _rootViewController.viewControllers = @[[self navEmbeddedViewController:self.profileViewController], [self navEmbeddedViewController:self.listingsViewController], [self navEmbeddedViewController:self.postListingViewController], [self navEmbeddedViewController:self.messagesViewController], [self navEmbeddedViewController:self.settingsViewController]];
     }
     return _rootViewController;
 }
 
+- (UINavigationController *)navEmbeddedViewController:(PMBaseViewController *)baseViewController
+{
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:baseViewController];
+    return navController;
+}
 - (PMProfileViewController *)profileViewController
 {
     if (!_profileViewController) {
@@ -187,12 +202,19 @@
     return _settingsViewController;
 }
 
-- (PMHomeViewController *)homeViewController
+- (PMListingsViewController *)listingsViewController
 {
-    if (!_homeViewController) {
-        _homeViewController = [PMHomeViewController new];
+    if (!_listingsViewController) {
+        _listingsViewController = [PMListingsViewController new];
     }
-    return _homeViewController;
+    return _listingsViewController;
 }
 
+- (PMPostListingViewController *)postListingViewController
+{
+    if (!_postListingViewController) {
+        _postListingViewController = [PMPostListingViewController new];
+    }
+    return  _postListingViewController;
+}
 @end

@@ -1,24 +1,24 @@
 //
-//  PMHomeViewController.m
+//  PMAddPhotoViewController.m
 //  Prospeqt_mobile
 //
-//  Created by Ryan Leung on 9/14/13.
+//  Created by Ryan Leung on 10/5/13.
 //  Copyright (c) 2013 Prospeqt. All rights reserved.
 //
 
-#import "PMHomeViewController.h"
+#import "PMAddPhotoViewController.h"
 
-@interface PMHomeViewController ()
+@interface PMAddPhotoViewController ()
 
 @end
 
-@implementation PMHomeViewController
+@implementation PMAddPhotoViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem.title = NSLocalizedString(@"tabbar.home.title", @"Home");
+        self.title = NSLocalizedString(@"addPhoto.title", @"Listings");
     }
     return self;
 }

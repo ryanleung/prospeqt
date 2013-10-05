@@ -8,6 +8,25 @@
 
 #import "PMNetworkController.h"
 
+
 @implementation PMNetworkController
+
+#pragma mark - Authentication
+
+//- (BOOL)sessionInvalid
+//{
+//    return [LUVKeychain keychain].authenticationToken == nil || [LUVKeychain keychain].username == nil;
+//}
+
+- (void)authenticateIfNeededAndLoadData:(id<PMDataLoadProtocol>)dataLoader
+{
+    if ([dataLoader needsUserAuthentication]){// && [self sessionInvalid]) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserNeedsAuthenticated object:dataLoader];
+        });
+    } else {
+        [dataLoader loadData];
+    }
+}
 
 @end

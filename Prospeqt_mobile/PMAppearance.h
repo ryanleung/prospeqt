@@ -10,4 +10,6 @@
 
 @interface PMAppearance : NSObject
 
++ (void)applyAppearance;
+
 @end

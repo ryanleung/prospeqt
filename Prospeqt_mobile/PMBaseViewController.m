@@ -7,6 +7,7 @@
 //
 
 #import "PMBaseViewController.h"
+#import "UIColor+PMAppearance.h"
 
 @interface PMBaseViewController ()
 
@@ -14,25 +15,71 @@
 
 @implementation PMBaseViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark - Life Cycle
+
+- (void)dealloc
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+//    [self.networkController cancelAllOperations];
 }
+
+#pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor pm_backgroundColor];
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"global.backButton", @"Back button text") style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.translucent = NO;
+    
+}
+#pragma mark - Authenticated Data
+
+- (BOOL)needsUserAuthentication
+{
+    return NO;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)setNeedsData
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.networkController authenticateIfNeededAndLoadData:self];
+}
+
+- (void)loadData
+{
+    // no-op: Subclasses should override
+}
+
+#pragma mark Error Handling
+
+- (void)handleError:(NSError *)error
+{
+//    NSString *errorMessage = [LUVError messageFromError:error];
+//    if (errorMessage) {
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"Default error title") message:errorMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"global.dismiss", @"Dismiss the error button title") otherButtonTitles:nil];
+//        [alertView show];
+//    }
+}
+
+#pragma mark - Properties
+
+- (PMNetworkController *)networkController
+{
+    if (!_networkController) {
+        _networkController = [PMNetworkController new];
+    }
+    return _networkController;
+}
+
+- (CGFloat)pm_topInset
+{
+    if ([self respondsToSelector:@selector(topLayoutGuide)]) {
+        return [self.topLayoutGuide length];
+    } else {
+        return 0;
+    }
 }
 
 @end

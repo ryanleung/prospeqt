@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PMNetworkController.h"
+#import "PMDataLoadProtocol.h"
 
-@interface PMBaseViewController : UIViewController
+@interface PMBaseViewController : UIViewController <PMDataLoadProtocol>
+
+@property (nonatomic, strong) PMNetworkController *networkController;
+
+- (void)handleError:(NSError *)error;
 
 @end

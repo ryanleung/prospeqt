@@ -18,7 +18,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem.title = NSLocalizedString(@"tabbar.profile.title", @"Profile");
+        self.title = NSLocalizedString(@"tabbar.profile.title", @"Profile");
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar.profile.title", @"Profile") image:[[UIImage imageNamed:@"Profile_Icon_Inactive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Profile_Icon_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }
     return self;
 }

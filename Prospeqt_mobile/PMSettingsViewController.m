@@ -18,7 +18,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem.title = NSLocalizedString(@"tabbar.settings.title", @"Settings");
+        self.title = NSLocalizedString(@"tabbar.settings.title", @"Settings");
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar.settings.title", @"Settings") image:[[UIImage imageNamed:@"Settings_Icon_Inactive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Settings_Icon_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }
     return self;
 }

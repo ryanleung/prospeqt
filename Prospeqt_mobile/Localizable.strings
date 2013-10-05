@@ -6,7 +6,20 @@
   Copyright (c) 2013 Prospeqt. All rights reserved.
 */
 
+"global.backButton" = "";
+
 "tabbar.profile.title" = "Profile";
 "tabbar.messages.title" = "Messages";
 "tabbar.settings.title" = "Settings";
-"tabbar.home.title" = "Home";
+"tabbar.listings.title" = "My Listings";
+"tabbar.postListing.title" = "Post a Listing";
+
+"post.cell.title" = "What are you selling?";
+"post.category.book" = "BOOKS";
+"post.category.fashion" = "APPAREL & FASHION";
+"post.category.electronics" = "ELECTRONICS";
+"post.category.health" = "HEALTH & BEAUTY";
+"post.category.home" = "HOME";
+"post.category.interests" = "INTERESTS & HOBBIES";
+
+"addPhoto.title" = "Add Photos";

@@ -18,7 +18,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem.title = NSLocalizedString(@"tabbar.messages.title", @"Messages");
+        self.title = NSLocalizedString(@"tabbar.messages.title", @"Messages");
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar.messages.title", @"Messages") image:[[UIImage imageNamed:@"Inbox_Icon_Inactive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Inbox_Icon_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     }
     return self;
 }
