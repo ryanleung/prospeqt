@@ -25,7 +25,7 @@ static const CGFloat kPMCellHeight = 58.0f;
         separatorView.translatesAutoresizingMaskIntoConstraints = NO;
         separatorView.layer.zPosition = CGFLOAT_MAX;
         [self.contentView addSubview:separatorView];
-        separatorView.backgroundColor = [UIColor pm_grayMediumColor];
+        separatorView.backgroundColor = [UIColor pm_grayDarkColor];
         NSDictionary *views = NSDictionaryOfVariableBindings(separatorView);
         NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:separatorView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0f constant:0];
         [self addConstraint:constraint];

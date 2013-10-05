@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Listing" representedClassName="PMListing" syncable="YES">
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="listingId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
+            </userInfo>
+        </attribute>
+        <attribute name="picData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="picPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="smallPicData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="smallPicPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="PMUser" syncable="YES">
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
+            </userInfo>
+        </attribute>
+    </entity>
+    <elements>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Listing" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
 </model>

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Mogenerator.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Prospeqt_mobile.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +17,26 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>4739BC081800BFFC004A6500</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4739BC0C1800C2C9004A6500</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4739BC141800C664004A6500</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4739BC181800C741004A6500</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>47BBD7AD17D40E630050814D</key>
 		<dict>
 			<key>primary</key>
