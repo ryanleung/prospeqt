@@ -9,11 +9,13 @@ extern const struct PMUserAttributes {
 } PMUserAttributes;
 
 extern const struct PMUserRelationships {
+	__unsafe_unretained NSString *listings;
 } PMUserRelationships;
 
 extern const struct PMUserFetchedProperties {
 } PMUserFetchedProperties;
 
+@class PMListing;
 
 
 
@@ -40,6 +42,13 @@ extern const struct PMUserFetchedProperties {
 
 
 
+@property (nonatomic, strong) PMListing *listings;
+
+//- (BOOL)validateListings:(id*)value_ error:(NSError**)error_;
+
+
+
+
 
 @end
 
@@ -54,6 +63,11 @@ extern const struct PMUserFetchedProperties {
 - (void)setPrimitiveUsername:(NSString*)value;
 
 
+
+
+
+- (PMListing*)primitiveListings;
+- (void)setPrimitiveListings:(PMListing*)value;
 
 
 @end
