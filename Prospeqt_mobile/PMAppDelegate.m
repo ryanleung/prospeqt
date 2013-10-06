@@ -8,6 +8,7 @@
 
 #import "PMAppDelegate.h"
 #import "PMWindowController.h"
+#import <RestKit/RestKit.h>
 
 @interface PMAppDelegate()
 @property (nonatomic, strong) PMWindowController *windowController;
@@ -18,7 +19,6 @@
 {
     self.windowController = [PMWindowController new];
     [self.windowController.window makeKeyAndVisible];
-    
     
     return YES;
 }
