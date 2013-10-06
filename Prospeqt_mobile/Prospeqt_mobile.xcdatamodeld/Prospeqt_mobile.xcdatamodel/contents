@@ -13,6 +13,7 @@
         <attribute name="smallPicData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="smallPicPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="listings" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="PMUser" syncable="YES">
         <attribute name="username" optional="YES" attributeType="String" syncable="YES">
@@ -20,9 +21,10 @@
                 <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
             </userInfo>
         </attribute>
+        <relationship name="listings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Listing" inverseName="user" inverseEntity="Listing" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Listing" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

@@ -8,6 +8,7 @@ const struct PMUserAttributes PMUserAttributes = {
 };
 
 const struct PMUserRelationships PMUserRelationships = {
+	.listings = @"listings",
 };
 
 const struct PMUserFetchedProperties PMUserFetchedProperties = {
@@ -52,6 +53,10 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 
 
 
+
+@dynamic listings;
+
+	
 
 
 
