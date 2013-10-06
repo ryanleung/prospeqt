@@ -19,6 +19,7 @@
     self.windowController = [PMWindowController new];
     [self.windowController.window makeKeyAndVisible];
     
+    
     return YES;
 }
 @end
