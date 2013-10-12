@@ -23,3 +23,10 @@
 "post.category.interests" = "INTERESTS & HOBBIES";
 
 "addPhoto.title" = "Add Photos";
+
+"listings.date.hourAgo" = "1 hour ago";
+"listings.date.hoursAgoFormat" = "%i hours ago";
+"listings.date.minutesAgoFormat" = "%i minutes ago";
+"listings.date.dayAgo" = "1 day ago";
+"listings.date.daysAgoFormat" = "%i days ago";
+"listings.date.format" = "Posted %@";

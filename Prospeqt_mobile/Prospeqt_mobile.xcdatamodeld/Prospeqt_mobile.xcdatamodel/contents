@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F37" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Listing" representedClassName="PMListing" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="listingId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
             <userInfo>
                 <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
             </userInfo>
         </attribute>
+        <attribute name="messages" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="picData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="picPath" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="smallPicData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="smallPicPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,7 +23,7 @@
                 <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
             </userInfo>
         </attribute>
-        <relationship name="listings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Listing" inverseName="user" inverseEntity="Listing" syncable="YES"/>
+        <relationship name="listings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Listing" inverseName="user" inverseEntity="Listing" syncable="YES"/>
     </entity>
     <elements>
         <element name="Listing" positionX="0" positionY="0" width="0" height="0"/>

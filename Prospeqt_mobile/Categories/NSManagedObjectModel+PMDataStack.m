@@ -16,7 +16,7 @@ static NSManagedObjectModel *pm_managedObjectModel = nil;
 {
     if (pm_managedObjectModel) return pm_managedObjectModel;
     
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Prospeqt" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Prospeqt_mobile" withExtension:@"momd"];
     pm_managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return pm_managedObjectModel;
 }
