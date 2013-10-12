@@ -10,4 +10,13 @@
 
 @interface PMListingCell : PMCell
 
+@property (nonatomic, strong) UILabel *productTitleLabel;
+@property (nonatomic, strong) UILabel *productDetailLabel;
+@property (nonatomic, strong) UILabel *dateLabel;
+@property (nonatomic, strong) UILabel *priceLabel;
+@property (nonatomic, strong) UIImageView *productImageView;
+
++ (CGFloat)cellHeight;
++ (NSString *)formattedDate:(NSDate *)date;
+- (void)updatePrice:(NSDecimalNumber *)price;
 @end

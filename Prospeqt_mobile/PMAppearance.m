@@ -16,23 +16,28 @@
 + (void)applyAppearance
 {
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor pm_orangeColor]] forBarMetrics:UIBarMetricsDefault];
+    
+    NSShadow *shadow = [[NSShadow alloc] init];
+    shadow.shadowColor = [UIColor blackColor];
+    shadow.shadowBlurRadius = 0.0f;
+    shadow.shadowOffset = CGSizeMake(0.0f, 0.0f);
     [[UINavigationBar appearance] setTitleTextAttributes:
      @{
-       UITextAttributeTextColor : [UIColor whiteColor],
-       UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
-       UITextAttributeFont : [UIFont pm_caeciliaRomanFontWithSize:25.0f]
+       NSForegroundColorAttributeName : [UIColor whiteColor],
+       NSShadowAttributeName : shadow,
+       NSFontAttributeName :[UIFont pm_caeciliaRomanFontWithSize:25.0f]
        }];
     
     [[UITabBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor pm_aquaColor]]];
     [[UITabBarItem appearance] setTitleTextAttributes:
      @{
-       UITextAttributeTextColor : [UIColor whiteColor],
-       UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
+       NSForegroundColorAttributeName : [UIColor whiteColor],
+       NSShadowAttributeName : shadow,
        } forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:
      @{
-       UITextAttributeTextColor : [UIColor pm_grayDarkColor],
-       UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(0.0f, 0.0f)],
+       NSForegroundColorAttributeName : [UIColor pm_grayDarkColor],
+       NSShadowAttributeName : shadow,
        } forState:UIControlStateSelected];
     
 }

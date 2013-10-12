@@ -7,7 +7,10 @@
 //
 
 #import "PMBaseViewController.h"
+#import "PMListing.h"
 
 @interface PMListingsViewController : PMBaseViewController
+
+@property (nonatomic, strong) PMListing *selectedListing;
 
 @end

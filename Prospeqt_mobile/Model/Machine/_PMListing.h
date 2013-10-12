@@ -5,8 +5,10 @@
 
 
 extern const struct PMListingAttributes {
+	__unsafe_unretained NSString *date;
 	__unsafe_unretained NSString *info;
 	__unsafe_unretained NSString *listingId;
+	__unsafe_unretained NSString *messages;
 	__unsafe_unretained NSString *picData;
 	__unsafe_unretained NSString *picPath;
 	__unsafe_unretained NSString *price;
@@ -33,6 +35,8 @@ extern const struct PMListingFetchedProperties {
 
 
 
+
+
 @interface PMListingID : NSManagedObjectID {}
 @end
 
@@ -41,6 +45,16 @@ extern const struct PMListingFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (PMListingID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSDate* date;
+
+
+
+//- (BOOL)validateDate:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -70,6 +84,20 @@ extern const struct PMListingFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* messages;
+
+
+
+@property int32_t messagesValue;
+- (int32_t)messagesValue;
+- (void)setMessagesValue:(int32_t)value_;
+
+//- (BOOL)validateMessages:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSData* picData;
 
 
@@ -90,13 +118,9 @@ extern const struct PMListingFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSNumber* price;
+@property (nonatomic, strong) NSDecimalNumber* price;
 
 
-
-@property float priceValue;
-- (float)priceValue;
-- (void)setPriceValue:(float)value_;
 
 //- (BOOL)validatePrice:(id*)value_ error:(NSError**)error_;
 
@@ -151,6 +175,12 @@ extern const struct PMListingFetchedProperties {
 @interface _PMListing (CoreDataGeneratedPrimitiveAccessors)
 
 
+- (NSDate*)primitiveDate;
+- (void)setPrimitiveDate:(NSDate*)value;
+
+
+
+
 - (NSString*)primitiveInfo;
 - (void)setPrimitiveInfo:(NSString*)value;
 
@@ -162,6 +192,15 @@ extern const struct PMListingFetchedProperties {
 
 - (int32_t)primitiveListingIdValue;
 - (void)setPrimitiveListingIdValue:(int32_t)value_;
+
+
+
+
+- (NSNumber*)primitiveMessages;
+- (void)setPrimitiveMessages:(NSNumber*)value;
+
+- (int32_t)primitiveMessagesValue;
+- (void)setPrimitiveMessagesValue:(int32_t)value_;
 
 
 
@@ -178,11 +217,8 @@ extern const struct PMListingFetchedProperties {
 
 
 
-- (NSNumber*)primitivePrice;
-- (void)setPrimitivePrice:(NSNumber*)value;
-
-- (float)primitivePriceValue;
-- (void)setPrimitivePriceValue:(float)value_;
+- (NSDecimalNumber*)primitivePrice;
+- (void)setPrimitivePrice:(NSDecimalNumber*)value;
 
 
 
