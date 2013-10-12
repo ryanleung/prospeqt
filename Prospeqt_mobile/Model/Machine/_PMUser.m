@@ -57,6 +57,15 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 @dynamic listings;
 
 	
+- (NSMutableSet*)listingsSet {
+	[self willAccessValueForKey:@"listings"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"listings"];
+  
+	[self didAccessValueForKey:@"listings"];
+	return result;
+}
+	
 
 
 

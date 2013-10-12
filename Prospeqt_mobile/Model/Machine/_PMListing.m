@@ -4,8 +4,10 @@
 #import "_PMListing.h"
 
 const struct PMListingAttributes PMListingAttributes = {
+	.date = @"date",
 	.info = @"info",
 	.listingId = @"listingId",
+	.messages = @"messages",
 	.picData = @"picData",
 	.picPath = @"picPath",
 	.price = @"price",
@@ -52,14 +54,21 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
-	if ([key isEqualToString:@"priceValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"price"];
+	if ([key isEqualToString:@"messagesValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"messages"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic date;
+
+
 
 
 
@@ -97,6 +106,32 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
+@dynamic messages;
+
+
+
+- (int32_t)messagesValue {
+	NSNumber *result = [self messages];
+	return [result intValue];
+}
+
+- (void)setMessagesValue:(int32_t)value_ {
+	[self setMessages:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveMessagesValue {
+	NSNumber *result = [self primitiveMessages];
+	return [result intValue];
+}
+
+- (void)setPrimitiveMessagesValue:(int32_t)value_ {
+	[self setPrimitiveMessages:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
+
 @dynamic picData;
 
 
@@ -113,25 +148,6 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 @dynamic price;
 
-
-
-- (float)priceValue {
-	NSNumber *result = [self price];
-	return [result floatValue];
-}
-
-- (void)setPriceValue:(float)value_ {
-	[self setPrice:[NSNumber numberWithFloat:value_]];
-}
-
-- (float)primitivePriceValue {
-	NSNumber *result = [self primitivePrice];
-	return [result floatValue];
-}
-
-- (void)setPrimitivePriceValue:(float)value_ {
-	[self setPrimitivePrice:[NSNumber numberWithFloat:value_]];
-}
 
 
 

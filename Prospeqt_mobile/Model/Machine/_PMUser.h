@@ -42,9 +42,9 @@ extern const struct PMUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) PMListing *listings;
+@property (nonatomic, strong) NSSet *listings;
 
-//- (BOOL)validateListings:(id*)value_ error:(NSError**)error_;
+- (NSMutableSet*)listingsSet;
 
 
 
@@ -53,6 +53,11 @@ extern const struct PMUserFetchedProperties {
 @end
 
 @interface _PMUser (CoreDataGeneratedAccessors)
+
+- (void)addListings:(NSSet*)value_;
+- (void)removeListings:(NSSet*)value_;
+- (void)addListingsObject:(PMListing*)value_;
+- (void)removeListingsObject:(PMListing*)value_;
 
 @end
 
@@ -66,8 +71,8 @@ extern const struct PMUserFetchedProperties {
 
 
 
-- (PMListing*)primitiveListings;
-- (void)setPrimitiveListings:(PMListing*)value;
+- (NSMutableSet*)primitiveListings;
+- (void)setPrimitiveListings:(NSMutableSet*)value;
 
 
 @end
