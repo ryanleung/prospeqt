@@ -5,6 +5,7 @@
 
 
 extern const struct PMListingAttributes {
+	__unsafe_unretained NSString *city;
 	__unsafe_unretained NSString *date;
 	__unsafe_unretained NSString *info;
 	__unsafe_unretained NSString *listingId;
@@ -14,6 +15,7 @@ extern const struct PMListingAttributes {
 	__unsafe_unretained NSString *price;
 	__unsafe_unretained NSString *smallPicData;
 	__unsafe_unretained NSString *smallPicPath;
+	__unsafe_unretained NSString *state;
 	__unsafe_unretained NSString *title;
 } PMListingAttributes;
 
@@ -37,6 +39,8 @@ extern const struct PMListingFetchedProperties {
 
 
 
+
+
 @interface PMListingID : NSManagedObjectID {}
 @end
 
@@ -45,6 +49,16 @@ extern const struct PMListingFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (PMListingID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSString* city;
+
+
+
+//- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -148,6 +162,16 @@ extern const struct PMListingFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* state;
+
+
+
+//- (BOOL)validateState:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* title;
 
 
@@ -173,6 +197,12 @@ extern const struct PMListingFetchedProperties {
 @end
 
 @interface _PMListing (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSString*)primitiveCity;
+- (void)setPrimitiveCity:(NSString*)value;
+
+
 
 
 - (NSDate*)primitiveDate;
@@ -231,6 +261,12 @@ extern const struct PMListingFetchedProperties {
 
 - (NSString*)primitiveSmallPicPath;
 - (void)setPrimitiveSmallPicPath:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveState;
+- (void)setPrimitiveState:(NSString*)value;
 
 
 

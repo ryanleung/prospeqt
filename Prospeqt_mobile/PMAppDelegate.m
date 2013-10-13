@@ -40,6 +40,7 @@
     
     PMListing *listing1 = [PMListing insertInManagedObjectContext:context];
     
+    
     listing1.info = @"Mint Condition, 15 inch";
     listing1.picPath = @"http://g-ecx.images-amazon.com/images/G/01/electronics/apple/apple-12q2-macbook-pro-15-front-lg.jpg";
     NSDateComponents *dateComps = [[NSDateComponents alloc] init];
@@ -50,9 +51,12 @@
     
     listing1.listingId = @1;
     
-    listing1.price = @3;
+    listing1.price = [NSDecimalNumber decimalNumberWithString:@"3.55"];
     
     listing1.title = @"Macbook Pro";
+    
+    listing1.state = @"CA";
+    listing1.city = @"San Francisco";
     
     PMListing *listing2 = [PMListing insertInManagedObjectContext:context];
     
@@ -60,7 +64,7 @@
     
     listing2.listingId = @2;
     
-    listing2.price = @10;
+    listing2.price = [NSDecimalNumber decimalNumberWithString:@"500"];
     listing2.picPath = @"http://cdn-static.zdnet.com/i/story/61/18/005888/windows-pc.jpg";
     [dateComps setDay:11];
     [dateComps setMonth:10];
@@ -68,6 +72,9 @@
     listing2.date = [[NSCalendar currentCalendar] dateFromComponents:dateComps];
     
     listing2.title = @"Windows";
+    
+    listing2.state = @"AZ";
+    listing2.city = @"Phoenix";
     
     [jacq addListings:[[NSSet alloc] initWithArray:@[listing1, listing2]]];
      

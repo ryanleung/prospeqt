@@ -7,6 +7,7 @@
 */
 
 "global.backButton" = "";
+"global.locationFormat" = "%@, %@";
 
 "tabbar.profile.title" = "Profile";
 "tabbar.messages.title" = "Messages";
@@ -30,3 +31,5 @@
 "listings.date.dayAgo" = "1 day ago";
 "listings.date.daysAgoFormat" = "%i days ago";
 "listings.date.format" = "Posted %@";
+
+"manageListing.title" = "Manage Listing";

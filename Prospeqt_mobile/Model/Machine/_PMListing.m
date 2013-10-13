@@ -4,6 +4,7 @@
 #import "_PMListing.h"
 
 const struct PMListingAttributes PMListingAttributes = {
+	.city = @"city",
 	.date = @"date",
 	.info = @"info",
 	.listingId = @"listingId",
@@ -13,6 +14,7 @@ const struct PMListingAttributes PMListingAttributes = {
 	.price = @"price",
 	.smallPicData = @"smallPicData",
 	.smallPicPath = @"smallPicPath",
+	.state = @"state",
 	.title = @"title",
 };
 
@@ -62,6 +64,13 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic city;
+
+
 
 
 
@@ -161,6 +170,13 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 @dynamic smallPicPath;
+
+
+
+
+
+
+@dynamic state;
 
 
 

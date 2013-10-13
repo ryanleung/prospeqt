@@ -17,6 +17,5 @@
 @property (nonatomic, strong) UIImageView *productImageView;
 
 + (CGFloat)cellHeight;
-+ (NSString *)formattedDate:(NSDate *)date;
 - (void)updatePrice:(NSDecimalNumber *)price;
 @end

@@ -11,6 +11,7 @@
 #import "PMListing.h"
 #import "PMObjectManager.h"
 #import <RestKit/UIImageView+AFNetworking.h>
+#import "PMManageListingViewController.h"
 
 static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 
@@ -82,7 +83,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
     cell.productDetailLabel.text = listing.info;
     
     NSString *dateFormat = NSLocalizedString(@"listings.date.format", @"date format");
-    cell.dateLabel.text = [NSString stringWithFormat:dateFormat, [PMListingCell formattedDate:listing.date]];
+    cell.dateLabel.text = [NSString stringWithFormat:dateFormat, [PMListing formattedDate:listing.date]];
     
     [cell updatePrice:listing.price];
     
@@ -105,7 +106,9 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    self.selectedListing = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    PMManageListingViewController *manageListingViewController = [[PMManageListingViewController alloc] initWithListing:self.selectedListing];
+    [self.navigationController pushViewController:manageListingViewController animated:YES];
 }
 
 #pragma mark - Core Data
