@@ -5,6 +5,10 @@
 
 
 extern const struct PMUserAttributes {
+	__unsafe_unretained NSString *city;
+	__unsafe_unretained NSString *info;
+	__unsafe_unretained NSString *rating;
+	__unsafe_unretained NSString *state;
 	__unsafe_unretained NSString *username;
 } PMUserAttributes;
 
@@ -19,6 +23,10 @@ extern const struct PMUserFetchedProperties {
 
 
 
+
+
+
+
 @interface PMUserID : NSManagedObjectID {}
 @end
 
@@ -27,6 +35,50 @@ extern const struct PMUserFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (PMUserID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSString* city;
+
+
+
+//- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* info;
+
+
+
+//- (BOOL)validateInfo:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* rating;
+
+
+
+@property int16_t ratingValue;
+- (int16_t)ratingValue;
+- (void)setRatingValue:(int16_t)value_;
+
+//- (BOOL)validateRating:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* state;
+
+
+
+//- (BOOL)validateState:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -62,6 +114,33 @@ extern const struct PMUserFetchedProperties {
 @end
 
 @interface _PMUser (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSString*)primitiveCity;
+- (void)setPrimitiveCity:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveInfo;
+- (void)setPrimitiveInfo:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveRating;
+- (void)setPrimitiveRating:(NSNumber*)value;
+
+- (int16_t)primitiveRatingValue;
+- (void)setPrimitiveRatingValue:(int16_t)value_;
+
+
+
+
+- (NSString*)primitiveState;
+- (void)setPrimitiveState:(NSString*)value;
+
+
 
 
 - (NSString*)primitiveUsername;

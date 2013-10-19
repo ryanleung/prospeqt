@@ -1,5 +1,9 @@
 #import "_PMListing.h"
 
 @interface PMListing : _PMListing {}
-// Custom logic goes here.
+
++ (NSString *)formattedDate:(NSDate *)date;
+
+- (NSString *)priceFormatted;
+
 @end

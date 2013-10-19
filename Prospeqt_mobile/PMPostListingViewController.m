@@ -10,6 +10,7 @@
 #import "PMTitleCell.h"
 #import "PMCategoryCell.h"
 #import "PMAddPhotoViewController.h"
+#import "PMAddDescriptionViewController.h"
 
 typedef NS_ENUM(NSUInteger, PMCategoryCellType) {
     PMCategoryCellTypeTitle = 0,
@@ -165,8 +166,8 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         case PMCategoryCellTypeTitle:
             break;
         default: {
-            PMAddPhotoViewController *addPhotoViewController = [[PMAddPhotoViewController alloc] initWithNibName:nil bundle:nil];
-            [self.navigationController pushViewController:addPhotoViewController animated:YES];
+            PMAddDescriptionViewController *addDescriptionViewController = [[PMAddDescriptionViewController alloc] initWithNibName:nil bundle:nil];
+            [self.navigationController pushViewController:addDescriptionViewController animated:YES];
             break;
         }
     }
