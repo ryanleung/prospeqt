@@ -8,6 +8,10 @@
 
 // Notification String Constants //
 
+#import "UIColor+PMAppearance.h"
+#import "UIFont+PMAppearance.h"
+#import "UIButton+PMAppearance.h"
+
 extern NSString * const kPMNotificationUserNeedsAuthenticated;
 extern NSString * const kPMNotificationUserDidSignOut;
 

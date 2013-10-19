@@ -8,6 +8,11 @@
 
 "global.backButton" = "";
 "global.locationFormat" = "%@, %@";
+"global.save" = "Save";
+
+"button.postedFormat" = "Posted %@";
+"button.delete" = "DELETE";
+"button.edit" = "EDIT";
 
 "tabbar.profile.title" = "Profile";
 "tabbar.messages.title" = "Messages";
@@ -33,3 +38,8 @@
 "listings.date.format" = "Posted %@";
 
 "manageListing.title" = "Manage Listing";
+
+"addDescription.title" = "Add Description";
+"addDescription.form.nameListing" = "Name your listing:";
+"addDescription.form.describe" = "Describe the item:";
+"addDescription.form.setPrice" = "Set the price:";

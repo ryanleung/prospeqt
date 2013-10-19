@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class PMButton;
+
 @interface UIButton (PMAppearance)
+
++ (PMButton *)pm_postedDateButton;
++ (PMButton *)pm_editButton;
++ (PMButton *)pm_deleteButton;
+
+- (void)applyPostedDateButton;
+- (void)applyEditButton;
+- (void)applyDeleteButton;
 
 @end

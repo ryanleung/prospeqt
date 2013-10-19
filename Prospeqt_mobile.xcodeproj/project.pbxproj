@@ -57,10 +57,6 @@
 		4739BC721800CD6A004A6500 /* Listings_Icon_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4739BC4E1800CD6A004A6500 /* Listings_Icon_active@2x.png */; };
 		4739BC731800CD6A004A6500 /* Listings_Icon_Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4739BC4F1800CD6A004A6500 /* Listings_Icon_Inactive.png */; };
 		4739BC741800CD6A004A6500 /* Listings_Icon_Inactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4739BC501800CD6A004A6500 /* Listings_Icon_Inactive@2x.png */; };
-		4739BC751800CD6A004A6500 /* PostAListing_Icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 4739BC511800CD6A004A6500 /* PostAListing_Icon_active.png */; };
-		4739BC761800CD6A004A6500 /* PostAListing_Icon_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4739BC521800CD6A004A6500 /* PostAListing_Icon_active@2x.png */; };
-		4739BC771800CD6A004A6500 /* PostAListing_Icon_Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4739BC531800CD6A004A6500 /* PostAListing_Icon_Inactive.png */; };
-		4739BC781800CD6A004A6500 /* PostAListing_Icon_Inactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4739BC541800CD6A004A6500 /* PostAListing_Icon_Inactive@2x.png */; };
 		4739BC791800CD6A004A6500 /* Profile_Icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 4739BC551800CD6A004A6500 /* Profile_Icon_active.png */; };
 		4739BC7A1800CD6A004A6500 /* Profile_Icon_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4739BC561800CD6A004A6500 /* Profile_Icon_active@2x.png */; };
 		4739BC7B1800CD6A004A6500 /* Profile_Icon_Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4739BC571800CD6A004A6500 /* Profile_Icon_Inactive.png */; };
@@ -109,6 +105,27 @@
 		47A5066B18096F3000243BE6 /* LocationPin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5066918096F3000243BE6 /* LocationPin@2x.png */; };
 		47A5066E180A7BE400243BE6 /* PMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A5066D180A7BE400243BE6 /* PMButton.m */; };
 		47A50671180A7D3400243BE6 /* UIButton+PMAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A50670180A7D3400243BE6 /* UIButton+PMAppearance.m */; };
+		47A50674180B712100243BE6 /* PMManageListingBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A50673180B712100243BE6 /* PMManageListingBoxView.m */; };
+		47A50679180B72C500243BE6 /* GreenCheckmarkDoodle.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50675180B72C500243BE6 /* GreenCheckmarkDoodle.png */; };
+		47A5067A180B72C500243BE6 /* GreenCheckmarkDoodle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50676180B72C500243BE6 /* GreenCheckmarkDoodle@2x.png */; };
+		47A5067B180B72C500243BE6 /* TrashCanDoodle.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50677180B72C500243BE6 /* TrashCanDoodle.png */; };
+		47A5067C180B72C500243BE6 /* TrashCanDoodle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50678180B72C500243BE6 /* TrashCanDoodle@2x.png */; };
+		47A50685180B72D200243BE6 /* AlarmClockDoodle.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5067D180B72D200243BE6 /* AlarmClockDoodle.png */; };
+		47A50686180B72D200243BE6 /* AlarmClockDoodle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5067E180B72D200243BE6 /* AlarmClockDoodle@2x.png */; };
+		47A50687180B72D200243BE6 /* EnvelopeDoodle.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5067F180B72D200243BE6 /* EnvelopeDoodle.png */; };
+		47A50688180B72D200243BE6 /* EnvelopeDoodle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50680180B72D200243BE6 /* EnvelopeDoodle@2x.png */; };
+		47A50689180B72D200243BE6 /* PencilDoodle.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50681180B72D200243BE6 /* PencilDoodle.png */; };
+		47A5068A180B72D200243BE6 /* PencilDoodle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50682180B72D200243BE6 /* PencilDoodle@2x.png */; };
+		47A5068B180B72D200243BE6 /* SoldRibbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50683180B72D200243BE6 /* SoldRibbon.png */; };
+		47A5068C180B72D200243BE6 /* SoldRibbon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50684180B72D200243BE6 /* SoldRibbon@2x.png */; };
+		47A5068F180D0D5D00243BE6 /* PostAListing_Icon_active.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5068D180D0D5D00243BE6 /* PostAListing_Icon_active.png */; };
+		47A50690180D0D5D00243BE6 /* PostAListing_Icon_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5068E180D0D5D00243BE6 /* PostAListing_Icon_active@2x.png */; };
+		47A50693180D0D6600243BE6 /* PostAListing_Icon_Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50691180D0D6600243BE6 /* PostAListing_Icon_Inactive.png */; };
+		47A50694180D0D6600243BE6 /* PostAListing_Icon_Inactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50692180D0D6600243BE6 /* PostAListing_Icon_Inactive@2x.png */; };
+		47A50697180E4B3100243BE6 /* PMAddDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A50696180E4B3100243BE6 /* PMAddDescriptionViewController.m */; };
+		47A5069A180E71D400243BE6 /* PMFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A50699180E71D400243BE6 /* PMFormField.m */; };
+		47A5069D1812360C00243BE6 /* PMSingleLineFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A5069C1812360C00243BE6 /* PMSingleLineFormField.m */; };
+		47A506A018126CD300243BE6 /* PMFormBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A5069F18126CD300243BE6 /* PMFormBaseViewController.m */; };
 		47BBD7B217D40E630050814D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B117D40E630050814D /* UIKit.framework */; };
 		47BBD7B417D40E630050814D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B317D40E630050814D /* Foundation.framework */; };
 		47BBD7B617D40E630050814D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B517D40E630050814D /* CoreGraphics.framework */; };
@@ -221,10 +238,6 @@
 		4739BC4E1800CD6A004A6500 /* Listings_Icon_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listings_Icon_active@2x.png"; sourceTree = "<group>"; };
 		4739BC4F1800CD6A004A6500 /* Listings_Icon_Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Listings_Icon_Inactive.png; sourceTree = "<group>"; };
 		4739BC501800CD6A004A6500 /* Listings_Icon_Inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Listings_Icon_Inactive@2x.png"; sourceTree = "<group>"; };
-		4739BC511800CD6A004A6500 /* PostAListing_Icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PostAListing_Icon_active.png; sourceTree = "<group>"; };
-		4739BC521800CD6A004A6500 /* PostAListing_Icon_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PostAListing_Icon_active@2x.png"; sourceTree = "<group>"; };
-		4739BC531800CD6A004A6500 /* PostAListing_Icon_Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PostAListing_Icon_Inactive.png; sourceTree = "<group>"; };
-		4739BC541800CD6A004A6500 /* PostAListing_Icon_Inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PostAListing_Icon_Inactive@2x.png"; sourceTree = "<group>"; };
 		4739BC551800CD6A004A6500 /* Profile_Icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Profile_Icon_active.png; sourceTree = "<group>"; };
 		4739BC561800CD6A004A6500 /* Profile_Icon_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Profile_Icon_active@2x.png"; sourceTree = "<group>"; };
 		4739BC571800CD6A004A6500 /* Profile_Icon_Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Profile_Icon_Inactive.png; sourceTree = "<group>"; };
@@ -296,6 +309,32 @@
 		47A5066D180A7BE400243BE6 /* PMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMButton.m; sourceTree = "<group>"; };
 		47A5066F180A7D3400243BE6 /* UIButton+PMAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+PMAppearance.h"; sourceTree = "<group>"; };
 		47A50670180A7D3400243BE6 /* UIButton+PMAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+PMAppearance.m"; sourceTree = "<group>"; };
+		47A50672180B712100243BE6 /* PMManageListingBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMManageListingBoxView.h; sourceTree = "<group>"; };
+		47A50673180B712100243BE6 /* PMManageListingBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMManageListingBoxView.m; sourceTree = "<group>"; };
+		47A50675180B72C500243BE6 /* GreenCheckmarkDoodle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GreenCheckmarkDoodle.png; sourceTree = "<group>"; };
+		47A50676180B72C500243BE6 /* GreenCheckmarkDoodle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GreenCheckmarkDoodle@2x.png"; sourceTree = "<group>"; };
+		47A50677180B72C500243BE6 /* TrashCanDoodle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TrashCanDoodle.png; sourceTree = "<group>"; };
+		47A50678180B72C500243BE6 /* TrashCanDoodle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TrashCanDoodle@2x.png"; sourceTree = "<group>"; };
+		47A5067D180B72D200243BE6 /* AlarmClockDoodle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AlarmClockDoodle.png; sourceTree = "<group>"; };
+		47A5067E180B72D200243BE6 /* AlarmClockDoodle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AlarmClockDoodle@2x.png"; sourceTree = "<group>"; };
+		47A5067F180B72D200243BE6 /* EnvelopeDoodle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EnvelopeDoodle.png; sourceTree = "<group>"; };
+		47A50680180B72D200243BE6 /* EnvelopeDoodle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "EnvelopeDoodle@2x.png"; sourceTree = "<group>"; };
+		47A50681180B72D200243BE6 /* PencilDoodle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PencilDoodle.png; sourceTree = "<group>"; };
+		47A50682180B72D200243BE6 /* PencilDoodle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PencilDoodle@2x.png"; sourceTree = "<group>"; };
+		47A50683180B72D200243BE6 /* SoldRibbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SoldRibbon.png; sourceTree = "<group>"; };
+		47A50684180B72D200243BE6 /* SoldRibbon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SoldRibbon@2x.png"; sourceTree = "<group>"; };
+		47A5068D180D0D5D00243BE6 /* PostAListing_Icon_active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PostAListing_Icon_active.png; sourceTree = "<group>"; };
+		47A5068E180D0D5D00243BE6 /* PostAListing_Icon_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PostAListing_Icon_active@2x.png"; sourceTree = "<group>"; };
+		47A50691180D0D6600243BE6 /* PostAListing_Icon_Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PostAListing_Icon_Inactive.png; sourceTree = "<group>"; };
+		47A50692180D0D6600243BE6 /* PostAListing_Icon_Inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PostAListing_Icon_Inactive@2x.png"; sourceTree = "<group>"; };
+		47A50695180E4B3100243BE6 /* PMAddDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAddDescriptionViewController.h; sourceTree = "<group>"; };
+		47A50696180E4B3100243BE6 /* PMAddDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAddDescriptionViewController.m; sourceTree = "<group>"; };
+		47A50698180E71D400243BE6 /* PMFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMFormField.h; path = Views/PMFormField.h; sourceTree = "<group>"; };
+		47A50699180E71D400243BE6 /* PMFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMFormField.m; path = Views/PMFormField.m; sourceTree = "<group>"; };
+		47A5069B1812360C00243BE6 /* PMSingleLineFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMSingleLineFormField.h; path = Views/PMSingleLineFormField.h; sourceTree = "<group>"; };
+		47A5069C1812360C00243BE6 /* PMSingleLineFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMSingleLineFormField.m; path = Views/PMSingleLineFormField.m; sourceTree = "<group>"; };
+		47A5069E18126CD300243BE6 /* PMFormBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMFormBaseViewController.h; path = Controllers/PMFormBaseViewController.h; sourceTree = "<group>"; };
+		47A5069F18126CD300243BE6 /* PMFormBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMFormBaseViewController.m; path = Controllers/PMFormBaseViewController.m; sourceTree = "<group>"; };
 		47BBD7AE17D40E630050814D /* Prospeqt_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prospeqt_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47BBD7B117D40E630050814D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		47BBD7B317D40E630050814D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -395,6 +434,8 @@
 			children = (
 				4739BBC017FFD5B6004A6500 /* PMPostListingViewController.h */,
 				4739BBC117FFD5B6004A6500 /* PMPostListingViewController.m */,
+				47A50695180E4B3100243BE6 /* PMAddDescriptionViewController.h */,
+				47A50696180E4B3100243BE6 /* PMAddDescriptionViewController.m */,
 				4739BBE818000C21004A6500 /* PMAddPhotoViewController.h */,
 				4739BBE918000C21004A6500 /* PMAddPhotoViewController.m */,
 			);
@@ -451,6 +492,10 @@
 		4739BC481800CD6A004A6500 /* Tab Bar Items */ = {
 			isa = PBXGroup;
 			children = (
+				47A5068D180D0D5D00243BE6 /* PostAListing_Icon_active.png */,
+				47A5068E180D0D5D00243BE6 /* PostAListing_Icon_active@2x.png */,
+				47A50691180D0D6600243BE6 /* PostAListing_Icon_Inactive.png */,
+				47A50692180D0D6600243BE6 /* PostAListing_Icon_Inactive@2x.png */,
 				4739BC491800CD6A004A6500 /* Inbox_Icon_active.png */,
 				4739BC4A1800CD6A004A6500 /* Inbox_Icon_active@2x.png */,
 				4739BC4B1800CD6A004A6500 /* Inbox_Icon_Inactive.png */,
@@ -459,10 +504,6 @@
 				4739BC4E1800CD6A004A6500 /* Listings_Icon_active@2x.png */,
 				4739BC4F1800CD6A004A6500 /* Listings_Icon_Inactive.png */,
 				4739BC501800CD6A004A6500 /* Listings_Icon_Inactive@2x.png */,
-				4739BC511800CD6A004A6500 /* PostAListing_Icon_active.png */,
-				4739BC521800CD6A004A6500 /* PostAListing_Icon_active@2x.png */,
-				4739BC531800CD6A004A6500 /* PostAListing_Icon_Inactive.png */,
-				4739BC541800CD6A004A6500 /* PostAListing_Icon_Inactive@2x.png */,
 				4739BC551800CD6A004A6500 /* Profile_Icon_active.png */,
 				4739BC561800CD6A004A6500 /* Profile_Icon_active@2x.png */,
 				4739BC571800CD6A004A6500 /* Profile_Icon_Inactive.png */,
@@ -568,6 +609,18 @@
 				47A5066018095A2800243BE6 /* RedNotificationBubble@2x.png */,
 				47A5066818096F3000243BE6 /* LocationPin.png */,
 				47A5066918096F3000243BE6 /* LocationPin@2x.png */,
+				47A50675180B72C500243BE6 /* GreenCheckmarkDoodle.png */,
+				47A50676180B72C500243BE6 /* GreenCheckmarkDoodle@2x.png */,
+				47A50677180B72C500243BE6 /* TrashCanDoodle.png */,
+				47A50678180B72C500243BE6 /* TrashCanDoodle@2x.png */,
+				47A5067D180B72D200243BE6 /* AlarmClockDoodle.png */,
+				47A5067E180B72D200243BE6 /* AlarmClockDoodle@2x.png */,
+				47A5067F180B72D200243BE6 /* EnvelopeDoodle.png */,
+				47A50680180B72D200243BE6 /* EnvelopeDoodle@2x.png */,
+				47A50681180B72D200243BE6 /* PencilDoodle.png */,
+				47A50682180B72D200243BE6 /* PencilDoodle@2x.png */,
+				47A50683180B72D200243BE6 /* SoldRibbon.png */,
+				47A50684180B72D200243BE6 /* SoldRibbon@2x.png */,
 			);
 			name = Listing;
 			sourceTree = "<group>";
@@ -710,6 +763,12 @@
 				4739BBD017FFE1D2004A6500 /* PMCell.m */,
 				47A5066C180A7BE400243BE6 /* PMButton.h */,
 				47A5066D180A7BE400243BE6 /* PMButton.m */,
+				47A50672180B712100243BE6 /* PMManageListingBoxView.h */,
+				47A50673180B712100243BE6 /* PMManageListingBoxView.m */,
+				47A50698180E71D400243BE6 /* PMFormField.h */,
+				47A50699180E71D400243BE6 /* PMFormField.m */,
+				47A5069B1812360C00243BE6 /* PMSingleLineFormField.h */,
+				47A5069C1812360C00243BE6 /* PMSingleLineFormField.m */,
 			);
 			name = View;
 			path = Prospeqt_mobile;
@@ -733,6 +792,8 @@
 		47BBD7FD17E1919B0050814D /* General */ = {
 			isa = PBXGroup;
 			children = (
+				47A5069E18126CD300243BE6 /* PMFormBaseViewController.h */,
+				47A5069F18126CD300243BE6 /* PMFormBaseViewController.m */,
 				474C9A7017E5762A0072012C /* PMBaseViewController.h */,
 				474C9A7117E5762A0072012C /* PMBaseViewController.m */,
 				47BBD7FE17E191AE0050814D /* PMWindowController.h */,
@@ -857,46 +918,56 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47A50690180D0D5D00243BE6 /* PostAListing_Icon_active@2x.png in Resources */,
 				4739BC5D1800CD6A004A6500 /* apparel_icon.png in Resources */,
 				4739BC7C1800CD6A004A6500 /* Profile_Icon_Inactive@2x.png in Resources */,
+				47A5067C180B72C500243BE6 /* TrashCanDoodle@2x.png in Resources */,
 				4739BC6B1800CD6A004A6500 /* interestshobbies_icon.png in Resources */,
 				4739BC7D1800CD6A004A6500 /* Settings_Icon_active.png in Resources */,
-				4739BC781800CD6A004A6500 /* PostAListing_Icon_Inactive@2x.png in Resources */,
+				47A5067A180B72C500243BE6 /* GreenCheckmarkDoodle@2x.png in Resources */,
 				4739BC6A1800CD6A004A6500 /* home_icon@2x.png in Resources */,
 				47A5066218095A2800243BE6 /* RedNotificationBubble@2x.png in Resources */,
 				4739BC721800CD6A004A6500 /* Listings_Icon_active@2x.png in Resources */,
+				47A50694180D0D6600243BE6 /* PostAListing_Icon_Inactive@2x.png in Resources */,
 				4739BC711800CD6A004A6500 /* Listings_Icon_active.png in Resources */,
+				47A5068B180B72D200243BE6 /* SoldRibbon.png in Resources */,
 				4739BC801800CD6A004A6500 /* Settings_Icon_Inactive@2x.png in Resources */,
 				4739BC6E1800CD6A004A6500 /* Inbox_Icon_active@2x.png in Resources */,
 				4739BC691800CD6A004A6500 /* home_icon.png in Resources */,
+				47A50679180B72C500243BE6 /* GreenCheckmarkDoodle.png in Resources */,
 				47A5065D18095A1600243BE6 /* RoundedCornerThumbnail_Mask.png in Resources */,
-				4739BC751800CD6A004A6500 /* PostAListing_Icon_active.png in Resources */,
 				4739BC621800CD6A004A6500 /* books_icon@2x.png in Resources */,
 				47A5065B18095A1600243BE6 /* RoundedCornerThumbnail_Border.png in Resources */,
 				4739BC651800CD6A004A6500 /* electronics_icon.png in Resources */,
 				473D64B5180279B8001B8279 /* CaeciliaLTStd-Light.otf in Resources */,
-				4739BC771800CD6A004A6500 /* PostAListing_Icon_Inactive.png in Resources */,
 				4739BC5E1800CD6A004A6500 /* apparel_icon@2x.png in Resources */,
 				4739BC741800CD6A004A6500 /* Listings_Icon_Inactive@2x.png in Resources */,
 				4739BC661800CD6A004A6500 /* electronics_icon@2x.png in Resources */,
 				4739BC631800CD6A004A6500 /* Default-568h@2x.png in Resources */,
+				47A5068C180B72D200243BE6 /* SoldRibbon@2x.png in Resources */,
+				47A50693180D0D6600243BE6 /* PostAListing_Icon_Inactive.png in Resources */,
 				4739BC5F1800CD6A004A6500 /* Back_Arrow.png in Resources */,
 				4739BC701800CD6A004A6500 /* Inbox_Icon_Inactive@2x.png in Resources */,
 				4739BC731800CD6A004A6500 /* Listings_Icon_Inactive.png in Resources */,
 				4739BBDF17FFF897004A6500 /* Prospeqt_mobile-Info.plist in Resources */,
-				4739BC761800CD6A004A6500 /* PostAListing_Icon_active@2x.png in Resources */,
 				4739BC681800CD6A004A6500 /* healthbeauty_icon@2x.png in Resources */,
 				47BBD7BE17D40E630050814D /* InfoPlist.strings in Resources */,
+				47A5068F180D0D5D00243BE6 /* PostAListing_Icon_active.png in Resources */,
+				47A50689180B72D200243BE6 /* PencilDoodle.png in Resources */,
 				4739BC601800CD6A004A6500 /* Back_Arrow@2x.png in Resources */,
+				47A50686180B72D200243BE6 /* AlarmClockDoodle@2x.png in Resources */,
 				478786C617E6A35B004CCE04 /* Localizable.strings in Resources */,
 				4739BC7B1800CD6A004A6500 /* Profile_Icon_Inactive.png in Resources */,
 				4739BC611800CD6A004A6500 /* books_icon.png in Resources */,
+				47A50687180B72D200243BE6 /* EnvelopeDoodle.png in Resources */,
+				47A50688180B72D200243BE6 /* EnvelopeDoodle@2x.png in Resources */,
 				473D64AF180279B0001B8279 /* CaeciliaLTStd-Roman.otf in Resources */,
 				473D64B3180279B3001B8279 /* Futura_Extended.otf in Resources */,
 				4739BC671800CD6A004A6500 /* healthbeauty_icon.png in Resources */,
 				4739BC7F1800CD6A004A6500 /* Settings_Icon_Inactive.png in Resources */,
 				47A5065E18095A1600243BE6 /* RoundedCornerThumbnail_Mask@2x.png in Resources */,
 				4739BC7E1800CD6A004A6500 /* Settings_Icon_active@2x.png in Resources */,
+				47A5067B180B72C500243BE6 /* TrashCanDoodle.png in Resources */,
 				4739BC7A1800CD6A004A6500 /* Profile_Icon_active@2x.png in Resources */,
 				47A5066B18096F3000243BE6 /* LocationPin@2x.png in Resources */,
 				47A5065C18095A1600243BE6 /* RoundedCornerThumbnail_Border@2x.png in Resources */,
@@ -906,8 +977,10 @@
 				4739BC6F1800CD6A004A6500 /* Inbox_Icon_Inactive.png in Resources */,
 				47A5066A18096F3000243BE6 /* LocationPin.png in Resources */,
 				4739BC791800CD6A004A6500 /* Profile_Icon_active.png in Resources */,
+				47A5068A180B72D200243BE6 /* PencilDoodle@2x.png in Resources */,
 				4739BC6D1800CD6A004A6500 /* Inbox_Icon_active.png in Resources */,
 				473D64B4180279B6001B8279 /* Futura_Light.otf in Resources */,
+				47A50685180B72D200243BE6 /* AlarmClockDoodle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,6 +1032,7 @@
 				4739BC8F1800D853004A6500 /* UIColor+PMAppearance.m in Sources */,
 				4739BBCE17FFDE57004A6500 /* PMCategoryCell.m in Sources */,
 				47A5066E180A7BE400243BE6 /* PMButton.m in Sources */,
+				47A506A018126CD300243BE6 /* PMFormBaseViewController.m in Sources */,
 				47BBD7C017D40E630050814D /* main.m in Sources */,
 				4739BC911800D853004A6500 /* UIImage+PMColor.m in Sources */,
 				478786D617E6B034004CCE04 /* PMTermsOfServiceViewController.m in Sources */,
@@ -981,17 +1055,21 @@
 				473D64A418013DA0001B8279 /* NSPersistentStoreCoordinator+PMDataStack.m in Sources */,
 				474C9A6C17E5751A0072012C /* PMSettingsViewController.m in Sources */,
 				474C9A7217E5762A0072012C /* PMBaseViewController.m in Sources */,
+				47A5069D1812360C00243BE6 /* PMSingleLineFormField.m in Sources */,
 				4739BC331800CB50004A6500 /* _PMListing.m in Sources */,
 				4739BB7317FD531D004A6500 /* PMListingCell.m in Sources */,
 				47BBD7F117D423440050814D /* PMNetworkController.m in Sources */,
+				47A5069A180E71D400243BE6 /* PMFormField.m in Sources */,
 				473D64AA18013F87001B8279 /* NSManagedObjectContext+PMDataStack.m in Sources */,
 				4739BC941800D87B004A6500 /* NSManagedObjectModel+PMDataStack.m in Sources */,
+				47A50674180B712100243BE6 /* PMManageListingBoxView.m in Sources */,
 				474C9A7817E576DA0072012C /* PMEnvironment.m in Sources */,
 				47BBD7F717D424940050814D /* PMAPIEnvironment.m in Sources */,
 				47BBD80017E191AE0050814D /* PMWindowController.m in Sources */,
 				474C9A6617E574F60072012C /* PMProfileViewController.m in Sources */,
 				4739BC901800D853004A6500 /* UIFont+PMAppearance.m in Sources */,
 				474C9A7B17E5773B0072012C /* PMAppearance.m in Sources */,
+				47A50697180E4B3100243BE6 /* PMAddDescriptionViewController.m in Sources */,
 				47A50667180967FA00243BE6 /* PMManageListingViewController.m in Sources */,
 				4739BC361800CB50004A6500 /* PMUser.m in Sources */,
 			);

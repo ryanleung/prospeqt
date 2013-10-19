@@ -4,6 +4,10 @@
 #import "_PMUser.h"
 
 const struct PMUserAttributes PMUserAttributes = {
+	.city = @"city",
+	.info = @"info",
+	.rating = @"rating",
+	.state = @"state",
 	.username = @"username",
 };
 
@@ -40,9 +44,61 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"ratingValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"rating"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic city;
+
+
+
+
+
+
+@dynamic info;
+
+
+
+
+
+
+@dynamic rating;
+
+
+
+- (int16_t)ratingValue {
+	NSNumber *result = [self rating];
+	return [result shortValue];
+}
+
+- (void)setRatingValue:(int16_t)value_ {
+	[self setRating:[NSNumber numberWithShort:value_]];
+}
+
+- (int16_t)primitiveRatingValue {
+	NSNumber *result = [self primitiveRating];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveRatingValue:(int16_t)value_ {
+	[self setPrimitiveRating:[NSNumber numberWithShort:value_]];
+}
+
+
+
+
+
+@dynamic state;
+
+
 
 
 
