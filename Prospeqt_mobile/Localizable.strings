@@ -9,6 +9,9 @@
 "global.backButton" = "";
 "global.locationFormat" = "%@, %@";
 "global.save" = "Save";
+"global.next" = "Next";
+"global.defaultErrorTitle" = "Error";
+"global.confirm" = "OK";
 
 "button.postedFormat" = "Posted %@";
 "button.delete" = "DELETE";
@@ -43,3 +46,8 @@
 "addDescription.form.nameListing" = "Name your listing:";
 "addDescription.form.describe" = "Describe the item:";
 "addDescription.form.setPrice" = "Set the price:";
+"addDescription.placeholder.listingName" = "What do you want to call this?";
+"addDescription.placeholder.price" = "$0.00";
+"addDescription.placeholder.nameTitle" = "Name your listing:";
+"addDescription.placeholder.priceTitle" = "Set the price:";
+"addDescription.View.missingFields" = "Fields not filled out correctly";

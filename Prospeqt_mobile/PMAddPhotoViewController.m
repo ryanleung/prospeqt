@@ -26,8 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    [self presentViewController:imagePickerController animated:YES completion:nil];
+//    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+//    [self presentViewController:imagePickerController animated:YES completion:nil];
 	// Do any additional setup after loading the view.
 }
 

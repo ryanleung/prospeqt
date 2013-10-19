@@ -23,20 +23,20 @@
         
         UIView *rightBorderView = [UIView new];
         rightBorderView.translatesAutoresizingMaskIntoConstraints = NO;
-        rightBorderView.backgroundColor = [UIColor pm_grayLightColor];
+        rightBorderView.backgroundColor = [UIColor pm_grayMediumColor];
         rightBorderView.hidden = YES;
         [self addSubview:rightBorderView];
         self.rightBorderView = rightBorderView;
         
         UIView *topBorderView = [UIView new];
         topBorderView.translatesAutoresizingMaskIntoConstraints = NO;
-        topBorderView.backgroundColor = [UIColor pm_grayLightColor];
+        topBorderView.backgroundColor = [UIColor pm_grayMediumColor];
         [self addSubview:topBorderView];
         self.topBorderView = topBorderView;
         
         UIView *bottomBorderView = [UIView new];
         bottomBorderView.translatesAutoresizingMaskIntoConstraints = NO;
-        bottomBorderView.backgroundColor = [UIColor pm_grayLightColor];
+        bottomBorderView.backgroundColor = [UIColor pm_grayMediumColor];
         [self addSubview:bottomBorderView];
         self.bottomBorderView = bottomBorderView;
         
