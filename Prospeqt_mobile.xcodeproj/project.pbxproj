@@ -87,6 +87,13 @@
 		474C9A7217E5762A0072012C /* PMBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A7117E5762A0072012C /* PMBaseViewController.m */; };
 		474C9A7817E576DA0072012C /* PMEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A7717E576DA0072012C /* PMEnvironment.m */; };
 		474C9A7B17E5773B0072012C /* PMAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 474C9A7A17E5773B0072012C /* PMAppearance.m */; };
+		4753DB291813631600F8D128 /* PMAddDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4753DB281813631600F8D128 /* PMAddDescriptionViewController.m */; };
+		4753DB2B1813659200F8D128 /* App_Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4753DB2A1813659200F8D128 /* App_Icon.png */; };
+		4753DB2E18139CB900F8D128 /* PMFinalizePostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4753DB2D18139CB900F8D128 /* PMFinalizePostViewController.m */; };
+		4753DB311813A2C000F8D128 /* PMSitePostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4753DB301813A2C000F8D128 /* PMSitePostCell.m */; };
+		4753DB341813A36200F8D128 /* PMAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4753DB331813A36200F8D128 /* PMAddressCell.m */; };
+		4753DB371813AA0E00F8D128 /* Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 4753DB351813AA0E00F8D128 /* Checkmark.png */; };
+		4753DB381813AA0E00F8D128 /* Checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4753DB361813AA0E00F8D128 /* Checkmark@2x.png */; };
 		478786C617E6A35B004CCE04 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 478786C517E6A35B004CCE04 /* Localizable.strings */; };
 		478786CA17E6AFBB004CCE04 /* PMAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786C917E6AFBB004CCE04 /* PMAuthViewController.m */; };
 		478786CD17E6AFF7004CCE04 /* PMSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786CC17E6AFF7004CCE04 /* PMSignInViewController.m */; };
@@ -122,7 +129,7 @@
 		47A50690180D0D5D00243BE6 /* PostAListing_Icon_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5068E180D0D5D00243BE6 /* PostAListing_Icon_active@2x.png */; };
 		47A50693180D0D6600243BE6 /* PostAListing_Icon_Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50691180D0D6600243BE6 /* PostAListing_Icon_Inactive.png */; };
 		47A50694180D0D6600243BE6 /* PostAListing_Icon_Inactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A50692180D0D6600243BE6 /* PostAListing_Icon_Inactive@2x.png */; };
-		47A50697180E4B3100243BE6 /* PMAddDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A50696180E4B3100243BE6 /* PMAddDescriptionViewController.m */; };
+		47A50697180E4B3100243BE6 /* PMAddTitleAndPriceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A50696180E4B3100243BE6 /* PMAddTitleAndPriceViewController.m */; };
 		47A5069A180E71D400243BE6 /* PMFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A50699180E71D400243BE6 /* PMFormField.m */; };
 		47A5069D1812360C00243BE6 /* PMSingleLineFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A5069C1812360C00243BE6 /* PMSingleLineFormField.m */; };
 		47A506A018126CD300243BE6 /* PMFormBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A5069F18126CD300243BE6 /* PMFormBaseViewController.m */; };
@@ -285,6 +292,17 @@
 		474C9A7717E576DA0072012C /* PMEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMEnvironment.m; sourceTree = "<group>"; };
 		474C9A7917E5773B0072012C /* PMAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAppearance.h; sourceTree = "<group>"; };
 		474C9A7A17E5773B0072012C /* PMAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAppearance.m; sourceTree = "<group>"; };
+		4753DB271813631600F8D128 /* PMAddDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMAddDescriptionViewController.h; path = Controllers/PMAddDescriptionViewController.h; sourceTree = "<group>"; };
+		4753DB281813631600F8D128 /* PMAddDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMAddDescriptionViewController.m; path = Controllers/PMAddDescriptionViewController.m; sourceTree = "<group>"; };
+		4753DB2A1813659200F8D128 /* App_Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = App_Icon.png; sourceTree = "<group>"; };
+		4753DB2C18139CB900F8D128 /* PMFinalizePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMFinalizePostViewController.h; path = Controllers/PMFinalizePostViewController.h; sourceTree = "<group>"; };
+		4753DB2D18139CB900F8D128 /* PMFinalizePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMFinalizePostViewController.m; path = Controllers/PMFinalizePostViewController.m; sourceTree = "<group>"; };
+		4753DB2F1813A2C000F8D128 /* PMSitePostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMSitePostCell.h; path = Views/PMSitePostCell.h; sourceTree = "<group>"; };
+		4753DB301813A2C000F8D128 /* PMSitePostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMSitePostCell.m; path = Views/PMSitePostCell.m; sourceTree = "<group>"; };
+		4753DB321813A36200F8D128 /* PMAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMAddressCell.h; path = Views/PMAddressCell.h; sourceTree = "<group>"; };
+		4753DB331813A36200F8D128 /* PMAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMAddressCell.m; path = Views/PMAddressCell.m; sourceTree = "<group>"; };
+		4753DB351813AA0E00F8D128 /* Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Checkmark.png; sourceTree = "<group>"; };
+		4753DB361813AA0E00F8D128 /* Checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Checkmark@2x.png"; sourceTree = "<group>"; };
 		478786C517E6A35B004CCE04 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		478786C817E6AFBB004CCE04 /* PMAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAuthViewController.h; sourceTree = "<group>"; };
 		478786C917E6AFBB004CCE04 /* PMAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAuthViewController.m; sourceTree = "<group>"; };
@@ -331,8 +349,8 @@
 		47A5068E180D0D5D00243BE6 /* PostAListing_Icon_active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PostAListing_Icon_active@2x.png"; sourceTree = "<group>"; };
 		47A50691180D0D6600243BE6 /* PostAListing_Icon_Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PostAListing_Icon_Inactive.png; sourceTree = "<group>"; };
 		47A50692180D0D6600243BE6 /* PostAListing_Icon_Inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PostAListing_Icon_Inactive@2x.png"; sourceTree = "<group>"; };
-		47A50695180E4B3100243BE6 /* PMAddDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAddDescriptionViewController.h; sourceTree = "<group>"; };
-		47A50696180E4B3100243BE6 /* PMAddDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAddDescriptionViewController.m; sourceTree = "<group>"; };
+		47A50695180E4B3100243BE6 /* PMAddTitleAndPriceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAddTitleAndPriceViewController.h; sourceTree = "<group>"; };
+		47A50696180E4B3100243BE6 /* PMAddTitleAndPriceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAddTitleAndPriceViewController.m; sourceTree = "<group>"; };
 		47A50698180E71D400243BE6 /* PMFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMFormField.h; path = Views/PMFormField.h; sourceTree = "<group>"; };
 		47A50699180E71D400243BE6 /* PMFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMFormField.m; path = Views/PMFormField.m; sourceTree = "<group>"; };
 		47A5069B1812360C00243BE6 /* PMSingleLineFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMSingleLineFormField.h; path = Views/PMSingleLineFormField.h; sourceTree = "<group>"; };
@@ -404,6 +422,7 @@
 		4739BB7417FE9F0F004A6500 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4753DB2A1813659200F8D128 /* App_Icon.png */,
 				4739BBD217FFEB28004A6500 /* Fonts */,
 				4739BB7517FE9F23004A6500 /* Images */,
 			);
@@ -443,10 +462,14 @@
 			children = (
 				4739BBC017FFD5B6004A6500 /* PMPostListingViewController.h */,
 				4739BBC117FFD5B6004A6500 /* PMPostListingViewController.m */,
-				47A50695180E4B3100243BE6 /* PMAddDescriptionViewController.h */,
-				47A50696180E4B3100243BE6 /* PMAddDescriptionViewController.m */,
+				47A50695180E4B3100243BE6 /* PMAddTitleAndPriceViewController.h */,
+				47A50696180E4B3100243BE6 /* PMAddTitleAndPriceViewController.m */,
 				4739BBE818000C21004A6500 /* PMAddPhotoViewController.h */,
 				4739BBE918000C21004A6500 /* PMAddPhotoViewController.m */,
+				4753DB271813631600F8D128 /* PMAddDescriptionViewController.h */,
+				4753DB281813631600F8D128 /* PMAddDescriptionViewController.m */,
+				4753DB2C18139CB900F8D128 /* PMFinalizePostViewController.h */,
+				4753DB2D18139CB900F8D128 /* PMFinalizePostViewController.m */,
 			);
 			name = "Post a Listing";
 			sourceTree = "<group>";
@@ -637,6 +660,8 @@
 		47A6503118129DCC00786E73 /* Post Listing */ = {
 			isa = PBXGroup;
 			children = (
+				4753DB351813AA0E00F8D128 /* Checkmark.png */,
+				4753DB361813AA0E00F8D128 /* Checkmark@2x.png */,
 				47A6503518129DDA00786E73 /* CameraBox.png */,
 				47A6503618129DDA00786E73 /* CameraBox@2x.png */,
 				47A6503918129E0C00786E73 /* PhotoFrame.png */,
@@ -789,6 +814,10 @@
 				47A50699180E71D400243BE6 /* PMFormField.m */,
 				47A5069B1812360C00243BE6 /* PMSingleLineFormField.h */,
 				47A5069C1812360C00243BE6 /* PMSingleLineFormField.m */,
+				4753DB2F1813A2C000F8D128 /* PMSitePostCell.h */,
+				4753DB301813A2C000F8D128 /* PMSitePostCell.m */,
+				4753DB321813A36200F8D128 /* PMAddressCell.h */,
+				4753DB331813A36200F8D128 /* PMAddressCell.m */,
 			);
 			name = View;
 			path = Prospeqt_mobile;
@@ -956,8 +985,10 @@
 				4739BC691800CD6A004A6500 /* home_icon.png in Resources */,
 				47A50679180B72C500243BE6 /* GreenCheckmarkDoodle.png in Resources */,
 				47A5065D18095A1600243BE6 /* RoundedCornerThumbnail_Mask.png in Resources */,
+				4753DB371813AA0E00F8D128 /* Checkmark.png in Resources */,
 				4739BC621800CD6A004A6500 /* books_icon@2x.png in Resources */,
 				47A5065B18095A1600243BE6 /* RoundedCornerThumbnail_Border.png in Resources */,
+				4753DB2B1813659200F8D128 /* App_Icon.png in Resources */,
 				4739BC651800CD6A004A6500 /* electronics_icon.png in Resources */,
 				473D64B5180279B8001B8279 /* CaeciliaLTStd-Light.otf in Resources */,
 				4739BC5E1800CD6A004A6500 /* apparel_icon@2x.png in Resources */,
@@ -980,6 +1011,7 @@
 				4739BC7B1800CD6A004A6500 /* Profile_Icon_Inactive.png in Resources */,
 				4739BC611800CD6A004A6500 /* books_icon.png in Resources */,
 				47A50687180B72D200243BE6 /* EnvelopeDoodle.png in Resources */,
+				4753DB381813AA0E00F8D128 /* Checkmark@2x.png in Resources */,
 				47A50688180B72D200243BE6 /* EnvelopeDoodle@2x.png in Resources */,
 				473D64AF180279B0001B8279 /* CaeciliaLTStd-Roman.otf in Resources */,
 				473D64B3180279B3001B8279 /* Futura_Extended.otf in Resources */,
@@ -1060,10 +1092,12 @@
 				47BBD7C017D40E630050814D /* main.m in Sources */,
 				4739BC911800D853004A6500 /* UIImage+PMColor.m in Sources */,
 				478786D617E6B034004CCE04 /* PMTermsOfServiceViewController.m in Sources */,
+				4753DB291813631600F8D128 /* PMAddDescriptionViewController.m in Sources */,
 				4739BBEA18000C21004A6500 /* PMAddPhotoViewController.m in Sources */,
 				4739BBC217FFD5B6004A6500 /* PMPostListingViewController.m in Sources */,
 				4739BC341800CB50004A6500 /* _PMUser.m in Sources */,
 				474C9A6917E575070072012C /* PMMessagesViewController.m in Sources */,
+				4753DB341813A36200F8D128 /* PMAddressCell.m in Sources */,
 				478786D917E6BD30004CCE04 /* PMAuthNavigationController.m in Sources */,
 				4739BBCB17FFDB62004A6500 /* PMTitleCell.m in Sources */,
 				478786CD17E6AFF7004CCE04 /* PMSignInViewController.m in Sources */,
@@ -1078,6 +1112,7 @@
 				478786D317E6B02C004CCE04 /* PMForgotPasswordViewController.m in Sources */,
 				473D64A418013DA0001B8279 /* NSPersistentStoreCoordinator+PMDataStack.m in Sources */,
 				474C9A6C17E5751A0072012C /* PMSettingsViewController.m in Sources */,
+				4753DB2E18139CB900F8D128 /* PMFinalizePostViewController.m in Sources */,
 				474C9A7217E5762A0072012C /* PMBaseViewController.m in Sources */,
 				47A5069D1812360C00243BE6 /* PMSingleLineFormField.m in Sources */,
 				4739BC331800CB50004A6500 /* _PMListing.m in Sources */,
@@ -1086,6 +1121,7 @@
 				47A5069A180E71D400243BE6 /* PMFormField.m in Sources */,
 				473D64AA18013F87001B8279 /* NSManagedObjectContext+PMDataStack.m in Sources */,
 				4739BC941800D87B004A6500 /* NSManagedObjectModel+PMDataStack.m in Sources */,
+				4753DB311813A2C000F8D128 /* PMSitePostCell.m in Sources */,
 				47A50674180B712100243BE6 /* PMManageListingBoxView.m in Sources */,
 				474C9A7817E576DA0072012C /* PMEnvironment.m in Sources */,
 				47BBD7F717D424940050814D /* PMAPIEnvironment.m in Sources */,
@@ -1093,7 +1129,7 @@
 				474C9A6617E574F60072012C /* PMProfileViewController.m in Sources */,
 				4739BC901800D853004A6500 /* UIFont+PMAppearance.m in Sources */,
 				474C9A7B17E5773B0072012C /* PMAppearance.m in Sources */,
-				47A50697180E4B3100243BE6 /* PMAddDescriptionViewController.m in Sources */,
+				47A50697180E4B3100243BE6 /* PMAddTitleAndPriceViewController.m in Sources */,
 				47A50667180967FA00243BE6 /* PMManageListingViewController.m in Sources */,
 				4739BC361800CB50004A6500 /* PMUser.m in Sources */,
 			);

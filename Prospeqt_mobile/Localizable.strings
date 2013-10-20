@@ -12,6 +12,7 @@
 "global.next" = "Next";
 "global.defaultErrorTitle" = "Error";
 "global.confirm" = "OK";
+"global.post" = "Post";
 
 "button.postedFormat" = "Posted %@";
 "button.delete" = "DELETE";
@@ -50,4 +51,16 @@
 "addDescription.placeholder.price" = "$0.00";
 "addDescription.placeholder.nameTitle" = "Name your listing:";
 "addDescription.placeholder.priceTitle" = "Set the price:";
+"addDescription.placeholder.description" = "What is it?\nWhat condition is it in?\nIs there anything wrong with it?";
+"addDescription.placeholder.descriptionTitle" = "Describe the item:";
 "addDescription.View.missingFields" = "Fields not filled out correctly";
+
+"finalizePost.title" = "Finalize Post";
+"finalizePost.meet.title" = "Where should the buyer meet you?";
+"finalizePost.address.default" = "Choose Address";
+"finalizePost.address.notes" = "Pick a public place!\nOnly buyers you've agreed to meet see this.";
+"finalizePost.sitePost.title" = "Where else should we post your item?";
+"finalizePost.craigslist" = "CRAIGSLIST";
+"finalizePost.ffs" = "FREE & FOR SALE";
+"finalizePost.facebook" = "FACEBOOK TIMELINE";
+"finalizePost.post" = "+POST";

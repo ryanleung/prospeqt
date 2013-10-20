@@ -1,21 +1,21 @@
 //
-//  PMAddDescriptionViewController.m
+//  PMAddTitleAndPriceViewController.m
 //  Prospeqt_mobile
 //
 //  Created by Ryan Leung on 10/15/13.
 //  Copyright (c) 2013 Prospeqt. All rights reserved.
 //
 
-#import "PMAddDescriptionViewController.h"
+#import "PMAddTitleAndPriceViewController.h"
 #import "PMSingleLineFormField.h"
 #import "PMAddPhotoViewController.h"
 
-@interface PMAddDescriptionViewController () <UITextFieldDelegate>
+@interface PMAddTitleAndPriceViewController () <UITextFieldDelegate>
 @property (nonatomic, weak) PMSingleLineFormField *listingNameField;
 @property (nonatomic, weak) PMSingleLineFormField *priceField;
 @end
 
-@implementation PMAddDescriptionViewController
+@implementation PMAddTitleAndPriceViewController
 
 - (void)viewDidLoad
 {
@@ -74,15 +74,15 @@
 
 - (void)formAction
 {
-    if (![self validateSingleLineFieldsWithError:NULL]) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"Error Title") message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm title") otherButtonTitles:nil];
-        alertView.message = NSLocalizedString(@"addDescription.View.missingFields", @"Missing fields error message");
-        [alertView show];
-    } else {
+//    if (![self validateSingleLineFieldsWithError:NULL]) {
+//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"Error Title") message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm title") otherButtonTitles:nil];
+//        alertView.message = NSLocalizedString(@"addDescription.View.missingFields", @"Missing fields error message");
+//        [alertView show];
+//    } else {
         // TODO: take all of the fields and pass it on
         PMAddPhotoViewController *addPhotoViewController = [[PMAddPhotoViewController alloc] initWithNibName:nil bundle:nil];
         [self.navigationController pushViewController:addPhotoViewController animated:YES];
-    }
+//    }
 }
 
 @end

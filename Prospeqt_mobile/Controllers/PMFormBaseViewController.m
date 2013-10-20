@@ -21,6 +21,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"global.save", @"Save button") style:UIBarButtonItemStylePlain target:self action:@selector(formAction)];
     UIScrollView *scrollView = [UIScrollView new];
     scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    scrollView.scrollEnabled = YES;
+    scrollView.alwaysBounceVertical = YES;
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
     
@@ -34,7 +36,6 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard)];
-    
     [self.view addGestureRecognizer:tap];
 }
 

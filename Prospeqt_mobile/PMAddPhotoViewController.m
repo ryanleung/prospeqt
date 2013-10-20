@@ -10,6 +10,7 @@
 #import "UIImage+PMColor.h"
 #import <RestKit/UIImageView+AFNetworking.h>
 #import <QuartzCore/QuartzCore.h>
+#import "PMAddDescriptionViewController.h"
 
 static const CGFloat kPMBorderWidth = 5.0f;
 
@@ -120,6 +121,11 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
     }
 }
 
-
+- (void)formAction
+{
+    // TODO: take all of the fields and pass it on
+    PMAddDescriptionViewController *addDescriptionViewController = [[PMAddDescriptionViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:addDescriptionViewController animated:YES];
+}
 
 @end
