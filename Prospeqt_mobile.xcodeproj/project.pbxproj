@@ -126,6 +126,10 @@
 		47A5069A180E71D400243BE6 /* PMFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A50699180E71D400243BE6 /* PMFormField.m */; };
 		47A5069D1812360C00243BE6 /* PMSingleLineFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A5069C1812360C00243BE6 /* PMSingleLineFormField.m */; };
 		47A506A018126CD300243BE6 /* PMFormBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A5069F18126CD300243BE6 /* PMFormBaseViewController.m */; };
+		47A6503718129DDA00786E73 /* CameraBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A6503518129DDA00786E73 /* CameraBox.png */; };
+		47A6503818129DDA00786E73 /* CameraBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A6503618129DDA00786E73 /* CameraBox@2x.png */; };
+		47A6503B18129E0C00786E73 /* PhotoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A6503918129E0C00786E73 /* PhotoFrame.png */; };
+		47A6503C18129E0C00786E73 /* PhotoFrame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A6503A18129E0C00786E73 /* PhotoFrame@2x.png */; };
 		47BBD7B217D40E630050814D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B117D40E630050814D /* UIKit.framework */; };
 		47BBD7B417D40E630050814D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B317D40E630050814D /* Foundation.framework */; };
 		47BBD7B617D40E630050814D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B517D40E630050814D /* CoreGraphics.framework */; };
@@ -335,6 +339,10 @@
 		47A5069C1812360C00243BE6 /* PMSingleLineFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMSingleLineFormField.m; path = Views/PMSingleLineFormField.m; sourceTree = "<group>"; };
 		47A5069E18126CD300243BE6 /* PMFormBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMFormBaseViewController.h; path = Controllers/PMFormBaseViewController.h; sourceTree = "<group>"; };
 		47A5069F18126CD300243BE6 /* PMFormBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMFormBaseViewController.m; path = Controllers/PMFormBaseViewController.m; sourceTree = "<group>"; };
+		47A6503518129DDA00786E73 /* CameraBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraBox.png; sourceTree = "<group>"; };
+		47A6503618129DDA00786E73 /* CameraBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CameraBox@2x.png"; sourceTree = "<group>"; };
+		47A6503918129E0C00786E73 /* PhotoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PhotoFrame.png; sourceTree = "<group>"; };
+		47A6503A18129E0C00786E73 /* PhotoFrame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PhotoFrame@2x.png"; sourceTree = "<group>"; };
 		47BBD7AE17D40E630050814D /* Prospeqt_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prospeqt_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47BBD7B117D40E630050814D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		47BBD7B317D40E630050814D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -406,6 +414,7 @@
 		4739BB7517FE9F23004A6500 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				47A6503118129DCC00786E73 /* Post Listing */,
 				47A50656180959D800243BE6 /* Listing */,
 				4739BC371800CD6A004A6500 /* Listing Category Icons */,
 				4739BC481800CD6A004A6500 /* Tab Bar Items */,
@@ -623,6 +632,17 @@
 				47A50684180B72D200243BE6 /* SoldRibbon@2x.png */,
 			);
 			name = Listing;
+			sourceTree = "<group>";
+		};
+		47A6503118129DCC00786E73 /* Post Listing */ = {
+			isa = PBXGroup;
+			children = (
+				47A6503518129DDA00786E73 /* CameraBox.png */,
+				47A6503618129DDA00786E73 /* CameraBox@2x.png */,
+				47A6503918129E0C00786E73 /* PhotoFrame.png */,
+				47A6503A18129E0C00786E73 /* PhotoFrame@2x.png */,
+			);
+			name = "Post Listing";
 			sourceTree = "<group>";
 		};
 		47BBD7A517D40E630050814D = {
@@ -968,6 +988,7 @@
 				47A5065E18095A1600243BE6 /* RoundedCornerThumbnail_Mask@2x.png in Resources */,
 				4739BC7E1800CD6A004A6500 /* Settings_Icon_active@2x.png in Resources */,
 				47A5067B180B72C500243BE6 /* TrashCanDoodle.png in Resources */,
+				47A6503718129DDA00786E73 /* CameraBox.png in Resources */,
 				4739BC7A1800CD6A004A6500 /* Profile_Icon_active@2x.png in Resources */,
 				47A5066B18096F3000243BE6 /* LocationPin@2x.png in Resources */,
 				47A5065C18095A1600243BE6 /* RoundedCornerThumbnail_Border@2x.png in Resources */,
@@ -975,12 +996,15 @@
 				47A5066118095A2800243BE6 /* RedNotificationBubble.png in Resources */,
 				4739BC6C1800CD6A004A6500 /* interestshobbies_icon@2x.png in Resources */,
 				4739BC6F1800CD6A004A6500 /* Inbox_Icon_Inactive.png in Resources */,
+				47A6503B18129E0C00786E73 /* PhotoFrame.png in Resources */,
+				47A6503C18129E0C00786E73 /* PhotoFrame@2x.png in Resources */,
 				47A5066A18096F3000243BE6 /* LocationPin.png in Resources */,
 				4739BC791800CD6A004A6500 /* Profile_Icon_active.png in Resources */,
 				47A5068A180B72D200243BE6 /* PencilDoodle@2x.png in Resources */,
 				4739BC6D1800CD6A004A6500 /* Inbox_Icon_active.png in Resources */,
 				473D64B4180279B6001B8279 /* Futura_Light.otf in Resources */,
 				47A50685180B72D200243BE6 /* AlarmClockDoodle.png in Resources */,
+				47A6503818129DDA00786E73 /* CameraBox@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

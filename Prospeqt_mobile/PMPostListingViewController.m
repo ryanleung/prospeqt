@@ -40,7 +40,7 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar.postListing.title", @"Post Listing") image:[[UIImage imageNamed:@"PostAListing_Icon_Inactive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"PostAListing_Icon_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        tableView.scrollEnabled = NO;
+        tableView.scrollEnabled = YES;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         tableView.delegate = self;

@@ -11,5 +11,5 @@
 @interface UIImage (PMColor)
 
 + (UIImage *)imageWithColor:(UIColor *)color;
-
+- (UIImage *)imageByApplyingAlpha:(CGFloat) alpha;
 @end
