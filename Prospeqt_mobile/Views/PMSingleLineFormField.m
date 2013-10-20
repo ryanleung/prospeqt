@@ -8,6 +8,8 @@
 
 #import "PMSingleLineFormField.h"
 
+@interface PMSingleLineFormField()<UITextFieldDelegate>
+@end
 @implementation PMSingleLineFormField
 
 - (id)initWithFrame:(CGRect)frame
@@ -15,7 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         UITextField *textField = [UITextField new];
-        textField.font = [UIFont pm_futuraLightFontWithSize:15.0f];
+        textField.font = [UIFont pm_futuraLightFontWithSize:20.0f];
         textField.textColor = [UIColor pm_grayDarkColor];
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;

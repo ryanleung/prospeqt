@@ -8,6 +8,6 @@
 
 #import "PMFormField.h"
 
-@interface PMSingleLineFormField : PMFormField <UITextFieldDelegate>
+@interface PMSingleLineFormField : PMFormField
 @property (nonatomic, weak) UITextField *textField;
 @end

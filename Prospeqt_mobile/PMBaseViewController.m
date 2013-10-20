@@ -73,6 +73,19 @@
     return _networkController;
 }
 
+
+#pragma mark - Status bar
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation
+{
+    return UIStatusBarAnimationFade;
+}
+
 - (CGFloat)pm_topInset
 {
     if ([self respondsToSelector:@selector(topLayoutGuide)]) {

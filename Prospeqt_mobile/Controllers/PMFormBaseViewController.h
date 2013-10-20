@@ -8,10 +8,11 @@
 
 #import "PMBaseViewController.h"
 #import "PMFormField.h"
+#import "PMSingleLineFormField.h"
 
 static const CGFloat kPMBottomBarInset = 15.0f;
 
-@interface PMFormBaseViewController : PMBaseViewController
+@interface PMFormBaseViewController : PMBaseViewController <PMFormFieldDelegate>
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, weak) UIView *contentView;
 @property (nonatomic, strong) NSArray *formFields;
@@ -30,7 +31,7 @@ static const CGFloat kPMBottomBarInset = 15.0f;
 /**
  @discussion checks all fields added to formFields and verifies if they are not empty if required
  */
-- (BOOL)validateFieldsWithError:(NSError *__autoreleasing *)error;
+- (BOOL)validateSingleLineFieldsWithError:(NSError *__autoreleasing *)error;
 
 - (void)bindLeftEdgeOfView:(UIView *)view toView:(UIView *)toView;
 - (void)bindRightEdgeOfView:(UIView *)view toView:(UIView *)toView;

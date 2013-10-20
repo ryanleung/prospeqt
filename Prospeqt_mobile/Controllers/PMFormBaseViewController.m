@@ -21,6 +21,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"global.save", @"Save button") style:UIBarButtonItemStylePlain target:self action:@selector(formAction)];
     UIScrollView *scrollView = [UIScrollView new];
     scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    scrollView.scrollEnabled = YES;
+    scrollView.alwaysBounceVertical = YES;
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
     
@@ -31,6 +33,10 @@
     NSDictionary *views = NSDictionaryOfVariableBindings(scrollView);
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[scrollView]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[scrollView]|" options:0 metrics:nil views:views]];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -48,6 +54,11 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)dismissKeyboard
+{
+    [self cancelField];
 }
 
 #pragma mark LUVFormFieldDelegate
@@ -89,12 +100,12 @@
     //Intentionally left blank, override in subclass
 }
 
-- (BOOL)validateFieldsWithError:(NSError **)error
+- (BOOL)validateSingleLineFieldsWithError:(NSError **)error
 {
     BOOL isValid = YES;
-    for (PMFormField *formField in self.formFields){
+    for (PMSingleLineFormField *formField in self.formFields){
         if ([formField respondsToSelector:@selector(required)]) {
-            if (formField.required && formField.hasValue) {
+            if (formField.required && formField.textField.text.length == 0) {
                 isValid = NO;
             }
         }

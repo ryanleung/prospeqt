@@ -38,6 +38,18 @@
     self.titleLabel.font = [UIFont pm_futuraLightFontWithSize:15.0];
 }
 
+- (void)applyPostButton
+{
+    self.titleLabel.font = [UIFont pm_futuraExtendedFontWithSize:18.0f];
+    
+    [self setTitle:NSLocalizedString(@"finalizePost.post", @"Post") forState:UIControlStateNormal];
+    [self setTitle:@"" forState:UIControlStateSelected];
+    
+    [self setImage:[UIImage imageNamed:@"Checkmark"] forState:UIControlStateSelected];
+    
+    [self setTitleColor:[UIColor pm_orangeColor] forState:UIControlStateNormal];
+}
+
 + (PMButton *)pm_postedDateButton
 {
     PMButton *dateButton = [PMButton buttonWithType:UIButtonTypeCustom];
@@ -57,6 +69,13 @@
     PMButton *deleteButton = [PMButton buttonWithType:UIButtonTypeCustom];
     [deleteButton applyDeleteButton];
     return deleteButton;
+}
+
++ (PMButton *)pm_postButton
+{
+    PMButton *postButton = [PMButton buttonWithType:UIButtonTypeCustom];
+    [postButton applyPostButton];
+    return postButton;
 }
 
 @end

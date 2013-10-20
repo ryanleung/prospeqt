@@ -10,7 +10,7 @@
 #import "PMTitleCell.h"
 #import "PMCategoryCell.h"
 #import "PMAddPhotoViewController.h"
-#import "PMAddDescriptionViewController.h"
+#import "PMAddTitleAndPriceViewController.h"
 
 typedef NS_ENUM(NSUInteger, PMCategoryCellType) {
     PMCategoryCellTypeTitle = 0,
@@ -40,7 +40,7 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar.postListing.title", @"Post Listing") image:[[UIImage imageNamed:@"PostAListing_Icon_Inactive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"PostAListing_Icon_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-        tableView.scrollEnabled = NO;
+        tableView.scrollEnabled = YES;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         tableView.delegate = self;
@@ -166,7 +166,7 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         case PMCategoryCellTypeTitle:
             break;
         default: {
-            PMAddDescriptionViewController *addDescriptionViewController = [[PMAddDescriptionViewController alloc] initWithNibName:nil bundle:nil];
+            PMAddTitleAndPriceViewController *addDescriptionViewController = [[PMAddTitleAndPriceViewController alloc] initWithNibName:nil bundle:nil];
             [self.navigationController pushViewController:addDescriptionViewController animated:YES];
             break;
         }
