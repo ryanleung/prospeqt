@@ -10,10 +10,10 @@ const struct PMListingAttributes PMListingAttributes = {
 	.listingId = @"listingId",
 	.messages = @"messages",
 	.picData = @"picData",
-	.picPath = @"picPath",
+	.picUrl = @"picUrl",
 	.price = @"price",
 	.smallPicData = @"smallPicData",
-	.smallPicPath = @"smallPicPath",
+	.smallPicUrl = @"smallPicUrl",
 	.state = @"state",
 	.title = @"title",
 };
@@ -148,7 +148,7 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
-@dynamic picPath;
+@dynamic picUrl;
 
 
 
@@ -169,7 +169,7 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
-@dynamic smallPicPath;
+@dynamic smallPicUrl;
 
 
 

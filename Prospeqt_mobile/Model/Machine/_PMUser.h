@@ -5,6 +5,8 @@
 
 
 extern const struct PMUserAttributes {
+	__unsafe_unretained NSString *avatarData;
+	__unsafe_unretained NSString *avatarUrl;
 	__unsafe_unretained NSString *city;
 	__unsafe_unretained NSString *info;
 	__unsafe_unretained NSString *rating;
@@ -27,6 +29,8 @@ extern const struct PMUserFetchedProperties {
 
 
 
+
+
 @interface PMUserID : NSManagedObjectID {}
 @end
 
@@ -35,6 +39,26 @@ extern const struct PMUserFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (PMUserID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSData* avatarData;
+
+
+
+//- (BOOL)validateAvatarData:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* avatarUrl;
+
+
+
+//- (BOOL)validateAvatarUrl:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -114,6 +138,18 @@ extern const struct PMUserFetchedProperties {
 @end
 
 @interface _PMUser (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSData*)primitiveAvatarData;
+- (void)setPrimitiveAvatarData:(NSData*)value;
+
+
+
+
+- (NSString*)primitiveAvatarUrl;
+- (void)setPrimitiveAvatarUrl:(NSString*)value;
+
+
 
 
 - (NSString*)primitiveCity;

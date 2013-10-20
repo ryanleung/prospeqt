@@ -89,7 +89,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
     
     __weak PMListingCell *weak_cell = cell;
     UIImageView *placeholder = [[UIImageView alloc] initWithFrame:(CGRect) {{ 0.0f, 0.0f }, { 40.0f, 40.0f}}];
-    [cell.productImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:listing.picPath]] placeholderImage:placeholder.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+    [cell.productImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:listing.picUrl]] placeholderImage:placeholder.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
         weak_cell.productImageView.image = image;
         [weak_cell setNeedsLayout];
         weak_cell.separatorView.layer.zPosition = MAXFLOAT;

@@ -11,10 +11,10 @@ extern const struct PMListingAttributes {
 	__unsafe_unretained NSString *listingId;
 	__unsafe_unretained NSString *messages;
 	__unsafe_unretained NSString *picData;
-	__unsafe_unretained NSString *picPath;
+	__unsafe_unretained NSString *picUrl;
 	__unsafe_unretained NSString *price;
 	__unsafe_unretained NSString *smallPicData;
-	__unsafe_unretained NSString *smallPicPath;
+	__unsafe_unretained NSString *smallPicUrl;
 	__unsafe_unretained NSString *state;
 	__unsafe_unretained NSString *title;
 } PMListingAttributes;
@@ -122,11 +122,11 @@ extern const struct PMListingFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* picPath;
+@property (nonatomic, strong) NSString* picUrl;
 
 
 
-//- (BOOL)validatePicPath:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validatePicUrl:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -152,11 +152,11 @@ extern const struct PMListingFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* smallPicPath;
+@property (nonatomic, strong) NSString* smallPicUrl;
 
 
 
-//- (BOOL)validateSmallPicPath:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateSmallPicUrl:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -241,8 +241,8 @@ extern const struct PMListingFetchedProperties {
 
 
 
-- (NSString*)primitivePicPath;
-- (void)setPrimitivePicPath:(NSString*)value;
+- (NSString*)primitivePicUrl;
+- (void)setPrimitivePicUrl:(NSString*)value;
 
 
 
@@ -259,8 +259,8 @@ extern const struct PMListingFetchedProperties {
 
 
 
-- (NSString*)primitiveSmallPicPath;
-- (void)setPrimitiveSmallPicPath:(NSString*)value;
+- (NSString*)primitiveSmallPicUrl;
+- (void)setPrimitiveSmallPicUrl:(NSString*)value;
 
 
 

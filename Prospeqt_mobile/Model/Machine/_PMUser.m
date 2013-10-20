@@ -4,6 +4,8 @@
 #import "_PMUser.h"
 
 const struct PMUserAttributes PMUserAttributes = {
+	.avatarData = @"avatarData",
+	.avatarUrl = @"avatarUrl",
 	.city = @"city",
 	.info = @"info",
 	.rating = @"rating",
@@ -52,6 +54,20 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic avatarData;
+
+
+
+
+
+
+@dynamic avatarUrl;
+
+
 
 
 
