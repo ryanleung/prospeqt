@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Prospeqt. All rights reserved.
 //
 
-#import "PMBaseViewController.h"
+#import "PMFormBaseViewController.h"
 
-@interface PMAddPhotoViewController : PMBaseViewController
+@interface PMAddPhotoViewController : PMFormBaseViewController
 
 @end

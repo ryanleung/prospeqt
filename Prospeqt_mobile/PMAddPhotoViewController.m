@@ -44,7 +44,7 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
     [camImageViewTL addGestureRecognizer:tapTL];
     camImageViewTL.userInteractionEnabled = YES;
     camImageViewTL.tag = PMPhotoTagTopLeft;
-    [self.view addSubview:camImageViewTL];
+    [self.scrollView addSubview:camImageViewTL];
     self.cameraTopLeftImageView = camImageViewTL;
     
     UIImageView *camImageViewTR = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CameraBox"] highlightedImage:[[UIImage imageNamed:@"CameraBox"] imageByApplyingAlpha:0.2f]];
@@ -53,7 +53,7 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
     [camImageViewTR addGestureRecognizer:tapTR];
     camImageViewTR.userInteractionEnabled = YES;
     camImageViewTR.tag = PMPhotoTagTopRight;
-    [self.view addSubview:camImageViewTR];
+    [self.scrollView addSubview:camImageViewTR];
     self.cameraTopRightImageView = camImageViewTR;
     
     UIImageView *camImageViewBR = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CameraBox"] highlightedImage:[[UIImage imageNamed:@"CameraBox"] imageByApplyingAlpha:0.2f]];
@@ -62,7 +62,7 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
     [camImageViewBR addGestureRecognizer:tapBR];
     camImageViewBR.userInteractionEnabled = YES;
     camImageViewBR.tag = PMPhotoTagBottomRight;
-    [self.view addSubview:camImageViewBR];
+    [self.scrollView addSubview:camImageViewBR];
     self.cameraBottomRightImageView =  camImageViewBR;
     
     UIImageView *camImageViewBL = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"CameraBox"] highlightedImage:[[UIImage imageNamed:@"CameraBox"] imageByApplyingAlpha:0.2f]];
@@ -71,15 +71,15 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
     [camImageViewBL addGestureRecognizer:tapBL];
     camImageViewBL.userInteractionEnabled = YES;
     camImageViewBL.tag = PMPhotoTagBottomLeft;
-    [self.view addSubview:camImageViewBL];
+    [self.scrollView addSubview:camImageViewBL];
     self.cameraBottomLeftImageView = camImageViewBL;
     
     NSDictionary *views = NSDictionaryOfVariableBindings(camImageViewTL, camImageViewTR, camImageViewBL, camImageViewBR);
     NSDictionary *metrics = @{ @"outsideSpacer" : @10, @"middleSpacer" : @10, @"imageWidth" : @140 };
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-outsideSpacer-[camImageViewTL(==imageWidth)]-[camImageViewTR(==imageWidth)]-outsideSpacer-|" options:0 metrics:metrics views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-outsideSpacer-[camImageViewBL(==imageWidth)]-[camImageViewBR(==imageWidth)]-outsideSpacer-|" options:0 metrics:metrics views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-outsideSpacer-[camImageViewTL(==imageWidth)]-middleSpacer-[camImageViewBL(==imageWidth)]" options:0 metrics:metrics views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-outsideSpacer-[camImageViewTR(==imageWidth)]-middleSpacer-[camImageViewBR(==imageWidth)]" options:0 metrics:metrics views:views]];
+    [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-outsideSpacer-[camImageViewTL(==imageWidth)]-[camImageViewTR(==imageWidth)]-outsideSpacer-|" options:0 metrics:metrics views:views]];
+    [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-outsideSpacer-[camImageViewBL(==imageWidth)]-[camImageViewBR(==imageWidth)]-outsideSpacer-|" options:0 metrics:metrics views:views]];
+    [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-outsideSpacer-[camImageViewTL(==imageWidth)]-middleSpacer-[camImageViewBL(==imageWidth)]" options:0 metrics:metrics views:views]];
+    [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-outsideSpacer-[camImageViewTR(==imageWidth)]-middleSpacer-[camImageViewBR(==imageWidth)]" options:0 metrics:metrics views:views]];
 }
 
 - (void)camImageViewClicked:(id)sender

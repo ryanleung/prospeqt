@@ -24,7 +24,7 @@
     
     UITextView *descriptionField = [UITextView new];
     descriptionField.translatesAutoresizingMaskIntoConstraints = NO;
-    descriptionField.autocapitalizationType = UITextAutocapitalizationTypeWords;
+    descriptionField.autocapitalizationType = UITextAutocapitalizationTypeSentences;
     descriptionField.font = [UIFont pm_futuraLightFontWithSize:20.0f];
     descriptionField.textColor = [UIColor pm_grayDarkColor];
 //    descriptionField.text = NSLocalizedString(@"addDescription.placeholder.description", @"Description");
