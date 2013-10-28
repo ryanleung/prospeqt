@@ -10,6 +10,7 @@
 #import "PMTitleCell.h"
 #import "PMAddressCell.h"
 #import "PMSitePostCell.h"
+#import "PMAddressViewController.h"
 
 
 typedef NS_ENUM(NSUInteger, PMCellType) {
@@ -168,15 +169,15 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    switch (indexPath.row) {
-//        case PMCategoryCellTypeTitle:
-//            break;
-//        default: {
-//            PMAddTitleAndPriceViewController *addDescriptionViewController = [[PMAddTitleAndPriceViewController alloc] initWithNibName:nil bundle:nil];
-//            [self.navigationController pushViewController:addDescriptionViewController animated:YES];
-//            break;
-//        }
-//    }
+    switch (indexPath.row) {
+        case PMCellTypeAddress: {
+            PMAddressViewController *addressViewController = [[PMAddressViewController alloc] initWithNibName:nil bundle:nil];
+            [self.navigationController pushViewController:addressViewController animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath

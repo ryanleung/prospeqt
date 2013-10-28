@@ -8,6 +8,16 @@
 
 #import "PMBaseViewController.h"
 
+@class PMAddress;
+
 @interface PMProfileViewController : PMBaseViewController
+
+@property (nonatomic, strong) UIImageView *avatarImageView;
+
+@property (nonatomic, strong) UITextView *descriptionView;
+
+@property (nonatomic, strong) PMAddress *address;
+
+@property (nonatomic, assign) int percentPositiveReviews;
 
 @end

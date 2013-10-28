@@ -64,3 +64,14 @@
 "finalizePost.ffs" = "FREE & FOR SALE";
 "finalizePost.facebook" = "FACEBOOK TIMELINE";
 "finalizePost.post" = "+POST";
+
+"address.title" = "Select An Address";
+"address.save" = "Save";
+"address.button.current" = "Use Current Location";
+"address.addressField.placeholder" = "Street Address";
+"address.additionalAddressField.placeholder" = "Address 2";
+"address.cityField.placeholder" = "City";
+"address.stateField.placeholder" = "State";
+"address.zipcodeField.placeholder" = "Zip Code";
+
+"ratings.format" = "%i%% Positive Reviews";

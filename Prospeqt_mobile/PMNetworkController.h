@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "PMAPIEnvironment.h"
 #import "PMDataLoadProtocol.h"
-#import "PMDataLoadProtocol.h"
 
 @interface PMNetworkController : NSObject
 
@@ -31,5 +30,17 @@
  @discussion Classes that implement the LUVDataLoadProtocal can use this method to launch the authentication flow.
  */
 - (void)authenticateIfNeededAndLoadData:(id<PMDataLoadProtocol>)dataLoader;
+
+/** Determines if a User is the authenticated user for this networkController
+ */
+- (BOOL)isCurrentUser:(PMUser *)user;
+
+/** Returns current User model
+ */
+- (PMUser *)currentUser;
+
+/** Update current username in keychain
+ */
+- (void)updateKeychainUsername:(NSString *)username;
 
 @end

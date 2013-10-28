@@ -20,3 +20,9 @@ extern NSString * const kPMNotificationUserDidSignOut;
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN(v)                ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)    ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
+// String Constants //
+
+extern NSString * const kPMKeychainServiceName;
+extern NSString * const kPMKeychainTokenKey;
+extern NSString * const kPMKeychainUsernameKey;

@@ -31,13 +31,11 @@
     [[UITabBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor pm_aquaColor]]];
     [[UITabBarItem appearance] setTitleTextAttributes:
      @{
-       NSForegroundColorAttributeName : [UIColor whiteColor],
-       NSShadowAttributeName : shadow,
+       NSForegroundColorAttributeName : [UIColor whiteColor]
        } forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:
      @{
-       NSForegroundColorAttributeName : [UIColor pm_grayDarkColor],
-       NSShadowAttributeName : shadow,
+       NSForegroundColorAttributeName : [UIColor pm_grayDarkColor]
        } forState:UIControlStateSelected];
     
 }

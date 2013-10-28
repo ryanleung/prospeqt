@@ -52,6 +52,7 @@
     priceTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     priceTitleLabel.font = [UIFont pm_futuraExtendedFontWithSize:20.0f];
     priceTitleLabel.textColor = [UIColor pm_grayDarkColor];
+    priceField.textField.keyboardType = UIKeyboardTypeDecimalPad;
     priceTitleLabel.text = NSLocalizedString(@"addDescription.placeholder.priceTitle", @"Price Title");
     [self.scrollView addSubview:priceTitleLabel];
     
