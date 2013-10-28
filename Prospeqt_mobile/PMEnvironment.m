@@ -12,3 +12,9 @@
 
 NSString * const kPMNotificationUserNeedsAuthenticated = @"com.prospeqt.notification.needsAuthentication";
 NSString * const kPMNotificationUserDidSignOut = @"com.prospeqt.notification.signedOut";
+
+// String Constants //
+
+NSString * const kPMKeychainServiceName = @"com.prospeqt.keychain";
+NSString * const kPMKeychainTokenKey = @"authenticationToken";
+NSString * const kPMKeychainUsernameKey = @"username";

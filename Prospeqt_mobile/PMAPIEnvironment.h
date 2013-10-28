@@ -6,6 +6,9 @@
 //  Copyright (c) 2013 Prospeqt. All rights reserved.
 //
 
+#import "PMListing.h"
+#import "PMUser.h"
+
 extern NSString * const kPMAPIAuthorizationHeaderKey;
 
 extern const struct PMAPIBaseURL {

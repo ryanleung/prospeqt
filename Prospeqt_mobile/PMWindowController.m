@@ -168,7 +168,7 @@
     if (!_rootViewController) {
         _rootViewController = [[UITabBarController alloc] init];
         
-        _rootViewController.viewControllers = @[[self navEmbeddedViewController:self.profileViewController], [self navEmbeddedViewController:self.listingsViewController], [self navEmbeddedViewController:self.postListingViewController], [self navEmbeddedViewController:self.messagesViewController], [self navEmbeddedViewController:self.settingsViewController]];
+        _rootViewController.viewControllers = @[[self navEmbeddedViewController:self.listingsViewController], [self navEmbeddedViewController:self.profileViewController], [self navEmbeddedViewController:self.postListingViewController], [self navEmbeddedViewController:self.messagesViewController], [self navEmbeddedViewController:self.settingsViewController]];
     }
     return _rootViewController;
 }

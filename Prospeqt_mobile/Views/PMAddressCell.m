@@ -41,7 +41,7 @@
         self.backgroundColor = [UIColor whiteColor];
         self.textLabel.textColor = [UIColor pm_grayDarkColor];
     }
-    self.imageView.highlighted = highlighted;
+//    self.imageView.highlighted = highlighted;
 }
 
 @end

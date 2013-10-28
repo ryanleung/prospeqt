@@ -1,0 +1,25 @@
+//
+//  PMAddress.h
+//  Prospeqt_mobile
+//
+//  Created by Ryan Leung on 10/21/13.
+//  Copyright (c) 2013 Prospeqt. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface PMAddress : NSObject
+
+@property (nonatomic, strong) NSNumber *identifier;
+
+@property (nonatomic, copy) NSString *firstName;
+@property (nonatomic, copy) NSString *lastName;
+@property (nonatomic, copy) NSString *streetAddress;
+@property (nonatomic, copy) NSString *extendedAddress;
+@property (nonatomic, copy) NSString *city;
+@property (nonatomic, copy) NSString *state;
+@property (nonatomic, copy) NSString *postalCode;
+@property (nonatomic, copy) NSString *phoneNumber;
+@property (nonatomic, copy) NSString *emailAddress;
+
+@end

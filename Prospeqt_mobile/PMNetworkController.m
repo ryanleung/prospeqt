@@ -7,6 +7,8 @@
 //
 
 #import "PMNetworkController.h"
+#import "PMKeychain.h"
+#import "PMObjectManager.h"
 
 
 @implementation PMNetworkController
@@ -29,4 +31,30 @@
     }
 }
 
+- (BOOL)isCurrentUser:(PMUser *)user
+{
+    return [[PMKeychain keychain].username isEqualToString:user.username];
+}
+
+- (NSString *)currentUsername
+{
+    return [PMKeychain keychain].username;
+}
+
+- (PMUser *)currentUser
+{
+    if (!self.currentUsername) {
+        return nil;
+    }
+    
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:[PMUser entityName]];
+    fetch.predicate = [NSPredicate predicateWithFormat:@"username MATCHES %@", self.currentUsername];
+    NSArray *results = [[PMObjectManager sharedPMObjectManager].managedObjectContext executeFetchRequest:fetch error:nil];
+    return [results lastObject];
+}
+
+- (void)updateKeychainUsername:(NSString *)username
+{
+    [PMKeychain keychain].username = username;
+}
 @end
