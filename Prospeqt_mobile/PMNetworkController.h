@@ -12,6 +12,8 @@
 
 @interface PMNetworkController : NSObject
 
+
+
 @property (readonly) NSManagedObjectContext *mainContext;
 @property (readonly) NSString *currentUsername;
 

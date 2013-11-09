@@ -47,10 +47,10 @@
         return nil;
     }
     
-    NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:[PMUser entityName]];
-    fetch.predicate = [NSPredicate predicateWithFormat:@"username MATCHES %@", self.currentUsername];
-    NSArray *results = [[PMObjectManager sharedPMObjectManager].managedObjectContext executeFetchRequest:fetch error:nil];
-    return [results lastObject];
+//    NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:[PMUser entityName]];
+//    fetch.predicate = [NSPredicate predicateWithFormat:@"username MATCHES %@", self.currentUsername];
+//    NSArray *results = [[PMObjectManager sharedPMObjectManager].managedObjectContext executeFetchRequest:fetch error:nil];
+//    return [results lastObject];
 }
 
 - (void)updateKeychainUsername:(NSString *)username

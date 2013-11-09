@@ -6,23 +6,23 @@
 
 extern const struct PMMessageAttributes {
 	__unsafe_unretained NSString *content;
+	__unsafe_unretained NSString *inquirerId;
 	__unsafe_unretained NSString *messageId;
+	__unsafe_unretained NSString *sellerId;
 	__unsafe_unretained NSString *timeDate;
 	__unsafe_unretained NSString *type;
 } PMMessageAttributes;
 
 extern const struct PMMessageRelationships {
-	__unsafe_unretained NSString *inquirer;
 	__unsafe_unretained NSString *messageChain;
-	__unsafe_unretained NSString *seller;
 } PMMessageRelationships;
 
 extern const struct PMMessageFetchedProperties {
 } PMMessageFetchedProperties;
 
-@class PMUser;
 @class PMMessageChain;
-@class PMUser;
+
+
 
 
 
@@ -52,6 +52,20 @@ extern const struct PMMessageFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* inquirerId;
+
+
+
+@property int32_t inquirerIdValue;
+- (int32_t)inquirerIdValue;
+- (void)setInquirerIdValue:(int32_t)value_;
+
+//- (BOOL)validateInquirerId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSNumber* messageId;
 
 
@@ -61,6 +75,20 @@ extern const struct PMMessageFetchedProperties {
 - (void)setMessageIdValue:(int32_t)value_;
 
 //- (BOOL)validateMessageId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* sellerId;
+
+
+
+@property int32_t sellerIdValue;
+- (int32_t)sellerIdValue;
+- (void)setSellerIdValue:(int32_t)value_;
+
+//- (BOOL)validateSellerId:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -86,23 +114,9 @@ extern const struct PMMessageFetchedProperties {
 
 
 
-@property (nonatomic, strong) PMUser *inquirer;
-
-//- (BOOL)validateInquirer:(id*)value_ error:(NSError**)error_;
-
-
-
-
 @property (nonatomic, strong) PMMessageChain *messageChain;
 
 //- (BOOL)validateMessageChain:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, strong) PMUser *seller;
-
-//- (BOOL)validateSeller:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -123,11 +137,29 @@ extern const struct PMMessageFetchedProperties {
 
 
 
+- (NSNumber*)primitiveInquirerId;
+- (void)setPrimitiveInquirerId:(NSNumber*)value;
+
+- (int32_t)primitiveInquirerIdValue;
+- (void)setPrimitiveInquirerIdValue:(int32_t)value_;
+
+
+
+
 - (NSNumber*)primitiveMessageId;
 - (void)setPrimitiveMessageId:(NSNumber*)value;
 
 - (int32_t)primitiveMessageIdValue;
 - (void)setPrimitiveMessageIdValue:(int32_t)value_;
+
+
+
+
+- (NSNumber*)primitiveSellerId;
+- (void)setPrimitiveSellerId:(NSNumber*)value;
+
+- (int32_t)primitiveSellerIdValue;
+- (void)setPrimitiveSellerIdValue:(int32_t)value_;
 
 
 
@@ -145,18 +177,8 @@ extern const struct PMMessageFetchedProperties {
 
 
 
-- (PMUser*)primitiveInquirer;
-- (void)setPrimitiveInquirer:(PMUser*)value;
-
-
-
 - (PMMessageChain*)primitiveMessageChain;
 - (void)setPrimitiveMessageChain:(PMMessageChain*)value;
-
-
-
-- (PMUser*)primitiveSeller;
-- (void)setPrimitiveSeller:(PMUser*)value;
 
 
 @end

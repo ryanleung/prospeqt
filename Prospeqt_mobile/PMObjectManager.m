@@ -7,135 +7,131 @@
 //
 
 #import "PMObjectManager.h"
+#import "PMManagedObjectStore.h"
+#import "NSManagedObjectModel+PMDataStack.h"
+#import "NSPersistentStoreCoordinator+PMDataStack.h"
+#import "PMAPIEnvironment.h"
 
-// TODO: create a singleton Core Data object manager for now, improve later
-static PMObjectManager * _sharedPMObjectManager = nil;
+static NSString * const kPMAPIMappingPrimaryKey = @"PM_JSON_PRIMARY_KEY";
+static NSString * const kPMAPIMappingUserInfoServerKey = @"PM_JSON_SERVER_KEY";
+static NSString * const kPMAPIMappingIgnoreRelationshipKey = @"PM_JSON_IGNORE_RELATIONSHIP_KEY";
+
+static PMObjectManager *pm_sharedObjectManager = nil;
 
 @implementation PMObjectManager
 
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize managedObjectModel = _managedObjectModel;
-@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
-+ (PMObjectManager *)sharedPMObjectManager
++ (PMObjectManager *)objectManager
 {
-    @synchronized([PMObjectManager class])
-    {
-        if (!_sharedPMObjectManager)
-        {
-            _sharedPMObjectManager = [[self alloc] init];
+    return pm_sharedObjectManager;
+}
+
++ (void)setObjectManager:(PMObjectManager *)objectManager
+{
+    pm_sharedObjectManager = objectManager;
+}
+
+#pragma mark - Life Cycle
+
+- (id)initWithManagedObjectStore:(PMManagedObjectStore *)store httpClient:(AFHTTPClient *)httpClient
+{
+    self = [super initWithHTTPClient:httpClient];
+    if (self) {
+        RKLogConfigureByName("RestKit/*", RKLogLevelOff)
+        RKLogConfigureByName("RestKit/Network", RKLogLevelOff)
+        RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelOff)
+        RKLogConfigureByName("RestKit/CoreData", RKLogLevelOff)
+        
+        self.managedObjectStore = store;
+        [self prepareDescriptorsWithMappings:[self mappingsFromModel:self.managedObjectStore.managedObjectModel]];
+        [self.managedObjectStore createManagedObjectContexts];
+        
+        [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    }
+    return self;
+}
+
+#pragma mark - Request and Responspe Descriptors
+
+- (void)prepareDescriptorsWithMappings:(NSDictionary *)mappings
+{
+    [self prepareManagedResponseDescriptorsWithMappings:mappings];
+    [self prepareResponseDescriptors];
+    [self prepareRequestDescriptors];
+}
+
+- (void)prepareRequestDescriptors
+{
+    
+}
+
+- (void)prepareResponseDescriptors
+{
+    
+}
+
+- (void)prepareManagedResponseDescriptorsWithMappings:(NSDictionary *)mappings
+{
+    
+}
+
+#pragma mark - Mapping Provider Helpers
+
+- (NSDictionary *)mappingsFromModel:(NSManagedObjectModel *)model
+{
+    NSMutableDictionary *entityMappings = [NSMutableDictionary dictionary];
+    
+    // Create mappings and map attributes
+    for (NSEntityDescription *entity in [model entities]) {
+        RKEntityMapping *entityMapping = [[RKEntityMapping alloc] initWithEntity:entity];
+        [self mapAttributesInMapping:entityMapping];
+        [entityMappings setObject:entityMapping forKey:entity.name];
+    }
+    
+    // Now that they are all created, map relationships
+    for (RKEntityMapping *entityMapping in [entityMappings allValues]) {
+        [self mapRelationshipsInMapping:entityMapping mappings:entityMappings];
+    }
+    
+    return entityMappings;
+}
+
+- (void)mapAttributesInMapping:(RKEntityMapping *)mapping
+{
+    for (NSAttributeDescription *attribute in [[mapping.entity attributesByName] allValues]) {
+        NSDictionary *userInfo = attribute.userInfo;
+        NSString *propertyName = attribute.name;
+        NSString *serverKey = [userInfo objectForKey:kPMAPIMappingUserInfoServerKey] ?: propertyName;
+        
+        [mapping addAttributeMappingsFromDictionary:@{ serverKey : propertyName }];
+        
+        // check for primary key
+        BOOL isPrimaryKey = [[userInfo objectForKey:kPMAPIMappingPrimaryKey] isEqualToString:@"YES"];
+        if (isPrimaryKey) {
+            mapping.identificationAttributes = @[ propertyName ];
         }
-        return _sharedPMObjectManager;
     }
-    return nil;
 }
 
-- (void)saveContext
+- (void)mapRelationshipsInMapping:(RKEntityMapping *)mapping mappings:(NSDictionary *)entityMappings
 {
-    NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-    if (managedObjectContext != nil) {
-        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
+    for (NSRelationshipDescription *relationship in [[mapping.entity relationshipsByName] allValues]) {
+        NSDictionary *userInfo = relationship.userInfo;
+        BOOL isIgnoredRelationship = [[userInfo objectForKey:kPMAPIMappingIgnoreRelationshipKey] isEqualToString:@"YES"];
+        if (!isIgnoredRelationship) {
+            NSString *relationName = relationship.name;
+            NSString *serverKey = [userInfo objectForKey:kPMAPIMappingUserInfoServerKey] ?: relationName;
+            NSString *relationEntityName = relationship.destinationEntity.name;
+            
+            RKEntityMapping *relatedEntityMapping = [entityMappings objectForKey:relationEntityName];
+            
+            RKRelationshipMapping *relationshipMapping = [RKRelationshipMapping relationshipMappingFromKeyPath:serverKey
+                                                                                                     toKeyPath:relationName
+                                                                                                   withMapping:relatedEntityMapping];
+            [mapping addPropertyMapping:relationshipMapping];
         }
     }
 }
 
-#pragma mark - Core Data stack
 
-// Returns the managed object context for the application.
-// If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-- (NSManagedObjectContext *)managedObjectContext
-{
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-    
-    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-    if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-    }
-    return _managedObjectContext;
-}
 
-// Returns the managed object model for the application.
-// If the model doesn't already exist, it is created from the application's model.
-- (NSManagedObjectModel *)managedObjectModel
-{
-    if (_managedObjectModel != nil) {
-        return _managedObjectModel;
-    }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Prospeqt_mobile" withExtension:@"momd"];
-    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    return _managedObjectModel;
-}
-
-// Returns the persistent store coordinator for the application.
-// If the coordinator doesn't already exist, it is created and the application's store added to it.
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-{
-    if (_persistentStoreCoordinator != nil) {
-        return _persistentStoreCoordinator;
-    }
-    
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Prospeqt_mobile.sqlite"];
-    
-    NSError *error = nil;
-    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-         
-         Typical reasons for an error here include:
-         * The persistent store is not accessible;
-         * The schema for the persistent store is incompatible with current managed object model.
-         Check the error message to determine what the actual problem was.
-         
-         
-         If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-         
-         If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-         * Simply deleting the existing store:
-         [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-         
-         * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-         @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-         
-         Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-         
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-    
-    return _persistentStoreCoordinator;
-}
-
-#pragma mark - Application's Documents directory
-
-// Returns the URL to the application's Documents directory.
-- (NSURL *)applicationDocumentsDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
-- (void)resetPersistentStore
-{
-    NSPersistentStoreCoordinator *storeCoordinator = [self persistentStoreCoordinator];
-    NSPersistentStore *store = [[storeCoordinator persistentStores] lastObject];
-    NSError *error = nil;
-    NSURL *storeURL = store.URL;
-    
-    if ([storeCoordinator removePersistentStore:store error:&error]) {
-        [[NSFileManager defaultManager] removeItemAtPath:storeURL.path error:&error];
-    } else {
-        //TODO: print error
-    }
-}
 @end

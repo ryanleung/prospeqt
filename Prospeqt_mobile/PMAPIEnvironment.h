@@ -14,6 +14,7 @@ extern NSString * const kPMAPIAuthorizationHeaderKey;
 extern const struct PMAPIBaseURL {
     __unsafe_unretained NSString *staging;
     __unsafe_unretained NSString *production;
+    __unsafe_unretained NSString *debug;
 } PMAPIBaseURL;
 
 extern const struct PMHTTPMethod {

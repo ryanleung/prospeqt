@@ -12,7 +12,8 @@ NSString * const PMAPIAuthorizationHeaderKey = @"";
 
 const struct PMAPIBaseURL PMAPIBaseURL = {
     .staging = @"",
-    .production = @""
+    .production = @"",
+    .debug = @"http://localhost:8000"
 };
 
 const struct PMHTTPMethod PMHTTPMethod = {
@@ -24,7 +25,7 @@ const struct PMHTTPMethod PMHTTPMethod = {
 };
 
 const struct PMURIEndpoint PMURIEndpoint = {
-    .messages = @"",
-    .sendMessage = @"",
-    .createMessage = @""
+    .messages = @"/messages/fetch_by_user",
+    .sendMessage = @"/message/send",
+    .createMessage = @"/message/create"
 };

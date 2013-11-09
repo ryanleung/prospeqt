@@ -23,21 +23,21 @@
     </entity>
     <entity name="Message" representedClassName="PMMessage" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inquirerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="messageId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="sellerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="timeDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="inquirer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
         <relationship name="messageChain" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MessageChain" inverseName="messages" inverseEntity="MessageChain" syncable="YES"/>
-        <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
     </entity>
     <entity name="MessageChain" representedClassName="PMMessageChain" syncable="YES">
         <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="inquirerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="lastUpdated" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="messageChainId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="inquirer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
         <relationship name="listing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Listing" inverseName="messageChain" inverseEntity="Listing" syncable="YES"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="messageChain" inverseEntity="Message" syncable="YES"/>
-        <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="messageChains" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="PMUser" syncable="YES">
         <attribute name="avatarData" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -53,7 +53,7 @@
             </userInfo>
         </attribute>
         <relationship name="listings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Listing" inverseName="user" inverseEntity="Listing" syncable="YES"/>
-        <relationship name="messageChains" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MessageChain" syncable="YES"/>
+        <relationship name="messageChains" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MessageChain" inverseName="seller" inverseEntity="MessageChain" syncable="YES"/>
     </entity>
     <elements>
         <element name="Listing" positionX="0" positionY="0" width="0" height="0"/>

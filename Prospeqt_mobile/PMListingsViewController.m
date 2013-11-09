@@ -119,7 +119,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[PMListing entityName]];
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
         fetchRequest.sortDescriptors = @[sortDescriptor];
-        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[[PMObjectManager sharedPMObjectManager] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
+//        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[[PMObjectManager sharedPMObjectManager] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
         [_fetchedResultsController performFetch:nil];
     }
     return _fetchedResultsController;
