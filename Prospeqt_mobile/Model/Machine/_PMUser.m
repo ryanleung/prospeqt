@@ -175,6 +175,15 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 @dynamic messageChains;
 
 	
+- (NSMutableOrderedSet*)messageChainsSet {
+	[self willAccessValueForKey:@"messageChains"];
+  
+	NSMutableOrderedSet *result = (NSMutableOrderedSet*)[self mutableOrderedSetValueForKey:@"messageChains"];
+  
+	[self didAccessValueForKey:@"messageChains"];
+	return result;
+}
+	
 
 
 

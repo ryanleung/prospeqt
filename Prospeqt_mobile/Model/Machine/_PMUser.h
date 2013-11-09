@@ -143,9 +143,9 @@ extern const struct PMUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) PMMessageChain *messageChains;
+@property (nonatomic, strong) NSOrderedSet *messageChains;
 
-//- (BOOL)validateMessageChains:(id*)value_ error:(NSError**)error_;
+- (NSMutableOrderedSet*)messageChainsSet;
 
 
 
@@ -159,6 +159,11 @@ extern const struct PMUserFetchedProperties {
 - (void)removeListings:(NSSet*)value_;
 - (void)addListingsObject:(PMListing*)value_;
 - (void)removeListingsObject:(PMListing*)value_;
+
+- (void)addMessageChains:(NSOrderedSet*)value_;
+- (void)removeMessageChains:(NSOrderedSet*)value_;
+- (void)addMessageChainsObject:(PMMessageChain*)value_;
+- (void)removeMessageChainsObject:(PMMessageChain*)value_;
 
 @end
 
@@ -225,8 +230,8 @@ extern const struct PMUserFetchedProperties {
 
 
 
-- (PMMessageChain*)primitiveMessageChains;
-- (void)setPrimitiveMessageChains:(PMMessageChain*)value;
+- (NSMutableOrderedSet*)primitiveMessageChains;
+- (void)setPrimitiveMessageChains:(NSMutableOrderedSet*)value;
 
 
 @end

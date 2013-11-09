@@ -101,9 +101,9 @@ extern const struct PMMessageChainFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *messages;
+@property (nonatomic, strong) NSOrderedSet *messages;
 
-- (NSMutableSet*)messagesSet;
+- (NSMutableOrderedSet*)messagesSet;
 
 
 
@@ -120,8 +120,8 @@ extern const struct PMMessageChainFetchedProperties {
 
 @interface _PMMessageChain (CoreDataGeneratedAccessors)
 
-- (void)addMessages:(NSSet*)value_;
-- (void)removeMessages:(NSSet*)value_;
+- (void)addMessages:(NSOrderedSet*)value_;
+- (void)removeMessages:(NSOrderedSet*)value_;
 - (void)addMessagesObject:(PMMessage*)value_;
 - (void)removeMessagesObject:(PMMessage*)value_;
 
@@ -169,8 +169,8 @@ extern const struct PMMessageChainFetchedProperties {
 
 
 
-- (NSMutableSet*)primitiveMessages;
-- (void)setPrimitiveMessages:(NSMutableSet*)value;
+- (NSMutableOrderedSet*)primitiveMessages;
+- (void)setPrimitiveMessages:(NSMutableOrderedSet*)value;
 
 
 

@@ -45,4 +45,7 @@
  */
 - (void)updateKeychainUsername:(NSString *)username;
 
+/** Create a message chains
+ @param 
+ */
 @end

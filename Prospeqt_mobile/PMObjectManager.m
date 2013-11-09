@@ -37,8 +37,8 @@ static PMObjectManager *pm_sharedObjectManager = nil;
     self = [super initWithHTTPClient:httpClient];
     if (self) {
         RKLogConfigureByName("RestKit/*", RKLogLevelOff)
-        RKLogConfigureByName("RestKit/Network", RKLogLevelOff)
-        RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelOff)
+        RKLogConfigureByName("RestKit/Network", RKLogLevelTrace)
+        RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace)
         RKLogConfigureByName("RestKit/CoreData", RKLogLevelOff)
         
         self.managedObjectStore = store;

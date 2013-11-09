@@ -159,10 +159,10 @@ const struct PMMessageChainFetchedProperties PMMessageChainFetchedProperties = {
 @dynamic messages;
 
 	
-- (NSMutableSet*)messagesSet {
+- (NSMutableOrderedSet*)messagesSet {
 	[self willAccessValueForKey:@"messages"];
   
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"messages"];
+	NSMutableOrderedSet *result = (NSMutableOrderedSet*)[self mutableOrderedSetValueForKey:@"messages"];
   
 	[self didAccessValueForKey:@"messages"];
 	return result;

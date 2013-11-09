@@ -7,9 +7,10 @@
 extern const struct PMMessageAttributes {
 	__unsafe_unretained NSString *content;
 	__unsafe_unretained NSString *inquirerId;
+	__unsafe_unretained NSString *listingId;
 	__unsafe_unretained NSString *messageId;
 	__unsafe_unretained NSString *sellerId;
-	__unsafe_unretained NSString *timeDate;
+	__unsafe_unretained NSString *time;
 	__unsafe_unretained NSString *type;
 } PMMessageAttributes;
 
@@ -21,6 +22,7 @@ extern const struct PMMessageFetchedProperties {
 } PMMessageFetchedProperties;
 
 @class PMMessageChain;
+
 
 
 
@@ -66,6 +68,20 @@ extern const struct PMMessageFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* listingId;
+
+
+
+@property int32_t listingIdValue;
+- (int32_t)listingIdValue;
+- (void)setListingIdValue:(int32_t)value_;
+
+//- (BOOL)validateListingId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSNumber* messageId;
 
 
@@ -94,11 +110,11 @@ extern const struct PMMessageFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSDate* timeDate;
+@property (nonatomic, strong) NSDate* time;
 
 
 
-//- (BOOL)validateTimeDate:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateTime:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -146,6 +162,15 @@ extern const struct PMMessageFetchedProperties {
 
 
 
+- (NSNumber*)primitiveListingId;
+- (void)setPrimitiveListingId:(NSNumber*)value;
+
+- (int32_t)primitiveListingIdValue;
+- (void)setPrimitiveListingIdValue:(int32_t)value_;
+
+
+
+
 - (NSNumber*)primitiveMessageId;
 - (void)setPrimitiveMessageId:(NSNumber*)value;
 
@@ -164,8 +189,8 @@ extern const struct PMMessageFetchedProperties {
 
 
 
-- (NSDate*)primitiveTimeDate;
-- (void)setPrimitiveTimeDate:(NSDate*)value;
+- (NSDate*)primitiveTime;
+- (void)setPrimitiveTime:(NSDate*)value;
 
 
 
