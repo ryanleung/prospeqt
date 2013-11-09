@@ -13,6 +13,7 @@
 "global.defaultErrorTitle" = "Error";
 "global.confirm" = "OK";
 "global.post" = "Post";
+"global.edit" = "Edit";
 
 "button.postedFormat" = "Posted %@";
 "button.delete" = "DELETE";
@@ -75,3 +76,14 @@
 "address.zipcodeField.placeholder" = "Zip Code";
 
 "ratings.format" = "%i%% Positive Reviews";
+
+"camera.takePhoto" = "TAKE NEW PHOTO";
+"camera.chooseLibrary" = "CHOOSE FROM LIBRARY";
+
+"profile.edit.title" = "Edit Profile";
+"profile.placeholder.first" = "First Name";
+"profile.placeholder.last" = "Last Name";
+"profile.placeholder.address" = "Location (ex. Davis, CA)";
+"profile.edit.bio" = "EDIT BIO";
+"profile.edit.social" = "EDIT SOCIAL PROFILES";
+

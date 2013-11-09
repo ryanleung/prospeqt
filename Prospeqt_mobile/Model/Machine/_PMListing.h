@@ -15,18 +15,22 @@ extern const struct PMListingAttributes {
 	__unsafe_unretained NSString *price;
 	__unsafe_unretained NSString *smallPicData;
 	__unsafe_unretained NSString *smallPicUrl;
+	__unsafe_unretained NSString *sold;
 	__unsafe_unretained NSString *state;
 	__unsafe_unretained NSString *title;
 } PMListingAttributes;
 
 extern const struct PMListingRelationships {
+	__unsafe_unretained NSString *messageChain;
 	__unsafe_unretained NSString *user;
 } PMListingRelationships;
 
 extern const struct PMListingFetchedProperties {
 } PMListingFetchedProperties;
 
+@class PMMessageChain;
 @class PMUser;
+
 
 
 
@@ -162,6 +166,20 @@ extern const struct PMListingFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* sold;
+
+
+
+@property BOOL soldValue;
+- (BOOL)soldValue;
+- (void)setSoldValue:(BOOL)value_;
+
+//- (BOOL)validateSold:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* state;
 
 
@@ -182,6 +200,13 @@ extern const struct PMListingFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSOrderedSet *messageChain;
+
+- (NSMutableOrderedSet*)messageChainSet;
+
+
+
+
 @property (nonatomic, strong) PMUser *user;
 
 //- (BOOL)validateUser:(id*)value_ error:(NSError**)error_;
@@ -193,6 +218,11 @@ extern const struct PMListingFetchedProperties {
 @end
 
 @interface _PMListing (CoreDataGeneratedAccessors)
+
+- (void)addMessageChain:(NSOrderedSet*)value_;
+- (void)removeMessageChain:(NSOrderedSet*)value_;
+- (void)addMessageChainObject:(PMMessageChain*)value_;
+- (void)removeMessageChainObject:(PMMessageChain*)value_;
 
 @end
 
@@ -265,6 +295,15 @@ extern const struct PMListingFetchedProperties {
 
 
 
+- (NSNumber*)primitiveSold;
+- (void)setPrimitiveSold:(NSNumber*)value;
+
+- (BOOL)primitiveSoldValue;
+- (void)setPrimitiveSoldValue:(BOOL)value_;
+
+
+
+
 - (NSString*)primitiveState;
 - (void)setPrimitiveState:(NSString*)value;
 
@@ -275,6 +314,11 @@ extern const struct PMListingFetchedProperties {
 - (void)setPrimitiveTitle:(NSString*)value;
 
 
+
+
+
+- (NSMutableOrderedSet*)primitiveMessageChain;
+- (void)setPrimitiveMessageChain:(NSMutableOrderedSet*)value;
 
 
 

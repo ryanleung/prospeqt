@@ -10,11 +10,13 @@ const struct PMUserAttributes PMUserAttributes = {
 	.info = @"info",
 	.rating = @"rating",
 	.state = @"state",
+	.userId = @"userId",
 	.username = @"username",
 };
 
 const struct PMUserRelationships PMUserRelationships = {
 	.listings = @"listings",
+	.messageChains = @"messageChains",
 };
 
 const struct PMUserFetchedProperties PMUserFetchedProperties = {
@@ -48,6 +50,11 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 	
 	if ([key isEqualToString:@"ratingValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"rating"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"userIdValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"userId"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -119,6 +126,32 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 
 
 
+@dynamic userId;
+
+
+
+- (int32_t)userIdValue {
+	NSNumber *result = [self userId];
+	return [result intValue];
+}
+
+- (void)setUserIdValue:(int32_t)value_ {
+	[self setUserId:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveUserIdValue {
+	NSNumber *result = [self primitiveUserId];
+	return [result intValue];
+}
+
+- (void)setPrimitiveUserIdValue:(int32_t)value_ {
+	[self setPrimitiveUserId:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
+
 @dynamic username;
 
 
@@ -137,6 +170,10 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 	[self didAccessValueForKey:@"listings"];
 	return result;
 }
+	
+
+@dynamic messageChains;
+
 	
 
 

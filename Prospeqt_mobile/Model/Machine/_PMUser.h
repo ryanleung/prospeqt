@@ -11,17 +11,21 @@ extern const struct PMUserAttributes {
 	__unsafe_unretained NSString *info;
 	__unsafe_unretained NSString *rating;
 	__unsafe_unretained NSString *state;
+	__unsafe_unretained NSString *userId;
 	__unsafe_unretained NSString *username;
 } PMUserAttributes;
 
 extern const struct PMUserRelationships {
 	__unsafe_unretained NSString *listings;
+	__unsafe_unretained NSString *messageChains;
 } PMUserRelationships;
 
 extern const struct PMUserFetchedProperties {
 } PMUserFetchedProperties;
 
 @class PMListing;
+@class PMMessageChain;
+
 
 
 
@@ -108,6 +112,20 @@ extern const struct PMUserFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* userId;
+
+
+
+@property int32_t userIdValue;
+- (int32_t)userIdValue;
+- (void)setUserIdValue:(int32_t)value_;
+
+//- (BOOL)validateUserId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* username;
 
 
@@ -121,6 +139,13 @@ extern const struct PMUserFetchedProperties {
 @property (nonatomic, strong) NSSet *listings;
 
 - (NSMutableSet*)listingsSet;
+
+
+
+
+@property (nonatomic, strong) PMMessageChain *messageChains;
+
+//- (BOOL)validateMessageChains:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -179,6 +204,15 @@ extern const struct PMUserFetchedProperties {
 
 
 
+- (NSNumber*)primitiveUserId;
+- (void)setPrimitiveUserId:(NSNumber*)value;
+
+- (int32_t)primitiveUserIdValue;
+- (void)setPrimitiveUserIdValue:(int32_t)value_;
+
+
+
+
 - (NSString*)primitiveUsername;
 - (void)setPrimitiveUsername:(NSString*)value;
 
@@ -188,6 +222,11 @@ extern const struct PMUserFetchedProperties {
 
 - (NSMutableSet*)primitiveListings;
 - (void)setPrimitiveListings:(NSMutableSet*)value;
+
+
+
+- (PMMessageChain*)primitiveMessageChains;
+- (void)setPrimitiveMessageChains:(PMMessageChain*)value;
 
 
 @end

@@ -12,6 +12,7 @@
 #import "PMLocationAccessoryLabelView.h"
 #import "PMReviewsAccessoryLabelView.h"
 #import "PMAddress.h"
+#import "PMEditProfileViewController.h"
 
 static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
 
@@ -35,6 +36,7 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
     if (self) {
         self.title = NSLocalizedString(@"tabbar.profile.title", @"Profile");
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar.profile.title", @"Profile") image:[[UIImage imageNamed:@"Profile_Icon_Inactive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"Profile_Icon_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"global.edit", @"edit") style:UIBarButtonItemStylePlain target:self action:@selector(formAction)];
     }
     return self;
 }
@@ -118,6 +120,14 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
     separatorView.backgroundColor = [UIColor pm_grayDarkColor];
     
     return separatorView;
+}
+
+#pragma mark - Actions
+
+- (void)formAction
+{
+    PMEditProfileViewController *editProfileViewController = [[PMEditProfileViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:editProfileViewController animated:YES];
 }
 
 #pragma mark - Properties

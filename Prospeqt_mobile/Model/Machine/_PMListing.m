@@ -14,11 +14,13 @@ const struct PMListingAttributes PMListingAttributes = {
 	.price = @"price",
 	.smallPicData = @"smallPicData",
 	.smallPicUrl = @"smallPicUrl",
+	.sold = @"sold",
 	.state = @"state",
 	.title = @"title",
 };
 
 const struct PMListingRelationships PMListingRelationships = {
+	.messageChain = @"messageChain",
 	.user = @"user",
 };
 
@@ -58,6 +60,11 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 	}
 	if ([key isEqualToString:@"messagesValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"messages"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"soldValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"sold"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -176,6 +183,32 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
+@dynamic sold;
+
+
+
+- (BOOL)soldValue {
+	NSNumber *result = [self sold];
+	return [result boolValue];
+}
+
+- (void)setSoldValue:(BOOL)value_ {
+	[self setSold:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveSoldValue {
+	NSNumber *result = [self primitiveSold];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveSoldValue:(BOOL)value_ {
+	[self setPrimitiveSold:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
 @dynamic state;
 
 
@@ -189,6 +222,19 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
+
+@dynamic messageChain;
+
+	
+- (NSMutableOrderedSet*)messageChainSet {
+	[self willAccessValueForKey:@"messageChain"];
+  
+	NSMutableOrderedSet *result = (NSMutableOrderedSet*)[self mutableOrderedSetValueForKey:@"messageChain"];
+  
+	[self didAccessValueForKey:@"messageChain"];
+	return result;
+}
+	
 
 @dynamic user;
 
