@@ -24,6 +24,7 @@ const struct PMHTTPMethod PMHTTPMethod = {
 };
 
 const struct PMURIEndpoint PMURIEndpoint = {
-    .sessions = @"",
-    .categories = @""
+    .messages = @"",
+    .sendMessage = @"",
+    .createMessage = @""
 };

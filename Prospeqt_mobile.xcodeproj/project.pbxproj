@@ -117,6 +117,7 @@
 		478786D317E6B02C004CCE04 /* PMForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786D217E6B02C004CCE04 /* PMForgotPasswordViewController.m */; };
 		478786D617E6B034004CCE04 /* PMTermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786D517E6B034004CCE04 /* PMTermsOfServiceViewController.m */; };
 		478786D917E6BD30004CCE04 /* PMAuthNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786D817E6BD30004CCE04 /* PMAuthNavigationController.m */; };
+		479DD5F3182E101400ECC16B /* PMMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 479DD5F2182E101400ECC16B /* PMMessageCell.m */; };
 		47A5065B18095A1600243BE6 /* RoundedCornerThumbnail_Border.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5065718095A1600243BE6 /* RoundedCornerThumbnail_Border.png */; };
 		47A5065C18095A1600243BE6 /* RoundedCornerThumbnail_Border@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5065818095A1600243BE6 /* RoundedCornerThumbnail_Border@2x.png */; };
 		47A5065D18095A1600243BE6 /* RoundedCornerThumbnail_Mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5065918095A1600243BE6 /* RoundedCornerThumbnail_Mask.png */; };
@@ -372,6 +373,8 @@
 		478786D717E6BD30004CCE04 /* PMAuthNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAuthNavigationController.h; sourceTree = "<group>"; };
 		478786D817E6BD30004CCE04 /* PMAuthNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAuthNavigationController.m; sourceTree = "<group>"; };
 		478786DA17E6BD7C004CCE04 /* PMAuthenticationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMAuthenticationDelegate.h; sourceTree = "<group>"; };
+		479DD5F1182E101400ECC16B /* PMMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMMessageCell.h; path = Views/PMMessageCell.h; sourceTree = "<group>"; };
+		479DD5F2182E101400ECC16B /* PMMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMMessageCell.m; path = Views/PMMessageCell.m; sourceTree = "<group>"; };
 		47A5065718095A1600243BE6 /* RoundedCornerThumbnail_Border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoundedCornerThumbnail_Border.png; sourceTree = "<group>"; };
 		47A5065818095A1600243BE6 /* RoundedCornerThumbnail_Border@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RoundedCornerThumbnail_Border@2x.png"; sourceTree = "<group>"; };
 		47A5065918095A1600243BE6 /* RoundedCornerThumbnail_Mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoundedCornerThumbnail_Mask.png; sourceTree = "<group>"; };
@@ -965,6 +968,8 @@
 				47B5A439181DE81C000588A4 /* PMReviewsAccessoryLabelView.m */,
 				471EF2681823889C00618B02 /* PMTextFieldCell.h */,
 				471EF2691823889C00618B02 /* PMTextFieldCell.m */,
+				479DD5F1182E101400ECC16B /* PMMessageCell.h */,
+				479DD5F2182E101400ECC16B /* PMMessageCell.m */,
 			);
 			name = View;
 			path = Prospeqt_mobile;
@@ -1279,6 +1284,7 @@
 				478786D317E6B02C004CCE04 /* PMForgotPasswordViewController.m in Sources */,
 				473D64A418013DA0001B8279 /* NSPersistentStoreCoordinator+PMDataStack.m in Sources */,
 				4753DB4B18148B8C00F8D128 /* SSKeychainQuery.m in Sources */,
+				479DD5F3182E101400ECC16B /* PMMessageCell.m in Sources */,
 				474C9A6C17E5751A0072012C /* PMSettingsViewController.m in Sources */,
 				4753DB4A18148B8C00F8D128 /* SSKeychain.m in Sources */,
 				471EF263181E5A4C00618B02 /* PMMessage.m in Sources */,

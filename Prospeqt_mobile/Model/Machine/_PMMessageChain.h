@@ -5,6 +5,8 @@
 
 
 extern const struct PMMessageChainAttributes {
+	__unsafe_unretained NSString *dirty;
+	__unsafe_unretained NSString *lastUpdated;
 	__unsafe_unretained NSString *messageChainId;
 } PMMessageChainAttributes;
 
@@ -25,6 +27,8 @@ extern const struct PMMessageChainFetchedProperties {
 
 
 
+
+
 @interface PMMessageChainID : NSManagedObjectID {}
 @end
 
@@ -33,6 +37,30 @@ extern const struct PMMessageChainFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (PMMessageChainID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* dirty;
+
+
+
+@property BOOL dirtyValue;
+- (BOOL)dirtyValue;
+- (void)setDirtyValue:(BOOL)value_;
+
+//- (BOOL)validateDirty:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSDate* lastUpdated;
+
+
+
+//- (BOOL)validateLastUpdated:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -93,6 +121,21 @@ extern const struct PMMessageChainFetchedProperties {
 @end
 
 @interface _PMMessageChain (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveDirty;
+- (void)setPrimitiveDirty:(NSNumber*)value;
+
+- (BOOL)primitiveDirtyValue;
+- (void)setPrimitiveDirtyValue:(BOOL)value_;
+
+
+
+
+- (NSDate*)primitiveLastUpdated;
+- (void)setPrimitiveLastUpdated:(NSDate*)value;
+
+
 
 
 - (NSNumber*)primitiveMessageChainId;

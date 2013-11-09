@@ -4,6 +4,8 @@
 #import "_PMMessageChain.h"
 
 const struct PMMessageChainAttributes PMMessageChainAttributes = {
+	.dirty = @"dirty",
+	.lastUpdated = @"lastUpdated",
 	.messageChainId = @"messageChainId",
 };
 
@@ -43,6 +45,11 @@ const struct PMMessageChainFetchedProperties PMMessageChainFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"dirtyValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"dirty"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"messageChainIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"messageChainId"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -51,6 +58,39 @@ const struct PMMessageChainFetchedProperties PMMessageChainFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic dirty;
+
+
+
+- (BOOL)dirtyValue {
+	NSNumber *result = [self dirty];
+	return [result boolValue];
+}
+
+- (void)setDirtyValue:(BOOL)value_ {
+	[self setDirty:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveDirtyValue {
+	NSNumber *result = [self primitiveDirty];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveDirtyValue:(BOOL)value_ {
+	[self setPrimitiveDirty:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic lastUpdated;
+
+
 
 
 

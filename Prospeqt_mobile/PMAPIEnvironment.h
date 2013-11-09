@@ -25,6 +25,7 @@ extern const struct PMHTTPMethod {
 } PMHTTPMethod;
 
 extern const struct PMURIEndpoint {
-    __unsafe_unretained NSString *sessions;
-    __unsafe_unretained NSString *categories;
+    __unsafe_unretained NSString *messages;
+    __unsafe_unretained NSString *sendMessage;
+    __unsafe_unretained NSString *createMessage;
 } PMURIEndpoint;
