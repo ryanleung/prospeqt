@@ -79,7 +79,6 @@
 		4739BCB01800FB01004A6500 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4739BCAF1800FB01004A6500 /* MobileCoreServices.framework */; };
 		4739BCB21800FB06004A6500 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4739BCB11800FB06004A6500 /* Security.framework */; };
 		4739BCB41800FB0C004A6500 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4739BCB31800FB0C004A6500 /* SystemConfiguration.framework */; };
-		4739BCC61801099B004A6500 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4739BCBD18010802004A6500 /* libRestKit.a */; };
 		473D64A418013DA0001B8279 /* NSPersistentStoreCoordinator+PMDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 473D64A318013DA0001B8279 /* NSPersistentStoreCoordinator+PMDataStack.m */; };
 		473D64AA18013F87001B8279 /* NSManagedObjectContext+PMDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 473D64A918013F87001B8279 /* NSManagedObjectContext+PMDataStack.m */; };
 		473D64AD18021816001B8279 /* PMObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 473D64AC18021816001B8279 /* PMObjectManager.m */; };
@@ -186,6 +185,7 @@
 		47BBD7F117D423440050814D /* PMNetworkController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7F017D423440050814D /* PMNetworkController.m */; };
 		47BBD7F717D424940050814D /* PMAPIEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7F617D424940050814D /* PMAPIEnvironment.m */; };
 		47BBD80017E191AE0050814D /* PMWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47BBD7FF17E191AE0050814D /* PMWindowController.m */; };
+		B588753B182F411100CCE8A9 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4739BCBD18010802004A6500 /* libRestKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,19 +217,19 @@
 			remoteGlobalIDString = 25160E78145651060060A5C5;
 			remoteInfo = RestKitFrameworkTests;
 		};
-		4739BCC418010996004A6500 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4739BCB518010801004A6500 /* RestKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 25160D1514564E810060A5C5;
-			remoteInfo = RestKit;
-		};
 		47BBD7D917D40E630050814D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 47BBD7A617D40E630050814D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 47BBD7AD17D40E630050814D;
 			remoteInfo = Prospeqt_mobile;
+		};
+		B5887539182F410900CCE8A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4739BCB518010801004A6500 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -476,9 +476,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B588753B182F411100CCE8A9 /* libRestKit.a in Frameworks */,
 				47B5A42E181CE2DE000588A4 /* QuartzCore.framework in Frameworks */,
 				4753DB531817AA9C00F8D128 /* CoreLocation.framework in Frameworks */,
-				4739BCC61801099B004A6500 /* libRestKit.a in Frameworks */,
 				4739BCB41800FB0C004A6500 /* SystemConfiguration.framework in Frameworks */,
 				4739BCB21800FB06004A6500 /* Security.framework in Frameworks */,
 				4739BCB01800FB01004A6500 /* MobileCoreServices.framework in Frameworks */,
@@ -1042,7 +1042,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				4739BCC518010996004A6500 /* PBXTargetDependency */,
+				B588753A182F410900CCE8A9 /* PBXTargetDependency */,
 			);
 			name = Prospeqt_mobile;
 			productName = Prospeqt_mobile;
@@ -1353,15 +1353,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4739BCC518010996004A6500 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = RestKit;
-			targetProxy = 4739BCC418010996004A6500 /* PBXContainerItemProxy */;
-		};
 		47BBD7DA17D40E630050814D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 47BBD7AD17D40E630050814D /* Prospeqt_mobile */;
 			targetProxy = 47BBD7D917D40E630050814D /* PBXContainerItemProxy */;
+		};
+		B588753A182F410900CCE8A9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = B5887539182F410900CCE8A9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
