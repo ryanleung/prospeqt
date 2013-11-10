@@ -87,3 +87,10 @@
 "profile.edit.bio" = "EDIT BIO";
 "profile.edit.social" = "EDIT SOCIAL PROFILES";
 
+"settings.accountTitle" = "Account & Payments";
+"settings.editProfile" = "EDIT PROFILE";
+"settings.banksAndCards" = "BANKS & CARDS";
+"settings.informationTitle" = "Information & Support";
+"settings.contactUs" = "CONTACT US";
+"settings.helpCenter" = "HELP CENTER";
+"settings.logOut" = "LOG OUT";
