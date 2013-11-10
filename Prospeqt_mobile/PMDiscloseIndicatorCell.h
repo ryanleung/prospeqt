@@ -1,5 +1,5 @@
 //
-//  PMCategoryCell.h
+//  PMDiscloseIndicatorCell.h
 //  Prospeqt_mobile
 //
 //  Created by Ryan Leung on 10/4/13.
@@ -8,6 +8,6 @@
 
 #import "PMCell.h"
 
-@interface PMCategoryCell : PMCell
+@interface PMDiscloseIndicatorCell : PMCell
 
 @end

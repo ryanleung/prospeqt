@@ -1,16 +1,16 @@
 //
-//  PMCategoryCell.m
+//  PMDiscloseIndicatorCell.m
 //  Prospeqt_mobile
 //
 //  Created by Ryan Leung on 10/4/13.
 //  Copyright (c) 2013 Prospeqt. All rights reserved.
 //
 
-#import "PMCategoryCell.h"
+#import "PMDiscloseIndicatorCell.h"
 #import "UIFont+PMAppearance.h"
 #import "UIColor+PMAppearance.h"
 
-@implementation PMCategoryCell
+@implementation PMDiscloseIndicatorCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

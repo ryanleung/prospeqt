@@ -31,7 +31,7 @@
 		4739BB7317FD531D004A6500 /* PMListingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4739BB7217FD531D004A6500 /* PMListingCell.m */; };
 		4739BBC217FFD5B6004A6500 /* PMPostListingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4739BBC117FFD5B6004A6500 /* PMPostListingViewController.m */; };
 		4739BBCB17FFDB62004A6500 /* PMTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4739BBCA17FFDB62004A6500 /* PMTitleCell.m */; };
-		4739BBCE17FFDE57004A6500 /* PMCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4739BBCD17FFDE57004A6500 /* PMCategoryCell.m */; };
+		4739BBCE17FFDE57004A6500 /* PMDiscloseIndicatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4739BBCD17FFDE57004A6500 /* PMDiscloseIndicatorCell.m */; };
 		4739BBD117FFE1D2004A6500 /* PMCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4739BBD017FFE1D2004A6500 /* PMCell.m */; };
 		4739BBDF17FFF897004A6500 /* Prospeqt_mobile-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47BBD7BB17D40E630050814D /* Prospeqt_mobile-Info.plist */; };
 		4739BBEA18000C21004A6500 /* PMAddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4739BBE918000C21004A6500 /* PMAddPhotoViewController.m */; };
@@ -254,8 +254,8 @@
 		4739BBC117FFD5B6004A6500 /* PMPostListingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMPostListingViewController.m; sourceTree = "<group>"; };
 		4739BBC917FFDB62004A6500 /* PMTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTitleCell.h; sourceTree = "<group>"; };
 		4739BBCA17FFDB62004A6500 /* PMTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMTitleCell.m; sourceTree = "<group>"; };
-		4739BBCC17FFDE57004A6500 /* PMCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCategoryCell.h; sourceTree = "<group>"; };
-		4739BBCD17FFDE57004A6500 /* PMCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCategoryCell.m; sourceTree = "<group>"; };
+		4739BBCC17FFDE57004A6500 /* PMDiscloseIndicatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDiscloseIndicatorCell.h; sourceTree = "<group>"; };
+		4739BBCD17FFDE57004A6500 /* PMDiscloseIndicatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDiscloseIndicatorCell.m; sourceTree = "<group>"; };
 		4739BBCF17FFE1D2004A6500 /* PMCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCell.h; sourceTree = "<group>"; };
 		4739BBD017FFE1D2004A6500 /* PMCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCell.m; sourceTree = "<group>"; };
 		4739BBE818000C21004A6500 /* PMAddPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAddPhotoViewController.h; sourceTree = "<group>"; };
@@ -969,8 +969,8 @@
 				4739BB7217FD531D004A6500 /* PMListingCell.m */,
 				4739BBC917FFDB62004A6500 /* PMTitleCell.h */,
 				4739BBCA17FFDB62004A6500 /* PMTitleCell.m */,
-				4739BBCC17FFDE57004A6500 /* PMCategoryCell.h */,
-				4739BBCD17FFDE57004A6500 /* PMCategoryCell.m */,
+				4739BBCC17FFDE57004A6500 /* PMDiscloseIndicatorCell.h */,
+				4739BBCD17FFDE57004A6500 /* PMDiscloseIndicatorCell.m */,
 				4739BBCF17FFE1D2004A6500 /* PMCell.h */,
 				4739BBD017FFE1D2004A6500 /* PMCell.m */,
 				47A5066C180A7BE400243BE6 /* PMButton.h */,
@@ -1277,7 +1277,7 @@
 				47A50671180A7D3400243BE6 /* UIButton+PMAppearance.m in Sources */,
 				4739BC8F1800D853004A6500 /* UIColor+PMAppearance.m in Sources */,
 				479DD601182E1E3000ECC16B /* PMLaunchController.m in Sources */,
-				4739BBCE17FFDE57004A6500 /* PMCategoryCell.m in Sources */,
+				4739BBCE17FFDE57004A6500 /* PMDiscloseIndicatorCell.m in Sources */,
 				47A5066E180A7BE400243BE6 /* PMButton.m in Sources */,
 				479DD5FE182E15F400ECC16B /* PMManagedObjectStore.m in Sources */,
 				47A506A018126CD300243BE6 /* PMFormBaseViewController.m in Sources */,

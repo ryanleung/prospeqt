@@ -8,7 +8,7 @@
 
 #import "PMPostListingViewController.h"
 #import "PMTitleCell.h"
-#import "PMCategoryCell.h"
+#import "PMDiscloseIndicatorCell.h"
 #import "PMAddPhotoViewController.h"
 #import "PMAddTitleAndPriceViewController.h"
 
@@ -46,7 +46,7 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         tableView.delegate = self;
         tableView.dataSource  = self;
         [tableView registerClass:[PMTitleCell class] forCellReuseIdentifier:kTitleCellIdentifier];
-        [tableView registerClass:[PMCategoryCell class] forCellReuseIdentifier:kCategoryCellIdentifier];
+        [tableView registerClass:[PMDiscloseIndicatorCell class] forCellReuseIdentifier:kCategoryCellIdentifier];
         tableView.backgroundColor = [UIColor clearColor];
         [self.view addSubview:tableView];
         self.tableView = tableView;
@@ -182,6 +182,6 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [PMCategoryCell cellHeight];
+    return [PMDiscloseIndicatorCell cellHeight];
 }
 @end
