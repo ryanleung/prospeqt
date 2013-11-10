@@ -131,11 +131,11 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
             break;
         case PMCategoryCellTypeBanksAndCards:
             cell.textLabel.text = NSLocalizedString(@"settings.banksAndCards", @"banks and cards");
-            [cell useLastItemSeparator:NO];
+            [cell useLastItemSeparator:YES];
             break;
         case PMCategoryCellTypeInformationTitle:
             cell.textLabel.text = NSLocalizedString(@"settings.informationTitle", @"information and support");
-            [cell useLastItemSeparator:NO];
+            [cell useLastItemSeparator:YES];
             break;
         case PMCategoryCellTypeContactUs:
             cell.textLabel.text = NSLocalizedString(@"settings.contactUs", @"contact us");
