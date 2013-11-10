@@ -38,6 +38,7 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
     if (self) {
         self.title = NSLocalizedString(@"tabbar.postListing.title", @"Post a Listing");
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar.postListing.title", @"Post Listing") image:[[UIImage imageNamed:@"PostAListing_Icon_Inactive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"PostAListing_Icon_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        self.tabBarItem.imageInsets = UIEdgeInsetsMake(-15.0f, 0.0f, 15.0f, 0.0f);
         
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         tableView.scrollEnabled = YES;
