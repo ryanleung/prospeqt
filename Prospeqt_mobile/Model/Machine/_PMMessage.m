@@ -5,10 +5,8 @@
 
 const struct PMMessageAttributes PMMessageAttributes = {
 	.content = @"content",
-	.inquirerId = @"inquirerId",
-	.listingId = @"listingId",
 	.messageId = @"messageId",
-	.sellerId = @"sellerId",
+	.senderId = @"senderId",
 	.time = @"time",
 	.type = @"type",
 };
@@ -46,23 +44,13 @@ const struct PMMessageFetchedProperties PMMessageFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"inquirerIdValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"inquirerId"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
-	if ([key isEqualToString:@"listingIdValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"listingId"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
 	if ([key isEqualToString:@"messageIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"messageId"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
-	if ([key isEqualToString:@"sellerIdValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"sellerId"];
+	if ([key isEqualToString:@"senderIdValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"senderId"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -75,58 +63,6 @@ const struct PMMessageFetchedProperties PMMessageFetchedProperties = {
 
 @dynamic content;
 
-
-
-
-
-
-@dynamic inquirerId;
-
-
-
-- (int32_t)inquirerIdValue {
-	NSNumber *result = [self inquirerId];
-	return [result intValue];
-}
-
-- (void)setInquirerIdValue:(int32_t)value_ {
-	[self setInquirerId:[NSNumber numberWithInt:value_]];
-}
-
-- (int32_t)primitiveInquirerIdValue {
-	NSNumber *result = [self primitiveInquirerId];
-	return [result intValue];
-}
-
-- (void)setPrimitiveInquirerIdValue:(int32_t)value_ {
-	[self setPrimitiveInquirerId:[NSNumber numberWithInt:value_]];
-}
-
-
-
-
-
-@dynamic listingId;
-
-
-
-- (int32_t)listingIdValue {
-	NSNumber *result = [self listingId];
-	return [result intValue];
-}
-
-- (void)setListingIdValue:(int32_t)value_ {
-	[self setListingId:[NSNumber numberWithInt:value_]];
-}
-
-- (int32_t)primitiveListingIdValue {
-	NSNumber *result = [self primitiveListingId];
-	return [result intValue];
-}
-
-- (void)setPrimitiveListingIdValue:(int32_t)value_ {
-	[self setPrimitiveListingId:[NSNumber numberWithInt:value_]];
-}
 
 
 
@@ -158,26 +94,26 @@ const struct PMMessageFetchedProperties PMMessageFetchedProperties = {
 
 
 
-@dynamic sellerId;
+@dynamic senderId;
 
 
 
-- (int32_t)sellerIdValue {
-	NSNumber *result = [self sellerId];
+- (int32_t)senderIdValue {
+	NSNumber *result = [self senderId];
 	return [result intValue];
 }
 
-- (void)setSellerIdValue:(int32_t)value_ {
-	[self setSellerId:[NSNumber numberWithInt:value_]];
+- (void)setSenderIdValue:(int32_t)value_ {
+	[self setSenderId:[NSNumber numberWithInt:value_]];
 }
 
-- (int32_t)primitiveSellerIdValue {
-	NSNumber *result = [self primitiveSellerId];
+- (int32_t)primitiveSenderIdValue {
+	NSNumber *result = [self primitiveSenderId];
 	return [result intValue];
 }
 
-- (void)setPrimitiveSellerIdValue:(int32_t)value_ {
-	[self setPrimitiveSellerId:[NSNumber numberWithInt:value_]];
+- (void)setPrimitiveSenderIdValue:(int32_t)value_ {
+	[self setPrimitiveSenderId:[NSNumber numberWithInt:value_]];
 }
 
 

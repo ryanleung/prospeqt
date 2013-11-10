@@ -20,12 +20,14 @@ extern const struct PMListingAttributes {
 } PMListingAttributes;
 
 extern const struct PMListingRelationships {
+	__unsafe_unretained NSString *messageChains;
 	__unsafe_unretained NSString *user;
 } PMListingRelationships;
 
 extern const struct PMListingFetchedProperties {
 } PMListingFetchedProperties;
 
+@class PMMessageChain;
 @class PMUser;
 
 
@@ -182,6 +184,13 @@ extern const struct PMListingFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSSet *messageChains;
+
+- (NSMutableSet*)messageChainsSet;
+
+
+
+
 @property (nonatomic, strong) PMUser *user;
 
 //- (BOOL)validateUser:(id*)value_ error:(NSError**)error_;
@@ -193,6 +202,11 @@ extern const struct PMListingFetchedProperties {
 @end
 
 @interface _PMListing (CoreDataGeneratedAccessors)
+
+- (void)addMessageChains:(NSSet*)value_;
+- (void)removeMessageChains:(NSSet*)value_;
+- (void)addMessageChainsObject:(PMMessageChain*)value_;
+- (void)removeMessageChainsObject:(PMMessageChain*)value_;
 
 @end
 
@@ -275,6 +289,11 @@ extern const struct PMListingFetchedProperties {
 - (void)setPrimitiveTitle:(NSString*)value;
 
 
+
+
+
+- (NSMutableSet*)primitiveMessageChains;
+- (void)setPrimitiveMessageChains:(NSMutableSet*)value;
 
 
 

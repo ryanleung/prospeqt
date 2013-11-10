@@ -8,6 +8,10 @@
 
 #import "PMListing.h"
 #import "PMUser.h"
+#import "PMMessageChain.h"
+#import "PMMessage.h"
+#import "PMAddress.h"
+#import "PMListing.h"
 
 extern NSString * const kPMAPIAuthorizationHeaderKey;
 

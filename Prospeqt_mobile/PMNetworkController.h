@@ -10,9 +10,9 @@
 #import "PMAPIEnvironment.h"
 #import "PMDataLoadProtocol.h"
 
+typedef void(^PMNetworkCompletion)(id response, NSError *error);
+
 @interface PMNetworkController : NSObject
-
-
 
 @property (readonly) NSManagedObjectContext *mainContext;
 @property (readonly) NSString *currentUsername;
@@ -45,7 +45,27 @@
  */
 - (void)updateKeychainUsername:(NSString *)username;
 
-/** Create a message chains
- @param 
+/** Create a message chain
+ @param msgChain Message chain to create
+ @param completionOrNil a completion handler to perform when the action is complete
  */
+- (void)createMessageChain:(PMMessageChain *)msgChain
+                completion:(PMNetworkCompletion)completionOrNil;
+
+/** Send a message
+ @param msg Message to send
+ @param msgChain Message chain to append message to
+ @param completionOrNil a completion handler to perform when the action is complete
+ */
+- (void)sendMessage:(PMMessage *)msg
+         toMsgChain:(PMMessageChain *)msgChain
+    completionOrNil:(PMNetworkCompletion)completionOrNil;
+
+/** fetch all messages of current user
+ @param currentUser The current user
+ @param completionOrNil a completion handler to perform when the action is complete
+ */
+- (void)fetchMessages:(PMUser *)currentUser
+      completionOrNil:(PMNetworkCompletion)completionOrNil;
+
 @end

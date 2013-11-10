@@ -61,7 +61,7 @@ static PMObjectManager *pm_sharedObjectManager = nil;
 
 - (void)prepareRequestDescriptors
 {
-    
+
 }
 
 - (void)prepareResponseDescriptors

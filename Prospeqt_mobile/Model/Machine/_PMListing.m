@@ -19,6 +19,7 @@ const struct PMListingAttributes PMListingAttributes = {
 };
 
 const struct PMListingRelationships PMListingRelationships = {
+	.messageChains = @"messageChains",
 	.user = @"user",
 };
 
@@ -189,6 +190,19 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
+
+@dynamic messageChains;
+
+	
+- (NSMutableSet*)messageChainsSet {
+	[self willAccessValueForKey:@"messageChains"];
+  
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"messageChains"];
+  
+	[self didAccessValueForKey:@"messageChains"];
+	return result;
+}
+	
 
 @dynamic user;
 

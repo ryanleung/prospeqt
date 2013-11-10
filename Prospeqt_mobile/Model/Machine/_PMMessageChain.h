@@ -9,6 +9,7 @@ extern const struct PMMessageChainAttributes {
 	__unsafe_unretained NSString *inquirerId;
 	__unsafe_unretained NSString *lastUpdated;
 	__unsafe_unretained NSString *messageChainId;
+	__unsafe_unretained NSString *sellerId;
 } PMMessageChainAttributes;
 
 extern const struct PMMessageChainRelationships {
@@ -23,6 +24,7 @@ extern const struct PMMessageChainFetchedProperties {
 @class PMListing;
 @class PMMessage;
 @class PMUser;
+
 
 
 
@@ -94,6 +96,20 @@ extern const struct PMMessageChainFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSNumber* sellerId;
+
+
+
+@property int32_t sellerIdValue;
+- (int32_t)sellerIdValue;
+- (void)setSellerIdValue:(int32_t)value_;
+
+//- (BOOL)validateSellerId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) PMListing *listing;
 
 //- (BOOL)validateListing:(id*)value_ error:(NSError**)error_;
@@ -159,6 +175,15 @@ extern const struct PMMessageChainFetchedProperties {
 
 - (int32_t)primitiveMessageChainIdValue;
 - (void)setPrimitiveMessageChainIdValue:(int32_t)value_;
+
+
+
+
+- (NSNumber*)primitiveSellerId;
+- (void)setPrimitiveSellerId:(NSNumber*)value;
+
+- (int32_t)primitiveSellerIdValue;
+- (void)setPrimitiveSellerIdValue:(int32_t)value_;
 
 
 

@@ -8,6 +8,7 @@ const struct PMMessageChainAttributes PMMessageChainAttributes = {
 	.inquirerId = @"inquirerId",
 	.lastUpdated = @"lastUpdated",
 	.messageChainId = @"messageChainId",
+	.sellerId = @"sellerId",
 };
 
 const struct PMMessageChainRelationships PMMessageChainRelationships = {
@@ -57,6 +58,11 @@ const struct PMMessageChainFetchedProperties PMMessageChainFetchedProperties = {
 	}
 	if ([key isEqualToString:@"messageChainIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"messageChainId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"sellerIdValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"sellerId"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -146,6 +152,32 @@ const struct PMMessageChainFetchedProperties PMMessageChainFetchedProperties = {
 
 - (void)setPrimitiveMessageChainIdValue:(int32_t)value_ {
 	[self setPrimitiveMessageChainId:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
+
+@dynamic sellerId;
+
+
+
+- (int32_t)sellerIdValue {
+	NSNumber *result = [self sellerId];
+	return [result intValue];
+}
+
+- (void)setSellerIdValue:(int32_t)value_ {
+	[self setSellerId:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveSellerIdValue {
+	NSNumber *result = [self primitiveSellerId];
+	return [result intValue];
+}
+
+- (void)setPrimitiveSellerIdValue:(int32_t)value_ {
+	[self setPrimitiveSellerId:[NSNumber numberWithInt:value_]];
 }
 
 
