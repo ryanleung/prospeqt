@@ -45,7 +45,7 @@ static NSPersistentStoreCoordinator *pm_inMemoryPersistentStoreCoordinator = nil
     return pm_defaultPersistentStoreCoordinator;
 }
 
-+ (NSPersistentStoreCoordinator *)luv_inMemoryPersistentStoreCoordinator
++ (NSPersistentStoreCoordinator *)pm_inMemoryPersistentStoreCoordinator
 {
     if (pm_inMemoryPersistentStoreCoordinator) return pm_inMemoryPersistentStoreCoordinator;
 	

@@ -8,12 +8,17 @@
 
 #import "PMListing.h"
 #import "PMUser.h"
+#import "PMMessageChain.h"
+#import "PMMessage.h"
+#import "PMAddress.h"
+#import "PMListing.h"
 
 extern NSString * const kPMAPIAuthorizationHeaderKey;
 
 extern const struct PMAPIBaseURL {
     __unsafe_unretained NSString *staging;
     __unsafe_unretained NSString *production;
+    __unsafe_unretained NSString *debug;
 } PMAPIBaseURL;
 
 extern const struct PMHTTPMethod {
@@ -25,6 +30,7 @@ extern const struct PMHTTPMethod {
 } PMHTTPMethod;
 
 extern const struct PMURIEndpoint {
-    __unsafe_unretained NSString *sessions;
-    __unsafe_unretained NSString *categories;
+    __unsafe_unretained NSString *messages;
+    __unsafe_unretained NSString *sendMessage;
+    __unsafe_unretained NSString *createMessage;
 } PMURIEndpoint;

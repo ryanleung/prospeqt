@@ -4,11 +4,14 @@
 #import "_PMMessageChain.h"
 
 const struct PMMessageChainAttributes PMMessageChainAttributes = {
+	.dirty = @"dirty",
+	.inquirerId = @"inquirerId",
+	.lastUpdated = @"lastUpdated",
 	.messageChainId = @"messageChainId",
+	.sellerId = @"sellerId",
 };
 
 const struct PMMessageChainRelationships PMMessageChainRelationships = {
-	.inquirer = @"inquirer",
 	.listing = @"listing",
 	.messages = @"messages",
 	.seller = @"seller",
@@ -43,14 +46,88 @@ const struct PMMessageChainFetchedProperties PMMessageChainFetchedProperties = {
 + (NSSet*)keyPathsForValuesAffectingValueForKey:(NSString*)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"dirtyValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"dirty"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"inquirerIdValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"inquirerId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"messageChainIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"messageChainId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"sellerIdValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"sellerId"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic dirty;
+
+
+
+- (BOOL)dirtyValue {
+	NSNumber *result = [self dirty];
+	return [result boolValue];
+}
+
+- (void)setDirtyValue:(BOOL)value_ {
+	[self setDirty:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveDirtyValue {
+	NSNumber *result = [self primitiveDirty];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveDirtyValue:(BOOL)value_ {
+	[self setPrimitiveDirty:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic inquirerId;
+
+
+
+- (int32_t)inquirerIdValue {
+	NSNumber *result = [self inquirerId];
+	return [result intValue];
+}
+
+- (void)setInquirerIdValue:(int32_t)value_ {
+	[self setInquirerId:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveInquirerIdValue {
+	NSNumber *result = [self primitiveInquirerId];
+	return [result intValue];
+}
+
+- (void)setPrimitiveInquirerIdValue:(int32_t)value_ {
+	[self setPrimitiveInquirerId:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
+
+@dynamic lastUpdated;
+
+
 
 
 
@@ -81,9 +158,31 @@ const struct PMMessageChainFetchedProperties PMMessageChainFetchedProperties = {
 
 
 
-@dynamic inquirer;
+@dynamic sellerId;
 
-	
+
+
+- (int32_t)sellerIdValue {
+	NSNumber *result = [self sellerId];
+	return [result intValue];
+}
+
+- (void)setSellerIdValue:(int32_t)value_ {
+	[self setSellerId:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveSellerIdValue {
+	NSNumber *result = [self primitiveSellerId];
+	return [result intValue];
+}
+
+- (void)setPrimitiveSellerIdValue:(int32_t)value_ {
+	[self setPrimitiveSellerId:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
 
 @dynamic listing;
 
@@ -92,10 +191,10 @@ const struct PMMessageChainFetchedProperties PMMessageChainFetchedProperties = {
 @dynamic messages;
 
 	
-- (NSMutableSet*)messagesSet {
+- (NSMutableOrderedSet*)messagesSet {
 	[self willAccessValueForKey:@"messages"];
   
-	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"messages"];
+	NSMutableOrderedSet *result = (NSMutableOrderedSet*)[self mutableOrderedSetValueForKey:@"messages"];
   
 	[self didAccessValueForKey:@"messages"];
 	return result;

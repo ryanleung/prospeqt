@@ -9,7 +9,6 @@ extern const struct PMListingAttributes {
 	__unsafe_unretained NSString *date;
 	__unsafe_unretained NSString *info;
 	__unsafe_unretained NSString *listingId;
-	__unsafe_unretained NSString *messages;
 	__unsafe_unretained NSString *picData;
 	__unsafe_unretained NSString *picUrl;
 	__unsafe_unretained NSString *price;
@@ -21,7 +20,7 @@ extern const struct PMListingAttributes {
 } PMListingAttributes;
 
 extern const struct PMListingRelationships {
-	__unsafe_unretained NSString *messageChain;
+	__unsafe_unretained NSString *messageChains;
 	__unsafe_unretained NSString *user;
 } PMListingRelationships;
 
@@ -30,7 +29,6 @@ extern const struct PMListingFetchedProperties {
 
 @class PMMessageChain;
 @class PMUser;
-
 
 
 
@@ -97,20 +95,6 @@ extern const struct PMListingFetchedProperties {
 - (void)setListingIdValue:(int32_t)value_;
 
 //- (BOOL)validateListingId:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSNumber* messages;
-
-
-
-@property int32_t messagesValue;
-- (int32_t)messagesValue;
-- (void)setMessagesValue:(int32_t)value_;
-
-//- (BOOL)validateMessages:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -200,9 +184,9 @@ extern const struct PMListingFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSOrderedSet *messageChain;
+@property (nonatomic, strong) NSSet *messageChains;
 
-- (NSMutableOrderedSet*)messageChainSet;
+- (NSMutableSet*)messageChainsSet;
 
 
 
@@ -219,10 +203,10 @@ extern const struct PMListingFetchedProperties {
 
 @interface _PMListing (CoreDataGeneratedAccessors)
 
-- (void)addMessageChain:(NSOrderedSet*)value_;
-- (void)removeMessageChain:(NSOrderedSet*)value_;
-- (void)addMessageChainObject:(PMMessageChain*)value_;
-- (void)removeMessageChainObject:(PMMessageChain*)value_;
+- (void)addMessageChains:(NSSet*)value_;
+- (void)removeMessageChains:(NSSet*)value_;
+- (void)addMessageChainsObject:(PMMessageChain*)value_;
+- (void)removeMessageChainsObject:(PMMessageChain*)value_;
 
 @end
 
@@ -252,15 +236,6 @@ extern const struct PMListingFetchedProperties {
 
 - (int32_t)primitiveListingIdValue;
 - (void)setPrimitiveListingIdValue:(int32_t)value_;
-
-
-
-
-- (NSNumber*)primitiveMessages;
-- (void)setPrimitiveMessages:(NSNumber*)value;
-
-- (int32_t)primitiveMessagesValue;
-- (void)setPrimitiveMessagesValue:(int32_t)value_;
 
 
 
@@ -317,8 +292,8 @@ extern const struct PMListingFetchedProperties {
 
 
 
-- (NSMutableOrderedSet*)primitiveMessageChain;
-- (void)setPrimitiveMessageChain:(NSMutableOrderedSet*)value;
+- (NSMutableSet*)primitiveMessageChains;
+- (void)setPrimitiveMessageChains:(NSMutableSet*)value;
 
 
 

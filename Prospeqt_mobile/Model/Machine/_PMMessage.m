@@ -6,14 +6,13 @@
 const struct PMMessageAttributes PMMessageAttributes = {
 	.content = @"content",
 	.messageId = @"messageId",
-	.timeDate = @"timeDate",
+	.senderId = @"senderId",
+	.time = @"time",
 	.type = @"type",
 };
 
 const struct PMMessageRelationships PMMessageRelationships = {
-	.inquirer = @"inquirer",
 	.messageChain = @"messageChain",
-	.seller = @"seller",
 };
 
 const struct PMMessageFetchedProperties PMMessageFetchedProperties = {
@@ -47,6 +46,11 @@ const struct PMMessageFetchedProperties PMMessageFetchedProperties = {
 	
 	if ([key isEqualToString:@"messageIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"messageId"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"senderIdValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"senderId"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -90,7 +94,33 @@ const struct PMMessageFetchedProperties PMMessageFetchedProperties = {
 
 
 
-@dynamic timeDate;
+@dynamic senderId;
+
+
+
+- (int32_t)senderIdValue {
+	NSNumber *result = [self senderId];
+	return [result intValue];
+}
+
+- (void)setSenderIdValue:(int32_t)value_ {
+	[self setSenderId:[NSNumber numberWithInt:value_]];
+}
+
+- (int32_t)primitiveSenderIdValue {
+	NSNumber *result = [self primitiveSenderId];
+	return [result intValue];
+}
+
+- (void)setPrimitiveSenderIdValue:(int32_t)value_ {
+	[self setPrimitiveSenderId:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
+
+@dynamic time;
 
 
 
@@ -104,15 +134,7 @@ const struct PMMessageFetchedProperties PMMessageFetchedProperties = {
 
 
 
-@dynamic inquirer;
-
-	
-
 @dynamic messageChain;
-
-	
-
-@dynamic seller;
 
 	
 

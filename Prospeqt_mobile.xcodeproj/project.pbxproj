@@ -117,6 +117,10 @@
 		478786D317E6B02C004CCE04 /* PMForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786D217E6B02C004CCE04 /* PMForgotPasswordViewController.m */; };
 		478786D617E6B034004CCE04 /* PMTermsOfServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786D517E6B034004CCE04 /* PMTermsOfServiceViewController.m */; };
 		478786D917E6BD30004CCE04 /* PMAuthNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 478786D817E6BD30004CCE04 /* PMAuthNavigationController.m */; };
+		479DD5F3182E101400ECC16B /* PMMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 479DD5F2182E101400ECC16B /* PMMessageCell.m */; };
+		479DD5FA182E14EC00ECC16B /* PMAPILaunchService.m in Sources */ = {isa = PBXBuildFile; fileRef = 479DD5F9182E14EC00ECC16B /* PMAPILaunchService.m */; };
+		479DD5FE182E15F400ECC16B /* PMManagedObjectStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 479DD5FD182E15F400ECC16B /* PMManagedObjectStore.m */; };
+		479DD601182E1E3000ECC16B /* PMLaunchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 479DD600182E1E3000ECC16B /* PMLaunchController.m */; };
 		47A5065B18095A1600243BE6 /* RoundedCornerThumbnail_Border.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5065718095A1600243BE6 /* RoundedCornerThumbnail_Border.png */; };
 		47A5065C18095A1600243BE6 /* RoundedCornerThumbnail_Border@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5065818095A1600243BE6 /* RoundedCornerThumbnail_Border@2x.png */; };
 		47A5065D18095A1600243BE6 /* RoundedCornerThumbnail_Mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A5065918095A1600243BE6 /* RoundedCornerThumbnail_Mask.png */; };
@@ -372,6 +376,15 @@
 		478786D717E6BD30004CCE04 /* PMAuthNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAuthNavigationController.h; sourceTree = "<group>"; };
 		478786D817E6BD30004CCE04 /* PMAuthNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAuthNavigationController.m; sourceTree = "<group>"; };
 		478786DA17E6BD7C004CCE04 /* PMAuthenticationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMAuthenticationDelegate.h; sourceTree = "<group>"; };
+		479DD5F1182E101400ECC16B /* PMMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMMessageCell.h; path = Views/PMMessageCell.h; sourceTree = "<group>"; };
+		479DD5F2182E101400ECC16B /* PMMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMMessageCell.m; path = Views/PMMessageCell.m; sourceTree = "<group>"; };
+		479DD5F8182E14EC00ECC16B /* PMAPILaunchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMAPILaunchService.h; path = Launch/PMAPILaunchService.h; sourceTree = "<group>"; };
+		479DD5F9182E14EC00ECC16B /* PMAPILaunchService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMAPILaunchService.m; path = Launch/PMAPILaunchService.m; sourceTree = "<group>"; };
+		479DD5FB182E151700ECC16B /* PMLaunchService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PMLaunchService.h; path = Protocols/PMLaunchService.h; sourceTree = "<group>"; };
+		479DD5FC182E15F400ECC16B /* PMManagedObjectStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMManagedObjectStore.h; path = API/PMManagedObjectStore.h; sourceTree = "<group>"; };
+		479DD5FD182E15F400ECC16B /* PMManagedObjectStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMManagedObjectStore.m; path = API/PMManagedObjectStore.m; sourceTree = "<group>"; };
+		479DD5FF182E1E3000ECC16B /* PMLaunchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMLaunchController.h; path = Launch/PMLaunchController.h; sourceTree = "<group>"; };
+		479DD600182E1E3000ECC16B /* PMLaunchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMLaunchController.m; path = Launch/PMLaunchController.m; sourceTree = "<group>"; };
 		47A5065718095A1600243BE6 /* RoundedCornerThumbnail_Border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoundedCornerThumbnail_Border.png; sourceTree = "<group>"; };
 		47A5065818095A1600243BE6 /* RoundedCornerThumbnail_Border@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RoundedCornerThumbnail_Border@2x.png"; sourceTree = "<group>"; };
 		47A5065918095A1600243BE6 /* RoundedCornerThumbnail_Mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoundedCornerThumbnail_Mask.png; sourceTree = "<group>"; };
@@ -759,6 +772,17 @@
 			name = Authentication;
 			sourceTree = "<group>";
 		};
+		479DD5F7182E14A900ECC16B /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				479DD5F8182E14EC00ECC16B /* PMAPILaunchService.h */,
+				479DD5F9182E14EC00ECC16B /* PMAPILaunchService.m */,
+				479DD5FF182E1E3000ECC16B /* PMLaunchController.h */,
+				479DD600182E1E3000ECC16B /* PMLaunchController.m */,
+			);
+			name = Launch;
+			sourceTree = "<group>";
+		};
 		47A50656180959D800243BE6 /* Listing */ = {
 			isa = PBXGroup;
 			children = (
@@ -852,6 +876,7 @@
 				474C9A7617E576DA0072012C /* PMEnvironment.h */,
 				474C9A7717E576DA0072012C /* PMEnvironment.m */,
 				47BBD7EE17D41E930050814D /* API */,
+				479DD5F7182E14A900ECC16B /* Launch */,
 				4753DB3A1814887300F8D128 /* Security */,
 				47BBD7F317D423E20050814D /* Protocols */,
 				4739BBB817FE9FD6004A6500 /* Categories */,
@@ -901,6 +926,8 @@
 				47BBD7F017D423440050814D /* PMNetworkController.m */,
 				473D64AB18021816001B8279 /* PMObjectManager.h */,
 				473D64AC18021816001B8279 /* PMObjectManager.m */,
+				479DD5FC182E15F400ECC16B /* PMManagedObjectStore.h */,
+				479DD5FD182E15F400ECC16B /* PMManagedObjectStore.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -910,6 +937,7 @@
 			children = (
 				47BBD7F417D424170050814D /* PMDataLoadProtocol.h */,
 				478786DA17E6BD7C004CCE04 /* PMAuthenticationDelegate.h */,
+				479DD5FB182E151700ECC16B /* PMLaunchService.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -965,6 +993,8 @@
 				47B5A439181DE81C000588A4 /* PMReviewsAccessoryLabelView.m */,
 				471EF2681823889C00618B02 /* PMTextFieldCell.h */,
 				471EF2691823889C00618B02 /* PMTextFieldCell.m */,
+				479DD5F1182E101400ECC16B /* PMMessageCell.h */,
+				479DD5F2182E101400ECC16B /* PMMessageCell.m */,
 			);
 			name = View;
 			path = Prospeqt_mobile;
@@ -1246,8 +1276,10 @@
 				471EF264181E5A4C00618B02 /* PMMessageChain.m in Sources */,
 				47A50671180A7D3400243BE6 /* UIButton+PMAppearance.m in Sources */,
 				4739BC8F1800D853004A6500 /* UIColor+PMAppearance.m in Sources */,
+				479DD601182E1E3000ECC16B /* PMLaunchController.m in Sources */,
 				4739BBCE17FFDE57004A6500 /* PMCategoryCell.m in Sources */,
 				47A5066E180A7BE400243BE6 /* PMButton.m in Sources */,
+				479DD5FE182E15F400ECC16B /* PMManagedObjectStore.m in Sources */,
 				47A506A018126CD300243BE6 /* PMFormBaseViewController.m in Sources */,
 				47BBD7C017D40E630050814D /* main.m in Sources */,
 				4753DB43181488BC00F8D128 /* PMKeychain.m in Sources */,
@@ -1261,6 +1293,7 @@
 				4739BC341800CB50004A6500 /* _PMUser.m in Sources */,
 				471EF267181F6DB200618B02 /* PMEditProfileViewController.m in Sources */,
 				474C9A6917E575070072012C /* PMMessagesViewController.m in Sources */,
+				479DD5FA182E14EC00ECC16B /* PMAPILaunchService.m in Sources */,
 				4753DB4E1816446C00F8D128 /* PMAddressViewController.m in Sources */,
 				4753DB341813A36200F8D128 /* PMAddressCell.m in Sources */,
 				478786D917E6BD30004CCE04 /* PMAuthNavigationController.m in Sources */,
@@ -1279,6 +1312,7 @@
 				478786D317E6B02C004CCE04 /* PMForgotPasswordViewController.m in Sources */,
 				473D64A418013DA0001B8279 /* NSPersistentStoreCoordinator+PMDataStack.m in Sources */,
 				4753DB4B18148B8C00F8D128 /* SSKeychainQuery.m in Sources */,
+				479DD5F3182E101400ECC16B /* PMMessageCell.m in Sources */,
 				474C9A6C17E5751A0072012C /* PMSettingsViewController.m in Sources */,
 				4753DB4A18148B8C00F8D128 /* SSKeychain.m in Sources */,
 				471EF263181E5A4C00618B02 /* PMMessage.m in Sources */,

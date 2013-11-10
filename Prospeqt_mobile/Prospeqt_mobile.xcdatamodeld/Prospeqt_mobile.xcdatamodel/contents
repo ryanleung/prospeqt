@@ -7,51 +7,100 @@
         <attribute name="listingId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
             <userInfo>
                 <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
+                <entry key="PM_JSON_SERVER_KEY" value="listing_id"/>
             </userInfo>
         </attribute>
-        <attribute name="messages" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="picData" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="picUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="picUrl" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="pic_url"/>
+            </userInfo>
+        </attribute>
         <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="smallPicData" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="smallPicUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="smallPicUrl" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="small_pic_url"/>
+            </userInfo>
+        </attribute>
         <attribute name="sold" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="messageChain" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MessageChain" inverseName="listing" inverseEntity="MessageChain" syncable="YES"/>
+        <relationship name="messageChains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MessageChain" inverseName="listing" inverseEntity="MessageChain" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="listings" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Message" representedClassName="PMMessage" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="messageId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="timeDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="inquirer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
-        <relationship name="messageChain" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MessageChain" inverseName="messages" inverseEntity="MessageChain" syncable="YES"/>
-        <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <attribute name="messageId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
+                <entry key="PM_JSON_SERVER_KEY" value="message_id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="senderId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="sender_id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="msg_type"/>
+            </userInfo>
+        </attribute>
+        <relationship name="messageChain" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MessageChain" inverseName="messages" inverseEntity="MessageChain" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="msg_chain"/>
+            </userInfo>
+        </relationship>
     </entity>
     <entity name="MessageChain" representedClassName="PMMessageChain" syncable="YES">
-        <attribute name="messageChainId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="inquirer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
-        <relationship name="listing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Listing" inverseName="messageChain" inverseEntity="Listing" syncable="YES"/>
-        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="messageChain" inverseEntity="Message" syncable="YES"/>
-        <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="inquirerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="inquirer_id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="lastUpdated" optional="YES" attributeType="Date" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="last_updated"/>
+            </userInfo>
+        </attribute>
+        <attribute name="messageChainId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
+                <entry key="PM_JSON_SERVER_KEY" value="msg_chain_id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="sellerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="listing" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Listing" inverseName="messageChains" inverseEntity="Listing" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Message" inverseName="messageChain" inverseEntity="Message" syncable="YES"/>
+        <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="messageChains" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="PMUser" syncable="YES">
         <attribute name="avatarData" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="avatarUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="avatarUrl" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="avatar_url"/>
+            </userInfo>
+        </attribute>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
+                <entry key="PM_JSON_SERVER_KEY" value="user_id"/>
+            </userInfo>
+        </attribute>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
                 <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
             </userInfo>
         </attribute>
         <relationship name="listings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Listing" inverseName="user" inverseEntity="Listing" syncable="YES"/>
-        <relationship name="messageChains" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MessageChain" syncable="YES"/>
+        <relationship name="messageChains" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MessageChain" inverseName="seller" inverseEntity="MessageChain" syncable="YES"/>
     </entity>
     <elements>
         <element name="Listing" positionX="0" positionY="0" width="0" height="0"/>

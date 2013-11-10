@@ -38,10 +38,10 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
         tableView.scrollEnabled = YES;
         [self.view addSubview:tableView];
         self.tableView = tableView;
-        
-        [self.fetchedResultsController performFetch:nil];
-        
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.fetchedResultsController.sections[0] indexOfObject:self.selectedListing] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+//        
+//        [self.fetchedResultsController performFetch:nil];
+//        
+//        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.fetchedResultsController.sections[0] indexOfObject:self.selectedListing] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     }
     return self;
 }
@@ -119,7 +119,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[PMListing entityName]];
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
         fetchRequest.sortDescriptors = @[sortDescriptor];
-        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[[PMObjectManager sharedPMObjectManager] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
+//        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[[PMObjectManager sharedPMObjectManager] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
         [_fetchedResultsController performFetch:nil];
     }
     return _fetchedResultsController;

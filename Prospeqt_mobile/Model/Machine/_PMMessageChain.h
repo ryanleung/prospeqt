@@ -5,11 +5,14 @@
 
 
 extern const struct PMMessageChainAttributes {
+	__unsafe_unretained NSString *dirty;
+	__unsafe_unretained NSString *inquirerId;
+	__unsafe_unretained NSString *lastUpdated;
 	__unsafe_unretained NSString *messageChainId;
+	__unsafe_unretained NSString *sellerId;
 } PMMessageChainAttributes;
 
 extern const struct PMMessageChainRelationships {
-	__unsafe_unretained NSString *inquirer;
 	__unsafe_unretained NSString *listing;
 	__unsafe_unretained NSString *messages;
 	__unsafe_unretained NSString *seller;
@@ -18,10 +21,13 @@ extern const struct PMMessageChainRelationships {
 extern const struct PMMessageChainFetchedProperties {
 } PMMessageChainFetchedProperties;
 
-@class PMUser;
 @class PMListing;
 @class PMMessage;
 @class PMUser;
+
+
+
+
 
 
 
@@ -33,6 +39,44 @@ extern const struct PMMessageChainFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (PMMessageChainID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* dirty;
+
+
+
+@property BOOL dirtyValue;
+- (BOOL)dirtyValue;
+- (void)setDirtyValue:(BOOL)value_;
+
+//- (BOOL)validateDirty:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSNumber* inquirerId;
+
+
+
+@property int32_t inquirerIdValue;
+- (int32_t)inquirerIdValue;
+- (void)setInquirerIdValue:(int32_t)value_;
+
+//- (BOOL)validateInquirerId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSDate* lastUpdated;
+
+
+
+//- (BOOL)validateLastUpdated:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -52,9 +96,16 @@ extern const struct PMMessageChainFetchedProperties {
 
 
 
-@property (nonatomic, strong) PMUser *inquirer;
+@property (nonatomic, strong) NSNumber* sellerId;
 
-//- (BOOL)validateInquirer:(id*)value_ error:(NSError**)error_;
+
+
+@property int32_t sellerIdValue;
+- (int32_t)sellerIdValue;
+- (void)setSellerIdValue:(int32_t)value_;
+
+//- (BOOL)validateSellerId:(id*)value_ error:(NSError**)error_;
+
 
 
 
@@ -66,9 +117,9 @@ extern const struct PMMessageChainFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSSet *messages;
+@property (nonatomic, strong) NSOrderedSet *messages;
 
-- (NSMutableSet*)messagesSet;
+- (NSMutableOrderedSet*)messagesSet;
 
 
 
@@ -85,14 +136,38 @@ extern const struct PMMessageChainFetchedProperties {
 
 @interface _PMMessageChain (CoreDataGeneratedAccessors)
 
-- (void)addMessages:(NSSet*)value_;
-- (void)removeMessages:(NSSet*)value_;
+- (void)addMessages:(NSOrderedSet*)value_;
+- (void)removeMessages:(NSOrderedSet*)value_;
 - (void)addMessagesObject:(PMMessage*)value_;
 - (void)removeMessagesObject:(PMMessage*)value_;
 
 @end
 
 @interface _PMMessageChain (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSNumber*)primitiveDirty;
+- (void)setPrimitiveDirty:(NSNumber*)value;
+
+- (BOOL)primitiveDirtyValue;
+- (void)setPrimitiveDirtyValue:(BOOL)value_;
+
+
+
+
+- (NSNumber*)primitiveInquirerId;
+- (void)setPrimitiveInquirerId:(NSNumber*)value;
+
+- (int32_t)primitiveInquirerIdValue;
+- (void)setPrimitiveInquirerIdValue:(int32_t)value_;
+
+
+
+
+- (NSDate*)primitiveLastUpdated;
+- (void)setPrimitiveLastUpdated:(NSDate*)value;
+
+
 
 
 - (NSNumber*)primitiveMessageChainId;
@@ -104,9 +179,13 @@ extern const struct PMMessageChainFetchedProperties {
 
 
 
+- (NSNumber*)primitiveSellerId;
+- (void)setPrimitiveSellerId:(NSNumber*)value;
 
-- (PMUser*)primitiveInquirer;
-- (void)setPrimitiveInquirer:(PMUser*)value;
+- (int32_t)primitiveSellerIdValue;
+- (void)setPrimitiveSellerIdValue:(int32_t)value_;
+
+
 
 
 
@@ -115,8 +194,8 @@ extern const struct PMMessageChainFetchedProperties {
 
 
 
-- (NSMutableSet*)primitiveMessages;
-- (void)setPrimitiveMessages:(NSMutableSet*)value;
+- (NSMutableOrderedSet*)primitiveMessages;
+- (void)setPrimitiveMessages:(NSMutableOrderedSet*)value;
 
 
 

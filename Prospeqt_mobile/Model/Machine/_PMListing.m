@@ -8,7 +8,6 @@ const struct PMListingAttributes PMListingAttributes = {
 	.date = @"date",
 	.info = @"info",
 	.listingId = @"listingId",
-	.messages = @"messages",
 	.picData = @"picData",
 	.picUrl = @"picUrl",
 	.price = @"price",
@@ -20,7 +19,7 @@ const struct PMListingAttributes PMListingAttributes = {
 };
 
 const struct PMListingRelationships PMListingRelationships = {
-	.messageChain = @"messageChain",
+	.messageChains = @"messageChains",
 	.user = @"user",
 };
 
@@ -55,11 +54,6 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 	
 	if ([key isEqualToString:@"listingIdValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"listingId"];
-		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
-		return keyPaths;
-	}
-	if ([key isEqualToString:@"messagesValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"messages"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
@@ -116,32 +110,6 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 - (void)setPrimitiveListingIdValue:(int32_t)value_ {
 	[self setPrimitiveListingId:[NSNumber numberWithInt:value_]];
-}
-
-
-
-
-
-@dynamic messages;
-
-
-
-- (int32_t)messagesValue {
-	NSNumber *result = [self messages];
-	return [result intValue];
-}
-
-- (void)setMessagesValue:(int32_t)value_ {
-	[self setMessages:[NSNumber numberWithInt:value_]];
-}
-
-- (int32_t)primitiveMessagesValue {
-	NSNumber *result = [self primitiveMessages];
-	return [result intValue];
-}
-
-- (void)setPrimitiveMessagesValue:(int32_t)value_ {
-	[self setPrimitiveMessages:[NSNumber numberWithInt:value_]];
 }
 
 
@@ -223,15 +191,15 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
-@dynamic messageChain;
+@dynamic messageChains;
 
 	
-- (NSMutableOrderedSet*)messageChainSet {
-	[self willAccessValueForKey:@"messageChain"];
+- (NSMutableSet*)messageChainsSet {
+	[self willAccessValueForKey:@"messageChains"];
   
-	NSMutableOrderedSet *result = (NSMutableOrderedSet*)[self mutableOrderedSetValueForKey:@"messageChain"];
+	NSMutableSet *result = (NSMutableSet*)[self mutableSetValueForKey:@"messageChains"];
   
-	[self didAccessValueForKey:@"messageChain"];
+	[self didAccessValueForKey:@"messageChains"];
 	return result;
 }
 	

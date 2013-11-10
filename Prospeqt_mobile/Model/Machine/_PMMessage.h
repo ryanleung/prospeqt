@@ -7,22 +7,20 @@
 extern const struct PMMessageAttributes {
 	__unsafe_unretained NSString *content;
 	__unsafe_unretained NSString *messageId;
-	__unsafe_unretained NSString *timeDate;
+	__unsafe_unretained NSString *senderId;
+	__unsafe_unretained NSString *time;
 	__unsafe_unretained NSString *type;
 } PMMessageAttributes;
 
 extern const struct PMMessageRelationships {
-	__unsafe_unretained NSString *inquirer;
 	__unsafe_unretained NSString *messageChain;
-	__unsafe_unretained NSString *seller;
 } PMMessageRelationships;
 
 extern const struct PMMessageFetchedProperties {
 } PMMessageFetchedProperties;
 
-@class PMUser;
 @class PMMessageChain;
-@class PMUser;
+
 
 
 
@@ -66,11 +64,25 @@ extern const struct PMMessageFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSDate* timeDate;
+@property (nonatomic, strong) NSNumber* senderId;
 
 
 
-//- (BOOL)validateTimeDate:(id*)value_ error:(NSError**)error_;
+@property int32_t senderIdValue;
+- (int32_t)senderIdValue;
+- (void)setSenderIdValue:(int32_t)value_;
+
+//- (BOOL)validateSenderId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSDate* time;
+
+
+
+//- (BOOL)validateTime:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -86,23 +98,9 @@ extern const struct PMMessageFetchedProperties {
 
 
 
-@property (nonatomic, strong) PMUser *inquirer;
-
-//- (BOOL)validateInquirer:(id*)value_ error:(NSError**)error_;
-
-
-
-
 @property (nonatomic, strong) PMMessageChain *messageChain;
 
 //- (BOOL)validateMessageChain:(id*)value_ error:(NSError**)error_;
-
-
-
-
-@property (nonatomic, strong) PMUser *seller;
-
-//- (BOOL)validateSeller:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -132,8 +130,17 @@ extern const struct PMMessageFetchedProperties {
 
 
 
-- (NSDate*)primitiveTimeDate;
-- (void)setPrimitiveTimeDate:(NSDate*)value;
+- (NSNumber*)primitiveSenderId;
+- (void)setPrimitiveSenderId:(NSNumber*)value;
+
+- (int32_t)primitiveSenderIdValue;
+- (void)setPrimitiveSenderIdValue:(int32_t)value_;
+
+
+
+
+- (NSDate*)primitiveTime;
+- (void)setPrimitiveTime:(NSDate*)value;
 
 
 
@@ -145,18 +152,8 @@ extern const struct PMMessageFetchedProperties {
 
 
 
-- (PMUser*)primitiveInquirer;
-- (void)setPrimitiveInquirer:(PMUser*)value;
-
-
-
 - (PMMessageChain*)primitiveMessageChain;
 - (void)setPrimitiveMessageChain:(PMMessageChain*)value;
-
-
-
-- (PMUser*)primitiveSeller;
-- (void)setPrimitiveSeller:(PMUser*)value;
 
 
 @end
