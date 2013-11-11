@@ -11,10 +11,19 @@
 
 @interface PMAddDescriptionViewController () <UITextViewDelegate>
 @property (nonatomic, strong) UITextView *descriptionField;
+@property (nonatomic, strong) PMListing *listing;
 @end
 
 @implementation PMAddDescriptionViewController
 
+- (id)initWithListing:(PMListing *)listing
+{
+    if (self = [super initWithNibName:nil bundle:nil])
+    {
+        self.listing = listing;
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,7 +64,8 @@
 
 - (void)formAction
 {
-    PMFinalizePostViewController *finalizePostViewController = [[PMFinalizePostViewController alloc] initWithNibName:nil bundle:nil];
+    self.listing.info = self.descriptionField.text;
+    PMFinalizePostViewController *finalizePostViewController = [[PMFinalizePostViewController alloc] initWithListing:self.listing];
     [self.navigationController pushViewController:finalizePostViewController animated:YES];
 }
 

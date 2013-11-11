@@ -13,9 +13,19 @@
 @interface PMAddTitleAndPriceViewController () <UITextFieldDelegate>
 @property (nonatomic, weak) PMSingleLineFormField *listingNameField;
 @property (nonatomic, weak) PMSingleLineFormField *priceField;
+@property (nonatomic, strong) PMListing *listing;
+@property (nonatomic, strong) NSNumberFormatter *currencyFormatter;
 @end
 
 @implementation PMAddTitleAndPriceViewController
+
+- (id)initWithListing:(PMListing *)listing
+{
+    if (self = [super initWithNibName:nil bundle:nil]) {
+        self.listing = listing;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -37,6 +47,7 @@
     priceField.translatesAutoresizingMaskIntoConstraints = NO;
     priceField.textField.placeholder = NSLocalizedString(@"addDescription.placeholder.price", @"Price");
     priceField.delegate = self;
+    priceField.textField.delegate = self;
     priceField.required = YES;
     [self.scrollView addSubview:priceField];
     self.priceField = priceField;
@@ -56,10 +67,20 @@
     priceTitleLabel.text = NSLocalizedString(@"addDescription.placeholder.priceTitle", @"Price Title");
     [self.scrollView addSubview:priceTitleLabel];
     
+    UIToolbar* numberToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+    numberToolbar.barStyle = UIBarStyleDefault;
+    numberToolbar.items = [NSArray arrayWithObjects:
+                           [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                           [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                           [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)],
+                           nil];
+    [numberToolbar sizeToFit];
+    priceField.textField.inputAccessoryView = numberToolbar;
+    
     self.formFields = @[nameField, priceField];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(nameField, priceField, nameTitleLabel, priceTitleLabel);
-    NSDictionary *metrics = @{ @"fieldHeight" : @60, @"topHeight" : @20.0f, @"middleHeight" : @10, @"spacer" : @6.0f };
+    NSDictionary *metrics = @{ @"fieldHeight" : @60, @"topHeight" : @5.0f, @"middleHeight" : @5.0, @"spacer" : @6.0f };
     
     [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[nameField]|" options:0 metrics:metrics views:views]];
     [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[priceField]|" options:0 metrics:metrics views:views]];
@@ -73,17 +94,56 @@
     [self bindRightEdgeOfView:priceField toView:self.view];
 }
 
-- (void)formAction
+- (void)viewDidAppear:(BOOL)animated
 {
-//    if (![self validateSingleLineFieldsWithError:NULL]) {
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"Error Title") message:nil delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm title") otherButtonTitles:nil];
-//        alertView.message = NSLocalizedString(@"addDescription.View.missingFields", @"Missing fields error message");
-//        [alertView show];
-//    } else {
-        // TODO: take all of the fields and pass it on
-        PMAddPhotoViewController *addPhotoViewController = [[PMAddPhotoViewController alloc] initWithNibName:nil bundle:nil];
-        [self.navigationController pushViewController:addPhotoViewController animated:YES];
-//    }
+    [super viewDidAppear:animated];
+    [self.listingNameField.textField becomeFirstResponder];
 }
 
+- (void)formAction
+{
+    if (self.listingNameField.textField.text.length == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"error") message:NSLocalizedString(@"addDescription.error.name", @"name") delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm") otherButtonTitles: nil];
+        [alertView show];
+        return;
+    }
+    
+    if (self.priceField.textField.text.length == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"error") message:NSLocalizedString(@"addDescription.error.price", @"price") delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm") otherButtonTitles: nil];
+        [alertView show];
+        return;
+    }
+    
+    self.listing.price = [[NSDecimalNumber alloc] initWithString:self.priceField.textField.text];
+    self.listing.title = self.listingNameField.textField.text;
+    PMAddPhotoViewController *addPhotoViewController = [[PMAddPhotoViewController alloc] initWithListing:self.listing];
+    [self.navigationController pushViewController:addPhotoViewController animated:YES];
+}
+
+#pragma mark - Number Pad Methods
+
+-(void)cancelNumberPad
+{
+    [self.priceField.textField resignFirstResponder];
+    self.priceField.textField.text = @"";
+}
+
+-(void)doneWithNumberPad
+{
+    [self.priceField.textField resignFirstResponder];
+}
+
+#pragma mark - Currency Formatter Helpers
+
+- (NSNumberFormatter *)currencyFormatter
+{
+    if (!_currencyFormatter) {
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+        [formatter setLocale:[NSLocale currentLocale]];
+        _currencyFormatter = formatter;
+    }
+    return _currencyFormatter;
+}
 @end

@@ -10,4 +10,6 @@
 
 @interface PMFinalizePostViewController : PMBaseViewController
 
+- (id)initWithListing:(PMListing *)listing;
+
 @end

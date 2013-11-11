@@ -12,12 +12,14 @@
 #import "PMObjectManager.h"
 #import <RestKit/UIImageView+AFNetworking.h>
 #import "PMManageListingViewController.h"
+#import "PMEmptyListingsView.h"
 
 static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 
 @interface PMListingsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) PMEmptyListingsView *emptyListingsView;
 @end
 
 @implementation PMListingsViewController
@@ -38,10 +40,18 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
         tableView.scrollEnabled = YES;
         [self.view addSubview:tableView];
         self.tableView = tableView;
-//        
-//        [self.fetchedResultsController performFetch:nil];
-//        
-//        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.fetchedResultsController.sections[0] indexOfObject:self.selectedListing] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+        
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"listings.refresh.title", @"fetching listings")];
+        [attrString addAttribute:NSForegroundColorAttributeName value:[UIColor pm_grayDarkColor] range:(NSRange){0, NSLocalizedString(@"listings.refresh.title", @"fetching listings").length}];
+        refreshControl.attributedTitle = attrString;
+        refreshControl.tintColor = [UIColor pm_grayMediumColor];
+        
+        PMEmptyListingsView *emptyListingsView = [[PMEmptyListingsView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:emptyListingsView];
+        
+        [self.tableView addSubview:refreshControl];
     }
     return self;
 }
@@ -50,6 +60,21 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.fetchedResultsController performFetch:nil];
+    if (self.fetchedResultsController.fetchedObjects.count == 0) {
+        self.emptyListingsView.hidden = NO;
+        self.tableView.hidden = YES;
+    } else {
+        self.emptyListingsView.hidden = YES;
+        self.tableView.hidden = NO;
+    }
+//    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.fetchedResultsController.sections[0] indexOfObject:self.selectedListing] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,11 +114,11 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
     
     __weak PMListingCell *weak_cell = cell;
     UIImageView *placeholder = [[UIImageView alloc] initWithFrame:(CGRect) {{ 0.0f, 0.0f }, { 40.0f, 40.0f}}];
-    [cell.productImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:listing.picUrl]] placeholderImage:placeholder.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        weak_cell.productImageView.image = image;
-        [weak_cell setNeedsLayout];
-        weak_cell.separatorView.layer.zPosition = MAXFLOAT;
-    } failure:nil];
+//    [cell.productImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:listing.picUrl]] placeholderImage:placeholder.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+//        weak_cell.productImageView.image = image;
+//        [weak_cell setNeedsLayout];
+//        weak_cell.separatorView.layer.zPosition = MAXFLOAT;
+//    } failure:nil];
     
     
     [cell useLastItemSeparator:NO];
@@ -111,6 +136,13 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
     [self.navigationController pushViewController:manageListingViewController animated:YES];
 }
 
+#pragma mark - Refresh Control
+
+- (void)refresh:(id)sender
+{
+    sleep(3);
+    [(UIRefreshControl *)sender endRefreshing];
+}
 #pragma mark - Core Data
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -119,7 +151,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[PMListing entityName]];
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
         fetchRequest.sortDescriptors = @[sortDescriptor];
-//        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:[[PMObjectManager sharedPMObjectManager] managedObjectContext] sectionNameKeyPath:nil cacheName:nil];
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.networkController.mainContext sectionNameKeyPath:nil cacheName:nil];
         [_fetchedResultsController performFetch:nil];
     }
     return _fetchedResultsController;

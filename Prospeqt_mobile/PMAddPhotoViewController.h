@@ -10,4 +10,6 @@
 
 @interface PMAddPhotoViewController : PMFormBaseViewController
 
+- (id)initWithListing:(PMListing *)listing;
+
 @end

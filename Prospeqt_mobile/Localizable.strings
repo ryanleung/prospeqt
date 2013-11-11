@@ -41,6 +41,8 @@
 "listings.date.dayAgo" = "1 day ago";
 "listings.date.daysAgoFormat" = "%i days ago";
 "listings.date.format" = "Posted %@";
+"listings.empty.text" = "You haven't posted a listing yet! Tap the circular button below to post a new listing.";
+"listings.refresh.title" = "Fetching listings...";
 
 "manageListing.title" = "Manage Listing";
 
@@ -52,6 +54,8 @@
 "addDescription.placeholder.price" = "$0.00";
 "addDescription.placeholder.nameTitle" = "Name your listing:";
 "addDescription.placeholder.priceTitle" = "Set the price:";
+"addDescription.error.name" = "Please enter a listing name";
+"addDescription.error.price" = "Please enter a price";
 "addDescription.placeholder.description" = "What is it?\nWhat condition is it in?\nIs there anything wrong with it?";
 "addDescription.placeholder.descriptionTitle" = "Describe the item:";
 "addDescription.View.missingFields" = "Fields not filled out correctly";
@@ -74,6 +78,10 @@
 "address.cityField.placeholder" = "City";
 "address.stateField.placeholder" = "State";
 "address.zipcodeField.placeholder" = "Zip Code";
+"address.street.error" = "Please enter street address";
+"address.city.error" = "Please enter city";
+"address.state.error" = "Please enter state";
+"address.zip.error" = "Please enter zip code";
 
 "ratings.format" = "%i%% Positive Reviews";
 

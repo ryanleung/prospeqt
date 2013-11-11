@@ -132,4 +132,44 @@
     }];
 }
 
+#pragma mark - Form Action
+
+- (void)formAction
+{
+    if (self.streetAddressField.textField.text.length == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"error") message:NSLocalizedString(@"address.street.error", @"error") delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm") otherButtonTitles: nil];
+        [alertView show];
+        return;
+    }
+    
+    if (self.cityField.textField.text.length == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"error") message:NSLocalizedString(@"address.street.error", @"error") delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm") otherButtonTitles: nil];
+        [alertView show];
+        return;
+    }
+    
+    if (self.stateField.textField.text.length == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"error") message:NSLocalizedString(@"address.state.error", @"error") delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm") otherButtonTitles: nil];
+        [alertView show];
+        return;
+    }
+    
+    if (self.zipcodeField.textField.text.length == 0) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"error") message:NSLocalizedString(@"address.zip.error", @"error") delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm") otherButtonTitles: nil];
+        [alertView show];
+        return;
+    }
+    
+    PMAddress *address = [PMAddress new];
+    address.streetAddress = self.streetAddressField.textField.text;
+    address.extendedAddress = self.additionalAddressField.textField.text;
+    address.city = self.cityField.textField.text;
+    address.state = self.stateField.textField.text;
+    address.postalCode = self.zipcodeField.textField.text;
+    
+    if ([self.delegate respondsToSelector:@selector(addressViewController:didCreateNewAddress:)]) {
+        [self.delegate addressViewController:self didCreateNewAddress:address];
+    }
+}
+
 @end

@@ -29,17 +29,20 @@ static NSString * const kMiscCellIdentifier = @"miscCellIdentifier";
 static NSString * const kSitePostCellIdentifier = @"sitePostCellIdentifier";
 static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
 
-@interface PMFinalizePostViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface PMFinalizePostViewController () <UITableViewDataSource, UITableViewDelegate, PMAddressViewControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) PMListing *listing;
+@property (nonatomic, strong) NSArray *availableAddresses;
 @end
 
 
 @implementation PMFinalizePostViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithListing:(PMListing *)listing
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self = [super initWithNibName:nil bundle:nil]) {
+        self.listing = listing;
+        
         self.title = NSLocalizedString(@"finalizePost.title", @"Finalize Post");
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"global.post", @"post") style:UIBarButtonItemStylePlain target:self action:@selector(formAction)];
         
@@ -60,42 +63,18 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
     return self;
 }
 
+#pragma mark - Data loading operations
+
+- (void)loadData
+{
+    
+}
+
 #pragma mark UITableViewDelegate/Datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return PMCellCount;
-}
-
-- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // hide separator view of cell above.
-    
-//    PMCell *cell = (PMCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section]];
-//    switch (indexPath.row) {
-//        case PMCategoryCellTypeTitle:
-//            cell.separatorVisible = YES;
-//            break;
-//        default:
-//            cell.separatorVisible = NO;
-//            break;
-//    }
-}
-
-- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // show separator view of cell above.
-//    if (indexPath.row != 0) {
-//        PMCell *cell = (PMCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section]];
-//        if (cell) {
-//            cell.separatorVisible = YES;
-//        } else {
-//            // If the cell can't be found brute-force the cell separator flag. This can occur if the user scrolls the table view while a cell is highlighted. In this case the unhighlighted indexPath is INT_MAX. This is specifically an iOS 6 issue that is resolved in iOS 7.
-//            for (PMCell *itemCell in [self.tableView visibleCells]) {
-//                itemCell.separatorVisible = YES;
-//            }
-//        }
-//    }
 }
 
 - (PMCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -172,6 +151,7 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
     switch (indexPath.row) {
         case PMCellTypeAddress: {
             PMAddressViewController *addressViewController = [[PMAddressViewController alloc] initWithNibName:nil bundle:nil];
+            addressViewController.delegate = self;
             [self.navigationController pushViewController:addressViewController animated:YES];
         }
             break;
@@ -190,6 +170,13 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [PMCell cellHeight];
+}
+
+#pragma mark - Address Delegate methods
+
+- (void)addressViewController:(PMAddressViewController *)addressViewController didCreateNewAddress:(PMAddress *)address
+{
+    
 }
 
 #pragma mark - Form Actions

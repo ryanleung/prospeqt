@@ -167,7 +167,9 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         case PMCategoryCellTypeTitle:
             break;
         default: {
-            PMAddTitleAndPriceViewController *addDescriptionViewController = [[PMAddTitleAndPriceViewController alloc] initWithNibName:nil bundle:nil];
+            PMListing *listing = [PMListing insertInManagedObjectContext:self.networkController.mainContext];
+            listing.category = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+            PMAddTitleAndPriceViewController *addDescriptionViewController = [[PMAddTitleAndPriceViewController alloc] initWithListing:listing];
             [self.navigationController pushViewController:addDescriptionViewController animated:YES];
             break;
         }
