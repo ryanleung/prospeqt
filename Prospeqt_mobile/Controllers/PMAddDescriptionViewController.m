@@ -62,6 +62,12 @@
     [self bindRightEdgeOfView:descriptionField toView:self.view];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.descriptionField becomeFirstResponder];
+}
+
 - (void)formAction
 {
     self.listing.info = self.descriptionField.text;

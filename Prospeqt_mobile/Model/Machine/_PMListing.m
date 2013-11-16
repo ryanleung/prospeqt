@@ -5,6 +5,7 @@
 
 const struct PMListingAttributes PMListingAttributes = {
 	.category = @"category",
+	.city = @"city",
 	.date = @"date",
 	.info = @"info",
 	.listingId = @"listingId",
@@ -18,6 +19,7 @@ const struct PMListingAttributes PMListingAttributes = {
 	.postFreeForSale = @"postFreeForSale",
 	.price = @"price",
 	.sold = @"sold",
+	.state = @"state",
 	.title = @"title",
 };
 
@@ -88,6 +90,13 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 @dynamic category;
+
+
+
+
+
+
+@dynamic city;
 
 
 
@@ -275,6 +284,13 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 - (void)setPrimitiveSoldValue:(BOOL)value_ {
 	[self setPrimitiveSold:[NSNumber numberWithBool:value_]];
 }
+
+
+
+
+
+@dynamic state;
+
 
 
 

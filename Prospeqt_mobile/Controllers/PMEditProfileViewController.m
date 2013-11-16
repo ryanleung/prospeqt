@@ -47,8 +47,8 @@ typedef NS_ENUM(NSUInteger, PMCellType) {
 //    [tableView registerClass:[PMAddressCell class] forCellReuseIdentifier:kAddressCellIdentifier];
 //    [tableView registerClass:[PMSitePostCell class] forCellReuseIdentifier:kSitePostCellIdentifier];
     tableView.backgroundColor = [UIColor clearColor];
-    [self.view addSubview:tableView];
-    self.tableView = tableView;
+//    [self.view addSubview:tableView];
+//    self.tableView = tableView;
     
 }
 

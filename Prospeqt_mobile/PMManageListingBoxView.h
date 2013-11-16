@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class PMButton;
+@class PMButton, PMAccessoryLabelView;
 
 @interface PMManageListingBoxView : UIView
 
-@property (nonatomic, strong) PMButton *postedDateButton;
+@property (nonatomic, strong) UILabel *postedDateLabel;
 @property (nonatomic, strong) PMButton *editButton;
 @property (nonatomic, strong) PMButton *deleteButton;
+@property (nonatomic, strong) UIImageView *productImageView;
+@property (nonatomic, strong) UILabel *descriptionLabel;
+@property (nonatomic, strong) PMAccessoryLabelView *accessoryLabelView;
 
 @end

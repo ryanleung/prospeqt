@@ -169,6 +169,7 @@
     
     if ([self.delegate respondsToSelector:@selector(addressViewController:didCreateNewAddress:)]) {
         [self.delegate addressViewController:self didCreateNewAddress:address];
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

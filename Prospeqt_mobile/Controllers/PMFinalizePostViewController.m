@@ -11,6 +11,8 @@
 #import "PMAddressCell.h"
 #import "PMSitePostCell.h"
 #import "PMAddressViewController.h"
+#import "PMDoneViewController.h"
+#import <RestKit/RestKit.h>
 
 
 typedef NS_ENUM(NSUInteger, PMCellType) {
@@ -32,7 +34,7 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
 @interface PMFinalizePostViewController () <UITableViewDataSource, UITableViewDelegate, PMAddressViewControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) PMListing *listing;
-@property (nonatomic, strong) NSArray *availableAddresses;
+@property (nonatomic, strong) PMAddress *chosenAddress;
 @end
 
 
@@ -112,7 +114,11 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
             break;
         case PMCellTypeAddress:
             // if case with default address/most used address (same as luv)
-            cell.textLabel.text = NSLocalizedString(@"finalizePost.address.default", @"Default Address");
+            if (!self.chosenAddress) {
+                cell.textLabel.text = NSLocalizedString(@"finalizePost.address.default", @"Default Address");
+            } else {
+                cell.textLabel.text = self.chosenAddress.streetAddress;
+            }
             [cell useLastItemSeparator:YES];
             break;
         case PMCellTypeAddressNotes:
@@ -176,14 +182,19 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
 
 - (void)addressViewController:(PMAddressViewController *)addressViewController didCreateNewAddress:(PMAddress *)address
 {
-    
+    self.chosenAddress = address;
+    self.listing.city = self.chosenAddress.city;
+    self.listing.state = self.chosenAddress.state;
+    [self.tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:PMCellTypeAddress inSection:0] ] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 #pragma mark - Form Actions
 
 - (void)formAction
 {
-    
+    [self.networkController.mainContext saveToPersistentStore:nil];
+    PMDoneViewController *doneViewController = [PMDoneViewController new];
+    [self.navigationController pushViewController:doneViewController animated:YES];
 }
 
 @end

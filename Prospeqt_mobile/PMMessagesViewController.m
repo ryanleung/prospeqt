@@ -8,12 +8,14 @@
 
 #import "PMMessagesViewController.h"
 #import "PMMessageCell.h"
+#import "PMEmptyMessagesView.h"
 
 static NSString * const kMessageCellIdentifier = @"messageCellIdentifier";
 
 @interface PMMessagesViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) PMEmptyMessagesView *emptyMessagesView;
 @end
 
 @implementation PMMessagesViewController
@@ -32,22 +34,26 @@ static NSString * const kMessageCellIdentifier = @"messageCellIdentifier";
         [tableView registerClass:[PMMessageCell class] forCellReuseIdentifier:kMessageCellIdentifier];
         tableView.backgroundColor = [UIColor clearColor];
         tableView.scrollEnabled = YES;
-        [self.view addSubview:tableView];
-        self.tableView = tableView;
+        
+        PMEmptyMessagesView *emptyMessagesView = [[PMEmptyMessagesView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:emptyMessagesView];
+        self.emptyMessagesView = emptyMessagesView;
+//        [self.view addSubview:tableView];
+//        self.tableView = tableView;
         
         // test network call
-        PMMessage *message = [PMMessage insertInManagedObjectContext:self.networkController.mainContext];
-        message.content = @"what";
-        message.type = @"inquiry";
-        message.senderId = @1;
-        PMMessageChain *msgChain = [PMMessageChain insertInManagedObjectContext:self.networkController.mainContext];
-        msgChain.inquirerId = @1;
-        msgChain.sellerId = @2;
-        PMListing *listing = [PMListing insertInManagedObjectContext:self.networkController.mainContext];
-        listing.listingId = @10;
-        msgChain.listing = listing;
-        [msgChain.messagesSet addObject:message];
-        [self.networkController createMessageChain:msgChain completion:nil];
+//        PMMessage *message = [PMMessage insertInManagedObjectContext:self.networkController.mainContext];
+//        message.content = @"what";
+//        message.type = @"inquiry";
+//        message.senderId = @1;
+//        PMMessageChain *msgChain = [PMMessageChain insertInManagedObjectContext:self.networkController.mainContext];
+//        msgChain.inquirerId = @1;
+//        msgChain.sellerId = @2;
+//        PMListing *listing = [PMListing insertInManagedObjectContext:self.networkController.mainContext];
+//        listing.listingId = @10;
+//        msgChain.listing = listing;
+//        [msgChain.messagesSet addObject:message];
+//        [self.networkController createMessageChain:msgChain completion:nil];
         
         
         

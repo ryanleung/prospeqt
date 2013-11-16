@@ -149,7 +149,7 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
         for (UIImage *image in self.takenPictures) {
             if (image) {
                 NSString *listingImage = [NSString stringWithFormat:@"picData%i", imageIndex];
-                [self.listing setValue:UIImagePNGRepresentation(image) forKey:listingImage];
+                [self.listing setValue:UIImageJPEGRepresentation(image, .9) forKey:listingImage];
                 imageIndex++;
             }
         }

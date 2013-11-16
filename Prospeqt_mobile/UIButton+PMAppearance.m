@@ -13,12 +13,6 @@
 
 @implementation UIButton (PMAppearance)
 
-- (void)applyPostedDateButton
-{
-    self.titleLabel.font = [UIFont pm_futuraLightFontWithSize:15.0f];
-    self.titleLabel.textColor = [UIColor pm_grayMediumColor];
-}
-
 - (void)applyDeleteButton
 {
     
@@ -48,13 +42,6 @@
     [self setImage:[UIImage imageNamed:@"Checkmark"] forState:UIControlStateSelected];
     
     [self setTitleColor:[UIColor pm_orangeColor] forState:UIControlStateNormal];
-}
-
-+ (PMButton *)pm_postedDateButton
-{
-    PMButton *dateButton = [PMButton buttonWithType:UIButtonTypeCustom];
-    [dateButton applyPostedDateButton];
-    return dateButton;
 }
 
 + (PMButton *)pm_editButton

@@ -14,6 +14,7 @@
 "global.confirm" = "OK";
 "global.post" = "Post";
 "global.edit" = "Edit";
+"global.done" = "Done";
 
 "button.postedFormat" = "Posted %@";
 "button.delete" = "DELETE";
@@ -23,7 +24,7 @@
 "tabbar.messages.title" = "Messages";
 "tabbar.settings.title" = "Settings";
 "tabbar.listings.title" = "My Listings";
-"tabbar.postListing.title" = "Post a Listing";
+"tabbar.postListing.title" = "Post Listing";
 
 "post.cell.title" = "What are you selling?";
 "post.category.book" = "BOOKS";
@@ -41,7 +42,7 @@
 "listings.date.dayAgo" = "1 day ago";
 "listings.date.daysAgoFormat" = "%i days ago";
 "listings.date.format" = "Posted %@";
-"listings.empty.text" = "You haven't posted a listing yet! Tap the circular button below to post a new listing.";
+"listings.empty.text" = "You haven't posted a listing yet! Tap the + button below to post a new listing.";
 "listings.refresh.title" = "Fetching listings...";
 
 "manageListing.title" = "Manage Listing";
@@ -102,3 +103,9 @@
 "settings.contactUs" = "CONTACT US";
 "settings.helpCenter" = "HELP CENTER";
 "settings.logOut" = "LOG OUT";
+
+"done.title" = "Craigslist";
+"done.finalize" = "Finalize Your Craigslist Posting";
+"done.description" = "We've set up the Craigslist Ad, but you need to approve it. Check your email for a link from Craigslist to make your ad live.";
+
+"messages.empty.text" = "You have no messages!";

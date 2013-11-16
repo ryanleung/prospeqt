@@ -50,6 +50,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
         
         PMEmptyListingsView *emptyListingsView = [[PMEmptyListingsView alloc] initWithFrame:self.view.bounds];
         [self.view addSubview:emptyListingsView];
+        self.emptyListingsView = emptyListingsView;
         
         [self.tableView addSubview:refreshControl];
     }
@@ -73,6 +74,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
     } else {
         self.emptyListingsView.hidden = YES;
         self.tableView.hidden = NO;
+        [self.tableView reloadData];
     }
 //    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.fetchedResultsController.sections[0] indexOfObject:self.selectedListing] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
@@ -112,8 +114,12 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
     
     [cell updatePrice:listing.price];
     
-    __weak PMListingCell *weak_cell = cell;
-    UIImageView *placeholder = [[UIImageView alloc] initWithFrame:(CGRect) {{ 0.0f, 0.0f }, { 40.0f, 40.0f}}];
+    if (listing.picData1) {
+        cell.productImageView.image = [UIImage imageWithData:listing.picData1];
+    }
+    
+//    __weak PMListingCell *weak_cell = cell;
+//    UIImageView *placeholder = [[UIImageView alloc] initWithFrame:(CGRect) {{ 0.0f, 0.0f }, { 40.0f, 40.0f}}];
 //    [cell.productImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:listing.picUrl]] placeholderImage:placeholder.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
 //        weak_cell.productImageView.image = image;
 //        [weak_cell setNeedsLayout];
@@ -140,7 +146,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 
 - (void)refresh:(id)sender
 {
-    sleep(3);
+    sleep(2);
     [(UIRefreshControl *)sender endRefreshing];
 }
 #pragma mark - Core Data

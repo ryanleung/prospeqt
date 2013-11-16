@@ -6,6 +6,7 @@
 
 extern const struct PMListingAttributes {
 	__unsafe_unretained NSString *category;
+	__unsafe_unretained NSString *city;
 	__unsafe_unretained NSString *date;
 	__unsafe_unretained NSString *info;
 	__unsafe_unretained NSString *listingId;
@@ -19,6 +20,7 @@ extern const struct PMListingAttributes {
 	__unsafe_unretained NSString *postFreeForSale;
 	__unsafe_unretained NSString *price;
 	__unsafe_unretained NSString *sold;
+	__unsafe_unretained NSString *state;
 	__unsafe_unretained NSString *title;
 } PMListingAttributes;
 
@@ -32,6 +34,8 @@ extern const struct PMListingFetchedProperties {
 
 @class PMMessageChain;
 @class PMUser;
+
+
 
 
 
@@ -67,6 +71,16 @@ extern const struct PMListingFetchedProperties {
 
 
 //- (BOOL)validateCategory:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* city;
+
+
+
+//- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -222,6 +236,16 @@ extern const struct PMListingFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* state;
+
+
+
+//- (BOOL)validateState:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSString* title;
 
 
@@ -263,6 +287,12 @@ extern const struct PMListingFetchedProperties {
 
 - (NSString*)primitiveCategory;
 - (void)setPrimitiveCategory:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveCity;
+- (void)setPrimitiveCity:(NSString*)value;
 
 
 
@@ -356,6 +386,12 @@ extern const struct PMListingFetchedProperties {
 
 - (BOOL)primitiveSoldValue;
 - (void)setPrimitiveSoldValue:(BOOL)value_;
+
+
+
+
+- (NSString*)primitiveState;
+- (void)setPrimitiveState:(NSString*)value;
 
 
 
