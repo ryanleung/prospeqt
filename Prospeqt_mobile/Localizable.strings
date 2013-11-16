@@ -14,6 +14,7 @@
 "global.confirm" = "OK";
 "global.post" = "Post";
 "global.edit" = "Edit";
+"global.done" = "Done";
 
 "button.postedFormat" = "Posted %@";
 "button.delete" = "DELETE";
@@ -23,7 +24,7 @@
 "tabbar.messages.title" = "Messages";
 "tabbar.settings.title" = "Settings";
 "tabbar.listings.title" = "My Listings";
-"tabbar.postListing.title" = "Post a Listing";
+"tabbar.postListing.title" = "Post Listing";
 
 "post.cell.title" = "What are you selling?";
 "post.category.book" = "BOOKS";
@@ -41,6 +42,8 @@
 "listings.date.dayAgo" = "1 day ago";
 "listings.date.daysAgoFormat" = "%i days ago";
 "listings.date.format" = "Posted %@";
+"listings.empty.text" = "You haven't posted a listing yet! Tap the + button below to post a new listing.";
+"listings.refresh.title" = "Fetching listings...";
 
 "manageListing.title" = "Manage Listing";
 
@@ -52,6 +55,8 @@
 "addDescription.placeholder.price" = "$0.00";
 "addDescription.placeholder.nameTitle" = "Name your listing:";
 "addDescription.placeholder.priceTitle" = "Set the price:";
+"addDescription.error.name" = "Please enter a listing name";
+"addDescription.error.price" = "Please enter a price";
 "addDescription.placeholder.description" = "What is it?\nWhat condition is it in?\nIs there anything wrong with it?";
 "addDescription.placeholder.descriptionTitle" = "Describe the item:";
 "addDescription.View.missingFields" = "Fields not filled out correctly";
@@ -74,6 +79,10 @@
 "address.cityField.placeholder" = "City";
 "address.stateField.placeholder" = "State";
 "address.zipcodeField.placeholder" = "Zip Code";
+"address.street.error" = "Please enter street address";
+"address.city.error" = "Please enter city";
+"address.state.error" = "Please enter state";
+"address.zip.error" = "Please enter zip code";
 
 "ratings.format" = "%i%% Positive Reviews";
 
@@ -94,3 +103,9 @@
 "settings.contactUs" = "CONTACT US";
 "settings.helpCenter" = "HELP CENTER";
 "settings.logOut" = "LOG OUT";
+
+"done.title" = "Craigslist";
+"done.finalize" = "Finalize Your Craigslist Posting";
+"done.description" = "We've set up the Craigslist Ad, but you need to approve it. Check your email for a link from Craigslist to make your ad live.";
+
+"messages.empty.text" = "You have no messages!";

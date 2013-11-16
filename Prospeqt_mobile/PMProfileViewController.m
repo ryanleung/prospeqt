@@ -57,11 +57,21 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
     [self setupLayoutConstraints];
     
     // TODO: FOR TESTING PURPOSES
-    __weak typeof(self) weak_self = self;
-    UIImageView *placeholder = [[UIImageView alloc] initWithFrame:(CGRect) {{ 0.0f, 0.0f }, kPMAvatarSize}];
-    [self.avatarImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.outsidethebeltway.com/wp-content/uploads/2010/01/conan-obrien.jpg"]] placeholderImage:placeholder.image success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-        weak_self.avatarImageView.image = image;
-    } failure:nil];
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicatorView.frame = self.avatarImageView.bounds;
+    [self.avatarImageView addSubview:indicatorView];
+    [indicatorView startAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.outsidethebeltway.com/wp-content/uploads/2010/01/conan-obrien.jpg"]]];
+        dispatch_async((dispatch_get_main_queue()), ^{
+            self.avatarImageView.alpha = 0.0f;
+            [UIView animateWithDuration:0.5 animations:^{
+                self.avatarImageView.image = image;
+                self.avatarImageView.alpha = 1.0f;
+            } completion:nil];
+            [indicatorView stopAnimating];
+        });
+    });
     self.descriptionView.text = @"\nHi, I'm Conan Christopher O'Brien. I'm originally from Brookline, MA. Right now, I'm going through a move and have a lot of things here and there that I'd liek to sell-which brings me here. I'm a nice guy, promise!";
     self.percentPositiveReviews = 95;
     PMAddress *address = [PMAddress new];

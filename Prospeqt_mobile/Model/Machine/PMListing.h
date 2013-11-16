@@ -6,4 +6,9 @@
 
 - (NSString *)priceFormatted;
 
+/**
+ The imageUrls will be urls of images we store in
+ the Amazon server.
+ */
+
 @end

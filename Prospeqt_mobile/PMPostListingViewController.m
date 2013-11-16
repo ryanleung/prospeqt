@@ -36,8 +36,10 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.view.backgroundColor = [UIColor pm_backgroundColor];
+        
         self.title = NSLocalizedString(@"tabbar.postListing.title", @"Post a Listing");
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar.postListing.title", @"Post Listing") image:[[UIImage imageNamed:@"PostAListing_Icon_Inactive"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"PostAListing_Icon_active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"tabbar.postListing.title", @"Post Listing") image:[[UIImage imageNamed:@"PostAListing_Icon_Inactiveb"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[[UIImage imageNamed:@"PostAListing_Icon_activeb"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         self.tabBarItem.imageInsets = UIEdgeInsetsMake(-15.0f, 0.0f, 15.0f, 0.0f);
         
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
@@ -48,7 +50,7 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         tableView.dataSource  = self;
         [tableView registerClass:[PMTitleCell class] forCellReuseIdentifier:kTitleCellIdentifier];
         [tableView registerClass:[PMDiscloseIndicatorCell class] forCellReuseIdentifier:kCategoryCellIdentifier];
-        tableView.backgroundColor = [UIColor clearColor];
+        tableView.backgroundColor = [UIColor whiteColor];
         [self.view addSubview:tableView];
         self.tableView = tableView;
     }
@@ -167,7 +169,10 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         case PMCategoryCellTypeTitle:
             break;
         default: {
-            PMAddTitleAndPriceViewController *addDescriptionViewController = [[PMAddTitleAndPriceViewController alloc] initWithNibName:nil bundle:nil];
+            [self.networkController.mainContext reset];
+            PMListing *listing = [PMListing insertInManagedObjectContext:self.networkController.mainContext];
+            listing.category = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+            PMAddTitleAndPriceViewController *addDescriptionViewController = [[PMAddTitleAndPriceViewController alloc] initWithListing:listing];
             [self.navigationController pushViewController:addDescriptionViewController animated:YES];
             break;
         }

@@ -58,6 +58,9 @@
         PMManageListingBoxView *boxView = [[PMManageListingBoxView alloc] initWithFrame:CGRectZero];
         boxView.translatesAutoresizingMaskIntoConstraints = NO;
         //        [boxView.editButton addTarget:<#(id)#> action:<#(SEL)#> forControlEvents:<#(UIControlEvents)#>]
+        boxView.postedDateLabel.text = @"POSTED NOV. 15";
+        boxView.productImageView.image = [UIImage imageWithData:self.currentListing.picData1];
+        boxView.descriptionLabel.text = self.currentListing.info;
         [self.view addSubview:boxView];
         
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:listingLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1.0f constant:10.0f]];

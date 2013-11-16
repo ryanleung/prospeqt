@@ -30,7 +30,7 @@
         
         NSDictionary *views = NSDictionaryOfVariableBindings(_accessoryImage, _textLabel);
         NSDictionary *metrics = @{ @"spacer" : @10 };
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_accessoryImage]-spacer-[_textLabel]" options:0 metrics:metrics views:views]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_accessoryImage]-spacer-[_textLabel]|" options:0 metrics:metrics views:views]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_accessoryImage]|" options:0 metrics:metrics views:views]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_textLabel]|" options:0 metrics:metrics views:views]];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:_accessoryImage attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:_accessoryImage attribute:NSLayoutAttributeHeight multiplier:1.0f constant:0.0f]];

@@ -10,4 +10,6 @@
 
 @interface PMAddDescriptionViewController : PMFormBaseViewController
 
+- (id)initWithListing:(PMListing *)listing;
+
 @end

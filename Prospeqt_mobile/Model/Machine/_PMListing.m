@@ -4,15 +4,20 @@
 #import "_PMListing.h"
 
 const struct PMListingAttributes PMListingAttributes = {
+	.category = @"category",
 	.city = @"city",
 	.date = @"date",
 	.info = @"info",
 	.listingId = @"listingId",
-	.picData = @"picData",
-	.picUrl = @"picUrl",
+	.picData1 = @"picData1",
+	.picData2 = @"picData2",
+	.picData3 = @"picData3",
+	.picData4 = @"picData4",
+	.picUrls = @"picUrls",
+	.postCraigslist = @"postCraigslist",
+	.postFacebook = @"postFacebook",
+	.postFreeForSale = @"postFreeForSale",
 	.price = @"price",
-	.smallPicData = @"smallPicData",
-	.smallPicUrl = @"smallPicUrl",
 	.sold = @"sold",
 	.state = @"state",
 	.title = @"title",
@@ -57,6 +62,21 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 		return keyPaths;
 	}
+	if ([key isEqualToString:@"postCraigslistValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"postCraigslist"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"postFacebookValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"postFacebook"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
+	if ([key isEqualToString:@"postFreeForSaleValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"postFreeForSale"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+		return keyPaths;
+	}
 	if ([key isEqualToString:@"soldValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"sold"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -65,6 +85,13 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic category;
+
+
 
 
 
@@ -116,35 +143,120 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
-@dynamic picData;
+@dynamic picData1;
 
 
 
 
 
 
-@dynamic picUrl;
+@dynamic picData2;
 
+
+
+
+
+
+@dynamic picData3;
+
+
+
+
+
+
+@dynamic picData4;
+
+
+
+
+
+
+@dynamic picUrls;
+
+
+
+
+
+
+@dynamic postCraigslist;
+
+
+
+- (BOOL)postCraigslistValue {
+	NSNumber *result = [self postCraigslist];
+	return [result boolValue];
+}
+
+- (void)setPostCraigslistValue:(BOOL)value_ {
+	[self setPostCraigslist:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitivePostCraigslistValue {
+	NSNumber *result = [self primitivePostCraigslist];
+	return [result boolValue];
+}
+
+- (void)setPrimitivePostCraigslistValue:(BOOL)value_ {
+	[self setPrimitivePostCraigslist:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic postFacebook;
+
+
+
+- (BOOL)postFacebookValue {
+	NSNumber *result = [self postFacebook];
+	return [result boolValue];
+}
+
+- (void)setPostFacebookValue:(BOOL)value_ {
+	[self setPostFacebook:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitivePostFacebookValue {
+	NSNumber *result = [self primitivePostFacebook];
+	return [result boolValue];
+}
+
+- (void)setPrimitivePostFacebookValue:(BOOL)value_ {
+	[self setPrimitivePostFacebook:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic postFreeForSale;
+
+
+
+- (BOOL)postFreeForSaleValue {
+	NSNumber *result = [self postFreeForSale];
+	return [result boolValue];
+}
+
+- (void)setPostFreeForSaleValue:(BOOL)value_ {
+	[self setPostFreeForSale:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitivePostFreeForSaleValue {
+	NSNumber *result = [self primitivePostFreeForSale];
+	return [result boolValue];
+}
+
+- (void)setPrimitivePostFreeForSaleValue:(BOOL)value_ {
+	[self setPrimitivePostFreeForSale:[NSNumber numberWithBool:value_]];
+}
 
 
 
 
 
 @dynamic price;
-
-
-
-
-
-
-@dynamic smallPicData;
-
-
-
-
-
-
-@dynamic smallPicUrl;
 
 
 

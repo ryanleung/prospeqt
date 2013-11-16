@@ -11,6 +11,8 @@
 #import "PMAddressCell.h"
 #import "PMSitePostCell.h"
 #import "PMAddressViewController.h"
+#import "PMDoneViewController.h"
+#import <RestKit/RestKit.h>
 
 
 typedef NS_ENUM(NSUInteger, PMCellType) {
@@ -29,17 +31,20 @@ static NSString * const kMiscCellIdentifier = @"miscCellIdentifier";
 static NSString * const kSitePostCellIdentifier = @"sitePostCellIdentifier";
 static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
 
-@interface PMFinalizePostViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface PMFinalizePostViewController () <UITableViewDataSource, UITableViewDelegate, PMAddressViewControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) PMListing *listing;
+@property (nonatomic, strong) PMAddress *chosenAddress;
 @end
 
 
 @implementation PMFinalizePostViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithListing:(PMListing *)listing
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self = [super initWithNibName:nil bundle:nil]) {
+        self.listing = listing;
+        
         self.title = NSLocalizedString(@"finalizePost.title", @"Finalize Post");
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"global.post", @"post") style:UIBarButtonItemStylePlain target:self action:@selector(formAction)];
         
@@ -60,42 +65,18 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
     return self;
 }
 
+#pragma mark - Data loading operations
+
+- (void)loadData
+{
+    
+}
+
 #pragma mark UITableViewDelegate/Datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return PMCellCount;
-}
-
-- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // hide separator view of cell above.
-    
-//    PMCell *cell = (PMCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section]];
-//    switch (indexPath.row) {
-//        case PMCategoryCellTypeTitle:
-//            cell.separatorVisible = YES;
-//            break;
-//        default:
-//            cell.separatorVisible = NO;
-//            break;
-//    }
-}
-
-- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // show separator view of cell above.
-//    if (indexPath.row != 0) {
-//        PMCell *cell = (PMCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section]];
-//        if (cell) {
-//            cell.separatorVisible = YES;
-//        } else {
-//            // If the cell can't be found brute-force the cell separator flag. This can occur if the user scrolls the table view while a cell is highlighted. In this case the unhighlighted indexPath is INT_MAX. This is specifically an iOS 6 issue that is resolved in iOS 7.
-//            for (PMCell *itemCell in [self.tableView visibleCells]) {
-//                itemCell.separatorVisible = YES;
-//            }
-//        }
-//    }
 }
 
 - (PMCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,7 +114,11 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
             break;
         case PMCellTypeAddress:
             // if case with default address/most used address (same as luv)
-            cell.textLabel.text = NSLocalizedString(@"finalizePost.address.default", @"Default Address");
+            if (!self.chosenAddress) {
+                cell.textLabel.text = NSLocalizedString(@"finalizePost.address.default", @"Default Address");
+            } else {
+                cell.textLabel.text = self.chosenAddress.streetAddress;
+            }
             [cell useLastItemSeparator:YES];
             break;
         case PMCellTypeAddressNotes:
@@ -172,6 +157,7 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
     switch (indexPath.row) {
         case PMCellTypeAddress: {
             PMAddressViewController *addressViewController = [[PMAddressViewController alloc] initWithNibName:nil bundle:nil];
+            addressViewController.delegate = self;
             [self.navigationController pushViewController:addressViewController animated:YES];
         }
             break;
@@ -192,11 +178,23 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
     return [PMCell cellHeight];
 }
 
+#pragma mark - Address Delegate methods
+
+- (void)addressViewController:(PMAddressViewController *)addressViewController didCreateNewAddress:(PMAddress *)address
+{
+    self.chosenAddress = address;
+    self.listing.city = self.chosenAddress.city;
+    self.listing.state = self.chosenAddress.state;
+    [self.tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:PMCellTypeAddress inSection:0] ] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 #pragma mark - Form Actions
 
 - (void)formAction
 {
-    
+    [self.networkController.mainContext saveToPersistentStore:nil];
+    PMDoneViewController *doneViewController = [PMDoneViewController new];
+    [self.navigationController pushViewController:doneViewController animated:YES];
 }
 
 @end

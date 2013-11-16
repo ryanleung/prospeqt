@@ -28,6 +28,7 @@
        NSFontAttributeName :[UIFont pm_caeciliaRomanFontWithSize:25.0f]
        }];
     
+    // to cancel out the tab bar shadow
     [[UITabBar appearance] setShadowImage:[[UIImage alloc] init]];
     [[UITabBar appearance] setBackgroundImage:[UIImage imageWithColor:[UIColor pm_aquaColor]]];
     [[UITabBarItem appearance] setTitleTextAttributes:

@@ -12,12 +12,10 @@
 
 @interface UIButton (PMAppearance)
 
-+ (PMButton *)pm_postedDateButton;
 + (PMButton *)pm_editButton;
 + (PMButton *)pm_deleteButton;
 + (PMButton *)pm_postButton;
 
-- (void)applyPostedDateButton;
 - (void)applyEditButton;
 - (void)applyDeleteButton;
 - (void)applyPostButton;
