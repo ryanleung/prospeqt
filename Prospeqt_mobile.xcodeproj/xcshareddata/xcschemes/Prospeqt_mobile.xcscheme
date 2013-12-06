@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "47BBD7AD17D40E630050814D"
-               BuildableName = "Prospeqt_mobile.app"
+               BuildableName = "Tapsell.app"
                BlueprintName = "Prospeqt_mobile"
                ReferencedContainer = "container:Prospeqt_mobile.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "47BBD7AD17D40E630050814D"
-            BuildableName = "Prospeqt_mobile.app"
+            BuildableName = "Tapsell.app"
             BlueprintName = "Prospeqt_mobile"
             ReferencedContainer = "container:Prospeqt_mobile.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "47BBD7AD17D40E630050814D"
-            BuildableName = "Prospeqt_mobile.app"
+            BuildableName = "Tapsell.app"
             BlueprintName = "Prospeqt_mobile"
             ReferencedContainer = "container:Prospeqt_mobile.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "47BBD7AD17D40E630050814D"
-            BuildableName = "Prospeqt_mobile.app"
+            BuildableName = "Tapsell.app"
             BlueprintName = "Prospeqt_mobile"
             ReferencedContainer = "container:Prospeqt_mobile.xcodeproj">
          </BuildableReference>

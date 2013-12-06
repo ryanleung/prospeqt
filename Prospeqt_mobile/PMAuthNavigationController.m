@@ -10,4 +10,13 @@
 
 @implementation PMAuthNavigationController
 
+- (id)initWithRootViewController:(UIViewController *)rootViewController
+{
+    if (self = [super initWithRootViewController:rootViewController])
+    {
+//        [self setNavigationBarHidden:YES animated:NO];
+    }
+    return self;
+}
+
 @end

@@ -98,13 +98,11 @@
 
 - (void)presentAuthControllerIfNeeded
 {
-    UIViewController *presentationViewController = [self presentationViewController];
-    
     PMAuthViewController *controller = [[PMAuthViewController alloc] initWithNibName:nil bundle:nil];
     PMAuthNavigationController *navController = [[PMAuthNavigationController alloc] initWithRootViewController:controller];
     navController.authenticationDelegate = self;
     
-    [presentationViewController presentViewController:navController animated:YES completion:nil];
+    [self.rootViewController presentViewController:navController animated:NO completion:nil];
 }
 
 #pragma mark - PMAuthenticationDelegate
