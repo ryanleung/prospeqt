@@ -8,12 +8,12 @@
 
 #import "PMAPIEnvironment.h"
 
-NSString * const PMAPIAuthorizationHeaderKey = @"";
+NSString * const kPMAPIAuthorizationHeaderKey = @"X-TapsellAPIToken";
 
 const struct PMAPIBaseURL PMAPIBaseURL = {
     .staging = @"",
     .production = @"",
-    .debug = @"http://localhost:8000"
+    .debug = @"http://localhost:3000/api/"
 };
 
 const struct PMHTTPMethod PMHTTPMethod = {
@@ -25,6 +25,8 @@ const struct PMHTTPMethod PMHTTPMethod = {
 };
 
 const struct PMURIEndpoint PMURIEndpoint = {
+    .registration = @"users",
+    .sessions = @"sessions",
     .messages = @"/messages/fetch_by_user",
     .sendMessage = @"/message/send",
     .createMessage = @"/message/create"

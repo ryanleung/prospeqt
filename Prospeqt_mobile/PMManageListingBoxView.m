@@ -71,13 +71,13 @@
         self.accessoryLabelView = accessoryView;
         
         NSDictionary *views = NSDictionaryOfVariableBindings(dateLabel, editButton, deleteButton, topSeparatorView, bottomSeparatorView, leftSeparatorView, rightSeparatorView, descriptionLabel, productImageView, accessoryView);
-        NSDictionary *metrics = @{ @"buttonWidth": @106, @"buttonHeight": @30, @"spacer": @25, @"imageHeight": @130 };
+        NSDictionary *metrics = @{ @"buttonWidth": @106, @"buttonHeight": @30, @"spacer": @25, @"smallSpacer": @2, @"imageHeight": @200 };
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[dateLabel(==buttonWidth)][leftSeparatorView(==0.5)][editButton(==dateLabel)][rightSeparatorView(==0.5)][deleteButton(==dateLabel)]|" options:NSLayoutFormatAlignAllCenterY metrics:metrics views:views]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[topSeparatorView]|" options:0 metrics:metrics views:views]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bottomSeparatorView]|" options:0 metrics:metrics views:views]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[rightSeparatorView(==buttonHeight)]" options:0 metrics:metrics views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[topSeparatorView(==0.5)][leftSeparatorView(==buttonHeight)][bottomSeparatorView(==0.5)]-spacer-[productImageView(==imageHeight)]-spacer-[descriptionLabel]-spacer-|" options:0 metrics:metrics views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-spacer-[productImageView(==imageHeight)]-spacer-[accessoryView]|" options:NSLayoutFormatAlignAllCenterY metrics:metrics views:views]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[topSeparatorView(==0.5)][leftSeparatorView(==buttonHeight)][bottomSeparatorView(==0.5)]-spacer-[productImageView(==imageHeight)]-smallSpacer-[descriptionLabel]|" options:0 metrics:metrics views:views]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-smallSpacer-[productImageView(==imageHeight)]-smallSpacer-[accessoryView]|" options:NSLayoutFormatAlignAllCenterY metrics:metrics views:views]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[dateLabel(==buttonHeight)]" options:0 metrics:metrics views:views]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[editButton(==buttonHeight)]" options:0 metrics:metrics views:views]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[deleteButton(==buttonHeight)]" options:0 metrics:metrics views:views]];

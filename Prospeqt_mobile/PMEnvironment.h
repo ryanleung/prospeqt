@@ -6,14 +6,15 @@
 //  Copyright (c) 2013 Prospeqt. All rights reserved.
 //
 
-// Notification String Constants //
-
 #import "UIColor+PMAppearance.h"
 #import "UIFont+PMAppearance.h"
 #import "UIButton+PMAppearance.h"
 
+// Notification String Constants //
+
 extern NSString * const kPMNotificationUserNeedsAuthenticated;
 extern NSString * const kPMNotificationUserDidSignOut;
+extern NSString * const kPMNotificationUserDidSignIn;
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
@@ -25,4 +26,4 @@ extern NSString * const kPMNotificationUserDidSignOut;
 
 extern NSString * const kPMKeychainServiceName;
 extern NSString * const kPMKeychainTokenKey;
-extern NSString * const kPMKeychainUsernameKey;
+extern NSString * const kPMKeychainUserEmailKey;

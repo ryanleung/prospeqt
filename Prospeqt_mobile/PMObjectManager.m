@@ -61,7 +61,10 @@ static PMObjectManager *pm_sharedObjectManager = nil;
 
 - (void)prepareRequestDescriptors
 {
-
+    [self addRequestDescriptor:[RKRequestDescriptor requestDescriptorWithMapping:[PMAccount requestMapping]
+                                                                     objectClass:[PMAccount class]
+                                                                     rootKeyPath:nil
+                                                                          method:RKRequestMethodAny]];
 }
 
 - (void)prepareResponseDescriptors
@@ -71,7 +74,28 @@ static PMObjectManager *pm_sharedObjectManager = nil;
 
 - (void)prepareManagedResponseDescriptorsWithMappings:(NSDictionary *)mappings
 {
+    NSIndexSet *successCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful);
     
+    [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[mappings objectForKey:[PMSession entityName]]
+                                                                             method:RKRequestMethodAny
+                                                                        pathPattern:PMURIEndpoint.registration
+                                                                            keyPath:nil
+                                                                        statusCodes:successCodes]];
+    [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[mappings objectForKey:[PMSession entityName]]
+                                                                             method:RKRequestMethodAny
+                                                                        pathPattern:PMURIEndpoint.sessions
+                                                                            keyPath:nil
+                                                                        statusCodes:successCodes]];
+    [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[mappings objectForKey:[PMUser entityName]]
+                                                                             method:RKRequestMethodAny
+                                                                        pathPattern:PMURIEndpoint.registration
+                                                                            keyPath:@"data.user"
+                                                                        statusCodes:successCodes]];
+    [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[mappings objectForKey:[PMUser entityName]]
+                                                                             method:RKRequestMethodAny
+                                                                        pathPattern:PMURIEndpoint.sessions
+                                                                            keyPath:@"data.user"
+                                                                        statusCodes:successCodes]];
 }
 
 #pragma mark - Mapping Provider Helpers

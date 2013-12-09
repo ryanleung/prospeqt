@@ -51,6 +51,9 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userNeedsAuthentication:) name:kPMNotificationUserNeedsAuthenticated object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidSignOut:) name:kPMNotificationUserDidSignOut object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidSignIn:) name:kPMNotificationUserDidSignIn object:nil];
+        
+        [self setNeedsData];
     }
     return self;
 }
@@ -74,55 +77,61 @@
     [self performSelector:presentAuthSelector withObject:nil afterDelay:0.0];
 }
 
-//- (void)userDidSignOut:(NSNotification *)notification
-//{
-//    // with authentication being handled on demand, simply route the user to the default view
-//    [self openLink:[LUVLink linkToTrendingFeed] animated:NO];
-//    
-//    //Clear username alias from UA
-//    [UAPush shared].alias = nil;
-//    [[UAPush shared] updateRegistration];
-//    
-//    //Sign out of FB
-//    if (FBSession.activeSession.isOpen) {
-//        // In order to fix, see discussion here: http://stackoverflow.com/questions/9110740/login-logout-issue-with-facebook-ios-sdk
-//        // This way, we would need to access facebook sdk.
-//        // if you want to completely logout of fb and, when signing on again, have to type in pass, then this is the way.
-//        // otherwise, if you want to stay logged into FB through safari, the way above works. Which is the correct behavior?
-//        // Will delete these comments once a conclusion hags been made :).
-//        [FBSession.activeSession closeAndClearTokenInformation];
-//    }
-//}
-
-#pragma mark - Authentication
-
-- (void)presentAuthControllerIfNeeded
+- (void)userDidSignIn:(NSNotification *)notification
 {
-    UIViewController *presentationViewController = [self presentationViewController];
-    
-    PMAuthViewController *controller = [[PMAuthViewController alloc] initWithNibName:nil bundle:nil];
-    PMAuthNavigationController *navController = [[PMAuthNavigationController alloc] initWithRootViewController:controller];
-    navController.authenticationDelegate = self;
-    
-    [presentationViewController presentViewController:navController animated:YES completion:nil];
-}
-
-#pragma mark - PMAuthenticationDelegate
-
-- (void)authenticationViewControllerDidAuthenticate:(PMBaseViewController *)viewController
-{
-    [self.rootViewController dismissViewControllerAnimated:YES completion:nil];
-    [self.loadDataQueue addOperations:self.loadDataOperations waitUntilFinished:NO];
-    [self.loadDataOperations removeAllObjects];
+    [self.rootViewController dismissViewControllerAnimated:YES completion:^{
+        [self.loadDataQueue addOperations:self.loadDataOperations waitUntilFinished:NO];
+        [self.loadDataOperations removeAllObjects];
+    }];
     
     // Update UA with new username;
 //    [UAPush shared].alias = self.networkController.currentUsername;
 //    [[UAPush shared] updateRegistration];
 }
 
-- (void)authenticationViewControllerDidFailToAuthenticate:(PMBaseViewController *)viewController
+
+- (void)userDidSignOut:(NSNotification *)notification
 {
-    // TODO(JNJ): Implement for signing out when we have views that need logout
+    NSManagedObjectContext *resetContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    resetContext.parentContext = self.networkController.mainContext;
+    
+    [resetContext performBlock:^{
+        // reset cached user state
+//        [self.networkController resetUserTrusts];
+//        [self.networkController resetUserRecommendations];
+//        [resetContext saveToPersistentStore:NULL];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserNeedsAuthenticated object:self userInfo:nil];
+            
+            //Clear username alias from UA
+//            [UAPush shared].alias = nil;
+//            [[UAPush shared] updateRegistration];
+            
+            //Sign out of FB
+//            if (FBSession.activeSession.isOpen) {
+//                // In order to fix, see discussion here: http://stackoverflow.com/questions/9110740/login-logout-issue-with-facebook-ios-sdk
+//                // This way, we would need to access facebook sdk.
+//                // if you want to completely logout of fb and, when signing on again, have to type in pass, then this is the way.
+//                // otherwise, if you want to stay logged into FB through safari, the way above works. Which is the correct behavior?
+//                // Will delete these comments once a conclusion hags been made :).
+//                [FBSession.activeSession closeAndClearTokenInformation];
+//            }
+            
+            [self setNeedsData];
+        });
+    }];
+}
+
+#pragma mark - Authentication
+
+- (void)presentAuthControllerIfNeeded
+{
+    PMAuthViewController *controller = [[PMAuthViewController alloc] initWithNibName:nil bundle:nil];
+    PMAuthNavigationController *navController = [[PMAuthNavigationController alloc] initWithRootViewController:controller];
+    navController.authenticationDelegate = self;
+    
+    [self.rootViewController presentViewController:navController animated:YES completion:nil];
 }
 
 #pragma mark - PMDataLoadProtocol
@@ -178,6 +187,17 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:baseViewController];
     return navController;
 }
+
+#pragma mark - Properties
+
+- (PMNetworkController *)networkController
+{
+    if (!_networkController) {
+        _networkController = [PMNetworkController new];
+    }
+    return _networkController;
+}
+
 - (PMProfileViewController *)profileViewController
 {
     if (!_profileViewController) {

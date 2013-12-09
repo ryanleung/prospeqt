@@ -6,12 +6,12 @@
 const struct PMUserAttributes PMUserAttributes = {
 	.avatarData = @"avatarData",
 	.avatarUrl = @"avatarUrl",
+	.bio = @"bio",
 	.city = @"city",
-	.info = @"info",
+	.email = @"email",
 	.rating = @"rating",
 	.state = @"state",
 	.userId = @"userId",
-	.username = @"username",
 };
 
 const struct PMUserRelationships PMUserRelationships = {
@@ -79,6 +79,13 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 
 
 
+@dynamic bio;
+
+
+
+
+
+
 @dynamic city;
 
 
@@ -86,7 +93,7 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 
 
 
-@dynamic info;
+@dynamic email;
 
 
 
@@ -147,13 +154,6 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 - (void)setPrimitiveUserIdValue:(int32_t)value_ {
 	[self setPrimitiveUserId:[NSNumber numberWithInt:value_]];
 }
-
-
-
-
-
-@dynamic username;
-
 
 
 

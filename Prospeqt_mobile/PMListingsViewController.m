@@ -76,13 +76,24 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
         self.tableView.hidden = NO;
         [self.tableView reloadData];
     }
-//    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.fetchedResultsController.sections[0] indexOfObject:self.selectedListing] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidAppear:animated];
+    [self setNeedsData];
+}
+
+#pragma mark - Data Loading
+
+- (BOOL)needsUserAuthentication
+{
+    return YES;
+}
+
+- (void)loadData
+{
+    
 }
 
 #pragma mark UITableViewDelegate/Datasource

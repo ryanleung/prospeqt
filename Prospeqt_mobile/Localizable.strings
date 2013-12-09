@@ -16,6 +16,20 @@
 "global.edit" = "Edit";
 "global.done" = "Done";
 
+"auth.signin" = "Sign In";
+"auth.signup" = "Sign Up";
+"auth.signout" = "Sign out";
+
+"signUpView.firstNamePlaceholder" = "First Name";
+"signUpView.lastNamePlaceholder" = "Last Name";
+"signUpView.emailPlaceholder" = "Email Address";
+"signUpView.passwordPlaceholder" = "Password";
+"signUpView.confirmPasswordPlaceholder" = "Confirm Password";
+"signInView.emailPlaceholder" = "Email Address";
+"signInView.passwordPlaceholder" = "Password";
+"signInView.forgotPassword" = "Forgot Your Password?";
+"signIn.field.error" = "One or more fields not filled in";
+
 "button.postedFormat" = "Posted %@";
 "button.delete" = "DELETE";
 "button.edit" = "EDIT";

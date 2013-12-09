@@ -182,6 +182,9 @@
 		47B5A448181DF05F000588A4 /* ThumbsUp_Active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47B5A440181DF05F000588A4 /* ThumbsUp_Active@2x.png */; };
 		47B5A449181DF05F000588A4 /* ThumbsUp_Inactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 47B5A441181DF05F000588A4 /* ThumbsUp_Inactive.png */; };
 		47B5A44A181DF05F000588A4 /* ThumbsUp_Inactive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47B5A442181DF05F000588A4 /* ThumbsUp_Inactive@2x.png */; };
+		47B7E8E51851B8E600246BC5 /* _PMSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B7E8E41851B8E600246BC5 /* _PMSession.m */; };
+		47B7E8EB1851B90800246BC5 /* PMSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B7E8EA1851B90800246BC5 /* PMSession.m */; };
+		47B7E8EE1851BA8D00246BC5 /* PMAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B7E8ED1851BA8D00246BC5 /* PMAccount.m */; };
 		47BBD7B217D40E630050814D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B117D40E630050814D /* UIKit.framework */; };
 		47BBD7B417D40E630050814D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B317D40E630050814D /* Foundation.framework */; };
 		47BBD7B617D40E630050814D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBD7B517D40E630050814D /* CoreGraphics.framework */; };
@@ -477,6 +480,12 @@
 		47B5A440181DF05F000588A4 /* ThumbsUp_Active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ThumbsUp_Active@2x.png"; sourceTree = "<group>"; };
 		47B5A441181DF05F000588A4 /* ThumbsUp_Inactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThumbsUp_Inactive.png; sourceTree = "<group>"; };
 		47B5A442181DF05F000588A4 /* ThumbsUp_Inactive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ThumbsUp_Inactive@2x.png"; sourceTree = "<group>"; };
+		47B7E8E31851B8E600246BC5 /* _PMSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PMSession.h; sourceTree = "<group>"; };
+		47B7E8E41851B8E600246BC5 /* _PMSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _PMSession.m; sourceTree = "<group>"; };
+		47B7E8E91851B90800246BC5 /* PMSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMSession.h; path = Model/Machine/PMSession.h; sourceTree = "<group>"; };
+		47B7E8EA1851B90800246BC5 /* PMSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMSession.m; path = Model/Machine/PMSession.m; sourceTree = "<group>"; };
+		47B7E8EC1851BA8D00246BC5 /* PMAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMAccount.h; path = Model/PMAccount.h; sourceTree = "<group>"; };
+		47B7E8ED1851BA8D00246BC5 /* PMAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMAccount.m; path = Model/PMAccount.m; sourceTree = "<group>"; };
 		47BBD7AE17D40E630050814D /* Tapsell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tapsell.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47BBD7B117D40E630050814D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		47BBD7B317D40E630050814D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -613,6 +622,8 @@
 		4739BC2A1800CB50004A6500 /* Machine */ = {
 			isa = PBXGroup;
 			children = (
+				47B7E8E31851B8E600246BC5 /* _PMSession.h */,
+				47B7E8E41851B8E600246BC5 /* _PMSession.m */,
 				471EF256181E5A4300618B02 /* _PMMessage.h */,
 				471EF257181E5A4300618B02 /* _PMMessage.m */,
 				471EF258181E5A4300618B02 /* _PMMessageChain.h */,
@@ -993,10 +1004,14 @@
 			children = (
 				47BBD7CB17D40E630050814D /* Prospeqt_mobile.xcdatamodeld */,
 				4739BC2A1800CB50004A6500 /* Machine */,
+				47B7E8EC1851BA8D00246BC5 /* PMAccount.h */,
+				47B7E8ED1851BA8D00246BC5 /* PMAccount.m */,
 				4739BC2F1800CB50004A6500 /* PMListing.h */,
 				4739BC301800CB50004A6500 /* PMListing.m */,
 				4739BC311800CB50004A6500 /* PMUser.h */,
 				4739BC321800CB50004A6500 /* PMUser.m */,
+				47B7E8E91851B90800246BC5 /* PMSession.h */,
+				47B7E8EA1851B90800246BC5 /* PMSession.m */,
 				4753DB4F18164A3B00F8D128 /* PMAddress.h */,
 				4753DB5018164A3B00F8D128 /* PMAddress.m */,
 				471EF25F181E5A4C00618B02 /* PMMessage.h */,
@@ -1353,6 +1368,7 @@
 				4739BBEA18000C21004A6500 /* PMAddPhotoViewController.m in Sources */,
 				4739BBC217FFD5B6004A6500 /* PMPostListingViewController.m in Sources */,
 				4739BC341800CB50004A6500 /* _PMUser.m in Sources */,
+				47B7E8E51851B8E600246BC5 /* _PMSession.m in Sources */,
 				471EF267181F6DB200618B02 /* PMEditProfileViewController.m in Sources */,
 				474C9A6917E575070072012C /* PMMessagesViewController.m in Sources */,
 				479DD5FA182E14EC00ECC16B /* PMAPILaunchService.m in Sources */,
@@ -1381,7 +1397,9 @@
 				4753DB4A18148B8C00F8D128 /* SSKeychain.m in Sources */,
 				471EF263181E5A4C00618B02 /* PMMessage.m in Sources */,
 				4753DB2E18139CB900F8D128 /* PMFinalizePostViewController.m in Sources */,
+				47B7E8EB1851B90800246BC5 /* PMSession.m in Sources */,
 				471EF25A181E5A4300618B02 /* _PMMessage.m in Sources */,
+				47B7E8EE1851BA8D00246BC5 /* PMAccount.m in Sources */,
 				47B5A434181DDAA5000588A4 /* PMAccessoryLabelView.m in Sources */,
 				4753DB5118164A3B00F8D128 /* PMAddress.m in Sources */,
 				474C9A7217E5762A0072012C /* PMBaseViewController.m in Sources */,

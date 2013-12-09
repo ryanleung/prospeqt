@@ -13,7 +13,7 @@ static PMKeychain *pm_keychain_instance = nil;
 
 @implementation PMKeychain {
     NSString *_authenticationToken;
-    NSString *_username;
+    NSString *_userEmail;
 }
 
 + (instancetype)keychain
@@ -49,25 +49,25 @@ static PMKeychain *pm_keychain_instance = nil;
     return _authenticationToken;
 }
 
-- (void)setUsername:(NSString *)username
+- (void)setUserEmail:(NSString *)userEmail
 {
-    [self willChangeValueForKey:kPMKeychainUsernameKey];
-    _username = [username copy];
+    [self willChangeValueForKey:kPMKeychainUserEmailKey];
+    _userEmail = [userEmail copy];
     
-    if (! _username) {
-        [self deleteKeychainItem:kPMKeychainUsernameKey];
+    if (! _userEmail) {
+        [self deleteKeychainItem:kPMKeychainUserEmailKey];
     } else {
-        [self saveStringValue:_username keychainItem:kPMKeychainUsernameKey];
+        [self saveStringValue:userEmail keychainItem:kPMKeychainUserEmailKey];
     }
-    [self didChangeValueForKey:kPMKeychainUsernameKey];
+    [self didChangeValueForKey:kPMKeychainUserEmailKey];
 }
 
-- (NSString *)username
+- (NSString *)userEmail
 {
-    if (!_username) {
-        _username = [self stringValueForKeychainItem:kPMKeychainUsernameKey];
+    if (!_userEmail) {
+        _userEmail = [self stringValueForKeychainItem:kPMKeychainUserEmailKey];
     }
-    return _username;
+    return _userEmail;
 }
 
 #pragma mark - Keychain Access
