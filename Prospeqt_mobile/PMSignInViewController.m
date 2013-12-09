@@ -53,10 +53,26 @@
     [self bindRightEdgeOfView:passwordField toView:self.view];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)formAction
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (!self.emailField.textField.text || !self.passwordField.textField.text) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"error") message:NSLocalizedString(@"signIn.field.error", @"error") delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm") otherButtonTitles: nil];
+        [alertView show];
+        return;
+    }
+    
+    PMAccount *account = [[PMAccount alloc] init];
+    account.email = self.emailField.textField.text;
+    account.password = self.passwordField.textField.text;
+    
+    __weak typeof(self) weak_self = self;
+    [self.networkController createSessionWithAccount:account completion:^(id response, NSError *error) {
+        if (!error) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserDidSignIn object:weak_self userInfo:nil];
+        } else {
+            [self handleError:error];
+        }
+    }];
 }
 
 @end

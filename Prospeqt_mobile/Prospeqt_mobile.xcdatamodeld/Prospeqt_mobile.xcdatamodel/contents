@@ -79,7 +79,11 @@
         <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="messageChains" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="PMSession" syncable="YES">
-        <attribute name="apiToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="apiToken" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="data.api_token"/>
+            </userInfo>
+        </attribute>
         <userInfo>
             <entry key="PM_JSON_SERVER_KEY" value="data.api_token"/>
         </userInfo>
@@ -94,6 +98,16 @@
         <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="first_name"/>
+            </userInfo>
+        </attribute>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="PM_JSON_SERVER_KEY" value="last_name"/>
+            </userInfo>
+        </attribute>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
@@ -109,7 +123,7 @@
         <element name="Listing" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Message" positionX="0" positionY="0" width="0" height="0"/>
         <element name="MessageChain" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Session" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="User" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

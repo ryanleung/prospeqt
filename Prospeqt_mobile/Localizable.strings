@@ -28,6 +28,7 @@
 "signInView.emailPlaceholder" = "Email Address";
 "signInView.passwordPlaceholder" = "Password";
 "signInView.forgotPassword" = "Forgot Your Password?";
+"signIn.field.error" = "One or more fields not filled in";
 
 "button.postedFormat" = "Posted %@";
 "button.delete" = "DELETE";

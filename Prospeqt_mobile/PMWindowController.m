@@ -51,6 +51,7 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userNeedsAuthentication:) name:kPMNotificationUserNeedsAuthenticated object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidSignOut:) name:kPMNotificationUserDidSignOut object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidSignIn:) name:kPMNotificationUserDidSignIn object:nil];
         
         [self setNeedsData];
     }
@@ -75,6 +76,19 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:presentAuthSelector object:nil];
     [self performSelector:presentAuthSelector withObject:nil afterDelay:0.0];
 }
+
+- (void)userDidSignIn:(NSNotification *)notification
+{
+    [self.rootViewController dismissViewControllerAnimated:YES completion:^{
+        [self.loadDataQueue addOperations:self.loadDataOperations waitUntilFinished:NO];
+        [self.loadDataOperations removeAllObjects];
+    }];
+    
+    // Update UA with new username;
+//    [UAPush shared].alias = self.networkController.currentUsername;
+//    [[UAPush shared] updateRegistration];
+}
+
 
 //- (void)userDidSignOut:(NSNotification *)notification
 //{
@@ -105,24 +119,6 @@
     navController.authenticationDelegate = self;
     
     [self.rootViewController presentViewController:navController animated:NO completion:nil];
-}
-
-#pragma mark - PMAuthenticationDelegate
-
-- (void)authenticationViewControllerDidAuthenticate:(PMBaseViewController *)viewController
-{
-    [self.rootViewController dismissViewControllerAnimated:YES completion:nil];
-    [self.loadDataQueue addOperations:self.loadDataOperations waitUntilFinished:NO];
-    [self.loadDataOperations removeAllObjects];
-    
-    // Update UA with new username;
-//    [UAPush shared].alias = self.networkController.currentUsername;
-//    [[UAPush shared] updateRegistration];
-}
-
-- (void)authenticationViewControllerDidFailToAuthenticate:(PMBaseViewController *)viewController
-{
-    // TODO(): Implement for signing out when we have views that need logout
 }
 
 #pragma mark - PMDataLoadProtocol

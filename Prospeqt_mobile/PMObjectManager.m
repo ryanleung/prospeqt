@@ -86,6 +86,16 @@ static PMObjectManager *pm_sharedObjectManager = nil;
                                                                         pathPattern:PMURIEndpoint.sessions
                                                                             keyPath:nil
                                                                         statusCodes:successCodes]];
+    [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[mappings objectForKey:[PMUser entityName]]
+                                                                             method:RKRequestMethodAny
+                                                                        pathPattern:PMURIEndpoint.registration
+                                                                            keyPath:@"data.user"
+                                                                        statusCodes:successCodes]];
+    [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[mappings objectForKey:[PMUser entityName]]
+                                                                             method:RKRequestMethodAny
+                                                                        pathPattern:PMURIEndpoint.sessions
+                                                                            keyPath:@"data.user"
+                                                                        statusCodes:successCodes]];
 }
 
 #pragma mark - Mapping Provider Helpers
