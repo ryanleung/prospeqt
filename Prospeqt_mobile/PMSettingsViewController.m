@@ -9,6 +9,7 @@
 #import "PMSettingsViewController.h"
 #import "PMTitleCell.h"
 #import "PMDiscloseIndicatorCell.h"
+#import "PMKeychain.h"
 
 typedef NS_ENUM(NSUInteger, PMCategoryCellType) {
     PMCategoryCellTypeAccountTitle = 0,
@@ -24,8 +25,9 @@ typedef NS_ENUM(NSUInteger, PMCategoryCellType) {
 static NSString * const kTitleCellIdentifier = @"titleCellIdentifier";
 static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
 
-@interface PMSettingsViewController ()
+@interface PMSettingsViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, assign, getter = isSigningOut) BOOL signingOut;
 @end
 
 @implementation PMSettingsViewController
@@ -50,18 +52,6 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         self.tableView = tableView;
     }
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark UITableViewDelegate/Datasource
@@ -160,6 +150,9 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         case PMCategoryCellTypeAccountTitle:
         case PMCategoryCellTypeInformationTitle:
             break;
+        case PMCategoryCellTypeLogOut:
+            [self signOutButtonWasPressed];
+            break;
         default: {
             //PMAddTitleAndPriceViewController *addDescriptionViewController = [[PMAddTitleAndPriceViewController alloc] initWithNibName:nil bundle:nil];
             //[self.navigationController pushViewController:addDescriptionViewController animated:YES];
@@ -178,6 +171,38 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [PMDiscloseIndicatorCell cellHeight];
+}
+
+#pragma mark - Action
+
+- (void)signOutButtonWasPressed
+{
+    if (![self isSigningOut]) {
+        self.signingOut = YES;
+        
+        NSError *error = nil;
+        NSFetchRequest *sessionFetch = [NSFetchRequest fetchRequestWithEntityName:[PMSession entityName]];
+        NSArray *sessions = [self.networkController.mainContext executeFetchRequest:sessionFetch error:&error];
+        if (!sessions) {
+            NSLog(@"error: %@", error.localizedDescription);
+        }
+        PMSession *session = sessions.lastObject;
+        
+        void (^dismissViewBlock)(void) = ^{
+            [PMKeychain keychain].authenticationToken = nil;
+            [PMKeychain keychain].userEmail = nil;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserDidSignOut object:nil];
+            self.signingOut = NO;
+        };
+        
+        if (session) {
+            [self.networkController destroySession:session completion:^(id response, NSError *error) {
+                dismissViewBlock();
+            }];
+        } else {
+            dismissViewBlock();
+        }
+    }
 }
 
 @end

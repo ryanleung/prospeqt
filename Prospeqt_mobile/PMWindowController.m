@@ -90,25 +90,38 @@
 }
 
 
-//- (void)userDidSignOut:(NSNotification *)notification
-//{
-//    // with authentication being handled on demand, simply route the user to the default view
-//    [self openLink:[LUVLink linkToTrendingFeed] animated:NO];
-//    
-//    //Clear username alias from UA
-//    [UAPush shared].alias = nil;
-//    [[UAPush shared] updateRegistration];
-//    
-//    //Sign out of FB
-//    if (FBSession.activeSession.isOpen) {
-//        // In order to fix, see discussion here: http://stackoverflow.com/questions/9110740/login-logout-issue-with-facebook-ios-sdk
-//        // This way, we would need to access facebook sdk.
-//        // if you want to completely logout of fb and, when signing on again, have to type in pass, then this is the way.
-//        // otherwise, if you want to stay logged into FB through safari, the way above works. Which is the correct behavior?
-//        // Will delete these comments once a conclusion hags been made :).
-//        [FBSession.activeSession closeAndClearTokenInformation];
-//    }
-//}
+- (void)userDidSignOut:(NSNotification *)notification
+{
+    NSManagedObjectContext *resetContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    resetContext.parentContext = self.networkController.mainContext;
+    
+    [resetContext performBlock:^{
+        // reset cached user state
+//        [self.networkController resetUserTrusts];
+//        [self.networkController resetUserRecommendations];
+//        [resetContext saveToPersistentStore:NULL];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserNeedsAuthenticated object:self userInfo:nil];
+            
+            //Clear username alias from UA
+//            [UAPush shared].alias = nil;
+//            [[UAPush shared] updateRegistration];
+            
+            //Sign out of FB
+//            if (FBSession.activeSession.isOpen) {
+//                // In order to fix, see discussion here: http://stackoverflow.com/questions/9110740/login-logout-issue-with-facebook-ios-sdk
+//                // This way, we would need to access facebook sdk.
+//                // if you want to completely logout of fb and, when signing on again, have to type in pass, then this is the way.
+//                // otherwise, if you want to stay logged into FB through safari, the way above works. Which is the correct behavior?
+//                // Will delete these comments once a conclusion hags been made :).
+//                [FBSession.activeSession closeAndClearTokenInformation];
+//            }
+            
+            [self setNeedsData];
+        });
+    }];
+}
 
 #pragma mark - Authentication
 
@@ -118,7 +131,7 @@
     PMAuthNavigationController *navController = [[PMAuthNavigationController alloc] initWithRootViewController:controller];
     navController.authenticationDelegate = self;
     
-    [self.rootViewController presentViewController:navController animated:NO completion:nil];
+    [self.rootViewController presentViewController:navController animated:YES completion:nil];
 }
 
 #pragma mark - PMDataLoadProtocol
@@ -174,6 +187,17 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:baseViewController];
     return navController;
 }
+
+#pragma mark - Properties
+
+- (PMNetworkController *)networkController
+{
+    if (!_networkController) {
+        _networkController = [PMNetworkController new];
+    }
+    return _networkController;
+}
+
 - (PMProfileViewController *)profileViewController
 {
     if (!_profileViewController) {
