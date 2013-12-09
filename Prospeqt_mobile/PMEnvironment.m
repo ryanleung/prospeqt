@@ -18,4 +18,4 @@ NSString * const kPMNotificationUserDidSignIn = @"com.tapsell.notification.signe
 
 NSString * const kPMKeychainServiceName = @"com.tapsell.keychain";
 NSString * const kPMKeychainTokenKey = @"authenticationToken";
-NSString * const kPMKeychainUseridKey = @"userid";
+NSString * const kPMKeychainUserEmailKey = @"userEmail";

@@ -26,4 +26,4 @@ extern NSString * const kPMNotificationUserDidSignIn;
 
 extern NSString * const kPMKeychainServiceName;
 extern NSString * const kPMKeychainTokenKey;
-extern NSString * const kPMKeychainUseridKey;
+extern NSString * const kPMKeychainUserEmailKey;

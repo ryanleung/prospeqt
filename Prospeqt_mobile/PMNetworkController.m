@@ -28,7 +28,7 @@ static void *pm_completionContext = &pm_completionContext;
 
 - (BOOL)sessionInvalid
 {
-    return [PMKeychain keychain].authenticationToken == nil || [PMKeychain keychain].userid == nil;
+    return [PMKeychain keychain].authenticationToken == nil || [PMKeychain keychain].userEmail == nil;
 }
 
 - (id)init
@@ -65,29 +65,29 @@ static void *pm_completionContext = &pm_completionContext;
 
 - (BOOL)isCurrentUser:(PMUser *)user
 {
-    return [[PMKeychain keychain].userid isEqualToNumber:user.userId];
+    return [[PMKeychain keychain].userEmail isEqualToString:user.email];
 }
 
-- (NSNumber *)currentUserid
+- (NSString *)currentUserEmail
 {
-    return [PMKeychain keychain].userid;
+    return [PMKeychain keychain].userEmail;
 }
 
 - (PMUser *)currentUser
 {
-    if (!self.currentUserid) {
+    if (!self.currentUserEmail) {
         return nil;
     }
     
     NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:[PMUser entityName]];
-    fetch.predicate = [NSPredicate predicateWithFormat:@"userId MATCHES %@", self.currentUserid];
+    fetch.predicate = [NSPredicate predicateWithFormat:@"email MATCHES %@", self.currentUserEmail];
     NSArray *results = [self.mainContext executeFetchRequest:fetch error:nil];
     return [results lastObject];
 }
 
-- (void)updateKeychainUserid:(NSNumber *)userid
+- (void)updateKeychainUserEmail:(NSString *)email
 {
-    [PMKeychain keychain].userid = userid;
+    [PMKeychain keychain].userEmail = email;
 }
 
 #pragma mark - Update headers
@@ -108,7 +108,7 @@ static void *pm_completionContext = &pm_completionContext;
 - (void)forceAuthorizationReset
 {
     [PMKeychain keychain].authenticationToken = nil;
-    [PMKeychain keychain].userid = nil;
+    [PMKeychain keychain].userEmail = nil;
     [self updateAuthorizationHeadersIfNeeded];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserNeedsAuthenticated object:nil userInfo:nil];
@@ -236,7 +236,7 @@ static void *pm_completionContext = &pm_completionContext;
 - (void)updateKeychainWithMappingResult:(RKMappingResult *)mappingResult
 {
     [PMKeychain keychain].authenticationToken = ((PMSession *)[[mappingResult dictionary] objectForKey:[NSNull null]]).apiToken;
-    [PMKeychain keychain].userid = ((PMUser *)[[mappingResult dictionary] objectForKey:@"data.user"]).userId;
+    [PMKeychain keychain].userEmail = ((PMUser *)[[mappingResult dictionary] objectForKey:@"data.user"]).email;
 }
 #pragma mark - Messages
 

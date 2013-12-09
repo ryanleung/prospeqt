@@ -15,7 +15,7 @@ typedef void(^PMNetworkCompletion)(id response, NSError *error);
 @interface PMNetworkController : NSObject
 
 @property (readonly) NSManagedObjectContext *mainContext;
-@property (readonly) NSString *currentUserid;
+@property (readonly) NSString *currentUserEmail;
 
 #pragma mark - Management
 

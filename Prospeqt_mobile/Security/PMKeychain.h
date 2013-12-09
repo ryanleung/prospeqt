@@ -11,7 +11,7 @@
 @interface PMKeychain : NSObject
 
 @property (nonatomic, copy) NSString *authenticationToken;
-@property (nonatomic, copy) NSNumber *userid;
+@property (nonatomic, copy) NSString *userEmail;
 
 /** There should only be one keychain for Luvocracy items, this exposes access to
  this keychain

@@ -8,6 +8,7 @@ const struct PMUserAttributes PMUserAttributes = {
 	.avatarUrl = @"avatarUrl",
 	.bio = @"bio",
 	.city = @"city",
+	.email = @"email",
 	.rating = @"rating",
 	.state = @"state",
 	.userId = @"userId",
@@ -86,6 +87,13 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 
 
 @dynamic city;
+
+
+
+
+
+
+@dynamic email;
 
 
 

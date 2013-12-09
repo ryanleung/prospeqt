@@ -13,7 +13,7 @@ static PMKeychain *pm_keychain_instance = nil;
 
 @implementation PMKeychain {
     NSString *_authenticationToken;
-    NSNumber *_userid;
+    NSString *_userEmail;
 }
 
 + (instancetype)keychain
@@ -49,27 +49,25 @@ static PMKeychain *pm_keychain_instance = nil;
     return _authenticationToken;
 }
 
-- (void)setUserid:(NSNumber *)userid
+- (void)setUserEmail:(NSString *)userEmail
 {
-    [self willChangeValueForKey:kPMKeychainUseridKey];
-    _userid = [userid copy];
+    [self willChangeValueForKey:kPMKeychainUserEmailKey];
+    _userEmail = [userEmail copy];
     
-    if (! _userid) {
-        [self deleteKeychainItem:kPMKeychainUseridKey];
+    if (! _userEmail) {
+        [self deleteKeychainItem:kPMKeychainUserEmailKey];
     } else {
-        [self saveStringValue:[NSString stringWithFormat:@"%@", _userid] keychainItem:kPMKeychainUseridKey];
+        [self saveStringValue:userEmail keychainItem:kPMKeychainUserEmailKey];
     }
-    [self didChangeValueForKey:kPMKeychainUseridKey];
+    [self didChangeValueForKey:kPMKeychainUserEmailKey];
 }
 
-- (NSNumber *)userid
+- (NSString *)userEmail
 {
-    if (!_userid) {
-        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        _userid = [f numberFromString:[self stringValueForKeychainItem:kPMKeychainUseridKey]];
+    if (!_userEmail) {
+        _userEmail = [self stringValueForKeychainItem:kPMKeychainUserEmailKey];
     }
-    return _userid;
+    return _userEmail;
 }
 
 #pragma mark - Keychain Access

@@ -9,6 +9,7 @@ extern const struct PMUserAttributes {
 	__unsafe_unretained NSString *avatarUrl;
 	__unsafe_unretained NSString *bio;
 	__unsafe_unretained NSString *city;
+	__unsafe_unretained NSString *email;
 	__unsafe_unretained NSString *rating;
 	__unsafe_unretained NSString *state;
 	__unsafe_unretained NSString *userId;
@@ -24,6 +25,7 @@ extern const struct PMUserFetchedProperties {
 
 @class PMListing;
 @class PMMessageChain;
+
 
 
 
@@ -81,6 +83,16 @@ extern const struct PMUserFetchedProperties {
 
 
 //- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* email;
+
+
+
+//- (BOOL)validateEmail:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -178,6 +190,12 @@ extern const struct PMUserFetchedProperties {
 
 - (NSString*)primitiveCity;
 - (void)setPrimitiveCity:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveEmail;
+- (void)setPrimitiveEmail:(NSString*)value;
 
 
 
