@@ -12,7 +12,6 @@ extern const struct PMUserAttributes {
 	__unsafe_unretained NSString *rating;
 	__unsafe_unretained NSString *state;
 	__unsafe_unretained NSString *userId;
-	__unsafe_unretained NSString *username;
 } PMUserAttributes;
 
 extern const struct PMUserRelationships {
@@ -25,7 +24,6 @@ extern const struct PMUserFetchedProperties {
 
 @class PMListing;
 @class PMMessageChain;
-
 
 
 
@@ -126,16 +124,6 @@ extern const struct PMUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* username;
-
-
-
-//- (BOOL)validateUsername:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
 @property (nonatomic, strong) NSSet *listings;
 
 - (NSMutableSet*)listingsSet;
@@ -214,12 +202,6 @@ extern const struct PMUserFetchedProperties {
 
 - (int32_t)primitiveUserIdValue;
 - (void)setPrimitiveUserIdValue:(int32_t)value_;
-
-
-
-
-- (NSString*)primitiveUsername;
-- (void)setPrimitiveUsername:(NSString*)value;
 
 
 

@@ -78,6 +78,12 @@
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Message" inverseName="messageChain" inverseEntity="Message" syncable="YES"/>
         <relationship name="seller" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="messageChains" inverseEntity="User" syncable="YES"/>
     </entity>
+    <entity name="Session" representedClassName="PMSession" syncable="YES">
+        <attribute name="apiToken" optional="YES" attributeType="String" syncable="YES"/>
+        <userInfo>
+            <entry key="PM_JSON_SERVER_KEY" value="data.api_token"/>
+        </userInfo>
+    </entity>
     <entity name="User" representedClassName="PMUser" syncable="YES">
         <attribute name="avatarData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="avatarUrl" optional="YES" attributeType="String" syncable="YES">
@@ -95,11 +101,6 @@
                 <entry key="PM_JSON_SERVER_KEY" value="user_id"/>
             </userInfo>
         </attribute>
-        <attribute name="username" optional="YES" attributeType="String" syncable="YES">
-            <userInfo>
-                <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>
-            </userInfo>
-        </attribute>
         <relationship name="listings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Listing" inverseName="user" inverseEntity="Listing" syncable="YES"/>
         <relationship name="messageChains" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MessageChain" inverseName="seller" inverseEntity="MessageChain" syncable="YES"/>
     </entity>
@@ -108,5 +109,6 @@
         <element name="Message" positionX="0" positionY="0" width="0" height="0"/>
         <element name="MessageChain" positionX="0" positionY="0" width="0" height="0"/>
         <element name="User" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Session" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

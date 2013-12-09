@@ -10,11 +10,12 @@
 
 // Notification String Constants //
 
-NSString * const kPMNotificationUserNeedsAuthenticated = @"com.prospeqt.notification.needsAuthentication";
-NSString * const kPMNotificationUserDidSignOut = @"com.prospeqt.notification.signedOut";
+NSString * const kPMNotificationUserNeedsAuthenticated = @"com.tapsell.notification.needsAuthentication";
+NSString * const kPMNotificationUserDidSignOut = @"com.tapsell.notification.signedOut";
+NSString * const kPMNotificationUserDidSignIn = @"com.tapsell.notification.signedIn";
 
 // String Constants //
 
-NSString * const kPMKeychainServiceName = @"com.prospeqt.keychain";
+NSString * const kPMKeychainServiceName = @"com.tapsell.keychain";
 NSString * const kPMKeychainTokenKey = @"authenticationToken";
-NSString * const kPMKeychainUsernameKey = @"username";
+NSString * const kPMKeychainUseridKey = @"userid";

@@ -11,7 +11,6 @@ const struct PMUserAttributes PMUserAttributes = {
 	.rating = @"rating",
 	.state = @"state",
 	.userId = @"userId",
-	.username = @"username",
 };
 
 const struct PMUserRelationships PMUserRelationships = {
@@ -147,13 +146,6 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 - (void)setPrimitiveUserIdValue:(int32_t)value_ {
 	[self setPrimitiveUserId:[NSNumber numberWithInt:value_]];
 }
-
-
-
-
-
-@dynamic username;
-
 
 
 

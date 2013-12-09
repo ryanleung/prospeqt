@@ -26,15 +26,16 @@ static void *pm_completionContext = &pm_completionContext;
 
 #pragma mark - Authentication
 
-//- (BOOL)sessionInvalid
-//{
-//    return [LUVKeychain keychain].authenticationToken == nil || [LUVKeychain keychain].username == nil;
-//}
+- (BOOL)sessionInvalid
+{
+    return [PMKeychain keychain].authenticationToken == nil || [PMKeychain keychain].userid == nil;
+}
 
 - (id)init
 {
     if (self = [super init]) {
-        
+        [self updateAuthorizationHeadersIfNeeded];
+        _operations = [NSMutableSet set];
     }
     return self;
 }
@@ -53,7 +54,7 @@ static void *pm_completionContext = &pm_completionContext;
                                             
 - (void)authenticateIfNeededAndLoadData:(id<PMDataLoadProtocol>)dataLoader
 {
-    if ([dataLoader needsUserAuthentication]){// && [self sessionInvalid]) {
+    if ([dataLoader needsUserAuthentication] && [self sessionInvalid]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserNeedsAuthenticated object:dataLoader];
         });
@@ -64,29 +65,78 @@ static void *pm_completionContext = &pm_completionContext;
 
 - (BOOL)isCurrentUser:(PMUser *)user
 {
-    return [[PMKeychain keychain].username isEqualToString:user.username];
+    return [[PMKeychain keychain].userid isEqualToNumber:user.userId];
 }
 
-- (NSString *)currentUsername
+- (NSNumber *)currentUserid
 {
-    return [PMKeychain keychain].username;
+    return [PMKeychain keychain].userid;
 }
 
 - (PMUser *)currentUser
 {
-    if (!self.currentUsername) {
+    if (!self.currentUserid) {
         return nil;
     }
     
     NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:[PMUser entityName]];
-    fetch.predicate = [NSPredicate predicateWithFormat:@"username MATCHES %@", self.currentUsername];
+    fetch.predicate = [NSPredicate predicateWithFormat:@"userId MATCHES %@", self.currentUserid];
     NSArray *results = [self.mainContext executeFetchRequest:fetch error:nil];
     return [results lastObject];
 }
 
-- (void)updateKeychainUsername:(NSString *)username
+- (void)updateKeychainUserid:(NSNumber *)userid
 {
-    [PMKeychain keychain].username = username;
+    [PMKeychain keychain].userid = userid;
+}
+
+#pragma mark - Update headers
+
+- (void)updateAuthorizationHeadersIfNeeded
+{
+    NSString *token = [PMKeychain keychain].authenticationToken;
+    NSString *currentToken = [self.objectManager.HTTPClient defaultValueForHeader:kPMAPIAuthorizationHeaderKey];
+    
+    AFHTTPClient *client = self.objectManager.HTTPClient;
+    if (token && (!currentToken || ![currentToken isEqualToString:token])) {
+        [client setDefaultHeader:kPMAPIAuthorizationHeaderKey value:token];
+    } else if (!token && currentToken) {
+        [client setDefaultHeader:kPMAPIAuthorizationHeaderKey value:nil];
+    }
+}
+
+- (void)forceAuthorizationReset
+{
+    [PMKeychain keychain].authenticationToken = nil;
+    [PMKeychain keychain].userid = nil;
+    [self updateAuthorizationHeadersIfNeeded];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserNeedsAuthenticated object:nil userInfo:nil];
+}
+
+#pragma mark - Management
+
+- (BOOL)isReachable
+{
+    AFNetworkReachabilityStatus status = self.objectManager.HTTPClient.networkReachabilityStatus;
+    switch (status) {
+        case AFNetworkReachabilityStatusNotReachable:
+            return NO;
+        case AFNetworkReachabilityStatusUnknown:
+        case AFNetworkReachabilityStatusReachableViaWiFi:
+        case AFNetworkReachabilityStatusReachableViaWWAN:
+            return YES;
+    }
+    return NO;
+}
+
+- (void)cancelAllOperations
+{
+    NSMutableSet *copyOperations = [self.operations copy];
+    for (NSOperation *operation in copyOperations) {
+        [self endOperation:operation];
+        [operation cancel];
+    }
 }
 
 #pragma mark - Operations
@@ -124,6 +174,70 @@ static void *pm_completionContext = &pm_completionContext;
     }
 }
 
+#pragma mark - Accounts/Sessions
+
+- (void)createUserWithAccount:(PMAccount *)account completion:(PMNetworkCompletion)completionOrNil
+{
+    RKObjectRequestOperation *operation = [self.objectManager appropriateObjectRequestOperationWithObject:account
+                                                                                                   method:RKRequestMethodPOST
+                                                                                                     path:PMURIEndpoint.registration
+                                                                                               parameters:nil];
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        [self updateKeychainWithMappingResult:mappingResult];
+        [self updateAuthorizationHeadersIfNeeded];
+        
+        if (completionOrNil) {
+            completionOrNil(mappingResult.firstObject, nil);
+        }
+    } failure:[self failureResponseWithCompletion:completionOrNil]];
+    
+    [self startOperation:operation];
+}
+
+- (void)createSessionWithAccount:(PMAccount *)account completion:(PMNetworkCompletion)completionOrNil
+{
+    RKObjectRequestOperation *operation = [self.objectManager appropriateObjectRequestOperationWithObject:account
+                                                                                                   method:RKRequestMethodPOST
+                                                                                                     path:PMURIEndpoint.sessions
+                                                                                               parameters:nil];
+    
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        [self updateKeychainWithMappingResult:mappingResult];
+        [self updateAuthorizationHeadersIfNeeded];
+        
+        if (completionOrNil) {
+            completionOrNil(mappingResult.firstObject, nil);
+        }
+    } failure:[self failureResponseWithCompletion:completionOrNil]];
+    
+    [self startOperation:operation];
+}
+
+- (void)destroySession:(PMSession *)session completion:(PMNetworkCompletion)completionOrNil
+{
+    NSParameterAssert(session);
+    
+    [self updateAuthorizationHeadersIfNeeded];
+    
+    RKObjectRequestOperation *operation = [self.objectManager appropriateObjectRequestOperationWithObject:session
+                                                                                                   method:RKRequestMethodDELETE
+                                                                                                     path:PMURIEndpoint.sessions
+                                                                                               parameters:nil];
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+        if (completionOrNil) {
+            completionOrNil(mappingResult.firstObject, nil);
+        }
+        [self updateAuthorizationHeadersIfNeeded];
+    } failure:[self failureResponseWithCompletion:completionOrNil]];
+    
+    [self startOperation:operation];
+}
+
+- (void)updateKeychainWithMappingResult:(RKMappingResult *)mappingResult
+{
+    [PMKeychain keychain].authenticationToken = ((PMSession *)[[mappingResult dictionary] objectForKey:[NSNull null]]).apiToken;
+    [PMKeychain keychain].userid = ((PMUser *)[[mappingResult dictionary] objectForKey:@"data.user"]).userId;
+}
 #pragma mark - Messages
 
 - (void)createMessageChain:(PMMessageChain *)msgChain

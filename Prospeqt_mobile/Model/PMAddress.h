@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PMObjectMappingProtocol.h"
 
-@interface PMAddress : NSObject
+@interface PMAddress : NSObject <PMObjectMappingProtocol>
 
 @property (nonatomic, strong) NSNumber *identifier;
 

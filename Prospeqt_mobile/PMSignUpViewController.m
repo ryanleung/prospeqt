@@ -11,7 +11,6 @@
 @interface PMSignUpViewController ()
 @property (nonatomic, strong) PMSingleLineFormField *firstNameField;
 @property (nonatomic, strong) PMSingleLineFormField *lastNameField;
-@property (nonatomic, strong) PMSingleLineFormField *userNameField;
 @property (nonatomic, strong) PMSingleLineFormField *emailField;
 @property (nonatomic, strong) PMSingleLineFormField *passwordField;
 @property (nonatomic, strong) PMSingleLineFormField *confirmPasswordField;
@@ -45,15 +44,6 @@
     self.lastNameField = lastNameField;
     self.lastNameField.required = YES;
     
-    PMSingleLineFormField *userNameField = [PMSingleLineFormField new];
-    userNameField.topBorderView.hidden = YES;
-    userNameField.translatesAutoresizingMaskIntoConstraints = NO;
-    userNameField.textField.placeholder = NSLocalizedString(@"signUpView.userNamePlaceholder", @"Place holder text for username field");
-    userNameField.delegate = self;
-    [self.scrollView addSubview:userNameField];
-    self.userNameField = userNameField;
-    self.userNameField.required = YES;
-    
     PMSingleLineFormField *emailField = [PMSingleLineFormField new];
     emailField.topBorderView.hidden = YES;
     emailField.translatesAutoresizingMaskIntoConstraints = NO;
@@ -83,16 +73,15 @@
     self.confirmPasswordField = confirmPasswordField;
     self.confirmPasswordField.required = YES;
     
-    self.formFields = @[firstNameField, lastNameField, emailField, userNameField, passwordField, confirmPasswordField];
+    self.formFields = @[firstNameField, lastNameField, emailField, passwordField, confirmPasswordField];
     
-    NSDictionary *views = NSDictionaryOfVariableBindings(firstNameField, lastNameField, emailField, userNameField, passwordField, confirmPasswordField);
+    NSDictionary *views = NSDictionaryOfVariableBindings(firstNameField, lastNameField, emailField, passwordField, confirmPasswordField);
     NSDictionary *metrics = @{ @"fieldHeight" : @44, @"topHeight" : @60.0f ,@"spacer" : @12.0f };
     
     [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[firstNameField(==lastNameField)][lastNameField(==firstNameField)]|" options:0 metrics:metrics views:views]];
-    [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[firstNameField(==fieldHeight)][emailField(==fieldHeight)][userNameField(==fieldHeight)][passwordField(==fieldHeight)][confirmPasswordField(==fieldHeight)]-spacer-|" options:0 metrics:metrics views:views]];
+    [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[firstNameField(==fieldHeight)][emailField(==fieldHeight)][passwordField(==fieldHeight)][confirmPasswordField(==fieldHeight)]-spacer-|" options:0 metrics:metrics views:views]];
         [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[lastNameField(==fieldHeight)]" options:0 metrics:metrics views:views]];
     [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[emailField]|" options:0 metrics:metrics views:views]];
-    [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[userNameField]|" options:0 metrics:metrics views:views]];
     [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[passwordField]|" options:0 metrics:metrics views:views]];
     [self.scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[confirmPasswordField]|" options:0 metrics:metrics views:views]];
     
@@ -100,8 +89,6 @@
     [self bindRightEdgeOfView:lastNameField toView:self.view];
     [self bindLeftEdgeOfView:emailField toView:self.view];
     [self bindRightEdgeOfView:emailField toView:self.view];
-    [self bindLeftEdgeOfView:userNameField toView:self.view];
-    [self bindRightEdgeOfView:userNameField toView:self.view];
     [self bindLeftEdgeOfView:passwordField toView:self.view];
     [self bindRightEdgeOfView:passwordField toView:self.view];
     [self bindLeftEdgeOfView:confirmPasswordField toView:self.view];
@@ -116,7 +103,20 @@
 
 - (void)formAction
 {
-    
+    PMAccount *account = [PMAccount new];
+    account.email = self.emailField.textField.text;
+    account.firstName = self.firstNameField.textField.text;
+    account.lastName = self.lastNameField.textField.text;
+    account.password = self.passwordField.textField.text;
+
+    __weak typeof(self) weak_self = self;
+    [self.networkController createUserWithAccount:account completion:^(id response, NSError *error) {
+        if (!error) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserDidSignIn object:weak_self userInfo:nil];
+        } else {
+            [weak_self handleError:error];
+        }
+    }];
 }
 
 @end

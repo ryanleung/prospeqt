@@ -51,6 +51,8 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userNeedsAuthentication:) name:kPMNotificationUserNeedsAuthenticated object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidSignOut:) name:kPMNotificationUserDidSignOut object:nil];
+        
+        [self setNeedsData];
     }
     return self;
 }
@@ -120,7 +122,7 @@
 
 - (void)authenticationViewControllerDidFailToAuthenticate:(PMBaseViewController *)viewController
 {
-    // TODO(JNJ): Implement for signing out when we have views that need logout
+    // TODO(): Implement for signing out when we have views that need logout
 }
 
 #pragma mark - PMDataLoadProtocol

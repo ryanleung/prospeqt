@@ -15,7 +15,7 @@ typedef void(^PMNetworkCompletion)(id response, NSError *error);
 @interface PMNetworkController : NSObject
 
 @property (readonly) NSManagedObjectContext *mainContext;
-@property (readonly) NSString *currentUsername;
+@property (readonly) NSString *currentUserid;
 
 #pragma mark - Management
 
@@ -41,9 +41,23 @@ typedef void(^PMNetworkCompletion)(id response, NSError *error);
  */
 - (PMUser *)currentUser;
 
-/** Update current username in keychain
+/** Forces the authorization information to reset
  */
-- (void)updateKeychainUsername:(NSString *)username;
+- (void)forceAuthorizationReset;
+
+/** Updates the authorization headers if they do not match the keychain values
+ */
+- (void)updateAuthorizationHeadersIfNeeded;
+
+#pragma mark - Accounts/Sessions
+
+- (void)createUserWithAccount:(PMAccount *)account completion:(PMNetworkCompletion)completionOrNil;
+
+- (void)createSessionWithAccount:(PMAccount *)account completion:(PMNetworkCompletion)completionOrNil;
+
+- (void)destroySession:(PMSession *)session completion:(PMNetworkCompletion)completionOrNil;
+
+#pragma mark - Messaging
 
 /** Create a message chain
  @param msgChain Message chain to create

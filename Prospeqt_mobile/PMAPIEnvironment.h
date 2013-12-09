@@ -12,6 +12,8 @@
 #import "PMMessage.h"
 #import "PMAddress.h"
 #import "PMListing.h"
+#import "PMSession.h"
+#import "PMAccount.h"
 
 extern NSString * const kPMAPIAuthorizationHeaderKey;
 
@@ -30,6 +32,8 @@ extern const struct PMHTTPMethod {
 } PMHTTPMethod;
 
 extern const struct PMURIEndpoint {
+    __unsafe_unretained NSString *registration;
+    __unsafe_unretained NSString *sessions;
     __unsafe_unretained NSString *messages;
     __unsafe_unretained NSString *sendMessage;
     __unsafe_unretained NSString *createMessage;

@@ -23,7 +23,6 @@
 "signUpView.firstNamePlaceholder" = "First Name";
 "signUpView.lastNamePlaceholder" = "Last Name";
 "signUpView.emailPlaceholder" = "Email Address";
-"signUpView.userNamePlaceholder" = "Username";
 "signUpView.passwordPlaceholder" = "Password";
 "signUpView.confirmPasswordPlaceholder" = "Confirm Password";
 "signInView.emailPlaceholder" = "Email Address";
