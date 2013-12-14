@@ -13,7 +13,11 @@ NSString * const kPMAPIAuthorizationHeaderKey = @"X-TapsellAPIToken";
 const struct PMAPIBaseURL PMAPIBaseURL = {
     .staging = @"",
     .production = @"",
-    .debug = @"http://localhost:3000/api/"
+    // TODO(ryan): for now, just keep switching this URL
+    // options:
+    // @"http://localhost:3000/api/"
+    // @"https://trytapsell.herokuapp.com"
+    .debug = @"https://trytapsell.herokuapp.com/api/"
 };
 
 const struct PMHTTPMethod PMHTTPMethod = {
