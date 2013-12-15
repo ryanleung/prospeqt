@@ -84,6 +84,7 @@
 "finalizePost.ffs" = "FREE & FOR SALE";
 "finalizePost.facebook" = "FACEBOOK TIMELINE";
 "finalizePost.post" = "+POST";
+"finalize.address.error" = "Choose an Address";
 
 "address.title" = "Select An Address";
 "address.save" = "Save";

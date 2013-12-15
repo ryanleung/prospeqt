@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Prospeqt_mobile/PMListingsViewController.m"
-            timestampString = "408272595.577125"
+            filePath = "Prospeqt_mobile/Controllers/PMFinalizePostViewController.m"
+            timestampString = "408800011.46163"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "-loadData"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "-postSiteCellDidTapFollowButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

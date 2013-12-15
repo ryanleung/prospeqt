@@ -14,8 +14,8 @@ static NSString * const kPMServerKeyFirstName = @"first_name";
 static NSString * const kPMServerKeyLastName = @"last_name";
 static NSString * const kPMServerKeyStreetAddress = @"street_address";
 static NSString * const kPMServerKeyExtendedAddress = @"extended_address";
-static NSString * const kPMServerKeyCity = @"locality";
-static NSString * const kPMServerKeyState = @"region";
+static NSString * const kPMServerKeyLocality = @"locality";
+static NSString * const kPMServerKeyRegion = @"region";
 static NSString * const kPMServerKeyPostalCode = @"postal_code";
 static NSString * const kPMServerKeyPhone = @"phone";
 static NSString * const kPMServerKeyEmail = @"email";
@@ -34,8 +34,8 @@ static NSString * const kPMServerKeyEmail = @"email";
                                                           kPMServerKeyLastName : NSStringFromSelector(@selector(lastName)),
                                                           kPMServerKeyStreetAddress : NSStringFromSelector(@selector(streetAddress)),
                                                           kPMServerKeyExtendedAddress : NSStringFromSelector(@selector(extendedAddress)),
-                                                          kPMServerKeyCity : NSStringFromSelector(@selector(city)),
-                                                          kPMServerKeyState : NSStringFromSelector(@selector(state)),
+                                                          kPMServerKeyLocality : NSStringFromSelector(@selector(locality)),
+                                                          kPMServerKeyRegion : NSStringFromSelector(@selector(region)),
                                                           kPMServerKeyPostalCode : NSStringFromSelector(@selector(postalCode)),
                                                           kPMServerKeyPhone : NSStringFromSelector(@selector(phoneNumber)),
                                                           kPMServerKeyEmail : NSStringFromSelector(@selector(emailAddress))
@@ -54,8 +54,8 @@ static NSString * const kPMServerKeyEmail = @"email";
                                                          NSStringFromSelector(@selector(lastName)) : kPMServerKeyLastName,
                                                          NSStringFromSelector(@selector(streetAddress)) : kPMServerKeyStreetAddress,
                                                          NSStringFromSelector(@selector(extendedAddress)) : kPMServerKeyExtendedAddress,
-                                                         NSStringFromSelector(@selector(city)) : kPMServerKeyCity,
-                                                         NSStringFromSelector(@selector(state)) : kPMServerKeyState,
+                                                         NSStringFromSelector(@selector(locality)) : kPMServerKeyLocality,
+                                                         NSStringFromSelector(@selector(region)) : kPMServerKeyRegion,
                                                          NSStringFromSelector(@selector(postalCode)) : kPMServerKeyPostalCode,
                                                          NSStringFromSelector(@selector(phoneNumber)) : kPMServerKeyPhone,
                                                          NSStringFromSelector(@selector(emailAddress)) : kPMServerKeyEmail

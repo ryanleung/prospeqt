@@ -11,12 +11,12 @@
 
 @interface PMAddDescriptionViewController () <UITextViewDelegate>
 @property (nonatomic, strong) UITextView *descriptionField;
-@property (nonatomic, strong) PMListing *listing;
+@property (nonatomic, strong) PMTempListing *listing;
 @end
 
 @implementation PMAddDescriptionViewController
 
-- (id)initWithListing:(PMListing *)listing
+- (id)initWithListing:(PMTempListing *)listing
 {
     if (self = [super initWithNibName:nil bundle:nil])
     {

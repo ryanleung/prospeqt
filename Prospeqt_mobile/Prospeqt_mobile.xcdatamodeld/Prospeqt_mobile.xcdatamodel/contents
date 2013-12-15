@@ -2,7 +2,6 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Listing" representedClassName="PMListing" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="listingId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
@@ -11,6 +10,7 @@
                 <entry key="PM_JSON_SERVER_KEY" value="listing_id"/>
             </userInfo>
         </attribute>
+        <attribute name="locality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="picData1" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="picData2" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="picData3" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
@@ -24,8 +24,8 @@
         <attribute name="postFacebook" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="postFreeForSale" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sold" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="messageChains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MessageChain" inverseName="listing" inverseEntity="MessageChain" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="listings" inverseEntity="User" syncable="YES"/>
@@ -96,7 +96,6 @@
             </userInfo>
         </attribute>
         <attribute name="bio" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
@@ -108,8 +107,9 @@
                 <entry key="PM_JSON_SERVER_KEY" value="last_name"/>
             </userInfo>
         </attribute>
+        <attribute name="locality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
             <userInfo>
                 <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>

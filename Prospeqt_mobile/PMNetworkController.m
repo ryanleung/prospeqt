@@ -238,6 +238,29 @@ static void *pm_completionContext = &pm_completionContext;
     [PMKeychain keychain].authenticationToken = ((PMSession *)[[mappingResult dictionary] objectForKey:[NSNull null]]).apiToken;
     [PMKeychain keychain].userEmail = ((PMUser *)[[mappingResult dictionary] objectForKey:@"data.user"]).email;
 }
+
+#pragma mark - Listings
+
+- (void)postListing:(PMTempListing *)listing completion:(PMNetworkCompletion)completionOrNil
+{
+    RKObjectRequestOperation *operation = [self.objectManager appropriateObjectRequestOperationWithObject:listing method:RKRequestMethodPOST path:PMURIEndpoint.postListing parameters:nil];
+    [operation setCompletionBlockWithSuccess:[self objectSuccessResponseWithCompletion:completionOrNil]
+                                     failure:[self failureResponseWithCompletion:completionOrNil]];
+    
+    [self startOperation:operation];
+}
+
+- (void)fetchListings:(NSNumber *)userId range:(NSRange)range completion:(PMNetworkCompletion)completionOrNil
+{
+    NSMutableDictionary *params = [self mutableParametersWithRange:range];
+    RKObjectRequestOperation *operation = [self.objectManager appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:PMURIEndpoint.fetchListings parameters:params];
+    
+    [operation setCompletionBlockWithSuccess:[self arraySuccessResponseWithCompletion:completionOrNil]
+                                     failure:[self failureResponseWithCompletion:completionOrNil]];
+    
+    [self startOperation:operation];
+}
+
 #pragma mark - Messages
 
 - (void)createMessageChain:(PMMessageChain *)msgChain
@@ -279,6 +302,24 @@ static void *pm_completionContext = &pm_completionContext;
     
 //    RKObjectRequestOperation *operation = [self.objectManager appropriateObjectRequestOperationWithObject:currentUser method:RKRequestMethodGET path:PMURIEndpoint. parameters:<#(NSDictionary *)#>]
 }
+
+#pragma mark - Helpers
+
+- (NSMutableDictionary *)mutableParametersWithRange:(NSRange)range
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    if (range.location > 0) {
+        [parameters setObject:@(range.location) forKey:@"offset"];
+    }
+    
+    if (range.length > 0) {
+        [parameters setObject:@(range.length) forKey:@"max_results"];
+    }
+    
+    return parameters;
+}
+
 
 #pragma mark - RestKit Block Helpers
 

@@ -7,10 +7,12 @@ const struct PMUserAttributes PMUserAttributes = {
 	.avatarData = @"avatarData",
 	.avatarUrl = @"avatarUrl",
 	.bio = @"bio",
-	.city = @"city",
 	.email = @"email",
+	.firstName = @"firstName",
+	.lastName = @"lastName",
+	.locality = @"locality",
 	.rating = @"rating",
-	.state = @"state",
+	.region = @"region",
 	.userId = @"userId",
 };
 
@@ -86,14 +88,28 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 
 
 
-@dynamic city;
-
-
-
-
-
-
 @dynamic email;
+
+
+
+
+
+
+@dynamic firstName;
+
+
+
+
+
+
+@dynamic lastName;
+
+
+
+
+
+
+@dynamic locality;
 
 
 
@@ -126,7 +142,7 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 
 
 
-@dynamic state;
+@dynamic region;
 
 
 

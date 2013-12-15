@@ -6,10 +6,10 @@
 
 extern const struct PMListingAttributes {
 	__unsafe_unretained NSString *category;
-	__unsafe_unretained NSString *city;
 	__unsafe_unretained NSString *date;
 	__unsafe_unretained NSString *info;
 	__unsafe_unretained NSString *listingId;
+	__unsafe_unretained NSString *locality;
 	__unsafe_unretained NSString *picData1;
 	__unsafe_unretained NSString *picData2;
 	__unsafe_unretained NSString *picData3;
@@ -19,8 +19,8 @@ extern const struct PMListingAttributes {
 	__unsafe_unretained NSString *postFacebook;
 	__unsafe_unretained NSString *postFreeForSale;
 	__unsafe_unretained NSString *price;
+	__unsafe_unretained NSString *region;
 	__unsafe_unretained NSString *sold;
-	__unsafe_unretained NSString *state;
 	__unsafe_unretained NSString *title;
 } PMListingAttributes;
 
@@ -76,16 +76,6 @@ extern const struct PMListingFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* city;
-
-
-
-//- (BOOL)validateCity:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
 @property (nonatomic, strong) NSDate* date;
 
 
@@ -115,6 +105,16 @@ extern const struct PMListingFetchedProperties {
 - (void)setListingIdValue:(int32_t)value_;
 
 //- (BOOL)validateListingId:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
+@property (nonatomic, strong) NSString* locality;
+
+
+
+//- (BOOL)validateLocality:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -222,6 +222,16 @@ extern const struct PMListingFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* region;
+
+
+
+//- (BOOL)validateRegion:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) NSNumber* sold;
 
 
@@ -231,16 +241,6 @@ extern const struct PMListingFetchedProperties {
 - (void)setSoldValue:(BOOL)value_;
 
 //- (BOOL)validateSold:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSString* state;
-
-
-
-//- (BOOL)validateState:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -291,12 +291,6 @@ extern const struct PMListingFetchedProperties {
 
 
 
-- (NSString*)primitiveCity;
-- (void)setPrimitiveCity:(NSString*)value;
-
-
-
-
 - (NSDate*)primitiveDate;
 - (void)setPrimitiveDate:(NSDate*)value;
 
@@ -314,6 +308,12 @@ extern const struct PMListingFetchedProperties {
 
 - (int32_t)primitiveListingIdValue;
 - (void)setPrimitiveListingIdValue:(int32_t)value_;
+
+
+
+
+- (NSString*)primitiveLocality;
+- (void)setPrimitiveLocality:(NSString*)value;
 
 
 
@@ -381,17 +381,17 @@ extern const struct PMListingFetchedProperties {
 
 
 
+- (NSString*)primitiveRegion;
+- (void)setPrimitiveRegion:(NSString*)value;
+
+
+
+
 - (NSNumber*)primitiveSold;
 - (void)setPrimitiveSold:(NSNumber*)value;
 
 - (BOOL)primitiveSoldValue;
 - (void)setPrimitiveSoldValue:(BOOL)value_;
-
-
-
-
-- (NSString*)primitiveState;
-- (void)setPrimitiveState:(NSString*)value;
 
 
 

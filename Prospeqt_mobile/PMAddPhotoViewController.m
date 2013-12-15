@@ -27,14 +27,14 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
 @property (nonatomic, strong) UIImageView *cameraTopRightImageView;
 @property (nonatomic, strong) UIImageView *cameraBottomLeftImageView;
 @property (nonatomic, strong) UIImageView *cameraBottomRightImageView;
-@property (nonatomic, strong) PMListing *listing;
+@property (nonatomic, strong) PMTempListing *listing;
 @property (nonatomic, strong) NSMutableArray *takenPictures;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
 @end
 
 @implementation PMAddPhotoViewController
 
-- (id)initWithListing:(PMListing *)listing
+- (id)initWithListing:(PMTempListing *)listing
 {
     if (self = [super initWithNibName:nil bundle:nil]) {
         self.listing = listing;
@@ -145,14 +145,14 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
     [self.activityIndicatorView startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        int imageIndex = 1;
-        for (UIImage *image in self.takenPictures) {
-            if (image) {
-                NSString *listingImage = [NSString stringWithFormat:@"picData%i", imageIndex];
-                [self.listing setValue:UIImageJPEGRepresentation(image, .9) forKey:listingImage];
-                imageIndex++;
-            }
-        }
+//        int imageIndex = 1;
+//        for (UIImage *image in self.takenPictures) {
+//            if (image) {
+//                NSString *listingImage = [NSString stringWithFormat:@"picData%i", imageIndex];
+//                [self.listing setValue:UIImageJPEGRepresentation(image, .9) forKey:listingImage];
+//                imageIndex++;
+//            }
+//        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.activityIndicatorView stopAnimating];
             PMAddDescriptionViewController *addDescriptionViewController = [[PMAddDescriptionViewController alloc] initWithListing:self.listing];

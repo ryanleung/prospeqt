@@ -31,16 +31,19 @@ static NSString * const kMiscCellIdentifier = @"miscCellIdentifier";
 static NSString * const kSitePostCellIdentifier = @"sitePostCellIdentifier";
 static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
 
-@interface PMFinalizePostViewController () <UITableViewDataSource, UITableViewDelegate, PMAddressViewControllerDelegate>
+@interface PMFinalizePostViewController () <UITableViewDataSource, UITableViewDelegate, PMAddressViewControllerDelegate, PMSitePostCellDelegate>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) PMListing *listing;
+@property (nonatomic, strong) PMTempListing *listing;
 @property (nonatomic, strong) PMAddress *chosenAddress;
+@property (nonatomic, assign) BOOL postToCraigslist;
+@property (nonatomic, assign) BOOL postToFreeForSale;
+@property (nonatomic, assign) BOOL postToFacebook;
 @end
 
 
 @implementation PMFinalizePostViewController
 
-- (id)initWithListing:(PMListing *)listing
+- (id)initWithListing:(PMTempListing *)listing
 {
     if (self = [super initWithNibName:nil bundle:nil]) {
         self.listing = listing;
@@ -63,13 +66,6 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
         self.tableView = tableView;
     }
     return self;
-}
-
-#pragma mark - Data loading operations
-
-- (void)loadData
-{
-    
 }
 
 #pragma mark UITableViewDelegate/Datasource
@@ -97,6 +93,7 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
         case PMCellTypeFacebook:
         case PMCellTypeFreeForSale:
             cell = [tableView dequeueReusableCellWithIdentifier:kSitePostCellIdentifier];
+            ((PMSitePostCell *)cell).delegate = self;
             break;
         default:
             break;
@@ -183,18 +180,50 @@ static NSString * const kAddressCellIdentifier = @"addressCellIdentifier";
 - (void)addressViewController:(PMAddressViewController *)addressViewController didCreateNewAddress:(PMAddress *)address
 {
     self.chosenAddress = address;
-    self.listing.city = self.chosenAddress.city;
-    self.listing.state = self.chosenAddress.state;
+    self.listing.address = self.chosenAddress;
     [self.tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:PMCellTypeAddress inSection:0] ] withRowAnimation:UITableViewRowAnimationNone];
+}
+
+#pragma mark - Post Site Delegate methods
+
+- (void)postSiteCellDidTapFollowButton:(PMSitePostCell *)cell
+{
+    int row = [self.tableView indexPathForCell:cell].row;
+    switch (row) {
+        case PMCellTypeCraigslist:
+            self.postToCraigslist = !self.postToCraigslist;
+            break;
+        case PMCellTypeFreeForSale:
+            self.postToFreeForSale = !self.postToFreeForSale;
+            break;
+        case PMCellTypeFacebook:
+            self.postToFacebook = !self.postToFacebook;
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - Form Actions
 
 - (void)formAction
 {
-    [self.networkController.mainContext saveToPersistentStore:nil];
-    PMDoneViewController *doneViewController = [PMDoneViewController new];
-    [self.navigationController pushViewController:doneViewController animated:YES];
+    if (self.chosenAddress == nil) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"error") message:NSLocalizedString(@"finalize.address.error", @"error") delegate:nil cancelButtonTitle:NSLocalizedString(@"global.confirm", @"Confirm") otherButtonTitles: nil];
+        [alertView show];
+        return;
+    }
+    
+    self.listing.postCraigslist = [NSNumber numberWithBool:self.postToCraigslist];
+    self.listing.postFacebook = [NSNumber numberWithBool:self.postToFacebook];
+    self.listing.postFreeForSale = [NSNumber numberWithBool:self.postToFreeForSale];
+    
+    [self.networkController postListing:self.listing completion:^(id response, NSError *error) {
+        if (!error) {
+            PMDoneViewController *doneViewController = [PMDoneViewController new];
+            [self.navigationController pushViewController:doneViewController animated:YES];
+        }
+    }];
 }
 
 @end

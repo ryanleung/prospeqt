@@ -10,6 +10,6 @@
 
 @interface PMAddTitleAndPriceViewController : PMFormBaseViewController
 
-- (id)initWithListing:(PMListing *)listing;
+- (id)initWithListing:(PMTempListing *)listing;
 
 @end

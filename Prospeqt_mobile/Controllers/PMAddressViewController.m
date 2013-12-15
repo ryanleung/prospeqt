@@ -163,9 +163,11 @@
     PMAddress *address = [PMAddress new];
     address.streetAddress = self.streetAddressField.textField.text;
     address.extendedAddress = self.additionalAddressField.textField.text;
-    address.city = self.cityField.textField.text;
-    address.state = self.stateField.textField.text;
+    address.locality = self.cityField.textField.text;
+    address.region = self.stateField.textField.text;
     address.postalCode = self.zipcodeField.textField.text;
+    
+    
     
     if ([self.delegate respondsToSelector:@selector(addressViewController:didCreateNewAddress:)]) {
         [self.delegate addressViewController:self didCreateNewAddress:address];

@@ -75,8 +75,8 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
     self.descriptionView.text = @"\nHi, I'm Conan Christopher O'Brien. I'm originally from Brookline, MA. Right now, I'm going through a move and have a lot of things here and there that I'd liek to sell-which brings me here. I'm a nice guy, promise!";
     self.percentPositiveReviews = 95;
     PMAddress *address = [PMAddress new];
-    address.city = @"Davis";
-    address.state = @"CA";
+    address.locality = @"Davis";
+    address.region = @"CA";
     self.address = address;
 }
 
@@ -245,6 +245,6 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
 - (void)setAddress:(PMAddress *)address
 {
     _address = address;
-    [self.locationLabel setLocationWithCity:address.city State:address.state];
+    [self.locationLabel setLocationWithCity:address.locality State:address.region];
 }
 @end

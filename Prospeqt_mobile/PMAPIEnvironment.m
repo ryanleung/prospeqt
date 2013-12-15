@@ -15,9 +15,8 @@ const struct PMAPIBaseURL PMAPIBaseURL = {
     .production = @"",
     // TODO(ryan): for now, just keep switching this URL
     // options:
-    // @"http://localhost:3000/api/"
-    // @"https://trytapsell.herokuapp.com"
-    .debug = @"https://trytapsell.herokuapp.com/api/"
+    .debug = @"http://localhost:3000/api/"
+//    .debug = @"https://trytapsell.herokuapp.com/api/"
 };
 
 const struct PMHTTPMethod PMHTTPMethod = {
@@ -31,7 +30,9 @@ const struct PMHTTPMethod PMHTTPMethod = {
 const struct PMURIEndpoint PMURIEndpoint = {
     .registration = @"users",
     .sessions = @"sessions",
-    .messages = @"/messages/fetch_by_user",
-    .sendMessage = @"/message/send",
-    .createMessage = @"/message/create"
+    .messages = @"messages/fetch_by_user",
+    .sendMessage = @"message/send",
+    .createMessage = @"message/create",
+    .postListing = @"listings",
+    .fetchListings = @"listings"
 };

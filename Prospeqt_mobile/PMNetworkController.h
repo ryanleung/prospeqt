@@ -57,6 +57,12 @@ typedef void(^PMNetworkCompletion)(id response, NSError *error);
 
 - (void)destroySession:(PMSession *)session completion:(PMNetworkCompletion)completionOrNil;
 
+#pragma mark - Listings
+
+- (void)postListing:(PMTempListing *)listing completion:(PMNetworkCompletion)completionOrNil;
+
+- (void)fetchListings:(NSNumber *)userId range:(NSRange)range completion:(PMNetworkCompletion)completionOrNil;
+
 #pragma mark - Messaging
 
 /** Create a message chain

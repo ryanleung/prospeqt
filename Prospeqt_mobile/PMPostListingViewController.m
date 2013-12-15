@@ -170,7 +170,7 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
             break;
         default: {
             [self.networkController.mainContext reset];
-            PMListing *listing = [PMListing insertInManagedObjectContext:self.networkController.mainContext];
+            PMTempListing *listing = [PMTempListing new];
             listing.category = [self.tableView cellForRowAtIndexPath:indexPath].textLabel.text;
             PMAddTitleAndPriceViewController *addDescriptionViewController = [[PMAddTitleAndPriceViewController alloc] initWithListing:listing];
             [self.navigationController pushViewController:addDescriptionViewController animated:YES];

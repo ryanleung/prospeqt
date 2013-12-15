@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		471C6E13185C732A009AB372 /* PMTempListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 471C6E12185C732A009AB372 /* PMTempListing.m */; };
 		471EF25A181E5A4300618B02 /* _PMMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 471EF257181E5A4300618B02 /* _PMMessage.m */; };
 		471EF25B181E5A4300618B02 /* _PMMessageChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 471EF259181E5A4300618B02 /* _PMMessageChain.m */; };
 		471EF263181E5A4C00618B02 /* PMMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 471EF260181E5A4C00618B02 /* PMMessage.m */; };
@@ -251,6 +252,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		471C6E11185C732A009AB372 /* PMTempListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMTempListing.h; path = Model/PMTempListing.h; sourceTree = "<group>"; };
+		471C6E12185C732A009AB372 /* PMTempListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMTempListing.m; path = Model/PMTempListing.m; sourceTree = "<group>"; };
 		471EF256181E5A4300618B02 /* _PMMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PMMessage.h; sourceTree = "<group>"; };
 		471EF257181E5A4300618B02 /* _PMMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _PMMessage.m; sourceTree = "<group>"; };
 		471EF258181E5A4300618B02 /* _PMMessageChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PMMessageChain.h; sourceTree = "<group>"; };
@@ -1008,6 +1011,8 @@
 				47B7E8ED1851BA8D00246BC5 /* PMAccount.m */,
 				4739BC2F1800CB50004A6500 /* PMListing.h */,
 				4739BC301800CB50004A6500 /* PMListing.m */,
+				471C6E11185C732A009AB372 /* PMTempListing.h */,
+				471C6E12185C732A009AB372 /* PMTempListing.m */,
 				4739BC311800CB50004A6500 /* PMUser.h */,
 				4739BC321800CB50004A6500 /* PMUser.m */,
 				47B7E8E91851B90800246BC5 /* PMSession.h */,
@@ -1405,6 +1410,7 @@
 				474C9A7217E5762A0072012C /* PMBaseViewController.m in Sources */,
 				47A5069D1812360C00243BE6 /* PMSingleLineFormField.m in Sources */,
 				4739BC331800CB50004A6500 /* _PMListing.m in Sources */,
+				471C6E13185C732A009AB372 /* PMTempListing.m in Sources */,
 				4762DB711834B87700564D97 /* PMDoneViewController.m in Sources */,
 				4739BB7317FD531D004A6500 /* PMListingCell.m in Sources */,
 				47BBD7F117D423440050814D /* PMNetworkController.m in Sources */,

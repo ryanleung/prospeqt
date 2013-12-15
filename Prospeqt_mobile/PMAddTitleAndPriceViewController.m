@@ -13,13 +13,13 @@
 @interface PMAddTitleAndPriceViewController () <UITextFieldDelegate>
 @property (nonatomic, weak) PMSingleLineFormField *listingNameField;
 @property (nonatomic, weak) PMSingleLineFormField *priceField;
-@property (nonatomic, strong) PMListing *listing;
+@property (nonatomic, strong) PMTempListing *listing;
 @property (nonatomic, strong) NSNumberFormatter *currencyFormatter;
 @end
 
 @implementation PMAddTitleAndPriceViewController
 
-- (id)initWithListing:(PMListing *)listing
+- (id)initWithListing:(PMTempListing *)listing
 {
     if (self = [super initWithNibName:nil bundle:nil]) {
         self.listing = listing;

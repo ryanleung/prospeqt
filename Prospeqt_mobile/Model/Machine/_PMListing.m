@@ -5,10 +5,10 @@
 
 const struct PMListingAttributes PMListingAttributes = {
 	.category = @"category",
-	.city = @"city",
 	.date = @"date",
 	.info = @"info",
 	.listingId = @"listingId",
+	.locality = @"locality",
 	.picData1 = @"picData1",
 	.picData2 = @"picData2",
 	.picData3 = @"picData3",
@@ -18,8 +18,8 @@ const struct PMListingAttributes PMListingAttributes = {
 	.postFacebook = @"postFacebook",
 	.postFreeForSale = @"postFreeForSale",
 	.price = @"price",
+	.region = @"region",
 	.sold = @"sold",
-	.state = @"state",
 	.title = @"title",
 };
 
@@ -96,13 +96,6 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
-@dynamic city;
-
-
-
-
-
-
 @dynamic date;
 
 
@@ -138,6 +131,13 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 - (void)setPrimitiveListingIdValue:(int32_t)value_ {
 	[self setPrimitiveListingId:[NSNumber numberWithInt:value_]];
 }
+
+
+
+
+
+@dynamic locality;
+
 
 
 
@@ -263,6 +263,13 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
+@dynamic region;
+
+
+
+
+
+
 @dynamic sold;
 
 
@@ -284,13 +291,6 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 - (void)setPrimitiveSoldValue:(BOOL)value_ {
 	[self setPrimitiveSold:[NSNumber numberWithBool:value_]];
 }
-
-
-
-
-
-@dynamic state;
-
 
 
 

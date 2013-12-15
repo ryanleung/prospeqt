@@ -41,7 +41,7 @@
         
         UILabel *locationLabel = [UILabel new];
         NSString *locationFormat = NSLocalizedString(@"global.locationFormat", @"locationFormat");
-        locationLabel.text = [NSString stringWithFormat:locationFormat, listing.city, listing.state];
+        locationLabel.text = [NSString stringWithFormat:locationFormat, listing.locality, listing.region];
         locationLabel.translatesAutoresizingMaskIntoConstraints = NO;
         locationLabel.textColor = [UIColor pm_grayDarkColor];
         locationLabel.font = [UIFont pm_futuraLightFontWithSize:13.0];
