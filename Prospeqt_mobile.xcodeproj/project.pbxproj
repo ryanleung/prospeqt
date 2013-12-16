@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		471C6E13185C732A009AB372 /* PMTempListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 471C6E12185C732A009AB372 /* PMTempListing.m */; };
+		471C6E1C185E9CC3009AB372 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 471C6E1B185E9CC3009AB372 /* SMPageControl.m */; };
 		471EF25A181E5A4300618B02 /* _PMMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 471EF257181E5A4300618B02 /* _PMMessage.m */; };
 		471EF25B181E5A4300618B02 /* _PMMessageChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 471EF259181E5A4300618B02 /* _PMMessageChain.m */; };
 		471EF263181E5A4C00618B02 /* PMMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 471EF260181E5A4C00618B02 /* PMMessage.m */; };
@@ -254,6 +255,8 @@
 /* Begin PBXFileReference section */
 		471C6E11185C732A009AB372 /* PMTempListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMTempListing.h; path = Model/PMTempListing.h; sourceTree = "<group>"; };
 		471C6E12185C732A009AB372 /* PMTempListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMTempListing.m; path = Model/PMTempListing.m; sourceTree = "<group>"; };
+		471C6E1A185E9CC3009AB372 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMPageControl.h; path = Prospeqt_mobile/Libraries/SMPageControl/SMPageControl.h; sourceTree = SOURCE_ROOT; };
+		471C6E1B185E9CC3009AB372 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMPageControl.m; path = Prospeqt_mobile/Libraries/SMPageControl/SMPageControl.m; sourceTree = SOURCE_ROOT; };
 		471EF256181E5A4300618B02 /* _PMMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PMMessage.h; sourceTree = "<group>"; };
 		471EF257181E5A4300618B02 /* _PMMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _PMMessage.m; sourceTree = "<group>"; };
 		471EF258181E5A4300618B02 /* _PMMessageChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _PMMessageChain.h; sourceTree = "<group>"; };
@@ -549,6 +552,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		471C6E19185E9CB5009AB372 /* SMPageControl */ = {
+			isa = PBXGroup;
+			children = (
+				471C6E1A185E9CC3009AB372 /* SMPageControl.h */,
+				471C6E1B185E9CC3009AB372 /* SMPageControl.m */,
+			);
+			name = SMPageControl;
+			sourceTree = "<group>";
+		};
 		4739BB7417FE9F0F004A6500 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,6 +786,7 @@
 		4753DB4418148B0300F8D128 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				471C6E19185E9CB5009AB372 /* SMPageControl */,
 				4753DB4518148B1400F8D128 /* SSKeychain */,
 			);
 			name = Libraries;
@@ -1414,6 +1427,7 @@
 				4762DB711834B87700564D97 /* PMDoneViewController.m in Sources */,
 				4739BB7317FD531D004A6500 /* PMListingCell.m in Sources */,
 				47BBD7F117D423440050814D /* PMNetworkController.m in Sources */,
+				471C6E1C185E9CC3009AB372 /* SMPageControl.m in Sources */,
 				47A5069A180E71D400243BE6 /* PMFormField.m in Sources */,
 				473D64AA18013F87001B8279 /* NSManagedObjectContext+PMDataStack.m in Sources */,
 				4762DBA11837484100564D97 /* PMEmptyMessagesView.m in Sources */,

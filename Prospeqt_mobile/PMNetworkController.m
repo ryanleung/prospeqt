@@ -250,7 +250,7 @@ static void *pm_completionContext = &pm_completionContext;
     [self startOperation:operation];
 }
 
-- (void)fetchListings:(NSNumber *)userId range:(NSRange)range completion:(PMNetworkCompletion)completionOrNil
+- (void)fetchListingsInRange:(NSRange)range completion:(PMNetworkCompletion)completionOrNil
 {
     NSMutableDictionary *params = [self mutableParametersWithRange:range];
     RKObjectRequestOperation *operation = [self.objectManager appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:PMURIEndpoint.fetchListings parameters:params];

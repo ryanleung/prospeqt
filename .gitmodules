@@ -1,3 +1,6 @@
 [submodule "Prospeqt_mobile/Libraries/RestKit"]
 	path = Prospeqt_mobile/Libraries/RestKit
 	url = git://github.com/RestKit/RestKit.git
+[submodule "Prospeqt_mobile/Libraries/SMPageControl"]
+	path = Prospeqt_mobile/Libraries/SMPageControl
+	url = https://github.com/Spaceman-Labs/SMPageControl.git

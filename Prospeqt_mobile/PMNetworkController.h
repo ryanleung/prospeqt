@@ -61,7 +61,7 @@ typedef void(^PMNetworkCompletion)(id response, NSError *error);
 
 - (void)postListing:(PMTempListing *)listing completion:(PMNetworkCompletion)completionOrNil;
 
-- (void)fetchListings:(NSNumber *)userId range:(NSRange)range completion:(PMNetworkCompletion)completionOrNil;
+- (void)fetchListingsInRange:(NSRange)range completion:(PMNetworkCompletion)completionOrNil;
 
 #pragma mark - Messaging
 

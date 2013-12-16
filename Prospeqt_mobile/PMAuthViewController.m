@@ -9,6 +9,7 @@
 #import "PMAuthViewController.h"
 #import "PMSignInViewController.h"
 #import "PMSignUpViewController.h"
+#import "SMPageControl.h"
 
 @interface PMAuthViewController ()
 

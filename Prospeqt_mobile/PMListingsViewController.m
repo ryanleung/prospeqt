@@ -18,7 +18,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 
 @interface PMListingsViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSMutableArray *listings;
 @property (nonatomic, strong) PMEmptyListingsView *emptyListingsView;
 @end
 
@@ -63,21 +63,6 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 	// Do any additional setup after loading the view.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    [self.fetchedResultsController performFetch:nil];
-    if (self.fetchedResultsController.fetchedObjects.count == 0) {
-        self.emptyListingsView.hidden = NO;
-        self.tableView.hidden = YES;
-    } else {
-        self.emptyListingsView.hidden = YES;
-        self.tableView.hidden = NO;
-        [self.tableView reloadData];
-    }
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -93,15 +78,29 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 
 - (void)loadData
 {
-    
+    // TODO(ryan): Implement infinite scrolling
+    __weak typeof(self) weak_self = self;
+    [self.networkController fetchListingsInRange:NSMakeRange(0,0) completion:^(id response, NSError *error) {
+        if (!error) {
+            __strong typeof(self) strong_self = weak_self;
+            self.listings = response;
+            if (self.listings.count == 0) {
+                strong_self.emptyListingsView.hidden = NO;
+                strong_self.tableView.hidden = YES;
+            } else {
+                strong_self.emptyListingsView.hidden = YES;
+                strong_self.tableView.hidden = NO;
+                [strong_self.tableView reloadData];
+            }
+        }
+    }];
 }
 
 #pragma mark UITableViewDelegate/Datasource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    return self.listings.count;
 }
 
 - (PMListingCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,7 +115,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(PMListingCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PMListing *listing = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    PMListing *listing = [self.listings objectAtIndex:indexPath.row];
     cell.productTitleLabel.text = listing.title;
     cell.productDetailLabel.text = listing.info;
     
@@ -148,7 +147,7 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedListing = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    self.selectedListing = [self.listings objectAtIndex:indexPath.row];
     PMManageListingViewController *manageListingViewController = [[PMManageListingViewController alloc] initWithListing:self.selectedListing];
     [self.navigationController pushViewController:manageListingViewController animated:YES];
 }
@@ -157,22 +156,8 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 
 - (void)refresh:(id)sender
 {
-    sleep(2);
+    [self setNeedsData];
     [(UIRefreshControl *)sender endRefreshing];
 }
-#pragma mark - Core Data
-
-- (NSFetchedResultsController *)fetchedResultsController
-{
-    if (_fetchedResultsController == nil) {
-        NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[PMListing entityName]];
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
-        fetchRequest.sortDescriptors = @[sortDescriptor];
-        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.networkController.mainContext sectionNameKeyPath:nil cacheName:nil];
-        [_fetchedResultsController performFetch:nil];
-    }
-    return _fetchedResultsController;
-}
-
 
 @end
