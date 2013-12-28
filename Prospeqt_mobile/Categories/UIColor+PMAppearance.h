@@ -24,4 +24,6 @@
 
 + (UIColor *)pm_backgroundColor;
 
++ (UIColor *)pm_splashBackgroundColor;
+
 @end

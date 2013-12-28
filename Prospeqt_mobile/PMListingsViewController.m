@@ -123,9 +123,24 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
     cell.dateLabel.text = [NSString stringWithFormat:dateFormat, [PMListing formattedDate:listing.date]];
     
     [cell updatePrice:listing.price];
-    
-    if (listing.picData1) {
-        cell.productImageView.image = [UIImage imageWithData:listing.picData1];
+
+    if (listing.images.count != 0) {
+        UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        indicatorView.frame = cell.productImageView.bounds;
+        [cell.productImageView addSubview:indicatorView];
+        [indicatorView startAnimating];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:((PMImage *) listing.images[0]).url]]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                cell.productImageView.alpha = 0.0f;
+                [UIView animateWithDuration:0.5 animations:^{
+                    cell.productImageView.image = image;
+                    cell.productImageView.alpha = 1.0f;
+                    [cell setNeedsLayout];
+                } completion:nil];
+                [indicatorView stopAnimating];
+            });
+        });
     }
     
 //    __weak PMListingCell *weak_cell = cell;

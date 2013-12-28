@@ -10,11 +10,6 @@ extern const struct PMListingAttributes {
 	__unsafe_unretained NSString *info;
 	__unsafe_unretained NSString *listingId;
 	__unsafe_unretained NSString *locality;
-	__unsafe_unretained NSString *picData1;
-	__unsafe_unretained NSString *picData2;
-	__unsafe_unretained NSString *picData3;
-	__unsafe_unretained NSString *picData4;
-	__unsafe_unretained NSString *picUrls;
 	__unsafe_unretained NSString *postCraigslist;
 	__unsafe_unretained NSString *postFacebook;
 	__unsafe_unretained NSString *postFreeForSale;
@@ -25,6 +20,7 @@ extern const struct PMListingAttributes {
 } PMListingAttributes;
 
 extern const struct PMListingRelationships {
+	__unsafe_unretained NSString *images;
 	__unsafe_unretained NSString *messageChains;
 	__unsafe_unretained NSString *user;
 } PMListingRelationships;
@@ -32,13 +28,9 @@ extern const struct PMListingRelationships {
 extern const struct PMListingFetchedProperties {
 } PMListingFetchedProperties;
 
+@class PMImage;
 @class PMMessageChain;
 @class PMUser;
-
-
-
-
-
 
 
 
@@ -115,56 +107,6 @@ extern const struct PMListingFetchedProperties {
 
 
 //- (BOOL)validateLocality:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSData* picData1;
-
-
-
-//- (BOOL)validatePicData1:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSData* picData2;
-
-
-
-//- (BOOL)validatePicData2:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSData* picData3;
-
-
-
-//- (BOOL)validatePicData3:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSData* picData4;
-
-
-
-//- (BOOL)validatePicData4:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSString* picUrls;
-
-
-
-//- (BOOL)validatePicUrls:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -256,6 +198,13 @@ extern const struct PMListingFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSOrderedSet *images;
+
+- (NSMutableOrderedSet*)imagesSet;
+
+
+
+
 @property (nonatomic, strong) NSSet *messageChains;
 
 - (NSMutableSet*)messageChainsSet;
@@ -274,6 +223,11 @@ extern const struct PMListingFetchedProperties {
 @end
 
 @interface _PMListing (CoreDataGeneratedAccessors)
+
+- (void)addImages:(NSOrderedSet*)value_;
+- (void)removeImages:(NSOrderedSet*)value_;
+- (void)addImagesObject:(PMImage*)value_;
+- (void)removeImagesObject:(PMImage*)value_;
 
 - (void)addMessageChains:(NSSet*)value_;
 - (void)removeMessageChains:(NSSet*)value_;
@@ -314,36 +268,6 @@ extern const struct PMListingFetchedProperties {
 
 - (NSString*)primitiveLocality;
 - (void)setPrimitiveLocality:(NSString*)value;
-
-
-
-
-- (NSData*)primitivePicData1;
-- (void)setPrimitivePicData1:(NSData*)value;
-
-
-
-
-- (NSData*)primitivePicData2;
-- (void)setPrimitivePicData2:(NSData*)value;
-
-
-
-
-- (NSData*)primitivePicData3;
-- (void)setPrimitivePicData3:(NSData*)value;
-
-
-
-
-- (NSData*)primitivePicData4;
-- (void)setPrimitivePicData4:(NSData*)value;
-
-
-
-
-- (NSString*)primitivePicUrls;
-- (void)setPrimitivePicUrls:(NSString*)value;
 
 
 
@@ -400,6 +324,11 @@ extern const struct PMListingFetchedProperties {
 - (void)setPrimitiveTitle:(NSString*)value;
 
 
+
+
+
+- (NSMutableOrderedSet*)primitiveImages;
+- (void)setPrimitiveImages:(NSMutableOrderedSet*)value;
 
 
 

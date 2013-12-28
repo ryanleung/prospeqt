@@ -27,3 +27,8 @@ extern NSString * const kPMNotificationUserDidSignIn;
 extern NSString * const kPMKeychainServiceName;
 extern NSString * const kPMKeychainTokenKey;
 extern NSString * const kPMKeychainUserEmailKey;
+
+#define IS_568H_SCREEN (fabs((double)[[UIScreen mainScreen] bounds].size.height - (double)568) < DBL_EPSILON)
+#define IS_RETINA ([[UIScreen mainScreen] scale] > 1.0f)
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)

@@ -18,9 +18,10 @@
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, copy) NSString *info;
 @property (nonatomic, strong) NSNumber *listingId;
-@property (nonatomic, strong) NSData *picData1;
-@property (nonatomic, strong) NSData *picData2;
-@property (nonatomic, strong) NSData *picData3;
+@property (nonatomic, strong) NSString *picData1;
+@property (nonatomic, strong) NSString *picData2;
+@property (nonatomic, strong) NSString *picData3;
+@property (nonatomic, strong) NSString *picData4;
 @property (nonatomic, strong) NSNumber *postCraigslist;
 @property (nonatomic, strong) NSNumber *postFacebook;
 @property (nonatomic, strong) NSNumber *postFreeForSale;

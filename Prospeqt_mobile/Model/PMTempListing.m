@@ -14,8 +14,10 @@ static NSString * const kPMServerCategory = @"category";
 static NSString * const kPMServerDate = @"date";
 static NSString * const kPMServerInfo = @"info";
 static NSString * const kPMServerListingId = @"listing_id";
-//static NSString * const kPMServerPicData1 = @"pic_data_1";
-//static NSString * const kPMServerPicData2 = @"pic_data_2";
+static NSString * const kPMServerPicData1 = @"pic_data_1";
+static NSString * const kPMServerPicData2 = @"pic_data_2";
+static NSString * const kPMServerPicData3 = @"pic_data_3";
+static NSString * const kPMServerPicData4 = @"pic_data_4";
 static NSString * const kPMServerPostCraigslist = @"post_craigslist";
 static NSString * const kPMServerPostFreeForSale = @"post_ffs";
 static NSString * const kPMServerPostFacebook = @"post_facebook";
@@ -36,6 +38,10 @@ static NSString * const kPMServerAddress = @"address";
                                                         NSStringFromSelector(@selector(date)) : kPMServerDate,
                                                         NSStringFromSelector(@selector(info)) : kPMServerInfo,
                                                         NSStringFromSelector(@selector(listingId)) : kPMServerListingId,
+                                                        NSStringFromSelector(@selector(picData1)) : kPMServerPicData1,
+                                                        NSStringFromSelector(@selector(picData2)) : kPMServerPicData2,
+                                                        NSStringFromSelector(@selector(picData3)) : kPMServerPicData3,
+                                                        NSStringFromSelector(@selector(picData4)) : kPMServerPicData4,
                                                         NSStringFromSelector(@selector(postCraigslist)) : kPMServerPostCraigslist,
                                                         NSStringFromSelector(@selector(postFreeForSale)) : kPMServerPostFreeForSale,
                                                         NSStringFromSelector(@selector(postFacebook)) : kPMServerPostFacebook,

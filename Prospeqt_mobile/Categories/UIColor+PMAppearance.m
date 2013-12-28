@@ -61,4 +61,9 @@
     return [self pm_colorWithHex:0xf6f4f1 alpha:1.0f];
 }
 
++ (UIColor *)pm_splashBackgroundColor
+{
+    return [self pm_colorWithHex:0xefedea alpha:1.0f];
+}
+
 @end

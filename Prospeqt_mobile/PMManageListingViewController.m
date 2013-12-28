@@ -59,7 +59,7 @@
         boxView.translatesAutoresizingMaskIntoConstraints = NO;
         //        [boxView.editButton addTarget:<#(id)#> action:<#(SEL)#> forControlEvents:<#(UIControlEvents)#>]
         boxView.postedDateLabel.text = @"POSTED NOV. 15";
-        boxView.productImageView.image = [UIImage imageWithData:self.currentListing.picData1];
+//        boxView.productImageView.image = [UIImage imageWithData:self.currentListing.picData1];
         boxView.descriptionLabel.text = self.currentListing.info;
         [self.view addSubview:boxView];
         

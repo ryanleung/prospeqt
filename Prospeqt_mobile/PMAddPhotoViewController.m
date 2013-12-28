@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
     PMPhotoTagCount
 };
 
-@interface PMAddPhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface PMAddPhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
 @property (nonatomic, strong) UIImageView *cameraTopLeftImageView;
 @property (nonatomic, strong) UIImageView *cameraTopRightImageView;
 @property (nonatomic, strong) UIImageView *cameraBottomLeftImageView;
@@ -101,13 +101,47 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
 
 - (void)camImageViewClicked:(id)sender
 {
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.view.tag = ((UIGestureRecognizer *)sender).view.tag;
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    imagePickerController.delegate = self;
-    imagePickerController.cameraViewTransform = CGAffineTransformMakeScale(1.0, 0.8);
-    [self presentViewController:imagePickerController animated:YES completion:NULL];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Take Photo With Camera", @"Select Photo From Library", nil];
+    actionSheet.tag = ((UIGestureRecognizer *)sender).view.tag;
+    [actionSheet showInView:self.view];
 }
+
+#pragma mark - UIActionSheetDelegate Methods
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+            
+        // take photo with camera
+        case 0: {
+            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+            imagePickerController.view.tag = actionSheet.tag;
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            imagePickerController.delegate = self;
+//            imagePickerController.cameraViewTransform = CGAffineTransformMakeScale(1.0, 0.8);
+            [self presentViewController:imagePickerController animated:YES completion:NULL];
+            break;
+        }
+        // select photo from library
+        case 1: {
+            UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+            imagePickerController.view.tag = actionSheet.tag;
+            imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            imagePickerController.allowsEditing = YES;
+            imagePickerController.delegate = self;
+            [self presentViewController:imagePickerController animated:YES completion:NULL];
+            break;
+        }
+        default:
+            break;
+    }
+}
+
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -145,14 +179,14 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
     [self.activityIndicatorView startAnimating];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        int imageIndex = 1;
-//        for (UIImage *image in self.takenPictures) {
-//            if (image) {
-//                NSString *listingImage = [NSString stringWithFormat:@"picData%i", imageIndex];
-//                [self.listing setValue:UIImageJPEGRepresentation(image, .9) forKey:listingImage];
-//                imageIndex++;
-//            }
-//        }
+        int imageIndex = 1;
+        for (UIImage *image in self.takenPictures) {
+            if (image) {
+                NSString *listingImage = [NSString stringWithFormat:@"picData%i", imageIndex];
+                [self.listing setValue:[UIImageJPEGRepresentation(image, .9) base64EncodedStringWithOptions:0] forKey:listingImage];
+                imageIndex++;
+            }
+        }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.activityIndicatorView stopAnimating];
             PMAddDescriptionViewController *addDescriptionViewController = [[PMAddDescriptionViewController alloc] initWithListing:self.listing];

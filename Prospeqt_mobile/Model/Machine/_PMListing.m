@@ -9,11 +9,6 @@ const struct PMListingAttributes PMListingAttributes = {
 	.info = @"info",
 	.listingId = @"listingId",
 	.locality = @"locality",
-	.picData1 = @"picData1",
-	.picData2 = @"picData2",
-	.picData3 = @"picData3",
-	.picData4 = @"picData4",
-	.picUrls = @"picUrls",
 	.postCraigslist = @"postCraigslist",
 	.postFacebook = @"postFacebook",
 	.postFreeForSale = @"postFreeForSale",
@@ -24,6 +19,7 @@ const struct PMListingAttributes PMListingAttributes = {
 };
 
 const struct PMListingRelationships PMListingRelationships = {
+	.images = @"images",
 	.messageChains = @"messageChains",
 	.user = @"user",
 };
@@ -137,41 +133,6 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 @dynamic locality;
-
-
-
-
-
-
-@dynamic picData1;
-
-
-
-
-
-
-@dynamic picData2;
-
-
-
-
-
-
-@dynamic picData3;
-
-
-
-
-
-
-@dynamic picData4;
-
-
-
-
-
-
-@dynamic picUrls;
 
 
 
@@ -302,6 +263,19 @@ const struct PMListingFetchedProperties PMListingFetchedProperties = {
 
 
 
+
+@dynamic images;
+
+	
+- (NSMutableOrderedSet*)imagesSet {
+	[self willAccessValueForKey:@"images"];
+  
+	NSMutableOrderedSet *result = (NSMutableOrderedSet*)[self mutableOrderedSetValueForKey:@"images"];
+  
+	[self didAccessValueForKey:@"images"];
+	return result;
+}
+	
 
 @dynamic messageChains;
 

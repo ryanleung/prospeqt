@@ -15,8 +15,8 @@ const struct PMAPIBaseURL PMAPIBaseURL = {
     .production = @"",
     // TODO(ryan): for now, just keep switching this URL
     // options:
-    .debug = @"http://localhost:3000/api/"
-//    .debug = @"https://trytapsell.herokuapp.com/api/"
+//    .debug = @"http://localhost:3000/api/"
+    .debug = @"https://trytapsell.herokuapp.com/api/"
 };
 
 const struct PMHTTPMethod PMHTTPMethod = {
