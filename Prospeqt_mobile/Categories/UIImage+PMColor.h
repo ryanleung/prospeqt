@@ -12,4 +12,8 @@
 
 + (UIImage *)imageWithColor:(UIColor *)color;
 - (UIImage *)imageByApplyingAlpha:(CGFloat)alpha;
+
++ (NSData *)compressImage:(UIImage *)image;
+
++ (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
 @end

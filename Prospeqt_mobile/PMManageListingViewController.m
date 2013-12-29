@@ -59,7 +59,24 @@
         boxView.translatesAutoresizingMaskIntoConstraints = NO;
         //        [boxView.editButton addTarget:<#(id)#> action:<#(SEL)#> forControlEvents:<#(UIControlEvents)#>]
         boxView.postedDateLabel.text = @"POSTED NOV. 15";
-//        boxView.productImageView.image = [UIImage imageWithData:self.currentListing.picData1];
+        if (listing.images.count != 0) {
+            UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            indicatorView.frame = boxView.productImageView.bounds;
+            [boxView.productImageView addSubview:indicatorView];
+            [indicatorView startAnimating];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:((PMImage *) listing.images[0]).url]]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    boxView.productImageView.alpha = 0.0f;
+                    [UIView animateWithDuration:0.5 animations:^{
+                        boxView.productImageView.image = image;
+                        boxView.productImageView.alpha = 1.0f;
+                        [boxView setNeedsLayout];
+                    } completion:nil];
+                    [indicatorView stopAnimating];
+                });
+            });
+        }
         boxView.descriptionLabel.text = self.currentListing.info;
         [self.view addSubview:boxView];
         

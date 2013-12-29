@@ -60,13 +60,13 @@ static NSString * const kListingCellIdentifier = @"listingCellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setNeedsData];
 	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self setNeedsData];
 }
 
 #pragma mark - Data Loading

@@ -183,7 +183,8 @@ typedef NS_ENUM(NSUInteger, PMPhotoTag) {
         for (UIImage *image in self.takenPictures) {
             if (image) {
                 NSString *listingImage = [NSString stringWithFormat:@"picData%i", imageIndex];
-                [self.listing setValue:[UIImageJPEGRepresentation(image, .9) base64EncodedStringWithOptions:0] forKey:listingImage];
+                NSData *compressedImageData = [UIImage compressImage:[UIImage imageWithImage:image scaledToSize:CGSizeMake(100, 100)]];
+                [self.listing setValue:[compressedImageData base64EncodedStringWithOptions:0] forKey:listingImage];
                 imageIndex++;
             }
         }
