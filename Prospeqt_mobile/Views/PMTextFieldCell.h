@@ -8,7 +8,7 @@
 
 #import "PMCell.h"
 
-@interface PMTextFieldCell : PMCell
+@interface PMTextFieldCell : PMCell <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *textField;
 

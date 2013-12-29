@@ -107,6 +107,10 @@
 "profile.edit.title" = "Edit Profile";
 "profile.placeholder.first" = "First Name";
 "profile.placeholder.last" = "Last Name";
+"profile.placeholder.city" = "City";
+"profile.placeholder.state" = "State";
+"profile.placeholder.takePhoto" = "TAKE NEW PHOTO";
+"profile.placeholder.chooseFromLibrary" = "CHOOSE FROM LIBRARY";
 "profile.placeholder.address" = "Location (ex. Davis, CA)";
 "profile.edit.bio" = "EDIT BIO";
 "profile.edit.social" = "EDIT SOCIAL PROFILES";

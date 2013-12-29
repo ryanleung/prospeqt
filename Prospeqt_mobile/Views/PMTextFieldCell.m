@@ -10,21 +10,30 @@
 
 @implementation PMTextFieldCell
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         UITextField *textField = [UITextField new];
         textField.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:textField];
+        textField.font = [UIFont pm_futuraExtendedFontWithSize:20.0f];
+        textField.textColor = [UIColor pm_grayDarkColor];
+        textField.delegate = self;
+        [self.contentView addSubview:textField];
         self.textField = textField;
         
         NSDictionary *views = NSDictionaryOfVariableBindings(textField);
-        NSDictionary *metrics = @{ @"spacer" : @3 };
+        NSDictionary *metrics = @{ @"spacer" : @20 };
         
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-spacer-[textField]|" options:0 metrics:metrics views:views]];
-        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[textField]|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-spacer-[textField]|" options:0 metrics:metrics views:views]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[textField]|" options:0 metrics:metrics views:views]];
     }
     return self;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.textField resignFirstResponder];
+    return YES;
 }
 @end
