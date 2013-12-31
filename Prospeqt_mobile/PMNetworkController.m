@@ -233,6 +233,21 @@ static void *pm_completionContext = &pm_completionContext;
     [self startOperation:operation];
 }
 
+- (void)getProfileWithCompletion:(PMNetworkCompletion)completionOrNil
+{
+    RKObjectRequestOperation *operation = [self.objectManager appropriateObjectRequestOperationWithObject:nil method:RKRequestMethodGET path:PMURIEndpoint.getProfile parameters:nil];
+    [operation setCompletionBlockWithSuccess:[self objectSuccessResponseWithCompletion:completionOrNil]
+                                     failure:[self failureResponseWithCompletion:completionOrNil]];
+    [self startOperation:operation];
+}
+
+- (void)editProfileWithUserInfo:(PMUser *)user completion:(PMNetworkCompletion)completionOrNil
+{
+    RKObjectRequestOperation *operation = [self.objectManager appropriateObjectRequestOperationWithObject:user method:RKRequestMethodPOST path:PMURIEndpoint.editProfile parameters:nil];
+    [operation setCompletionBlockWithSuccess:[self emptySuccessResponseWithCompletion:completionOrNil] failure:[self failureResponseWithCompletion:completionOrNil]];
+    [self startOperation:operation];
+}
+
 - (void)updateKeychainWithMappingResult:(RKMappingResult *)mappingResult
 {
     [PMKeychain keychain].authenticationToken = ((PMSession *)[[mappingResult dictionary] objectForKey:[NSNull null]]).apiToken;

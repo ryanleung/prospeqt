@@ -41,4 +41,6 @@ extern const struct PMURIEndpoint {
     __unsafe_unretained NSString *createMessage;
     __unsafe_unretained NSString *postListing;
     __unsafe_unretained NSString *fetchListings;
+    __unsafe_unretained NSString *getProfile;
+    __unsafe_unretained NSString *editProfile;
 } PMURIEndpoint;

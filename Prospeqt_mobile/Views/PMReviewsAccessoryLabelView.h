@@ -10,6 +10,6 @@
 
 @interface PMReviewsAccessoryLabelView : PMAccessoryLabelView
 
-- (void)setRatings:(int)rating;
+- (void)setRatings:(NSNumber *)rating;
 
 @end

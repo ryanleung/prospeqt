@@ -18,10 +18,4 @@
     }
     return self;
 }
-
-- (void)setLocationWithCity:(NSString *)city State:(NSString *)state
-{
-    NSString *locationFormat = NSLocalizedString(@"global.locationFormat", @"locationFormat");
-    self.textLabel.text = [NSString stringWithFormat:locationFormat, city, state];
-}
 @end

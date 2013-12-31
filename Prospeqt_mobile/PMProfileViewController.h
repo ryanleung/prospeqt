@@ -18,6 +18,6 @@
 
 @property (nonatomic, strong) PMAddress *address;
 
-@property (nonatomic, assign) int percentPositiveReviews;
+@property (nonatomic, strong) NSNumber *percentPositiveReviews;
 
 @end

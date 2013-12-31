@@ -4,15 +4,14 @@
 #import "_PMUser.h"
 
 const struct PMUserAttributes PMUserAttributes = {
-	.avatarData = @"avatarData",
+	.avatarDataString = @"avatarDataString",
 	.avatarUrl = @"avatarUrl",
 	.bio = @"bio",
 	.email = @"email",
 	.firstName = @"firstName",
 	.lastName = @"lastName",
-	.locality = @"locality",
+	.location = @"location",
 	.rating = @"rating",
-	.region = @"region",
 	.userId = @"userId",
 };
 
@@ -67,7 +66,7 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 
 
 
-@dynamic avatarData;
+@dynamic avatarDataString;
 
 
 
@@ -109,7 +108,7 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 
 
 
-@dynamic locality;
+@dynamic location;
 
 
 
@@ -137,13 +136,6 @@ const struct PMUserFetchedProperties PMUserFetchedProperties = {
 - (void)setPrimitiveRatingValue:(int16_t)value_ {
 	[self setPrimitiveRating:[NSNumber numberWithShort:value_]];
 }
-
-
-
-
-
-@dynamic region;
-
 
 
 

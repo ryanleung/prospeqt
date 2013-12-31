@@ -55,6 +55,10 @@ typedef void(^PMNetworkCompletion)(id response, NSError *error);
 
 - (void)createSessionWithAccount:(PMAccount *)account completion:(PMNetworkCompletion)completionOrNil;
 
+- (void)getProfileWithCompletion:(PMNetworkCompletion)completionOrNil;
+
+- (void)editProfileWithUserInfo:(PMUser *)user completion:(PMNetworkCompletion)completionOrNil;
+
 - (void)destroySession:(PMSession *)session completion:(PMNetworkCompletion)completionOrNil;
 
 #pragma mark - Listings

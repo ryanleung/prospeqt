@@ -69,6 +69,10 @@ static PMObjectManager *pm_sharedObjectManager = nil;
                                                                      objectClass:[PMTempListing class]
                                                                      rootKeyPath:nil
                                                                           method:RKRequestMethodAny]];
+    [self addRequestDescriptor:[RKRequestDescriptor requestDescriptorWithMapping:[PMUser requestMapping]
+                                                                     objectClass:[PMUser class]
+                                                                     rootKeyPath:nil
+                                                                          method:RKRequestMethodAny]];
 }
 
 - (void)prepareResponseDescriptors
@@ -79,6 +83,11 @@ static PMObjectManager *pm_sharedObjectManager = nil;
                                                                              method:RKRequestMethodAny
                                                                         pathPattern:PMURIEndpoint.postListing
                                                                             keyPath:@"data.address"
+                                                                        statusCodes:successCodes]];
+    [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[RKObjectMapping mappingForClass:nil]
+                                                                             method:RKRequestMethodAny
+                                                                        pathPattern:PMURIEndpoint.editProfile
+                                                                            keyPath:nil
                                                                         statusCodes:successCodes]];
 }
 
@@ -109,6 +118,11 @@ static PMObjectManager *pm_sharedObjectManager = nil;
     [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[mappings objectForKey:[PMListing entityName]]
                                                                              method:RKRequestMethodAny
                                                                         pathPattern:PMURIEndpoint.postListing
+                                                                            keyPath:@"data"
+                                                                        statusCodes:successCodes]];
+    [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[mappings objectForKey:[PMUser entityName]]
+                                                                             method:RKRequestMethodAny
+                                                                        pathPattern:PMURIEndpoint.getProfile
                                                                             keyPath:@"data"
                                                                         statusCodes:successCodes]];
 }

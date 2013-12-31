@@ -84,7 +84,7 @@
         </userInfo>
     </entity>
     <entity name="User" representedClassName="PMUser" syncable="YES">
-        <attribute name="avatarData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="avatarDataString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="avatarUrl" optional="YES" attributeType="String" syncable="YES">
             <userInfo>
                 <entry key="PM_JSON_SERVER_KEY" value="avatar_url"/>
@@ -102,9 +102,8 @@
                 <entry key="PM_JSON_SERVER_KEY" value="last_name"/>
             </userInfo>
         </attribute>
-        <attribute name="locality" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
             <userInfo>
                 <entry key="PM_JSON_PRIMARY_KEY" value="YES"/>

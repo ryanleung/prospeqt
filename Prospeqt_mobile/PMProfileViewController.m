@@ -16,7 +16,7 @@
 
 static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
 
-@interface PMProfileViewController ()
+@interface PMProfileViewController () <PMEditProfileViewControllerDelegate>
 @property (nonatomic, strong) UIView *smallSeparatorTopView;
 @property (nonatomic, strong) UIView *smallSeparatorBottomView;
 @property (nonatomic, strong) UIView *separatorView;
@@ -24,6 +24,7 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
 @property (nonatomic, strong) PMReviewsAccessoryLabelView *reviewsLabel;
 @property (nonatomic, strong) PMLocationAccessoryLabelView *locationLabel;
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) PMUser *user;
 @end
 
 @implementation PMProfileViewController
@@ -56,28 +57,7 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
     
     [self setupLayoutConstraints];
     
-    // TODO: FOR TESTING PURPOSES
-    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    indicatorView.frame = self.avatarImageView.bounds;
-    [self.avatarImageView addSubview:indicatorView];
-    [indicatorView startAnimating];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.outsidethebeltway.com/wp-content/uploads/2010/01/conan-obrien.jpg"]]];
-        dispatch_async((dispatch_get_main_queue()), ^{
-            self.avatarImageView.alpha = 0.0f;
-            [UIView animateWithDuration:0.5 animations:^{
-                self.avatarImageView.image = image;
-                self.avatarImageView.alpha = 1.0f;
-            } completion:nil];
-            [indicatorView stopAnimating];
-        });
-    });
-    self.descriptionView.text = @"\nHi, I'm Conan Christopher O'Brien. I'm originally from Brookline, MA. Right now, I'm going through a move and have a lot of things here and there that I'd liek to sell-which brings me here. I'm a nice guy, promise!";
-    self.percentPositiveReviews = 95;
-    PMAddress *address = [PMAddress new];
-    address.locality = @"Davis";
-    address.region = @"CA";
-    self.address = address;
+    [self setNeedsData];
 }
 
 - (NSDictionary *)viewBindings
@@ -119,6 +99,49 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
     [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_smallSeparatorBottomView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
     [self.scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_smallSeparatorTopView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
 }
+#pragma mark - Data Operations
+
+- (void)loadData
+{
+    [self.networkController getProfileWithCompletion:^(id response, NSError *error) {
+        if (!error) {
+            PMUser *user = (PMUser *)response;
+            if (user.avatarUrl != nil) {
+                
+                // load avatar image
+                UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+                indicatorView.frame = self.avatarImageView.bounds;
+                [self.avatarImageView addSubview:indicatorView];
+                [indicatorView startAnimating];
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:user.avatarUrl]]];
+                    dispatch_async((dispatch_get_main_queue()), ^{
+                        self.avatarImageView.alpha = 0.0f;
+                        [UIView animateWithDuration:0.5 animations:^{
+                            self.avatarImageView.image = image;
+                            self.avatarImageView.alpha = 1.0f;
+                        } completion:nil];
+                        [indicatorView stopAnimating];
+                    });
+                });
+            } else {
+                
+                // load placeholder image
+            }
+            
+            if (user.bio != nil) {
+                self.descriptionView.text = user.bio;
+            } else {
+                self.descriptionView.text = NSLocalizedString(@"profile.bio.placeholder", @"placeholder");
+            }
+            
+            self.locationLabel.textLabel.text = user.location;
+            self.percentPositiveReviews = user.rating;
+            self.user = user;
+        }
+    }];
+}
+
 
 #pragma mark - Property Helpers
 
@@ -136,8 +159,16 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
 
 - (void)formAction
 {
-    PMEditProfileViewController *editProfileViewController = [[PMEditProfileViewController alloc] initWithNibName:nil bundle:nil];
+    PMEditProfileViewController *editProfileViewController = [[PMEditProfileViewController alloc] initWithUser:self.user];
+    editProfileViewController.delegate = self;
     [self.navigationController pushViewController:editProfileViewController animated:YES];
+}
+
+#pragma mark - EditProfileViewControllerDelegate Methods
+
+- (void)profileDidEndEditingWithSave
+{
+    [self setNeedsData];
 }
 
 #pragma mark - Properties
@@ -218,14 +249,6 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
     return _locationLabel;
 }
 
-- (PMAddress *)address
-{
-    if (!_address) {
-        _address = [PMAddress new];
-    }
-    return _address;
-}
-
 - (UIScrollView *)scrollView
 {
     if (!_scrollView) {
@@ -236,15 +259,9 @@ static CGSize const kPMAvatarSize = (CGSize) { 160.0f, 160.0f };
     }
     return _scrollView;
 }
-- (void)setPercentPositiveReviews:(int)percentPositiveReviews
+- (void)setPercentPositiveReviews:(NSNumber *)percentPositiveReviews
 {
     _percentPositiveReviews = percentPositiveReviews;
     [self.reviewsLabel setRatings:_percentPositiveReviews];
-}
-
-- (void)setAddress:(PMAddress *)address
-{
-    _address = address;
-    [self.locationLabel setLocationWithCity:address.locality State:address.region];
 }
 @end

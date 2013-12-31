@@ -19,7 +19,7 @@
     return self;
 }
 
-- (void)setRatings:(int)rating
+- (void)setRatings:(NSNumber *)rating
 {
     NSString *ratingsFormat = NSLocalizedString(@"ratings.format", @"ratingsFormat");
     self.textLabel.text = [NSString stringWithFormat:ratingsFormat, rating];

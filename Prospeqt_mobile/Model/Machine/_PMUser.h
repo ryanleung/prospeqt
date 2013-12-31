@@ -5,15 +5,14 @@
 
 
 extern const struct PMUserAttributes {
-	__unsafe_unretained NSString *avatarData;
+	__unsafe_unretained NSString *avatarDataString;
 	__unsafe_unretained NSString *avatarUrl;
 	__unsafe_unretained NSString *bio;
 	__unsafe_unretained NSString *email;
 	__unsafe_unretained NSString *firstName;
 	__unsafe_unretained NSString *lastName;
-	__unsafe_unretained NSString *locality;
+	__unsafe_unretained NSString *location;
 	__unsafe_unretained NSString *rating;
-	__unsafe_unretained NSString *region;
 	__unsafe_unretained NSString *userId;
 } PMUserAttributes;
 
@@ -38,7 +37,6 @@ extern const struct PMUserFetchedProperties {
 
 
 
-
 @interface PMUserID : NSManagedObjectID {}
 @end
 
@@ -52,11 +50,11 @@ extern const struct PMUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSData* avatarData;
+@property (nonatomic, strong) NSString* avatarDataString;
 
 
 
-//- (BOOL)validateAvatarData:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateAvatarDataString:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -112,11 +110,11 @@ extern const struct PMUserFetchedProperties {
 
 
 
-@property (nonatomic, strong) NSString* locality;
+@property (nonatomic, strong) NSString* location;
 
 
 
-//- (BOOL)validateLocality:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateLocation:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -131,16 +129,6 @@ extern const struct PMUserFetchedProperties {
 - (void)setRatingValue:(int16_t)value_;
 
 //- (BOOL)validateRating:(id*)value_ error:(NSError**)error_;
-
-
-
-
-
-@property (nonatomic, strong) NSString* region;
-
-
-
-//- (BOOL)validateRegion:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -194,8 +182,8 @@ extern const struct PMUserFetchedProperties {
 @interface _PMUser (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSData*)primitiveAvatarData;
-- (void)setPrimitiveAvatarData:(NSData*)value;
+- (NSString*)primitiveAvatarDataString;
+- (void)setPrimitiveAvatarDataString:(NSString*)value;
 
 
 
@@ -230,8 +218,8 @@ extern const struct PMUserFetchedProperties {
 
 
 
-- (NSString*)primitiveLocality;
-- (void)setPrimitiveLocality:(NSString*)value;
+- (NSString*)primitiveLocation;
+- (void)setPrimitiveLocation:(NSString*)value;
 
 
 
@@ -241,12 +229,6 @@ extern const struct PMUserFetchedProperties {
 
 - (int16_t)primitiveRatingValue;
 - (void)setPrimitiveRatingValue:(int16_t)value_;
-
-
-
-
-- (NSString*)primitiveRegion;
-- (void)setPrimitiveRegion:(NSString*)value;
 
 
 

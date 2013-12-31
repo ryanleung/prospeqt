@@ -8,6 +8,16 @@
 
 #import "PMFormBaseViewController.h"
 
+@protocol PMEditProfileViewControllerDelegate <NSObject>
+
+- (void)profileDidEndEditingWithSave;
+
+@end
+
 @interface PMEditProfileViewController : PMFormBaseViewController
+
+@property (nonatomic, weak) id<PMEditProfileViewControllerDelegate> delegate;
+
+- (id)initWithUser:(PMUser *)user;
 
 @end

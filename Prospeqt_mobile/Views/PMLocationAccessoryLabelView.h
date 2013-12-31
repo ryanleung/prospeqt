@@ -10,6 +10,4 @@
 
 @interface PMLocationAccessoryLabelView : PMAccessoryLabelView
 
-- (void)setLocationWithCity:(NSString *)city State:(NSString *)state;
-
 @end
