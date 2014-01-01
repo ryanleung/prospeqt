@@ -7,6 +7,7 @@
 //
 
 #import "PMSignInViewController.h"
+#import "MBProgressHUD.h"
 
 @interface PMSignInViewController ()
 @property (nonatomic, strong) PMSingleLineFormField *emailField;
@@ -66,12 +67,14 @@
     account.password = self.passwordField.textField.text;
     
     __weak typeof(self) weak_self = self;
+    [MBProgressHUD showHUDWithTitle:NSLocalizedString(@"global.loading", @"Loading overlay text") view:self.view animated:YES];
     [self.networkController createSessionWithAccount:account completion:^(id response, NSError *error) {
         if (!error) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserDidSignIn object:weak_self userInfo:nil];
         } else {
             [self handleError:error];
         }
+        [MBProgressHUD hideHUDForView:weak_self.view animated:YES];
     }];
 }
 

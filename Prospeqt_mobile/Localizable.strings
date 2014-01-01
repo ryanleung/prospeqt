@@ -7,11 +7,14 @@
 */
 
 "global.backButton" = "";
+"global.loading" = "Loading…";
 "global.locationFormat" = "%@, %@";
 "global.save" = "Save";
 "global.next" = "Next";
 "global.defaultErrorTitle" = "Error";
+"global.defaultErrorMessage" = "There was a problem connecting to the server.";
 "global.confirm" = "OK";
+"global.dismiss" = "Dismiss";
 "global.post" = "Post";
 "global.edit" = "Edit";
 "global.done" = "Done";

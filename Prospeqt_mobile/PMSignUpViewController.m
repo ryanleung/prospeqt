@@ -110,12 +110,14 @@
     account.password = self.passwordField.textField.text;
 
     __weak typeof(self) weak_self = self;
+    [MBProgressHUD showHUDWithTitle:NSLocalizedString(@"global.loading", @"Loading overlay text") view:self.view animated:YES];
     [self.networkController createUserWithAccount:account completion:^(id response, NSError *error) {
         if (!error) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kPMNotificationUserDidSignIn object:weak_self userInfo:nil];
         } else {
             [weak_self handleError:error];
         }
+        [MBProgressHUD hideHUDForView:weak_self.view animated:YES];
     }];
 }
 

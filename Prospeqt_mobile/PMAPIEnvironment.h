@@ -16,6 +16,7 @@
 #import "PMTempListing.h"
 #import "PMAccount.h"
 #import "PMImage.h"
+#import "PMError.h"
 
 extern NSString * const kPMAPIAuthorizationHeaderKey;
 

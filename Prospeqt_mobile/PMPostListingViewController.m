@@ -43,6 +43,7 @@ static NSString * const kCategoryCellIdentifier = @"categoryCellIdentifier";
         self.tabBarItem.imageInsets = UIEdgeInsetsMake(-15.0f, 0.0f, 15.0f, 0.0f);
         
         UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        tableView.delaysContentTouches = NO;
         tableView.scrollEnabled = YES;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight;

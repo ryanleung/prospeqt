@@ -38,7 +38,7 @@
 
 - (BOOL)needsUserAuthentication
 {
-    return NO;
+    return YES;
 }
 
 - (void)setNeedsData
@@ -55,12 +55,32 @@
 
 - (void)handleError:(NSError *)error
 {
-//    NSString *errorMessage = [LUVError messageFromError:error];
-//    if (errorMessage) {
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"Default error title") message:errorMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"global.dismiss", @"Dismiss the error button title") otherButtonTitles:nil];
-//        [alertView show];
-//    }
+    NSString *errorMessage = [PMError messageFromError:error];
+    
+    if ([self isBadServerState:error]) {
+        errorMessage = NSLocalizedString(@"global.defaultErrorMessage", @"Default error message");
+    }
+    
+    if (errorMessage == nil) {
+        errorMessage = [error localizedDescription];
+    }
+    
+    if (errorMessage) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"global.defaultErrorTitle", @"Default error title") message:errorMessage delegate:nil cancelButtonTitle:NSLocalizedString(@"global.dismiss", @"Dismiss the error button title") otherButtonTitles:nil];
+        [alertView show];
+    }
 }
+
+- (BOOL)isBadServerState:(NSError *)error
+{
+    // expected content type error : timeouts and 404s interpreted by the Heroku load balancer
+    if (error.code == -1016) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 
 #pragma mark - Properties
 

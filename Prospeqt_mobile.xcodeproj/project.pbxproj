@@ -186,6 +186,9 @@
 		47A6503818129DDA00786E73 /* CameraBox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A6503618129DDA00786E73 /* CameraBox@2x.png */; };
 		47A6503B18129E0C00786E73 /* PhotoFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A6503918129E0C00786E73 /* PhotoFrame.png */; };
 		47A6503C18129E0C00786E73 /* PhotoFrame@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A6503A18129E0C00786E73 /* PhotoFrame@2x.png */; };
+		47A7D73F1873B12000A1692F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A7D73E1873B12000A1692F /* MBProgressHUD.m */; };
+		47A7D7421873B2A500A1692F /* MBProgressHUD+PMHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A7D7411873B2A500A1692F /* MBProgressHUD+PMHelper.m */; };
+		47A7D7451873B3CB00A1692F /* PMError.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A7D7441873B3CB00A1692F /* PMError.m */; };
 		47B5A42E181CE2DE000588A4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47B5A42D181CE2DE000588A4 /* QuartzCore.framework */; };
 		47B5A434181DDAA5000588A4 /* PMAccessoryLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A433181DDAA5000588A4 /* PMAccessoryLabelView.m */; };
 		47B5A437181DE80B000588A4 /* PMLocationAccessoryLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47B5A436181DE80B000588A4 /* PMLocationAccessoryLabelView.m */; };
@@ -501,6 +504,12 @@
 		47A6503618129DDA00786E73 /* CameraBox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CameraBox@2x.png"; sourceTree = "<group>"; };
 		47A6503918129E0C00786E73 /* PhotoFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PhotoFrame.png; sourceTree = "<group>"; };
 		47A6503A18129E0C00786E73 /* PhotoFrame@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PhotoFrame@2x.png"; sourceTree = "<group>"; };
+		47A7D73D1873B12000A1692F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = Prospeqt_mobile/Libraries/MBProgressHUD/MBProgressHUD.h; sourceTree = SOURCE_ROOT; };
+		47A7D73E1873B12000A1692F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = Prospeqt_mobile/Libraries/MBProgressHUD/MBProgressHUD.m; sourceTree = SOURCE_ROOT; };
+		47A7D7401873B2A500A1692F /* MBProgressHUD+PMHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+PMHelper.h"; path = "Categories/MBProgressHUD+PMHelper.h"; sourceTree = "<group>"; };
+		47A7D7411873B2A500A1692F /* MBProgressHUD+PMHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+PMHelper.m"; path = "Categories/MBProgressHUD+PMHelper.m"; sourceTree = "<group>"; };
+		47A7D7431873B3CB00A1692F /* PMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMError.h; path = Model/PMError.h; sourceTree = "<group>"; };
+		47A7D7441873B3CB00A1692F /* PMError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMError.m; path = Model/PMError.m; sourceTree = "<group>"; };
 		47B5A42D181CE2DE000588A4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		47B5A432181DDAA5000588A4 /* PMAccessoryLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PMAccessoryLabelView.h; path = Views/PMAccessoryLabelView.h; sourceTree = "<group>"; };
 		47B5A433181DDAA5000588A4 /* PMAccessoryLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PMAccessoryLabelView.m; path = Views/PMAccessoryLabelView.m; sourceTree = "<group>"; };
@@ -654,6 +663,8 @@
 				4739BC8E1800D853004A6500 /* UIImage+PMColor.m */,
 				47A5066F180A7D3400243BE6 /* UIButton+PMAppearance.h */,
 				47A50670180A7D3400243BE6 /* UIButton+PMAppearance.m */,
+				47A7D7401873B2A500A1692F /* MBProgressHUD+PMHelper.h */,
+				47A7D7411873B2A500A1692F /* MBProgressHUD+PMHelper.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -844,6 +855,7 @@
 		4753DB4418148B0300F8D128 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				47A7D7391873B0FF00A1692F /* MBProgressHUD */,
 				471C6E19185E9CB5009AB372 /* SMPageControl */,
 				4753DB4518148B1400F8D128 /* SSKeychain */,
 			);
@@ -951,6 +963,15 @@
 				4762DB761834BDBF00564D97 /* Phone_withPeaceSign_Doodle@2x.png */,
 			);
 			name = "Post Listing";
+			sourceTree = "<group>";
+		};
+		47A7D7391873B0FF00A1692F /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				47A7D73D1873B12000A1692F /* MBProgressHUD.h */,
+				47A7D73E1873B12000A1692F /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		47BBD7A517D40E630050814D = {
@@ -1096,6 +1117,8 @@
 				471EF260181E5A4C00618B02 /* PMMessage.m */,
 				471EF261181E5A4C00618B02 /* PMMessageChain.h */,
 				471EF262181E5A4C00618B02 /* PMMessageChain.m */,
+				47A7D7431873B3CB00A1692F /* PMError.h */,
+				47A7D7441873B3CB00A1692F /* PMError.m */,
 			);
 			name = Models;
 			path = Prospeqt_mobile;
@@ -1459,6 +1482,7 @@
 				471EF26A1823889C00618B02 /* PMTextFieldCell.m in Sources */,
 				4739BBEA18000C21004A6500 /* PMAddPhotoViewController.m in Sources */,
 				4739BBC217FFD5B6004A6500 /* PMPostListingViewController.m in Sources */,
+				47A7D7421873B2A500A1692F /* MBProgressHUD+PMHelper.m in Sources */,
 				4739BC341800CB50004A6500 /* _PMUser.m in Sources */,
 				47B7E8E51851B8E600246BC5 /* _PMSession.m in Sources */,
 				471EF267181F6DB200618B02 /* PMEditProfileViewController.m in Sources */,
@@ -1468,6 +1492,7 @@
 				4753DB341813A36200F8D128 /* PMAddressCell.m in Sources */,
 				478786D917E6BD30004CCE04 /* PMAuthNavigationController.m in Sources */,
 				4762DB741834BC6900564D97 /* PMCraigslistAdView.m in Sources */,
+				47A7D7451873B3CB00A1692F /* PMError.m in Sources */,
 				4739BBCB17FFDB62004A6500 /* PMTitleCell.m in Sources */,
 				478786CD17E6AFF7004CCE04 /* PMSignInViewController.m in Sources */,
 				4739BC351800CB50004A6500 /* PMListing.m in Sources */,
@@ -1503,6 +1528,7 @@
 				4739BB7317FD531D004A6500 /* PMListingCell.m in Sources */,
 				47BBD7F117D423440050814D /* PMNetworkController.m in Sources */,
 				471C6E1C185E9CC3009AB372 /* SMPageControl.m in Sources */,
+				47A7D73F1873B12000A1692F /* MBProgressHUD.m in Sources */,
 				47A5069A180E71D400243BE6 /* PMFormField.m in Sources */,
 				473D64AA18013F87001B8279 /* NSManagedObjectContext+PMDataStack.m in Sources */,
 				4762DBA11837484100564D97 /* PMEmptyMessagesView.m in Sources */,

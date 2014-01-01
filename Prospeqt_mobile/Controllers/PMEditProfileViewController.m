@@ -85,6 +85,8 @@ static NSString * const kMiscCellIdentifier = @"miscCellIdentifier";
     PMCell *cell = (PMCell *)[ self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row - 1 inSection:indexPath.section]];
     switch (indexPath.row) {
         case PMCellTypeFirstName:
+        case PMCellTypeEmptySpaceOne:
+        case PMCellTypeEmptySpaceTwo:
             cell.separatorVisible = YES;
             break;
         default:

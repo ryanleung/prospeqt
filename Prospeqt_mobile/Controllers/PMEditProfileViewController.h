@@ -14,7 +14,7 @@
 
 @end
 
-@interface PMEditProfileViewController : PMFormBaseViewController
+@interface PMEditProfileViewController : PMBaseViewController
 
 @property (nonatomic, weak) id<PMEditProfileViewControllerDelegate> delegate;
 

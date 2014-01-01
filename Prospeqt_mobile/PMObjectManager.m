@@ -89,6 +89,17 @@ static PMObjectManager *pm_sharedObjectManager = nil;
                                                                         pathPattern:PMURIEndpoint.editProfile
                                                                             keyPath:nil
                                                                         statusCodes:successCodes]];
+    [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[PMError responseMapping]
+                                                                             method:RKRequestMethodAny
+                                                                        pathPattern:nil
+                                                                            keyPath:nil
+                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassServerError)]];
+    
+    [self addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:[PMError responseMapping]
+                                                                             method:RKRequestMethodAny
+                                                                        pathPattern:nil
+                                                                            keyPath:nil
+                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError)]];
 }
 
 - (void)prepareManagedResponseDescriptorsWithMappings:(NSDictionary *)mappings

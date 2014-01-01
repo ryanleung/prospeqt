@@ -4,3 +4,6 @@
 [submodule "Prospeqt_mobile/Libraries/SMPageControl"]
 	path = Prospeqt_mobile/Libraries/SMPageControl
 	url = https://github.com/Spaceman-Labs/SMPageControl.git
+[submodule "Prospeqt_mobile/Libraries/MBProgressHUD"]
+	path = Prospeqt_mobile/Libraries/MBProgressHUD
+	url = https://github.com/jdg/MBProgressHUD.git
