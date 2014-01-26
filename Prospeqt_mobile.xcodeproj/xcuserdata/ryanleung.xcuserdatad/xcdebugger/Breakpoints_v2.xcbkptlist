@@ -9,22 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Prospeqt_mobile/PMProfileViewController.m"
-            timestampString = "410181408.398136"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "-profileDidEndEditingWithSave"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Prospeqt_mobile/PMSignInViewController.m"
             timestampString = "410236274.302496"
             startingColumnNumber = "9223372036854775807"
@@ -81,6 +65,36 @@
             endingLineNumber = "23"
             landmarkName = "+errorFromError:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[PMError errorFromError:]"
+                  moduleName = "Tapsell"
+                  urlString = "file:///Users/ryanleung/Developer/Tapsell_mobile/Prospeqt_mobile/Model/PMError.m"
+                  timestampString = "410243378.653601"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[PMError errorFromError:]"
+                  moduleName = "Tapsell"
+                  urlString = "file:///Users/ryanleung/Developer/Tapsell_mobile/Prospeqt_mobile/Model/PMError.m"
+                  timestampString = "410243378.653836"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "142">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

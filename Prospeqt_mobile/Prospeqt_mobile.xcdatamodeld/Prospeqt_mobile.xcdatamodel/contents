@@ -51,15 +51,9 @@
         </relationship>
     </entity>
     <entity name="MessageChain" representedClassName="PMMessageChain" syncable="YES">
-        <attribute name="dirty" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="inquirerId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
             <userInfo>
                 <entry key="PM_JSON_SERVER_KEY" value="inquirer_id"/>
-            </userInfo>
-        </attribute>
-        <attribute name="lastUpdated" optional="YES" attributeType="Date" syncable="YES">
-            <userInfo>
-                <entry key="PM_JSON_SERVER_KEY" value="last_updated"/>
             </userInfo>
         </attribute>
         <attribute name="messageChainId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES">
@@ -114,11 +108,11 @@
         <relationship name="messageChains" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MessageChain" inverseName="seller" inverseEntity="MessageChain" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Image" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Listing" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Message" positionX="0" positionY="0" width="0" height="0"/>
         <element name="MessageChain" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Session" positionX="0" positionY="0" width="0" height="0"/>
         <element name="User" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Image" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
